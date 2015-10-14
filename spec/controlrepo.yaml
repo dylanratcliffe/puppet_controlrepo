@@ -1,13 +1,6 @@
 classes:
-  - 'roles::backend_dbserver'
-  - 'roles::com'
-  - 'roles::frontend_webserver'
-  - 'roles::load_balancer'
-  - 'roles::mom'
-  - 'roles::smart_proxy'
-  - 'roles::syd_f5_load_balancer'
-  - 'roles::web_db_server'
-  - 'roles::windows_server'
+  - 'roles::puppetmaster'
+  - 'roles::dbserver'
 
 nodes:
   - centos6a
@@ -16,16 +9,11 @@ nodes:
   - ubuntu1404a
 
 groups:
-  windows_roles:
-    - 'roles::windows_server'
-    - 'roles::backend_dbserver'
   centos_servers:
     - centos6a
     - centos7b
 
 test_matrix:
-  server2008r2a: windows_roles
-  ubuntu1404a: 'roles::frontend_webserver'
-  centos_servers:
-    include: all_classes
-    exclude: windows_roles
+  server2008r2a: 'roles::dbserver'
+  ubuntu1404a: 'roles::dbserver'
+  centos_servers: 'all_classes'

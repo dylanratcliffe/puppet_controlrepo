@@ -8,7 +8,5 @@
   :datadir: hieradata
 :hierarchy:
 - '%{clientcert}'
-- '%{tier}'
 - '%{pp_role}'
-- '%{data_centre}'
 - global
