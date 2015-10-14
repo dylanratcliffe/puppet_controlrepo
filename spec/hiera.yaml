@@ -1,0 +1,14 @@
+---
+:backends:
+- yaml
+- json
+:yaml:
+  :datadir: hieradata
+:json:
+  :datadir: hieradata
+:hierarchy:
+- '%{clientcert}'
+- '%{tier}'
+- '%{pp_role}'
+- '%{data_centre}'
+- global

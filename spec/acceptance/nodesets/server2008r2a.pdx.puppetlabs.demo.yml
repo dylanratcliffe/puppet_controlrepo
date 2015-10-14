@@ -1,0 +1,9 @@
+HOSTS:
+  server2008r2a.pdx.puppetlabs.demo:
+    roles:
+      - agent
+    type: aio
+    platform: --64
+    box: UNKNOWN
+    box_url: URL goes here
+    hypervisor: vagrant_virtualbox
