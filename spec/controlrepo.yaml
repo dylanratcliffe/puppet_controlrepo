@@ -1,6 +1,6 @@
 classes:
-  - 'roles::puppetmaster'
-  - 'roles::dbserver'
+  - 'role::puppetmaster'
+  - 'role::dbserver'
 
 nodes:
   - centos6a

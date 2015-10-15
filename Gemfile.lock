@@ -24,10 +24,14 @@ PATH
 PATH
   remote: /Users/dylanratcliffe/git/controlrepo_gem
   specs:
-    controlrepo (0.0.1)
+    controlrepo (0.1.0)
       beaker-rspec
+      bundler
       json
+      puppet
       rake
+      rspec
+      rspec-puppet
 
 GEM
   remote: https://rubygems.org/
