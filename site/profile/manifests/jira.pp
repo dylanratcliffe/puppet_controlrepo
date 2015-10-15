@@ -18,6 +18,10 @@ class profile::jira {
     distribution => 'jre',
   }
 
+  service { 'iptables':
+    ensure => 'stopped',
+  }
+
   class { 'jira':
     javahome => '/usr',
     db       => 'postgresql',
