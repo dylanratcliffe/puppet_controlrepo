@@ -22,7 +22,7 @@ class profile::jira {
     javahome => '/usr',
     db       => 'postgresql',
     dbuser   => 'jiraadm',
-    dbserver => 'loclahost',
+    dbserver => 'localhost',
     require  => [Class['java'],Postgresql::Server::Db['jira']],
   }
 
