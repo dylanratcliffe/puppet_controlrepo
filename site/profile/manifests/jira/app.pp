@@ -22,6 +22,6 @@ class profile::jira::app {
     dbuser     => $db_user,
     dbserver   => $db_server,
     dbpassword => $db_password,
-    require    => [Class['java'],Postgresql::Server::Db['jira']],
+    require    => Class['java'],
   }
 }
