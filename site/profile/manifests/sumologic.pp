@@ -5,5 +5,6 @@ class profile::sumologic {
   class { '::sumologic::report_handler':
     report_url => "https://collectors.au.sumologic.com/receiver/v1/http/${sumologic_key}",
     mode       => 'json',
+    notify     => Service['pe-puppetserver'],
   }
 }
