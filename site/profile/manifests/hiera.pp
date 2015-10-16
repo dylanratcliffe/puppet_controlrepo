@@ -4,7 +4,7 @@ class profile::hiera {
     #hiera_yaml => '/etc/puppetlabs/puppet/hiera.yaml',
     hierarchy  => [
       '%{environment}',
-      'global',
+      'common',
     ],
   }
 }
