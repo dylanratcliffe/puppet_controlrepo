@@ -11,6 +11,7 @@ mod 'nanliu/staging', :latest
 mod 'puppetlabs/apt', :latest
 mod 'puppetlabs/concat', :latest
 mod 'puppetlabs/firewall', :latest
+mod 'hunner/hiera', :latest
 
 mod 'stdlib',
   :git => 'https://github.com/puppetlabs/puppetlabs-stdlib.git'

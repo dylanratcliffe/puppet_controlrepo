@@ -3,7 +3,7 @@ class profile::sumologic {
 
   # This data is completely made up, it will not work
   class { '::sumologic::report_handler':
-    report_url => "https://collector.sumologic.test/?code=${sumologic_key}",
-    mode       => 'json',
+    report_url => "https://collectors.au.sumologic.com/receiver/v1/http/${sumologic_key}",
+    mode       => 'stdout',
   }
 }
