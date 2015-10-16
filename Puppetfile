@@ -1,4 +1,5 @@
-mod 'dylanratcliffe/sumologic', :latest
+mod 'dylanratcliffe/sumologic', 
+  :git => 'https://github.com/dylanratcliffe/sumologic.git'
 mod 'puppetlabs/mysql'
 mod 'puppetlabs/inifile', :latest
 mod 'zack/r10k', :latest
