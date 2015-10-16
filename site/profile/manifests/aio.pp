@@ -1,5 +1,5 @@
 # Installs jira and postgres and the JRE
-class profile::jira {
+class profile::jira::aio {
   file { '/opt/jira':
     ensure => 'directory',
     before => Class['jira'],
