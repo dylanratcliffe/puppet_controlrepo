@@ -8,7 +8,7 @@ class profile::jira::db {
   }
 
   class { 'postgresql::server':
-    listen_addres           => '*',
+    listen_addresses        => '*',
     ip_mask_allow_all_users => '0.0.0.0/0',
     require                 => Class['postgresql::globals']
   }
