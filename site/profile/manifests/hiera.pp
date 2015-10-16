@@ -3,7 +3,7 @@ class profile::hiera {
     datadir   => '/etc/puppetlabs/code/environments/%{environment}/hieradata',
     hierarchy => [
       '%{environment}',
-      'common',
+      'global',
     ],
   }
 }
