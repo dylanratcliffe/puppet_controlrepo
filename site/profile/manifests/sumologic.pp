@@ -1,5 +1,5 @@
 class profile::sumologic {
-  $sumologic_key = hiera('profile::sumologic::sumologic_key')
+  $sumologic_key = hiera('profile::sumologic::sumologic_key','NOT_FOUND')
 
   # This data is completely made up, it will not work
   class { '::sumologic::report_handler':
