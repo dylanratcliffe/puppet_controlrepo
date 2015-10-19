@@ -1,26 +1,3 @@
-PATH
-  remote: /Users/dylanratcliffe/git/beaker
-  specs:
-    beaker (2.24.0)
-      aws-sdk (~> 1.57)
-      beaker-answers (~> 0.0)
-      beaker-hiera (~> 0.0)
-      docker-api
-      fission (~> 0.4)
-      fog (~> 1.25)
-      google-api-client (~> 0.8)
-      hocon (~> 0.1)
-      inifile (~> 2.0)
-      json (~> 1.8)
-      minitest (~> 5.4)
-      net-scp (~> 1.2)
-      net-ssh (~> 2.9)
-      open_uri_redirections (~> 0.2.1)
-      rbvmomi (~> 1.8)
-      rsync (~> 1.0.9)
-      stringify-hash (~> 0.0)
-      unf (~> 0.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -41,10 +18,30 @@ GEM
     aws-sdk-v1 (1.66.0)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
+    beaker (2.26.0)
+      aws-sdk (~> 1.57)
+      beaker-answers (~> 0.0)
+      beaker-hiera (~> 0.0)
+      docker-api
+      fission (~> 0.4)
+      fog (~> 1.25)
+      fog-google (~> 0.0.9)
+      google-api-client (~> 0.8)
+      hocon (~> 0.1)
+      inifile (~> 2.0)
+      json (~> 1.8)
+      minitest (~> 5.4)
+      net-scp (~> 1.2)
+      net-ssh (~> 2.9)
+      open_uri_redirections (~> 0.2.1)
+      rbvmomi (~> 1.8)
+      rsync (~> 1.0.9)
+      stringify-hash (~> 0.0)
+      unf (~> 0.1)
     beaker-answers (0.2.2)
       require_all (~> 1.3.2)
       stringify-hash (~> 0.0.0)
-    beaker-hiera (0.1.0)
+    beaker-hiera (0.1.1)
       stringify-hash (~> 0.0.0)
     beaker-rspec (5.3.0)
       beaker (~> 2.0)
@@ -138,7 +135,7 @@ GEM
     fog-ecloud (0.3.0)
       fog-core
       fog-xml
-    fog-google (0.1.1)
+    fog-google (0.0.9)
       fog-core
       fog-json
       fog-xml
@@ -169,7 +166,7 @@ GEM
     fog-serverlove (0.1.2)
       fog-core
       fog-json
-    fog-softlayer (0.4.7)
+    fog-softlayer (1.0.0)
       fog-core
       fog-json
     fog-storm_on_demand (0.1.1)
@@ -342,7 +339,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  beaker!
+  beaker
   beaker-rspec
   controlrepo
   metadata-json-lint
