@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'pry'
 gem 'pry-byebug'
-gem 'controlrepo', :path => '/Users/dylanratcliffe/git/controlrepo_gem'
+gem 'controlrepo'
 
 gem 'beaker', :path => '/Users/dylanratcliffe/git/beaker'
 gem 'beaker-rspec'
