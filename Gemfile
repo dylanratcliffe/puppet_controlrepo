@@ -4,7 +4,7 @@ gem 'pry'
 gem 'pry-byebug'
 gem 'controlrepo'
 
-gem 'beaker', :path => '/Users/dylanratcliffe/git/beaker'
+gem 'beaker'
 gem 'beaker-rspec'
 gem 'r10k'
 
