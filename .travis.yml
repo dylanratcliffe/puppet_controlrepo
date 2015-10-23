@@ -3,4 +3,4 @@ rvm:
   - 2.0.0
   - 2.2.3
 script: bundler exec rake controlrepo_spec
-bundler_args: --without development
+bundler_args: --without acceptance
