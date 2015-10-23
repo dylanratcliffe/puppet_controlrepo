@@ -14,7 +14,6 @@ groups:
     - centos7b
 
 test_matrix:
-  server2008r2a: 'role::dbserver'
   ubuntu1404a: 'role::dbserver'
   centos_servers: 'all_classes'
   centos6a: 'role::puppetmaster'

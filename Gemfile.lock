@@ -1,3 +1,16 @@
+GIT
+  remote: https://github.com/dylanratcliffe/controlrepo_gem.git
+  revision: 5d7ee60379f785f9e9ea19eeb9e930c3eb28a0d8
+  specs:
+    controlrepo (1.0.1)
+      beaker-rspec
+      bundler
+      json
+      puppet
+      rake
+      rspec
+      rspec-puppet
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -54,14 +67,6 @@ GEM
     coderay (1.1.0)
     colored (1.2)
     columnize (0.9.0)
-    controlrepo (1.0.0)
-      beaker-rspec
-      bundler
-      json
-      puppet
-      rake
-      rspec
-      rspec-puppet
     cri (2.6.1)
       colored (~> 1.2)
     diff-lcs (1.2.5)
@@ -341,7 +346,7 @@ PLATFORMS
 DEPENDENCIES
   beaker
   beaker-rspec
-  controlrepo
+  controlrepo!
   metadata-json-lint
   pry
   pry-byebug

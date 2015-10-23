@@ -1,8 +1,11 @@
 source 'https://rubygems.org'
 
-gem 'pry'
-gem 'pry-byebug'
-gem 'controlrepo'
+group :development do
+  gem 'pry'
+  gem 'pry-byebug'
+end
+
+gem 'controlrepo', :git => 'https://github.com/dylanratcliffe/controlrepo_gem.git'
 
 gem 'beaker'
 gem 'beaker-rspec'
