@@ -1,15 +1,39 @@
 GIT
   remote: https://github.com/dylanratcliffe/controlrepo_gem.git
-  revision: 5d7ee60379f785f9e9ea19eeb9e930c3eb28a0d8
+  revision: 17b59a1fd9231b165d91b27b7dc9c3583a2caf8f
   specs:
     controlrepo (1.0.1)
       beaker-rspec
       bundler
       json
       puppet
+      r10k
       rake
       rspec
       rspec-puppet
+
+PATH
+  remote: /Users/dylanratcliffe/git/beaker
+  specs:
+    beaker (2.24.0)
+      aws-sdk (~> 1.57)
+      beaker-answers (~> 0.0)
+      beaker-hiera (~> 0.0)
+      docker-api
+      fission (~> 0.4)
+      fog (~> 1.25)
+      google-api-client (~> 0.8)
+      hocon (~> 0.1)
+      inifile (~> 2.0)
+      json (~> 1.8)
+      minitest (~> 5.4)
+      net-scp (~> 1.2)
+      net-ssh (~> 2.9)
+      open_uri_redirections (~> 0.2.1)
+      rbvmomi (~> 1.8)
+      rsync (~> 1.0.9)
+      stringify-hash (~> 0.0)
+      unf (~> 0.1)
 
 GEM
   remote: https://rubygems.org/
@@ -31,26 +55,6 @@ GEM
     aws-sdk-v1 (1.66.0)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
-    beaker (2.27.0)
-      aws-sdk (~> 1.57)
-      beaker-answers (~> 0.0)
-      beaker-hiera (~> 0.0)
-      docker-api
-      fission (~> 0.4)
-      fog (~> 1.25)
-      fog-google (~> 0.0.9)
-      google-api-client (~> 0.8)
-      hocon (~> 0.1)
-      inifile (~> 2.0)
-      json (~> 1.8)
-      minitest (~> 5.4)
-      net-scp (~> 1.2)
-      net-ssh (~> 2.9)
-      open_uri_redirections (~> 0.2.1)
-      rbvmomi (~> 1.8)
-      rsync (~> 1.0.9)
-      stringify-hash (~> 0.0)
-      unf (~> 0.1)
     beaker-answers (0.3.0)
       require_all (~> 1.3.2)
       stringify-hash (~> 0.0.0)
@@ -86,14 +90,15 @@ GEM
       multi_json
     fission (0.5.0)
       CFPropertyList (~> 2.2)
-    fog (1.34.0)
+    fog (1.35.0)
+      fog-aliyun
       fog-atmos
       fog-aws (>= 0.6.0)
       fog-brightbox (~> 0.4)
       fog-core (~> 1.32)
       fog-dynect (~> 0.0.2)
       fog-ecloud (~> 0.1)
-      fog-google (>= 0.0.2)
+      fog-google (>= 0.1.1)
       fog-json
       fog-local
       fog-powerdns (>= 0.1.1)
@@ -107,9 +112,15 @@ GEM
       fog-terremark
       fog-vmfusion
       fog-voxel
+      fog-xenserver
       fog-xml (~> 0.1.1)
       ipaddress (~> 0.5)
-      nokogiri (~> 1.5, >= 1.5.11)
+      nokogiri
+    fog-aliyun (0.0.10)
+      fog-core (~> 1.27)
+      fog-json (~> 1.0)
+      ipaddress (~> 0.8)
+      xml-simple (~> 1.1)
     fog-atmos (0.1.0)
       fog-core
       fog-xml
@@ -136,7 +147,7 @@ GEM
     fog-ecloud (0.3.0)
       fog-core
       fog-xml
-    fog-google (0.0.9)
+    fog-google (0.1.1)
       fog-core
       fog-json
       fog-xml
@@ -180,6 +191,9 @@ GEM
       fission
       fog-core
     fog-voxel (0.1.0)
+      fog-core
+      fog-xml
+    fog-xenserver (0.2.2)
       fog-core
       fog-xml
     fog-xml (0.1.2)
@@ -322,11 +336,13 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.1)
+    xml-simple (1.1.5)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  beaker!
   beaker-rspec
   controlrepo!
   pry
