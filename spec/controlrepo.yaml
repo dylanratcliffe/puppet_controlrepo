@@ -17,3 +17,4 @@ test_matrix:
   ubuntu1404a: 'role::dbserver'
   centos_servers: 'all_classes'
   centos6a: 'role::puppetmaster'
+  server2008r2a: 'role::dbserver'

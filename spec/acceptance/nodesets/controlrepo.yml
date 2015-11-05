@@ -15,6 +15,14 @@ HOSTS:
     box: puppetlabs/centos-7.0-64-puppet
     box_url: https://atlas.hashicorp.com/puppetlabs/boxes/centos-7.0-64-puppet
     hypervisor: vagrant_virtualbox
+  server2008r2a:
+    roles:
+      - agent
+    #type: aio
+    platform: windows-2012-64
+    box: windows-server-2012r2-puppet
+    box_url: /Users/dylanratcliffe/vagrantboxtest/windows-server-2012r2-puppet.box
+    hypervisor: vagrant_virtualbox
   ubuntu1404a:
     roles:
       - agent
