@@ -2,7 +2,7 @@ HOSTS:
   centos6a:
     roles:
       - agent
-    #type: aio
+    type: aio
     platform: el-6-64
     box: puppetlabs/centos-6.6-64-puppet
     box_url: https://atlas.hashicorp.com/puppetlabs/boxes/centos-6.6-64-puppet
@@ -10,7 +10,7 @@ HOSTS:
   centos7b:
     roles:
       - agent
-    #type: aio
+    type: aio
     platform: el-7-64
     box: puppetlabs/centos-7.0-64-puppet
     box_url: https://atlas.hashicorp.com/puppetlabs/boxes/centos-7.0-64-puppet
@@ -18,7 +18,7 @@ HOSTS:
   server2008r2a:
     roles:
       - agent
-    #type: aio
+    type: aio
     platform: windows-2012-64
     box: windows-server-2012r2-puppet
     box_url: /Users/dylanratcliffe/vagrantboxtest/windows-server-2012r2-puppet.box
@@ -26,7 +26,7 @@ HOSTS:
   ubuntu1404a:
     roles:
       - agent
-    #type: aio
+    type: aio
     platform: ubuntu-14.04-64
     box: puppetlabs/ubuntu-14.04-64-puppet
     box_url: https://atlas.hashicorp.com/puppetlabs/boxes/ubuntu-14.04-64-puppet
