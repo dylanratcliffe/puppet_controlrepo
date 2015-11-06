@@ -4,10 +4,10 @@ service { 'pe-puppetserver':
   ensure     => 'running',
   enable     => false,
   hasrestart => false, # Force Puppet to use start and stop to restart
-  start      => 'ls', # This will always work
-  stop       => 'ls', # This will also always work
+  start      => 'exit 0', # This will always work
+  stop       => 'exit 0', # This will also always work
   hasstatus  => false, # Force puppet to use our command for status
-  status     => 'ls' # This will always exit 0 and therefor Puppet will think the service is running
+  status     => 'exit 0' # This will always exit 0 and therefor Puppet will think the service is running
 }
 
 user { 'puppet':
