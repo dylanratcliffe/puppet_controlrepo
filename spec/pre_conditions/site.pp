@@ -10,3 +10,11 @@ service { 'pe-puppetserver':
   status     => 'ls' # This will always exit 0 and therefor Puppet will think the service is running
 }
 
+user { 'puppet':
+  ensure => present,
+}
+
+group { 'puppet':
+  ensure => present,
+}
+
