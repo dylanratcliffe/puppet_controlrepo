@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/dylanratcliffe/controlrepo_gem.git
-  revision: 4c93c5de68d26f09d9b601d8722ca33f8ea51b2c
+  revision: f81f299c7e95f18a1329c605123cafe9636322ca
   specs:
-    controlrepo (1.1.0)
+    controlrepo (1.1.1)
       beaker-rspec
       bundler
       json
@@ -32,13 +32,13 @@ GEM
     aws-sdk-v1 (1.66.0)
       json (~> 1.4)
       nokogiri (>= 1.4.4)
-    beaker (2.27.0)
+    beaker (2.28.0)
       aws-sdk (~> 1.57)
       beaker-answers (~> 0.0)
       beaker-hiera (~> 0.0)
       docker-api
       fission (~> 0.4)
-      fog (~> 1.25)
+      fog (~> 1.25, < 1.35.0)
       fog-google (~> 0.0.9)
       google-api-client (~> 0.8)
       hocon (~> 0.1)
@@ -52,7 +52,7 @@ GEM
       rsync (~> 1.0.9)
       stringify-hash (~> 0.0)
       unf (~> 0.1)
-    beaker-answers (0.3.0)
+    beaker-answers (0.3.2)
       require_all (~> 1.3.2)
       stringify-hash (~> 0.0.0)
     beaker-hiera (0.1.1)
@@ -63,11 +63,9 @@ GEM
       serverspec (~> 2)
       specinfra (~> 2)
     builder (3.2.2)
-    byebug (5.0.0)
-      columnize (= 0.9.0)
+    byebug (8.1.0)
     coderay (1.1.0)
     colored (1.2)
-    columnize (0.9.0)
     cri (2.6.1)
       colored (~> 1.2)
     diff-lcs (1.2.5)
@@ -168,7 +166,7 @@ GEM
     fog-serverlove (0.1.2)
       fog-core
       fog-json
-    fog-softlayer (1.0.0)
+    fog-softlayer (1.0.2)
       fog-core
       fog-json
     fog-storm_on_demand (0.1.1)
@@ -244,23 +242,28 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    pry-byebug (3.2.0)
-      byebug (~> 5.0)
+    pry-byebug (3.3.0)
+      byebug (~> 8.0)
       pry (~> 0.10)
-    puppet (4.2.2)
+    puppet (4.2.3)
       facter (> 2.0, < 4)
       hiera (>= 2.0, < 4)
       json_pure
     puppet-lint (1.1.0)
     puppet-syntax (2.0.0)
       rake
-    puppetlabs_spec_helper (0.10.3)
+    puppet_forge (2.1.1)
+      faraday (~> 0.9.0)
+      faraday_middleware (~> 0.9.0)
+      minitar
+      semantic_puppet (~> 0.1.0)
+    puppetlabs_spec_helper (1.0.1)
       mocha
       puppet-lint
       puppet-syntax
       rake
       rspec-puppet
-    r10k (2.0.3)
+    r10k (2.1.0)
       colored (= 1.2)
       cri (~> 2.6.1)
       faraday (~> 0.9.0)
@@ -269,6 +272,7 @@ GEM
       log4r (= 1.1.10)
       minitar
       multi_json (~> 1.10)
+      puppet_forge (~> 2.1.1)
       semantic_puppet (~> 0.1.0)
     rake (10.4.2)
     rbvmomi (1.8.2)
@@ -297,7 +301,7 @@ GEM
     rspec-support (3.3.0)
     rsync (1.0.9)
     semantic_puppet (0.1.1)
-    serverspec (2.24.1)
+    serverspec (2.24.2)
       multi_json
       rspec (~> 3.0)
       rspec-its

@@ -6,15 +6,32 @@ nodes:
   - centos6a
   - centos7b
   - server2008r2a
-  - ubuntu1404a
+  - ubuntu1204
+  - debian78
 
-groups:
+node_groups:
   centos_servers:
     - centos6a
     - centos7b
+  windows_nodes:
+    - server2008r2a
+  non_windows:
+    include: 'all_nodes'
+    exclude: 'windows_nodes'
+
+class_groups:
+  databse_classes:
+    - 'role::dbserver'
+
 
 test_matrix:
-  ubuntu1404a: 'role::dbserver'
-  centos_servers: 'all_classes'
-  centos6a: 'role::puppetmaster'
-  #server2008r2a: 'role::dbserver'
+#  all_nodes:
+#  classes: 'all_classes'
+#  tests: 'spec'
+  centos_servers:
+    classes: 'all_classes'
+    tests: 'all_tests'
+  debian78:
+    classes: 'all_classes'
+    tests: 'all_tests'
+
