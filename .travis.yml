@@ -1,4 +1,5 @@
 language: ruby
+cache: bundler
 env:
   - CONTROLREPO_env="$TRAVIS_BRANCH"
 rvm:
