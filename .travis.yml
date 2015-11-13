@@ -1,4 +1,6 @@
 language: ruby
+env:
+  - CONTROLREPO_env="$TRAVIS_BRANCH"
 rvm:
   - 2.0.0
   - 2.2.3
