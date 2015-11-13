@@ -3,7 +3,6 @@ cache: bundler
 env:
   - CONTROLREPO_env="$TRAVIS_BRANCH"
 rvm:
-  - 1.9.3
   - 2.0.0
   - 2.1.7
   - 2.2.3
