@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/dylanratcliffe/controlrepo_gem.git
-  revision: bd6265899996e4cffa336811dd2a5fb687b04b24
+  revision: 6434c7f61eea948fd36e479f209bb17c230065aa
   specs:
     controlrepo (2.0.0)
       beaker-rspec
@@ -263,7 +263,7 @@ GEM
       puppet-syntax
       rake
       rspec-puppet
-    r10k (2.1.0)
+    r10k (2.1.1)
       colored (= 1.2)
       cri (~> 2.6.1)
       faraday (~> 0.9.0)
@@ -301,7 +301,7 @@ GEM
     rspec-support (3.4.0)
     rsync (1.0.9)
     semantic_puppet (0.1.1)
-    serverspec (2.24.2)
+    serverspec (2.24.3)
       multi_json
       rspec (~> 3.0)
       rspec-its
