@@ -8,4 +8,4 @@ rvm:
   - 2.1.7
   - 2.2.3
 script: bundler exec rake controlrepo_spec
-bundler_args: --without acceptance
+bundler_args: --without acceptance development
