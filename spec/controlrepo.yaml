@@ -25,7 +25,7 @@ class_groups:
 
 
 test_matrix:
-  - all_nodes:
+  - non_windows:
       classes: 'all_classes'
       tests: 'spec'
   - centos_servers:
