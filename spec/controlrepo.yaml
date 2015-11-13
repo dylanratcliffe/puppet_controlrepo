@@ -25,13 +25,18 @@ class_groups:
 
 
 test_matrix:
-#  all_nodes:
-#  classes: 'all_classes'
-#  tests: 'spec'
-  centos_servers:
-    classes: 'all_classes'
-    tests: 'all_tests'
-  debian78:
-    classes: 'all_classes'
-    tests: 'all_tests'
+  - all_nodes:
+      classes: 'all_classes'
+      tests: 'spec'
+  - centos_servers:
+      classes: 'all_classes'
+      tests: 'all_tests'
+  - debian78:
+      classes: 'all_classes'
+      tests: 'all_tests'
+  - debian78:
+      classes: 'role::puppetmaster'
+      tests: 'acceptance'
+      options:
+        runs_before_idempotency: 3
 
