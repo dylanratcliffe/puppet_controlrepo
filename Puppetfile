@@ -14,6 +14,7 @@ mod 'puppetlabs/concat', :latest
 mod 'puppetlabs/firewall', :latest
 mod 'hunner/hiera', :latest
 mod 'danzilio/report_all_the_things', :latest
+mod 'mukaibot/bamboo', :latest
 
 mod 'stdlib',
   :git => 'https://github.com/puppetlabs/puppetlabs-stdlib.git'
