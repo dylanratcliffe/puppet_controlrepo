@@ -11,6 +11,7 @@ class profile::vagrant {
   archive::download { "vagrant_${version}_x86_64.rpm":
     url        => "https://dl.bintray.com/mitchellh/vagrant/vagrant_${version}_x86_64.rpm",
     src_target => '/opt/vagrant/packages',
+    checksum   => false,
     require    => File['/opt/vagrant/packages'],
   }
 
