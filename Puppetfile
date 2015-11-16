@@ -18,7 +18,6 @@ mod 'mukaibot/bamboo', :latest
 mod 'rtyler/jenkins', :latest
 mod 'unibet/vagrant', :latest
 mod 'darin/zypprepo', :latest
-mod 'nanliu/archive', :latest
 mod 'camptocamp/archive', :latest # Will this be a duplicate?
 
 

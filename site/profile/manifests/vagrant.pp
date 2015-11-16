@@ -8,16 +8,10 @@ class profile::vagrant {
     mode   => '0644',
   }
 
-  include ::archive
-
-  Package <| (title == 'faraday') or (title == 'faraday_middleware') |> {
-    provider => 'puppet_gem',
-  }
-
-  archive { "/opt/vagrant/packages/vagrant_${version}_x86_64.rpm":
-    ensure  => present,
-    source  => "https://dl.bintray.com/mitchellh/vagrant/vagrant_${version}_x86_64.rpm",
-    require => [File['/opt/vagrant/packages'],Class['::archive']],
+  archive::download { "vagrant_${version}_x86_64.rpm":
+    url        => "https://dl.bintray.com/mitchellh/vagrant/vagrant_${version}_x86_64.rpm",
+    src_target => '/opt/vagrant/packages',
+    require    => [File['/opt/vagrant/packages'],Class['::archive']],
   }
 
   class { '::vagrant':
