@@ -1,7 +1,7 @@
 class profile::jenkins {
   class { '::jenkins':
     version            => 'latest',
-    service_enable     => false
+    service_enable     => false,
     configure_firewall => true,
   }
 
