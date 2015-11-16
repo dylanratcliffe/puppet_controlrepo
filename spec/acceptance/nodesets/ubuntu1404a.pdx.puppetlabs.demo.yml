@@ -1,9 +1,0 @@
-HOSTS:
-  ubuntu1404a.pdx.puppetlabs.demo:
-    roles:
-      - agent
-    type: aio
-    platform: ubuntu-14.04-64
-    box: puppetlabs/ubuntu-14.04-64-puppet
-    box_url: https://s3.amazonaws.com/puppetlabs-vagrantcloud/ubuntu-14.04-x86_64-virtualbox-puppet-1.0.2.box
-    hypervisor: vagrant_virtualbox

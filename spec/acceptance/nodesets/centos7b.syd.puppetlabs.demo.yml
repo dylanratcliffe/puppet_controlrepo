@@ -1,9 +1,0 @@
-HOSTS:
-  centos7b.syd.puppetlabs.demo:
-    roles:
-      - agent
-    type: aio
-    platform: el-7-64
-    box: puppetlabs/centos-7.0-64-puppet
-    box_url: https://s3.amazonaws.com/puppetlabs-vagrantcloud/centos-7.0-x86_64-virtualbox-puppet-1.0.2.box
-    hypervisor: vagrant_virtualbox
