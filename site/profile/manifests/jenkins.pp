@@ -27,7 +27,7 @@ class profile::jenkins {
 
   include ::vagrant
 
-  package { ['ruby','git']:
+  package { ['ruby','ruby-devl','git']:
     ensure => latest,
   }
 
