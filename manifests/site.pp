@@ -1,5 +1,5 @@
-node 'bamboo.puppetlabs.demo' {
-  include role::bamboo
+node 'jenkins.puppetlabs.demo' {
+  include role::jenkins
 }
 
 node /master/ {
