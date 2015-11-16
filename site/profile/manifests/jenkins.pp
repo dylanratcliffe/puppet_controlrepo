@@ -7,7 +7,6 @@ class profile::jenkins {
 
   $plugins = [
     'promoted-builds',
-    'credentials',
     'git-client',
     'scm-api',
     'mailer',
@@ -26,8 +25,13 @@ class profile::jenkins {
 
   include ::vagrant
 
+  package { 'ruby':
+    ensure => latest,
+  }
+
   package { 'bundler':
     ensure   => '1.10.5',
     provider => 'gem',
+    require  => Package['ruby'],
   }
 }
