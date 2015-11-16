@@ -25,11 +25,6 @@ class profile::jenkins {
 
   jenkins::plugin { $plugins : }
 
-  class { '::vagrant':
-    version => '1.7.4',
-    source  => '/'
-  }
-
   package { ['ruby','ruby-devel']:
     ensure => '2.0.0',
   }
