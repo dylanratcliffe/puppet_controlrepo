@@ -17,6 +17,9 @@ mod 'danzilio/report_all_the_things', :latest
 mod 'mukaibot/bamboo', :latest
 mod 'rtyler/jenkins', :latest
 mod 'unibet/vagrant', :latest
+mod 'camptocamp/archive', :latest
+mod 'darin/zypprepo', :latest
+
 
 mod 'stdlib',
   :git => 'https://github.com/puppetlabs/puppetlabs-stdlib.git'
