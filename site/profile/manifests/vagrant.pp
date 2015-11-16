@@ -10,7 +10,7 @@ class profile::vagrant {
 
   include ::archive
 
-  package <| (title == 'faraday') or (title == 'faraday_middleware') |>
+  Package <| (title == 'faraday') or (title == 'faraday_middleware') |>
     provider => 'puppet_gem',
   }
 
