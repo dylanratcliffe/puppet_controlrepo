@@ -29,8 +29,16 @@ class profile::jenkins {
     version => '1.7.4',
   }
 
-  package { ['ruby','ruby-devel','rubygems','git']:
-    ensure => latest,
+  package { ['ruby','ruby-devel']:
+    ensure => '2.0.0',
+  }
+
+  package { 'rubygems':
+    ensure => '2.0.14',
+  }
+
+  package { 'git':
+    ensure => '1.8.3',
   }
 
   package { 'bundler':
