@@ -19,13 +19,15 @@ class profile::jenkins {
     'script-security',
     'junit',
     'credentials',
+    'github',
+    'git'
   ]
 
   jenkins::plugin { $plugins : }
 
   include ::vagrant
 
-  package { 'ruby':
+  package { ['ruby','git']:
     ensure => latest,
   }
 
