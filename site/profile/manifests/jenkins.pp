@@ -27,6 +27,7 @@ class profile::jenkins {
 
   class { '::vagrant':
     version => '1.7.4',
+    source  => '/'
   }
 
   package { ['ruby','ruby-devel']:
