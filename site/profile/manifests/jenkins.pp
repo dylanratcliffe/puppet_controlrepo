@@ -25,20 +25,8 @@ class profile::jenkins {
 
   jenkins::plugin { $plugins : }
 
-  package { ['ruby','ruby-devel']:
-    ensure => '2.0.0',
-  }
-
-  package { 'zlib':
-    ensure => present,
-  }
-
-  package { 'rubygems':
-    ensure => '2.0.14',
-  }
-
-  package { 'git':
-    ensure => '1.8.3',
+  package { ['ruby','ruby-devel','zlib','rubygems','git']:
+    ensure => latest,
   }
 
   package { 'bundler':
