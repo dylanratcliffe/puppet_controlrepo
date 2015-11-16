@@ -25,7 +25,7 @@ class profile::jenkins {
 
   jenkins::plugin { $plugins : }
 
-  package { ['ruby','ruby-devel','zlib','rubygems','git']:
+  package { ['ruby','ruby-devel','zlib','zlib-devel','rubygems','git']:
     ensure => latest,
   }
 
