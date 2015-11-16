@@ -29,6 +29,10 @@ class profile::jenkins {
     ensure => '2.0.0',
   }
 
+  package { 'zlib':
+    ensure => present,
+  }
+
   package { 'rubygems':
     ensure => '2.0.14',
   }
