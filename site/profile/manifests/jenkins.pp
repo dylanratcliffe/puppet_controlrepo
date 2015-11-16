@@ -25,7 +25,9 @@ class profile::jenkins {
 
   jenkins::plugin { $plugins : }
 
-  include ::vagrant
+  class { '::vagrant':
+    version => '1.7.4',
+  }
 
   package { ['ruby','ruby-devel','rubygems','git']:
     ensure => latest,
@@ -34,6 +36,6 @@ class profile::jenkins {
   package { 'bundler':
     ensure   => '1.10.5',
     provider => 'gem',
-    require  => Package['ruby'],
+    require  => Package['ruby','ruby-devel','rubygems'],
   }
 }
