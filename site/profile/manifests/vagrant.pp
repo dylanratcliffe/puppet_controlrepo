@@ -8,10 +8,12 @@ class profile::vagrant {
     mode   => '0644',
   }
 
+  include ::archive
+
   archive { "/opt/vagrant/packages/vagrant_${version}_x86_64.rpm":
     ensure  => present,
     source  => "https://dl.bintray.com/mitchellh/vagrant/vagrant_${version}_x86_64.rpm",
-    require => File['/opt/vagrant/packages'],
+    require => [File['/opt/vagrant/packages'],Class['::archive']],
   }
 
   class { '::vagrant':

@@ -20,6 +20,7 @@ mod 'unibet/vagrant', :latest
 mod 'camptocamp/archive', :latest
 mod 'darin/zypprepo', :latest
 mod 'nanliu/archive', :latest
+mod 'faraday/faraday_middleware', :latest
 
 
 mod 'stdlib',
