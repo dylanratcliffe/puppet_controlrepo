@@ -1,7 +1,7 @@
 class profile::bamboo {
   class { 'bamboo':
     username          => 'bamboo',
-    password          => sha1('D#yQZtGenUZQmvzEKTzYk3VdENZh*AKXtioTgk^tVZ9GR)AyNA'),
+    pass_hash         => sha1('D#yQZtGenUZQmvzEKTzYk3VdENZh*AKXtioTgk^tVZ9GR)AyNA'),
     bamboo_version    => '5.9.7',
     bamboo_home       => '/opt/atlassian/bamboo',
     bamboo_data       => '/var/atlassian/application-data/bamboo',
