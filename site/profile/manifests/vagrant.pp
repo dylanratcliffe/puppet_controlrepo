@@ -10,6 +10,10 @@ class profile::vagrant {
 
   include ::archive
 
+  package <| (title == 'faraday') or (title == 'faraday_middleware') |>
+    provider => 'puppet_gem',
+  }
+
   archive { "/opt/vagrant/packages/vagrant_${version}_x86_64.rpm":
     ensure  => present,
     source  => "https://dl.bintray.com/mitchellh/vagrant/vagrant_${version}_x86_64.rpm",
