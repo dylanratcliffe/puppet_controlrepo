@@ -16,7 +16,7 @@ class profile::vagrant {
   }
 
   class { '::vagrant':
-    ensure  => $version,
+    ensure  => 'present',
     version => $version,
     source  => "/opt/vagrant/packages/vagrant_${version}_x86_64.rpm",
     require => Archive::Download["vagrant_${version}_x86_64.rpm"],
