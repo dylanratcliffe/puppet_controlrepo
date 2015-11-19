@@ -3,12 +3,13 @@ classes:
   - 'role::dbserver'
 
 nodes:
-  - centos6a
-  - centos7b
-  - server2012r2
-  - server2008r2
-  - ubuntu1204
-  - debian78
+  - CentOS-6.6-64
+  - CentOS-7.0-64
+  - Debian-7.8-64
+  - Ubuntu-12.04-32
+  - Ubuntu-14.04-64
+  - Windows_Server-2008r2-64
+  - Windows_Server-2012r2-64
 
 node_groups:
   centos_servers:
