@@ -1,5 +1,6 @@
 # We are not going to actually have this service anywhere on our servers but
 # our code needs to refresh it. This is to trck puppet into doing nothing
+
 service { 'pe-puppetserver':
   ensure     => 'running',
   enable     => false,

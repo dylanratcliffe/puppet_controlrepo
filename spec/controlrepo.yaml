@@ -5,6 +5,7 @@ classes:
 nodes:
   - CentOS-6.6-64
   - CentOS-7.0-64
+  - CentOS-7.0-64-master
   - Debian-7.8-64
   - Ubuntu-12.04-32
   - Ubuntu-14.04-64
@@ -15,12 +16,16 @@ node_groups:
   centos_servers:
     - CentOS-6.6-64
     - CentOS-7.0-64
+    - CentOS-7.0-64-master
   windows_nodes:
     - Windows_Server-2008r2-64
     - Windows_Server-2012r2-64
   non_windows:
     include: 'all_nodes'
     exclude: 'windows_nodes'
+  non_windows_acceptance:
+    include: 'non_windows'
+    exclude: 'CentOS-7.0-64-master'
 
 class_groups:
   databse_classes:
@@ -29,14 +34,14 @@ class_groups:
 
 test_matrix:
   - non_windows:
-      classes: 'all_classes'
+      classes: 'role::dbserver'
       tests: 'spec'
-  - centos_servers:
+  - non_windows_acceptance:
       classes: 'all_classes'
-      tests: 'all_tests'
-  - Debian-7.8-64:
-      classes: 'all_classes'
-      tests: 'all_tests'
+      tests: 'acceptance'
+  - CentOS-7.0-64-master:
+      classes: 'role::puppetmaster'
+      tests: 'spec'
   - Debian-7.8-64:
       classes: 'role::puppetmaster'
       tests: 'acceptance'
