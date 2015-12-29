@@ -20,6 +20,7 @@ mod 'unibet/vagrant', :latest
 mod 'darin/zypprepo', :latest
 mod 'camptocamp/archive', :latest # Will this be a duplicate?
 mod 'puppetlabs/apt', :latest
+mod 'puppetlabs/strings', :latest
 
 mod 'stdlib',
   :git => 'https://github.com/puppetlabs/puppetlabs-stdlib.git'

@@ -19,3 +19,5 @@ gem 'r10k'
 gem 'puppetlabs_spec_helper'
 gem 'rspec-puppet'
 gem "rake"
+gem 'yard'
+
