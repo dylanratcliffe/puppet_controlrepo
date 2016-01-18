@@ -50,6 +50,6 @@ class profile::nc_proxy {
   nginx::resource::vhost { $::networking['fqdn']:
     proxy       => 'https://regional_masters',
     #ssl        => true,
-    listen_port => 4433,
+    listen_port => '4433',
   }
 }
