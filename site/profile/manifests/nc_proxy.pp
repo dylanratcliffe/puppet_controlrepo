@@ -51,6 +51,6 @@ class profile::nc_proxy {
     ssl_port    => '4433',
     listen_port => '4433',
     ssl_cert    => "/etc/puppetlabs/puppet/ssl/certs/${::networking['fqdn']}",
-    ssl_crl     => "/etc/puppetlabs/puppet/ssl/ca/ca_crl.pem",
+    ssl_key     => "/etc/puppetlabs/puppet/ssl/private_keys/${::networking['fqdn']}",
   }
 }
