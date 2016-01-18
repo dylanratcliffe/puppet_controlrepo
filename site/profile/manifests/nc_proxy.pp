@@ -11,12 +11,6 @@ class profile::nc_proxy {
     provider => 'puppet_gem',
   }
 
-  package { 'puppetclassify-puppetserver_gem':
-    ensure   => latest,
-    name     => 'puppetclassify',
-    provider => 'puppetserver_gem',
-  }
 
-  
 
 }
