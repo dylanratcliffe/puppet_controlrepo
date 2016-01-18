@@ -19,9 +19,9 @@ mod 'rtyler/jenkins', :latest
 mod 'unibet/vagrant', :latest
 mod 'darin/zypprepo', :latest
 mod 'camptocamp/archive', :latest # Will this be a duplicate?
-mod 'puppetlabs/apt', :latest
 mod 'puppetlabs/strings', :latest
 mod 'WhatsARanjit/node_manager', :latest
+mod 'jfryman/nginx', :latest
 
 mod 'stdlib',
   :git => 'https://github.com/puppetlabs/puppetlabs-stdlib.git'

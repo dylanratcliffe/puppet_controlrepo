@@ -4,6 +4,10 @@ class profile::nc_proxy {
     provider => 'puppet_gem',
   }
 
+  package { 'nginx':
+    ensure => latest,
+  }
+
   # Make sure that the gem is installed before we try to use it
   Package['puppetclassify'] -> Node_group <||>
 
@@ -22,18 +26,30 @@ class profile::nc_proxy {
   }
 
   node_group { 'PE Master':
-  ensure               => 'present',
-  classes              => {
-    'pe_repo'                                          => {},
-    'pe_repo::platform::el_7_x86_64'                   => {},
-    'puppet_enterprise::profile::master'               => {
-      'classifier_port'  => '44333',
-      'r10k_private_key' => '/vagrant/ssh/maq_deploy',
-      'r10k_remote'      => 'https://github.com/dylanratcliffe/puppet_controlrepo.git'},
-    'puppet_enterprise::profile::master::mcollective'  => {},
-    'puppet_enterprise::profile::mcollective::peadmin' => {}},
-  environment          => 'production',
-  override_environment => false,
-  parent               => 'PE Infrastructure',
-}
+    ensure               => 'present',
+    classes              => {
+      'pe_repo'                                          => {},
+      'pe_repo::platform::el_7_x86_64'                   => {},
+      'puppet_enterprise::profile::master'               => {
+        'classifier_port'  => '44333',
+        'r10k_private_key' => '/vagrant/ssh/maq_deploy',
+        'r10k_remote'      => 'https://github.com/dylanratcliffe/puppet_controlrepo.git'},
+      'puppet_enterprise::profile::master::mcollective'  => {},
+      'puppet_enterprise::profile::mcollective::peadmin' => {}},
+    environment          => 'production',
+    override_environment => false,
+    parent               => 'PE Infrastructure',
+  }
+
+  nginx::resource::upstream { 'regional_masters':
+    members => [
+      'mom.puppetlabs.demo:44333',
+    ],
+  }
+  
+  nginx::resource::vhost { $::networking['fqdn']:
+    proxy       => 'https://regional_masters',
+    #ssl        => true,
+    listen_port => 4433,
+  }
 }
