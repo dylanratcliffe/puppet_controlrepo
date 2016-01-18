@@ -48,11 +48,13 @@ class profile::nc_proxy {
   }
 
   nginx::resource::vhost { $::networking['fqdn']:
-    proxy       => 'https://regional_masters',
-    ssl         => true,
-    ssl_port    => '4433',
-    listen_port => '4433',
-    ssl_cert    => "/etc/puppetlabs/puppet/ssl/certs/${::networking['fqdn']}.pem",
-    ssl_key     => "/etc/puppetlabs/puppet/ssl/private_keys/${::networking['fqdn']}.pem",
+    proxy            => 'https://regional_masters',
+    ssl              => true,
+    ssl_port         => '4433',
+    listen_port      => '4433',
+    ssl_cert         => "/etc/puppetlabs/puppet/ssl/certs/${::networking['fqdn']}.pem",
+    ssl_key          => "/etc/puppetlabs/puppet/ssl/private_keys/${::networking['fqdn']}.pem",
+    ssl_crl          => '/etc/puppetlabs/puppet/ssl/ca/ca_crl.pem',
+    ssl_trusted_cert => '/etc/puppetlabs/puppet/ssl/ca/ca_crt.pem',
   }
 }
