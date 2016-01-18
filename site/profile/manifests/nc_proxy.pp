@@ -37,7 +37,9 @@ class profile::nc_proxy {
     parent               => 'PE Infrastructure',
   }
 
-  include ::nginx
+  class { '::nginx':
+    daemon_user => 'puppet',
+  }
 
   nginx::resource::upstream { 'regional_masters':
     members => [
