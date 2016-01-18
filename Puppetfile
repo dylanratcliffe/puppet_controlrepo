@@ -23,6 +23,7 @@ mod 'puppetlabs/strings', :latest
 mod 'WhatsARanjit/node_manager', :latest
 mod 'jfryman/nginx', :latest
 mod 'willdurand/nodejs', :latest
+mod 'maestrodev/wget', :latest
 
 mod 'stdlib',
   :git => 'https://github.com/puppetlabs/puppetlabs-stdlib.git'
