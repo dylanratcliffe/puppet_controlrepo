@@ -6,6 +6,10 @@ node /master/ {
   include role::puppetmaster
 }
 
+node /mom/ {
+  include role::master_of_masters
+}
+
 node default {
   # Do nothing
 }
