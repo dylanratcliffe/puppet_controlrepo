@@ -4,10 +4,6 @@ class profile::nc_proxy {
     provider => 'puppet_gem',
   }
 
-  package { 'nginx':
-    ensure => latest,
-  }
-
   # Make sure that the gem is installed before we try to use it
   Package['puppetclassify'] -> Node_group <||>
 
@@ -40,6 +36,8 @@ class profile::nc_proxy {
     override_environment => false,
     parent               => 'PE Infrastructure',
   }
+
+  include ::nginx
 
   nginx::resource::upstream { 'regional_masters':
     members => [
