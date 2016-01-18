@@ -58,4 +58,14 @@ class profile::nc_proxy {
     ssl_crl          => '/etc/puppetlabs/puppet/ssl/ca/ca_crl.pem',
     ssl_trusted_cert => '/etc/puppetlabs/puppet/ssl/ca/ca_crt.pem',
   }
+
+  class { '::nodejs':
+    version => 'stable',
+  }
+
+  package { 'http-proxy':
+    ensure   => latest,
+    provider => 'npm',
+    require  => Class['::nodejs']
+  }
 }

@@ -22,6 +22,7 @@ mod 'camptocamp/archive', :latest # Will this be a duplicate?
 mod 'puppetlabs/strings', :latest
 mod 'WhatsARanjit/node_manager', :latest
 mod 'jfryman/nginx', :latest
+mod 'willdurand/nodejs', :latest
 
 mod 'stdlib',
   :git => 'https://github.com/puppetlabs/puppetlabs-stdlib.git'
