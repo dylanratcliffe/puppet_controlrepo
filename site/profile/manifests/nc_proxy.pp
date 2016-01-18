@@ -44,6 +44,7 @@ class profile::nc_proxy {
   nginx::resource::upstream { 'regional_masters':
     members => [
       'mom.puppetlabs.demo:44333',
+      'master.mel.puppetlabs.demo:4433'
     ],
   }
 
