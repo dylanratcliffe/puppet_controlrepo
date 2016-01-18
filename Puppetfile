@@ -21,7 +21,7 @@ mod 'darin/zypprepo', :latest
 mod 'camptocamp/archive', :latest # Will this be a duplicate?
 mod 'puppetlabs/apt', :latest
 mod 'puppetlabs/strings', :latest
-mod 'whatsaranjit/node_manager', :latest
+mod 'WhatsARanjit/node_manager', :latest
 
 mod 'stdlib',
   :git => 'https://github.com/puppetlabs/puppetlabs-stdlib.git'
