@@ -38,7 +38,7 @@ class profile::nc_proxy {
   }
 
   class { '::nginx':
-    daemon_user => 'puppet',
+    daemon_user => 'pe-puppet',
   }
 
   nginx::resource::upstream { 'regional_masters':
