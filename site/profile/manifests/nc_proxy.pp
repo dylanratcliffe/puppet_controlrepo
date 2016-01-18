@@ -44,11 +44,11 @@ class profile::nc_proxy {
       'mom.puppetlabs.demo:44333',
     ],
   }
-  
+
   nginx::resource::vhost { $::networking['fqdn']:
-    proxy    => 'https://regional_masters',
-    ssl      => true,
-    ssl_only => true,
-    ssl_port => '4433',
+    proxy       => 'https://regional_masters',
+    ssl         => true,
+    ssl_port    => '4433',
+    listen_port => '4433',
   }
 }
