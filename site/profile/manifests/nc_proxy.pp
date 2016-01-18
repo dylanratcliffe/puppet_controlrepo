@@ -14,12 +14,26 @@ class profile::nc_proxy {
         'prune_upto' => '30'},
       'puppet_enterprise::license'          => {},
       'puppet_enterprise::profile::console' => {
-        'console_services_api_listen_port'     => '4432',
-        'console_services_api_ssl_listen_port' => '4433'}},
+        'console_services_api_listen_port'     => '44322',
+        'console_services_api_ssl_listen_port' => '44333'}},
     environment          => 'production',
     override_environment => false,
     parent               => 'PE Infrastructure',
-    rule                 => ['or', ['=', 'name', 'mom.puppetlabs.demo']],
   }
 
+  node_group { 'PE Master':
+  ensure               => 'present',
+  classes              => {
+    'pe_repo'                                          => {},
+    'pe_repo::platform::el_7_x86_64'                   => {},
+    'puppet_enterprise::profile::master'               => {
+      'classifier_port'  => '44333',
+      'r10k_private_key' => '/vagrant/ssh/maq_deploy',
+      'r10k_remote'      => 'https://github.com/dylanratcliffe/puppet_controlrepo.git'},
+    'puppet_enterprise::profile::master::mcollective'  => {},
+    'puppet_enterprise::profile::mcollective::peadmin' => {}},
+  environment          => 'production',
+  override_environment => false,
+  parent               => 'PE Infrastructure',
+}
 }
