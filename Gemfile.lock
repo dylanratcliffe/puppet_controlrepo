@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/dylanratcliffe/controlrepo_gem.git
-  revision: bf24cdd9fb336be4c2926cc757cdd031f858429f
+  revision: 6835693b3756b022ea818f36e570320e2b654624
   specs:
     controlrepo (2.0.4)
       beaker-rspec
@@ -257,7 +257,7 @@ GEM
       hiera (>= 2.0, < 4)
       json_pure
     puppet-lint (1.1.0)
-    puppet-syntax (2.0.0)
+    puppet-syntax (2.1.0)
       rake
     puppet_forge (2.1.2)
       faraday (~> 0.9.0)
@@ -320,7 +320,7 @@ GEM
       jwt (~> 1.5)
       multi_json (~> 1.10)
     slop (3.6.0)
-    specinfra (2.50.0)
+    specinfra (2.50.1)
       net-scp
       net-ssh (>= 2.7, < 3.1)
       net-telnet
