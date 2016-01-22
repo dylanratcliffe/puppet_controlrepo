@@ -6,7 +6,7 @@ class profile::mysql_server {
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    content => "This is a mysql server",
+    content => 'This is a mysql server',
   }
 
   unless $::kernel == 'linux' {
