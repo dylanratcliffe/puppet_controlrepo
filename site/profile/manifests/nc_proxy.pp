@@ -59,8 +59,13 @@ class profile::nc_proxy {
   #   ssl_trusted_cert => '/etc/puppetlabs/puppet/ssl/ca/ca_crt.pem',
   # }
 
+  class { '::ruby':
+    gems_version  => 'latest'
+  }
+
   class { '::nodejs':
     version => 'stable',
+    require => Class['::ruby'],
   }
 
   package { 'http-proxy':
