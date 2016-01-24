@@ -66,4 +66,16 @@ class profile::nc_proxy {
     provider => 'npm',
     require  => Class['::nodejs']
   }
+
+  file { '/opt/request_split':
+    ensure => directory,
+  }
+
+  nodejs::npm { 'express from GitHub':
+    ensure  => 'latest',
+    package => 'request_split',
+    source  => 'dylanratcliffe/request_split',
+    target  => '/opt/request_split',
+    require => File['/opt/request_split'],
+  }
 }
