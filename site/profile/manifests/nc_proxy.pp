@@ -73,11 +73,10 @@ class profile::nc_proxy {
     ensure => directory,
   }
 
-  nodejs::npm { 'express from GitHub':
-    ensure  => 'latest',
-    package => 'request_split',
-    source  => 'dylanratcliffe/request_split',
-    target  => '/opt/request_split',
-    require => File['/opt/request_split'],
+  vcsrepo { '/opt/request_split':
+    ensure   => present,
+    provider => git,
+    source   => 'git://github.com/dylanratcliffe/request_split.git',
+    revision => 'master',
   }
 }
