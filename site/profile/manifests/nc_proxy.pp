@@ -69,7 +69,6 @@ class profile::nc_proxy {
   }
 
   package { 'http-proxy':
-    ensure   => latest,
     provider => 'npm',
     require  => Class['::nodejs']
   }
