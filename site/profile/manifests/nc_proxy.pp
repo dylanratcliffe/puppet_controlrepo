@@ -37,31 +37,29 @@ class profile::nc_proxy {
     parent               => 'PE Infrastructure',
   }
 
-  class { '::nginx':
-    daemon_user => 'pe-puppet',
-  }
+  # class { '::nginx':
+  #   daemon_user => 'pe-puppet',
+  # }
+  #
+  # nginx::resource::upstream { 'regional_masters':
+  #   members => [
+  #     'mom.puppetlabs.demo:44333',
+  #     'master.mel.puppetlabs.demo:4433'
+  #   ],
+  # }
+  #
+  # nginx::resource::vhost { $::networking['fqdn']:
+  #   proxy            => 'https://regional_masters',
+  #   ssl              => true,
+  #   ssl_port         => '4433',
+  #   listen_port      => '4433',
+  #   ssl_cert         => "/etc/puppetlabs/puppet/ssl/certs/${::networking['fqdn']}.pem",
+  #   ssl_key          => "/etc/puppetlabs/puppet/ssl/private_keys/${::networking['fqdn']}.pem",
+  #   ssl_crl          => '/etc/puppetlabs/puppet/ssl/ca/ca_crl.pem',
+  #   ssl_trusted_cert => '/etc/puppetlabs/puppet/ssl/ca/ca_crt.pem',
+  # }
 
-  nginx::resource::upstream { 'regional_masters':
-    members => [
-      'mom.puppetlabs.demo:44333',
-      'master.mel.puppetlabs.demo:4433'
-    ],
-  }
-
-  nginx::resource::vhost { $::networking['fqdn']:
-    proxy            => 'https://regional_masters',
-    ssl              => true,
-    ssl_port         => '4433',
-    listen_port      => '4433',
-    ssl_cert         => "/etc/puppetlabs/puppet/ssl/certs/${::networking['fqdn']}.pem",
-    ssl_key          => "/etc/puppetlabs/puppet/ssl/private_keys/${::networking['fqdn']}.pem",
-    ssl_crl          => '/etc/puppetlabs/puppet/ssl/ca/ca_crl.pem',
-    ssl_trusted_cert => '/etc/puppetlabs/puppet/ssl/ca/ca_crt.pem',
-  }
-
-  class { '::nodejs':
-    version => 'stable',
-  }
+  include ::nodejs
 
   package { 'http-proxy':
     ensure   => latest,
