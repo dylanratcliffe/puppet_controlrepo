@@ -59,7 +59,9 @@ class profile::nc_proxy {
   #   ssl_trusted_cert => '/etc/puppetlabs/puppet/ssl/ca/ca_crt.pem',
   # }
 
-  include ::nodejs
+  class { 'nodejs':
+    version => 'stable',
+  }
 
   package { 'http-proxy':
     ensure   => latest,
