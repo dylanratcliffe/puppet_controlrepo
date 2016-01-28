@@ -7,7 +7,7 @@ node /master/ {
 }
 
 node /mom/ {
-  include role::pupetmaster
+  include role::puppetmaster
   #include role::master_of_masters
 }
 
