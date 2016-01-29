@@ -82,18 +82,25 @@ class profile::nc_proxy {
     ensure => directory,
   }
 
-  nodejs::npm { 'request_split from GitHub':
-    ensure  => 'present',
-    package => 'request_split',
-    source  => 'https://github.com/dylanratcliffe/request_split',
-    target  => '/opt/request_split',
-    require => File['/opt/request_split'],
+  # nodejs::npm { 'request_split from GitHub':
+  #   ensure  => 'present',
+  #   package => 'request_split',
+  #   source  => 'https://github.com/dylanratcliffe/request_split',
+  #   target  => '/opt/request_split',
+  #   require => File['/opt/request_split'],
+  # }
+
+  vcsrepo { '/opt/request_split':
+    ensure   => present,
+    provider => git,
+    source   => 'git://github.com/dylanratcliffe/request_split.git',
+    revision => 'master',
   }
 
-  # vcsrepo { '/opt/request_split':
-  #   ensure   => present,
-  #   provider => git,
-  #   source   => 'git://github.com/dylanratcliffe/request_split.git',
-  #   revision => 'master',
-  # }
+  exec { 'npm install':
+    cwd     => '/opt/request_split',
+    path    => $::path,
+    creates => '/opt/request_split/node_modules',
+    require => Vcsrepo['/opt/request_split'],
+  }
 }
