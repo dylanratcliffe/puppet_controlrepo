@@ -85,7 +85,7 @@ class profile::nc_proxy {
   nodejs::npm { 'request_split from GitHub':
     ensure  => 'present',
     package => 'request_split',
-    source  => 'dylanratcliffe/request_split',
+    source  => 'https://github.com/dylanratcliffe/request_split',
     target  => '/opt/request_split',
     require => File['/opt/request_split'],
   }
