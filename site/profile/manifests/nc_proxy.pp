@@ -63,12 +63,17 @@ class profile::nc_proxy {
     gems_version  => 'latest'
   }
 
+  include ::epel
+
   class { '::nodejs':
-    version => 'stable',
-    require => Class['::ruby'],
+    nodejs_dev_package_ensure => 'present',
+    npm_package_ensure        => 'present',
+    repo_class                => '::epel',
+    require                   => Class['::ruby'],
   }
 
   package { 'http-proxy':
+    ensure   => 'present',
     provider => 'npm',
     require  => Class['::nodejs']
   }
@@ -77,10 +82,18 @@ class profile::nc_proxy {
     ensure => directory,
   }
 
-  vcsrepo { '/opt/request_split':
-    ensure   => present,
-    provider => git,
-    source   => 'git://github.com/dylanratcliffe/request_split.git',
-    revision => 'master',
+  nodejs::npm { 'request_split from GitHub':
+    ensure  => 'present',
+    package => 'request_split',
+    source  => 'dylanratcliffe/request_split',
+    target  => '/opt/request_split',
+    require => File['/opt/request_split'],
   }
+
+  # vcsrepo { '/opt/request_split':
+  #   ensure   => present,
+  #   provider => git,
+  #   source   => 'git://github.com/dylanratcliffe/request_split.git',
+  #   revision => 'master',
+  # }
 }

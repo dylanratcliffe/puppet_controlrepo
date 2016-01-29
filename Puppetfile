@@ -28,8 +28,9 @@ mod 'darin/zypprepo'                ,'1.0.2'
 mod 'puppetlabs/strings'            ,'0.3.1'
 mod 'WhatsARanjit/node_manager'     ,'0.2.1'
 mod 'jfryman/nginx'                 ,'0.2.7'
-mod 'willdurand/nodejs'             ,'1.8.6'
+mod 'puppetlabs/nodejs'             ,'0.8.0'
 mod 'maestrodev/wget'               ,'1.7.1'
+mod 'stahnma/epel'                  ,'1.2.2'
 
 mod 'stdlib',
   :git => 'https://github.com/puppetlabs/puppetlabs-stdlib.git'
