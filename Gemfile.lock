@@ -335,6 +335,7 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.2)
+    vagrant-wrapper (2.0.3)
     yard (0.8.7.6)
 
 PLATFORMS
@@ -349,6 +350,7 @@ DEPENDENCIES
   r10k
   rake
   rspec-puppet!
+  vagrant-wrapper
   yard
 
 BUNDLED WITH

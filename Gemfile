@@ -22,3 +22,4 @@ gem 'rspec-puppet',
   :branch => 'issue-343-puppet-4-modulepath'
 gem "rake"
 gem 'yard'
+gem 'vagrant-wrapper'

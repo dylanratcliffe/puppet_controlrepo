@@ -4,4 +4,6 @@ class profile::apt {
       frequency => 'daily',
     },
   }
+
+  Class['apt'] -> Package <| |>
 }
