@@ -12,7 +12,9 @@ end
 if ENV['CONTROLREPO_gem'] == 'local'
   gem 'controlrepo', :path => '/Users/dylanratcliffe/git/controlrepo_gem'
 else
-  gem 'controlrepo', :git => 'https://github.com/dylanratcliffe/controlrepo_gem.git'
+  gem 'controlrepo',
+    :git => 'https://github.com/dylanratcliffe/controlrepo_gem.git'
+    :branch => 'METHOD-569'
 end
 
 gem 'r10k'
