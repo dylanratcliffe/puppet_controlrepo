@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/dylanratcliffe/controlrepo_gem.git
-  revision: defae76d357fdb7e693ae6c0564284c68d941cad
+  revision: a8346baef8fc3942696af1fc148ba4e3ad6f29dd
   specs:
     controlrepo (2.0.5)
       beaker-rspec
