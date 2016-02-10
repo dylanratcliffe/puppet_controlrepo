@@ -2,9 +2,9 @@ language: ruby
 cache:
   bundler: true
   directories:
-    - './cache/etc/puppetlabs/code/environments/production/modules'
+    - 'cache/etc/puppetlabs/code/environments/production/modules'
 env:
-  - CONTROLREPO_temp="./cache"
+  - CONTROLREPO_temp="cache"
 rvm:
   - 2.0.0
   - 2.1.7
