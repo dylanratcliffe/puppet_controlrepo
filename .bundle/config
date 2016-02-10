@@ -1,2 +1,3 @@
 ---
 BUNDLE_WITHOUT: acceptance
+BUNDLE_WITH: development
