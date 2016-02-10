@@ -8,7 +8,7 @@ GIT
 
 GIT
   remote: https://github.com/dylanratcliffe/controlrepo_gem.git
-  revision: 8c16986db35e8a6934078035dfdeeb4ab427008a
+  revision: 366ed9cfe33cbefe4c4b411cda04004c54d48326
   branch: METHOD-569
   specs:
     controlrepo (2.0.5)
