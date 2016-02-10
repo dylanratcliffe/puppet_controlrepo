@@ -1,7 +1,10 @@
 language: ruby
-cache: bundler
+cache:
+  bundler: true
+  directories:
+    - '/etc/puppetlabs/code/environments/production/modules'
 env:
-  - CONTROLREPO_env="$TRAVIS_BRANCH"
+  - CONTROLREPO_temp="/"
 rvm:
   - 2.0.0
   - 2.1.7

@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/adrienthebo/rspec-puppet.git
-  revision: 58d6dfa4c2a86072bd161072709a4b5d679eefcc
+  revision: d55304cdedc1c97c05771a667b07b47ae434cc5e
   branch: issue-343-puppet-4-modulepath
   specs:
     rspec-puppet (2.3.0)
@@ -308,7 +308,7 @@ GEM
     rspec-support (3.4.1)
     rsync (1.0.9)
     semantic_puppet (0.1.1)
-    serverspec (2.29.1)
+    serverspec (2.29.2)
       multi_json
       rspec (~> 3.0)
       rspec-its
@@ -320,7 +320,7 @@ GEM
       jwt (~> 1.5)
       multi_json (~> 1.10)
     slop (3.6.0)
-    specinfra (2.50.4)
+    specinfra (2.51.0)
       net-scp
       net-ssh (>= 2.7, < 3.1)
       net-telnet
