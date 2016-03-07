@@ -16,7 +16,6 @@ class profile::metrics (
 
   class { 'graphite':
     gr_web_server                => 'none',
-    gr_manage_python_packages    => false,
     gr_aggregator_max_intervals  => 60,
     gr_storage_schemas           => [
       {
