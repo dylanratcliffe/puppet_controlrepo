@@ -6,6 +6,18 @@ class profile::metrics (
   $graphite_apache_port = 7000,
   $graphite_host        = $::fqdn,
 ){
+  firewall { '100 allow http access':
+    dport  => 80,
+    proto  => 'tcp',
+    action => 'accept',
+  }
+
+  firewall { '100 allow graphite and carbon access':
+    dport  => [7777, 7000],
+    proto  => 'tcp',
+    action => 'accept',
+  }
+
   class { 'apache':
     default_vhost => $apache_default_vhost,
   }
