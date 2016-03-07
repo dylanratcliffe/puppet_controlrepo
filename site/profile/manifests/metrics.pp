@@ -13,7 +13,7 @@ class profile::metrics (
   }
 
   firewall { '100 allow graphite and carbon access':
-    dport  => [7777, 7000],
+    dport  => [7777, 7000, 2003, 2004],
     proto  => 'tcp',
     action => 'accept',
   }
