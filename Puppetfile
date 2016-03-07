@@ -31,9 +31,9 @@ mod 'jfryman/nginx'                 ,'0.2.7'
 mod 'puppetlabs/nodejs'             ,'0.8.0'
 mod 'maestrodev/wget'               ,'1.7.1'
 mod 'stahnma/epel'                  ,'1.2.2'
-mod 'puppetlabs/apache'             ,'1.8,1'
+mod 'puppetlabs/apache'             ,'1.8.1'
 mod 'dwerder/graphite'              ,'5.16.1'
-mod 'bfraser/grafana'               ,'2.5.0'
+mod 'dwerder/grafana'               ,'1.2.0'
 
 mod 'stdlib',
   :git => 'https://github.com/puppetlabs/puppetlabs-stdlib.git'

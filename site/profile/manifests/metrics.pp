@@ -104,13 +104,7 @@ class profile::metrics (
   }
 
   class { 'grafana':
-    datasources => {
-      'graphite' => {
-        'type'    => 'graphite',
-        'url'     => "http://${graphite_host}:${carbon_port}",
-        'default' => 'true'
-      },
-    }
+    graphite_host => $graphite_host,
   }
 
   apache::vhost { 'grafana':
