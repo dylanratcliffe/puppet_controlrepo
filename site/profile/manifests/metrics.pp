@@ -116,7 +116,8 @@ class profile::metrics (
   }
 
   class { 'grafana':
-    graphite_host => "${graphite_host}:${graphite_apache_port}",
+    graphite_host => $graphite_host,
+    graphite_port => $graphite_apache_port,
   }
 
   apache::vhost { 'grafana':
