@@ -69,13 +69,13 @@
                     },
                     "targets": [
                         {
-                            "target": "alias(<%= $metrics_server_id %>.num-cpus,'num cpus')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.num-cpus,'num cpus')"
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.http.active-requests.count,'active requests')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.http.active-requests.count,'active requests')"
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.http.active-histo.mean,'average')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.http.active-histo.mean,'average')"
                         }
                     ],
                     "aliasColors": {},
@@ -134,28 +134,28 @@
                     },
                     "targets": [
                         {
-                            "target": "alias(<%= $metrics_server_id %>.http.puppet-v3-catalog-.*.-requests.mean,'catalog')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.http.puppet-v3-catalog-.*.-requests.mean,'catalog')"
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.http.puppet-v3-report-.*.-requests.mean,'report')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.http.puppet-v3-report-.*.-requests.mean,'report')"
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.http.puppet-v3-node-.*.-requests.mean,'node')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.http.puppet-v3-node-.*.-requests.mean,'node')"
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.http.puppet-v3-file_metadatas-.*.-requests.mean,'file_metadatas')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.http.puppet-v3-file_metadatas-.*.-requests.mean,'file_metadatas')"
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.http.puppet-v3-file_metadata-.*.-requests.mean,'file_metadata')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.http.puppet-v3-file_metadata-.*.-requests.mean,'file_metadata')"
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.http.puppet-v3-file_content-.*.-requests.mean,'file_content')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.http.puppet-v3-file_content-.*.-requests.mean,'file_content')"
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.http.other-requests.mean,'other')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.http.other-requests.mean,'other')"
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.http.total-requests.mean,'all')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.http.total-requests.mean,'all')"
                         }
                     ],
                     "aliasColors": {},
@@ -215,26 +215,26 @@
                     },
                     "targets": [
                         {
-                            "target": "alias(<%= $metrics_server_id %>.http.puppet-v3-catalog-.*.-percentage,'catalog')",
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.http.puppet-v3-catalog-.*.-percentage,'catalog')",
                             "hide": false
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.http.puppet-v3-report-.*.-percentage,'report')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.http.puppet-v3-report-.*.-percentage,'report')"
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.http.puppet-v3-node-.*.-percentage,'node')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.http.puppet-v3-node-.*.-percentage,'node')"
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.http.puppet-v3-file_metadatas-.*.-percentage,'file_metadatas')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.http.puppet-v3-file_metadatas-.*.-percentage,'file_metadatas')"
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.http.puppet-v3-file_metadata-.*.-percentage,'file_metadata')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.http.puppet-v3-file_metadata-.*.-percentage,'file_metadata')"
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.http.puppet-v3-file_content-.*.-percentage,'file_content')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.http.puppet-v3-file_content-.*.-percentage,'file_content')"
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.http.other-percentage,'other')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.http.other-percentage,'other')"
                         }
                     ],
                     "aliasColors": {},
@@ -305,28 +305,28 @@
                     },
                     "targets": [
                         {
-                            "target": "alias(<%= $metrics_server_id %>.functions.count,'all')",
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.functions.count,'all')",
                             "hide": false
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.functions.include.count,'include')",
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.functions.include.count,'include')",
                             "hide": false
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.functions.template.count,'template')",
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.functions.template.count,'template')",
                             "hide": false
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.functions.validate_bool.count,'validate_bool')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.functions.validate_bool.count,'validate_bool')"
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.functions.validate_array.count,'validate_array')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.functions.validate_array.count,'validate_array')"
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.functions.validate_string.count,'validate_string')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.functions.validate_string.count,'validate_string')"
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.functions.create_resources.count,'create_resources')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.functions.create_resources.count,'create_resources')"
                         }
                     ],
                     "aliasColors": {},
@@ -385,28 +385,28 @@
                     },
                     "targets": [
                         {
-                            "target": "alias(<%= $metrics_server_id %>.functions.mean,'all')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.functions.mean,'all')"
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.functions.include.mean,'include')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.functions.include.mean,'include')"
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.functions.file.mean,'file')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.functions.file.mean,'file')"
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.functions.template.mean,'template')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.functions.template.mean,'template')"
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.functions.validate_bool.mean,'validate_bool')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.functions.validate_bool.mean,'validate_bool')"
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.functions.validate_array.mean,'validate_array')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.functions.validate_array.mean,'validate_array')"
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.functions.validate_string.count,'validate_string')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.functions.validate_string.count,'validate_string')"
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.functions.create_resources.mean,'create_resources')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.functions.create_resources.mean,'create_resources')"
                         }
                     ],
                     "aliasColors": {},
@@ -465,34 +465,34 @@
                     },
                     "targets": [
                         {
-                            "target": "alias(<%= $metrics_server_id %>.compiler.compile.mean,'total')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.compiler.compile.mean,'total')"
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.functions.mean,'function calls')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.functions.mean,'function calls')"
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.compiler.evaluate_ast_node.mean,'eval ast')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.compiler.evaluate_ast_node.mean,'eval ast')"
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.compiler.evaluate_main.mean,'eval main')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.compiler.evaluate_main.mean,'eval main')"
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.compiler.evaluate_node_classes.mean,'eval node classes')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.compiler.evaluate_node_classes.mean,'eval node classes')"
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.compiler.evaluate_definitions.mean,'eval defs')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.compiler.evaluate_definitions.mean,'eval defs')"
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.compiler.evaluate_generators.mean,'eval generators')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.compiler.evaluate_generators.mean,'eval generators')"
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.compiler.finish_catalog.mean,'finish catalog')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.compiler.finish_catalog.mean,'finish catalog')"
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.compiler.set_node_params.mean,'set node params')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.compiler.set_node_params.mean,'set node params')"
                         },
                         {
-                            "target": "alias(<%= $metrics_server_id %>.compiler.create_settings_scope.mean,'create scope')"
+                            "target": "alias(puppetlabs.<%= $metrics_server_id %>.compiler.create_settings_scope.mean,'create scope')"
                         }
                     ],
                     "aliasColors": {

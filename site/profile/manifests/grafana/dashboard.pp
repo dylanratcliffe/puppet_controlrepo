@@ -1,7 +1,10 @@
 define profile::grafana::dashboard (
   $metrics_server_id,
 ) {
-  file { "/opt/grafana/app/dashboards/${title}.json":
+  # Swap dots for underscores as grafana deasn't like dots
+  $safe_title = regsubst($title,'\.','_','G')
+
+  file { "/opt/grafana/app/dashboards/${safe_title}.json":
     ensure  => file,
     owner   => 'root',
     group   => 'root',
