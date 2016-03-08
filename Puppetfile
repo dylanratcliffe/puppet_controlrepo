@@ -34,6 +34,7 @@ mod 'stahnma/epel'                  ,'1.2.2'
 mod 'puppetlabs/apache'             ,'1.8.1'
 mod 'dwerder/graphite'              ,'5.16.1'
 mod 'dwerder/grafana'               ,'1.2.0'
+mod 'puppet/collectd'               ,'4.3.0'
 
 mod 'stdlib',
   :git => 'https://github.com/puppetlabs/puppetlabs-stdlib.git'

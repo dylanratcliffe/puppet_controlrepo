@@ -1,4 +1,4 @@
-class profile::metrics (
+class profile::metrics::dashboard (
   $apache_default_vhost = false,
   $carbon_port          = 7777,
   $grafana_host         = $::fqdn,

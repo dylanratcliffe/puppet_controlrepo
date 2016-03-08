@@ -1,4 +1,4 @@
 class role::metrics {
   include profile::base
-  include profile::metrics
+  include profile::metrics::dashboard
 }
