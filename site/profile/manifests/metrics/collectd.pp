@@ -1,5 +1,7 @@
 class profile::metrics::collectd {
-  include ::collectd
+  class { '::collectd':
+    purge_config => true,
+  }
   include ::collectd::plugin::cpu
   include ::collectd::plugin::disk
   #include ::collectd::plugin::java
