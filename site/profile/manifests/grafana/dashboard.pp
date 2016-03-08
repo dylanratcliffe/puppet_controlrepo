@@ -6,6 +6,9 @@ define profile::grafana::dashboard (
     owner   => 'root',
     group   => 'root',
     mode    => '0664',
-    content => epp('profile/dashboard.json.epp'),
+    content => epp('profile/dashboard.json.epp',{
+      'title'             => $title,
+      'metrics_server_id' => $metrics_server_id,
+      }),
   }
 }
