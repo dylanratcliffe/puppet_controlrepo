@@ -120,6 +120,10 @@ class profile::metrics (
     graphite_port => $graphite_apache_port,
   }
 
+  profile::grafana::dashboard { 'master.methodologies.com':
+    metrics_server_id => 'puppetmaster',
+  }
+
   apache::vhost { 'grafana':
     servername      => $grafana_host,
     port            => $grafana_apache_port,
