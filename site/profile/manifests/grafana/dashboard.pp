@@ -5,7 +5,7 @@ define profile::grafana::dashboard (
     ensure  => file,
     owner   => 'root',
     group   => 'root',
-    mode    => '0644',
+    mode    => '0664',
     content => epp('profile/dashboard.json.epp'),
   }
 }
