@@ -1,7 +1,11 @@
 class profile::metrics::collectd {
+  $collectd_dir = '/etc/coolectd'
+
   class { '::collectd':
-    purge_config => true,
+    purge_config   => true,
+    package_ensure => absent,
   }
+
   include ::collectd::plugin::cpu
   include ::collectd::plugin::disk
   #include ::collectd::plugin::java
@@ -13,5 +17,21 @@ class profile::metrics::collectd {
     graphiteport   => 2003,
     graphiteprefix => '',
     protocol       => 'tcp'
+  }
+
+  # Have to compile from source because the packages are ooold
+  require ::gcc
+
+  file { $collectd_dir:
+    ensure => directory,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
+  }
+  
+  staging::extract { 'collectd_source':
+    target  => '/etc/collectd/',
+    source  => 'http://collectd.org/files/collectd-5.5.0.tar.bz2',
+    require => File[$collectd_dir],
   }
 }
