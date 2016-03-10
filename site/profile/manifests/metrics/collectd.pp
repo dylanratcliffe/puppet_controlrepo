@@ -1,5 +1,6 @@
 class profile::metrics::collectd {
   $collectd_dir = '/etc/collectd'
+  $collectd_version = '5.5.0'
 
   class { '::collectd':
     purge_config   => true,
@@ -29,16 +30,16 @@ class profile::metrics::collectd {
     mode   => '0644',
   }
 
-  staging::deploy { 'collectd_source.tar.bz2':
+  staging::deploy { "collectd-${collectd_version}.tar.bz2":
     target  => $collectd_dir,
-    source  => 'http://collectd.org/files/collectd-5.5.0.tar.bz2',
+    source  => "http://collectd.org/files/collectd-${collectd_version}.tar.bz2",
     strip   => 1,
     require => File[$collectd_dir],
   }
 
   exec { 'compile_collectd':
     command => 'configure',
-    path    => $collectd_dir,
+    path    => "${collectd_dir}/collectd-${collectd_version}",
     creates => "${collectd_dir}/config.status",
     require => Staging::Deploy['collectd_source.tar.bz2']
   }
