@@ -33,7 +33,6 @@ class profile::metrics::collectd {
   staging::deploy { "collectd-${collectd_version}.tar.bz2":
     target  => $collectd_dir,
     source  => "http://collectd.org/files/collectd-${collectd_version}.tar.bz2",
-    strip   => 1,
     require => File[$collectd_dir],
   }
 
