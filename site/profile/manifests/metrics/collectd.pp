@@ -47,6 +47,8 @@ class profile::metrics::collectd {
     require => Staging::Deploy["collectd-${collectd_version}.tar.bz2"],
   }
 
+  notify { "${collectd_dir}/collectd-${collectd_version}/config.status":}
+
   exec { 'install_collectd':
     command => 'make all install',
     path    => "${::path}:${collectd_dir}/collectd-${collectd_version}",
