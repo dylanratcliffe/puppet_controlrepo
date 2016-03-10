@@ -29,7 +29,7 @@ class profile::metrics::collectd {
     mode   => '0644',
   }
 
-  staging::extract { 'collectd_source.tar.bz2':
+  staging::deploy { 'collectd_source.tar.bz2':
     target  => $collectd_dir,
     source  => 'http://collectd.org/files/collectd-5.5.0.tar.bz2',
     require => File[$collectd_dir],
