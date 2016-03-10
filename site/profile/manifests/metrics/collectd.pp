@@ -40,7 +40,7 @@ class profile::metrics::collectd {
     command => 'configure',
     path    => $collectd_dir,
     creates => "${collectd_dir}/config.status",
+    require => Staging::Deploy['collectd_source.tar.bz2']
   }
 
-  exec { }
 }
