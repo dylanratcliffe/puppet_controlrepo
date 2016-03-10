@@ -2,6 +2,10 @@ class profile::metrics::collectd {
   $collectd_dir = '/etc/collectd'
   $collectd_version = '5.5.0'
 
+  package { ['perl', 'perl-devel']:
+    ensure => present,
+  }
+
   class { '::collectd':
     purge_config   => true,
     package_ensure => absent,
@@ -47,7 +51,7 @@ class profile::metrics::collectd {
     command => 'make all install',
     path    => "${::path}:${collectd_dir}/collectd-${collectd_version}",
     creates => '/opt/collectd',
-    require => Exec['compile_collectd'],
+    require => [Exec['compile_collectd'],Package['perl', 'perl-devel']],
   }
 
 }
