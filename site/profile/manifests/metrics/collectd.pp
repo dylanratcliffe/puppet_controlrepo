@@ -38,7 +38,7 @@ class profile::metrics::collectd {
 
   exec { 'compile_collectd':
     command => 'configure',
-    path    => "${collectd_dir}/collectd-${collectd_version}",
+    path    => "${::path}:${collectd_dir}/collectd-${collectd_version}",
     creates => "${collectd_dir}/config.status",
     require => Staging::Deploy["collectd-${collectd_version}.tar.bz2"],
   }
