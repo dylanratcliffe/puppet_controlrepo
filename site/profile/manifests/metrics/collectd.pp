@@ -32,6 +32,15 @@ class profile::metrics::collectd {
   staging::deploy { 'collectd_source.tar.bz2':
     target  => $collectd_dir,
     source  => 'http://collectd.org/files/collectd-5.5.0.tar.bz2',
+    strip   => 1,
     require => File[$collectd_dir],
   }
+
+  exec { 'compile_collectd':
+    command => 'configure',
+    path    => $collectd_dir,
+    creates => "${collectd_dir}/config.status",
+  }
+
+  exec { }
 }
