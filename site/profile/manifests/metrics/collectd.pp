@@ -1,5 +1,5 @@
 class profile::metrics::collectd {
-  $collectd_dir = '/etc/coolectd'
+  $collectd_dir = '/etc/collectd'
 
   class { '::collectd':
     purge_config   => true,
@@ -30,7 +30,7 @@ class profile::metrics::collectd {
   }
 
   staging::extract { 'collectd_source.tar.bz2':
-    target  => '/etc/collectd/',
+    target  => $collectd_dir,
     source  => 'http://collectd.org/files/collectd-5.5.0.tar.bz2',
     require => File[$collectd_dir],
   }
