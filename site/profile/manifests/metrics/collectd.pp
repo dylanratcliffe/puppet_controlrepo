@@ -28,8 +28,8 @@ class profile::metrics::collectd {
     group  => 'root',
     mode   => '0644',
   }
-  
-  staging::extract { 'collectd_source':
+
+  staging::extract { 'collectd_source.tar.bz2':
     target  => '/etc/collectd/',
     source  => 'http://collectd.org/files/collectd-5.5.0.tar.bz2',
     require => File[$collectd_dir],
