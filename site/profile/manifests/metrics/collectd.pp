@@ -9,6 +9,7 @@ class profile::metrics::collectd {
   class { '::collectd':
     purge_config   => true,
     package_ensure => present,
+    require        => Staging::File["collectd-${collectd_version}-1.rft.src.rpm"],
   }
 
   include ::collectd::plugin::cpu
