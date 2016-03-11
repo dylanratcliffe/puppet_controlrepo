@@ -17,6 +17,17 @@ class profile::metrics::collectd {
     'libtool-ltdl',
   ]
 
+  # We need this repo because it has the latest version of collectd
+  # other ones only have version 4 which does not support graphite
+  yumrepo { 'dag_testing_packages':
+    ensure  => present,
+    enabled => true,
+    baseurl => 'ftp://fr2.rpmfind.net/linux/dag/redhat/el6/en/$basearch/testing',
+  }
+
+  # Do this yumrepo before ANY packages
+  Yumrepo['dag_testing_packages'] -> Package <||>
+
   package { $dependencies:
     ensure => present,
     before => Package['collectd'],
@@ -41,27 +52,16 @@ class profile::metrics::collectd {
     protocol       => 'tcp'
   }
 
-  file { $collectd_dir:
-    ensure => directory,
-    owner  => 'root',
-    group  => 'root',
-    mode   => '0644',
-  }
-
-  staging::file { "collectd-${collectd_version}-1.el6.rft.x86_64.rpm":
-    target  => "${collectd_dir}/collectd-${collectd_version}-1.el6.rft.x86_64.rpm",
-    source  => "http://pkgs.repoforge.org/collectd/collectd-${collectd_version}-1.el6.rft.x86_64.rpm",
-    require => File[$collectd_dir],
-  }
-
-  # Package <| title == 'collectd' |> {
-  #   source   => "${collectd_dir}/collectd-${collectd_version}-1.el6.rft.x86_64.rpm",
-  #   provider => 'rpm',
+  # file { $collectd_dir:
+  #   ensure => directory,
+  #   owner  => 'root',
+  #   group  => 'root',
+  #   mode   => '0644',
   # }
 
-  yumrepo { 'dag_testing_packages':
-    ensure  => present,
-    enabled => true,
-    baseurl => 'ftp://fr2.rpmfind.net/linux/dag/redhat/el6/en/x86_64/testing/RPMS',
-  }
+  # staging::file { "collectd-${collectd_version}-1.el6.rft.x86_64.rpm":
+  #   target  => "${collectd_dir}/collectd-${collectd_version}-1.el6.rft.x86_64.rpm",
+  #   source  => "http://pkgs.repoforge.org/collectd/collectd-${collectd_version}-1.el6.rft.x86_64.rpm",
+  #   require => File[$collectd_dir],
+  # }
 }
