@@ -9,9 +9,14 @@ class profile::metrics::collectd {
     'perl-Collectd',
     'perl-Config-General',
     'perl-Time-HiRes',
-    'perl-URI'
+    'perl-URI',
+    'spamassassin',
+    'OpenIPMI-perl',
+    'lm_sensors',
+    'libstatgrab',
+    'libtool-ltdl',
   ]
-  
+
   package { $dependencies:
     ensure => present,
     before => Package['collectd'],
