@@ -9,7 +9,6 @@ class profile::metrics::collectd {
   class { '::collectd':
     purge_config   => true,
     package_ensure => present,
-    require        => Exec['install_collectd'],
   }
 
   include ::collectd::plugin::cpu
