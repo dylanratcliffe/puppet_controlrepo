@@ -2,6 +2,15 @@ class profile::metrics::collectd {
   $collectd_dir = '/etc/collectd'
   $collectd_version = '5.1.0'
 
+  $dependencies = [
+    'perl',
+    'perl-devel',
+    'perl-CGI',
+    'perl-Collectd',
+    'perl-Config-General',
+    'perl-Time-HiRes',
+    'perl-URI'
+  ]
   package { ['perl', 'perl-devel']:
     ensure => present,
   }
