@@ -41,7 +41,7 @@ class profile::metrics::collectd {
 
   include ::collectd::plugin::cpu
   include ::collectd::plugin::disk
-  #include ::collectd::plugin::java
+  include ::collectd::plugin::java
   include ::collectd::plugin::memory
   include ::collectd::plugin::interface
 
@@ -52,16 +52,4 @@ class profile::metrics::collectd {
     protocol       => 'tcp'
   }
 
-  # file { $collectd_dir:
-  #   ensure => directory,
-  #   owner  => 'root',
-  #   group  => 'root',
-  #   mode   => '0644',
-  # }
-
-  # staging::file { "collectd-${collectd_version}-1.el6.rft.x86_64.rpm":
-  #   target  => "${collectd_dir}/collectd-${collectd_version}-1.el6.rft.x86_64.rpm",
-  #   source  => "http://pkgs.repoforge.org/collectd/collectd-${collectd_version}-1.el6.rft.x86_64.rpm",
-  #   require => File[$collectd_dir],
-  # }
 }
