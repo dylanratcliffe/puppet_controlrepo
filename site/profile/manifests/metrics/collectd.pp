@@ -1,6 +1,6 @@
 class profile::metrics::collectd {
   $collectd_dir = '/etc/collectd'
-  $collectd_version = '5.5.0'
+  $collectd_version = '5.1.0'
 
   package { ['perl', 'perl-devel']:
     ensure => present,
@@ -35,25 +35,15 @@ class profile::metrics::collectd {
     mode   => '0644',
   }
 
-  staging::deploy { "collectd-${collectd_version}.tar.bz2":
+  staging::file { "collectd-${collectd_version}-1.rft.src.rpm":
     target  => $collectd_dir,
-    source  => "http://collectd.org/files/collectd-${collectd_version}.tar.bz2",
+    source  => "http://pkgs.repoforge.org/collectd/collectd-${collectd_version}-1.rft.src.rpm",
     require => File[$collectd_dir],
   }
 
-  exec { 'compile_collectd':
-    command => 'configure',
-    cwd     => "${collectd_dir}/collectd-${collectd_version}",
-    path    => "${::path}:${collectd_dir}/collectd-${collectd_version}",
-    creates => "${collectd_dir}/collectd-${collectd_version}/config.status",
-    require => Staging::Deploy["collectd-${collectd_version}.tar.bz2"],
+  package { 'collectd':
+    ensure   => present,
+    source   => "${collectd_dir}/collectd-${collectd_version}-1.rft.src.rpm",
+    provider => 'rpm',
   }
-
-  exec { 'install_collectd':
-    command => 'make all install',
-    path    => "${::path}:${collectd_dir}/collectd-${collectd_version}",
-    creates => '/opt/collectd',
-    require => [Exec['compile_collectd'],Package['perl', 'perl-devel']],
-  }
-
 }
