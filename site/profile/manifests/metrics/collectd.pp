@@ -54,8 +54,14 @@ class profile::metrics::collectd {
     require => File[$collectd_dir],
   }
 
-  Package <| title == 'collectd' |> {
-    source   => "${collectd_dir}/collectd-${collectd_version}-1.el6.rft.x86_64.rpm",
-    provider => 'rpm',
+  # Package <| title == 'collectd' |> {
+  #   source   => "${collectd_dir}/collectd-${collectd_version}-1.el6.rft.x86_64.rpm",
+  #   provider => 'rpm',
+  # }
+
+  yumrepo { 'dag_testing_packages':
+    ensure  => present,
+    enabled => true,
+    baseurl => 'ftp://fr2.rpmfind.net/linux/dag/redhat/el6/en/x86_64/testing/RPMS',
   }
 }
