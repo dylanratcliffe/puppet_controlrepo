@@ -24,7 +24,7 @@ class profile::metrics::collectd {
 
   class { '::collectd':
     purge_config   => true,
-    package_ensure => present,
+    package_ensure => $collectd_version,
     require        => Staging::File["collectd-${collectd_version}-1.el6.rft.x86_64.rpm"],
   }
 
