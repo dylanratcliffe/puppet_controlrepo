@@ -8,7 +8,7 @@ class profile::metrics::collectd {
 
   class { '::collectd':
     purge_config   => true,
-    package_ensure => absent,
+    package_ensure => present,
     require        => Exec['install_collectd'],
   }
 
@@ -25,9 +25,6 @@ class profile::metrics::collectd {
     protocol       => 'tcp'
   }
 
-  # Have to compile from source because the packages are ooold
-  require ::gcc
-
   file { $collectd_dir:
     ensure => directory,
     owner  => 'root',
@@ -41,8 +38,7 @@ class profile::metrics::collectd {
     require => File[$collectd_dir],
   }
 
-  package { 'collectd':
-    ensure   => present,
+  Package <| title == 'collectd' |> {
     source   => "${collectd_dir}/collectd-${collectd_version}-1.rft.src.rpm",
     provider => 'rpm',
   }
