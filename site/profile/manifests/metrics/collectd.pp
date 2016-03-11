@@ -20,9 +20,10 @@ class profile::metrics::collectd {
   # We need this repo because it has the latest version of collectd
   # other ones only have version 4 which does not support graphite
   yumrepo { 'dag_testing_packages':
-    ensure  => present,
-    enabled => true,
-    baseurl => 'ftp://fr2.rpmfind.net/linux/dag/redhat/el6/en/$basearch/testing',
+    ensure   => present,
+    enabled  => true,
+    gpgcheck => false,
+    baseurl  => 'ftp://fr2.rpmfind.net/linux/dag/redhat/el6/en/$basearch/testing',
   }
 
   # Do this yumrepo before ANY packages
