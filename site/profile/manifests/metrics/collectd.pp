@@ -25,7 +25,7 @@ class profile::metrics::collectd {
   class { '::collectd':
     purge_config   => true,
     package_ensure => present,
-    require        => Staging::File["collectd-${collectd_version}-1.rft.x86_64.rpm"],
+    require        => Staging::File["collectd-${collectd_version}-1.el6.rft.x86_64.rpm"],
   }
 
   include ::collectd::plugin::cpu
@@ -48,14 +48,14 @@ class profile::metrics::collectd {
     mode   => '0644',
   }
 
-  staging::file { "collectd-${collectd_version}-1.rft.x86_64.rpm":
-    target  => "${collectd_dir}/collectd-${collectd_version}-1.rft.x86_64.rpm",
-    source  => "http://pkgs.repoforge.org/collectd/collectd-${collectd_version}-1.rft.x86_64.rpm",
+  staging::file { "collectd-${collectd_version}-1.el6.rft.x86_64.rpm":
+    target  => "${collectd_dir}/collectd-${collectd_version}-1.el6.rft.x86_64.rpm",
+    source  => "http://pkgs.repoforge.org/collectd/collectd-${collectd_version}-1.el6.rft.x86_64.rpm",
     require => File[$collectd_dir],
   }
 
   Package <| title == 'collectd' |> {
-    source   => "${collectd_dir}/collectd-${collectd_version}-1.rft.x86_64.rpm",
+    source   => "${collectd_dir}/collectd-${collectd_version}-1.el6.rft.x86_64.rpm",
     provider => 'rpm',
   }
 }
