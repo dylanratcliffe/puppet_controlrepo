@@ -46,7 +46,7 @@ class profile::metrics::collectd {
   include ::collectd::plugin::interface
 
   collectd::plugin::write_graphite::carbon {'my_graphite':
-    graphitehost   => 'metrics.methodology.com',
+    graphitehost   => 'metrics.methodologies.com',
     graphiteport   => 2003,
     graphiteprefix => '',
     protocol       => 'tcp'
