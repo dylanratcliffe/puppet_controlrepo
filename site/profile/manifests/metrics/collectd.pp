@@ -33,7 +33,7 @@ class profile::metrics::collectd {
   }
 
   staging::file { "collectd-${collectd_version}-1.rft.src.rpm":
-    target  => $collectd_dir,
+    target  => "${collectd_dir}/collectd-${collectd_version}-1.rft.src.rpm",
     source  => "http://pkgs.repoforge.org/collectd/collectd-${collectd_version}-1.rft.src.rpm",
     require => File[$collectd_dir],
   }
