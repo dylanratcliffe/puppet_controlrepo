@@ -11,8 +11,10 @@ class profile::metrics::collectd {
     'perl-Time-HiRes',
     'perl-URI'
   ]
-  package { ['perl', 'perl-devel']:
+  
+  package { $dependencies:
     ensure => present,
+    before => Package['collectd'],
   }
 
   class { '::collectd':
