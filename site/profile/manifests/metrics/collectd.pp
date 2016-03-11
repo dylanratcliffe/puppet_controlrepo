@@ -21,8 +21,8 @@ class profile::metrics::collectd {
   # other ones only have version 4 which does not support graphite
   yumrepo { 'dag_testing_packages':
     ensure   => present,
-    enabled  => true,
-    gpgcheck => false,
+    enabled  => '1',
+    gpgcheck => '0',
     baseurl  => 'ftp://fr2.rpmfind.net/linux/dag/redhat/el6/en/$basearch/testing',
   }
 
