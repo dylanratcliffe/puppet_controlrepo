@@ -1,6 +1,6 @@
 class profile::metrics::collectd {
   $collectd_dir = '/etc/collectd'
-  $collectd_version = '5.1.0'
+  $collectd_version = '5.1.0-1.el6.rft'
 
   $dependencies = [
     'perl',
