@@ -18,18 +18,17 @@ class profile::metrics::collectd {
 
   staging::file { 'collectd-5.5.0-1.el6.x86_64.rpm':
     source => 'http://dl.marmotte.net/rpms/redhat/el6/x86_64/collectd-5.5.0-1.el6/collectd-5.5.0-1.el6.x86_64.rpm',
-    target => '/tmp/collectd-5.5.0-1.el6.x86_64.rpm',
     before => Class['::collectd'],
   }
 
   class { '::collectd':
     purge_config     => true,
-    package_ensure   => $collectd_version,
+    package_ensure   => 'present',
     package_provider => 'rpm',
   }
 
   Package <| title == 'collectd' |> {
-    source => '/tmp/collectd-5.5.0-1.el6.x86_64.rpm',
+    source => '/opt/staging/profile/collectd-5.5.0-1.el6.x86_64.rpm',
   }
 
   include ::collectd::plugin::cpu
