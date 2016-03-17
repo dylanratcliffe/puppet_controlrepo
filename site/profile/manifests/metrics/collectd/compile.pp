@@ -1,4 +1,7 @@
 class profile::metrics::collectd::compile {
+  # This class is for compiling collectd from source, but is redundant
+  # if you can get at the package
+
   $collectd_version = '5.5.0'
   $collectd_dir = '/etc/collectd'
 
