@@ -12,10 +12,10 @@ class profile::metrics::collectd {
   # }
 
   # Do this yumrepo before ANY packages
-  Yumrepo['dag_testing_packages'] -> Package <||>
+  #Yumrepo['dag_testing_packages'] -> Package <||>
 
   require profile::metrics::collectd::compile
-  
+
   class { '::collectd':
     purge_config   => true,
     package_ensure => 'absent', # Changed to absent so that we don't manage it, usually $collectd_version
