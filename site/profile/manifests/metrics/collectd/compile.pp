@@ -39,6 +39,7 @@ class profile::metrics::collectd::compile {
     'yajl-devel',
     'protobuf-c-devel',
     'python-devel',
+    'libtool-ltdl-devel',
   ]
 
   require ::gcc
@@ -60,7 +61,7 @@ class profile::metrics::collectd::compile {
     require => File[$collectd_dir],
   }
 
-  exec { 'compile_collectd':
+  exec { 'configure_collectd':
     command => 'configure',
     cwd     => "${collectd_dir}/collectd-${collectd_version}",
     path    => "${::path}:${collectd_dir}/collectd-${collectd_version}",
@@ -72,7 +73,7 @@ class profile::metrics::collectd::compile {
     command => 'make all install',
     path    => "${::path}:${collectd_dir}/collectd-${collectd_version}",
     creates => '/opt/collectd',
-    require => [Exec['compile_collectd'],Package[$dependencies]],
+    require => [Exec['configure_collectd'],Package[$dependencies]],
   }
 
 }

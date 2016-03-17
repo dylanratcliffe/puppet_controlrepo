@@ -14,11 +14,21 @@ class profile::metrics::collectd {
   # Do this yumrepo before ANY packages
   #Yumrepo['dag_testing_packages'] -> Package <||>
 
-  require profile::metrics::collectd::compile
+  #require profile::metrics::collectd::compile
+
+  staging::file { '/tmp/collectd-5.5.0-1.el6.x86_64.rpm':
+    source => 'http://dl.marmotte.net/rpms/redhat/el6/x86_64/collectd-5.5.0-1.el6/collectd-5.5.0-1.el6.x86_64.rpm',
+    before => Class['::collectd'],
+  }
 
   class { '::collectd':
-    purge_config   => true,
-    package_ensure => 'absent', # Changed to absent so that we don't manage it, usually $collectd_version
+    purge_config     => true,
+    package_ensure   => $collectd_version,
+    package_provider => 'rpm',
+  }
+
+  Class <| title == 'collectd' |> {
+    source => '/tmp/collectd-5.5.0-1.el6.x86_64.rpm',
   }
 
   include ::collectd::plugin::cpu
