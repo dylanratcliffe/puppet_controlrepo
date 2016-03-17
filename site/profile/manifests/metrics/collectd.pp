@@ -27,7 +27,7 @@ class profile::metrics::collectd {
     package_provider => 'rpm',
   }
 
-  Class <| title == 'collectd' |> {
+  Package <| title == 'collectd' |> {
     source => '/tmp/collectd-5.5.0-1.el6.x86_64.rpm',
   }
 
