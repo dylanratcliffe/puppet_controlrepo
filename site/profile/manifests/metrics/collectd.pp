@@ -16,8 +16,9 @@ class profile::metrics::collectd {
 
   #require profile::metrics::collectd::compile
 
-  staging::file { '/tmp/collectd-5.5.0-1.el6.x86_64.rpm':
+  staging::file { 'collectd-5.5.0-1.el6.x86_64.rpm':
     source => 'http://dl.marmotte.net/rpms/redhat/el6/x86_64/collectd-5.5.0-1.el6/collectd-5.5.0-1.el6.x86_64.rpm',
+    target => '/tmp/collectd-5.5.0-1.el6.x86_64.rpm',
     before => Class['::collectd'],
   }
 
