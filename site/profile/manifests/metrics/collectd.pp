@@ -10,7 +10,6 @@ class profile::metrics::collectd {
   include ::collectd::plugin::memory
   include ::collectd::plugin::interface
   include ::collectd::plugin::df
-  include ::collectd::plugin::java
 
   collectd::plugin::write_graphite::carbon {'my_graphite':
     graphitehost   => 'metrics.methodologies.com',

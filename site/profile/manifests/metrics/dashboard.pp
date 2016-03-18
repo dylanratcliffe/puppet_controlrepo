@@ -141,4 +141,17 @@ class profile::metrics::dashboard (
       ],
       require       => Class['grafana'],
   }
+
+  file { 'default_dashboard':
+    ensure  => file,
+    path    => '/opt/grafana/app/dashboards/default.json',
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+    content => epp('dashboard.json.epp',{
+      'server_id'   => $puppet_enterprise::profile::master::metrics_server_id,
+      'collectd_id' => regsubst($::fqdn,'\.','_','G')
+    })
+  }
+
 }
