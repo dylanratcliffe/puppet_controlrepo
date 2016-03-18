@@ -153,8 +153,6 @@ class profile::metrics::dashboard (
       'collectd_id' => regsubst($::fqdn,'\.','_','G')
     })
   }
-  $underscores = regsubst($::fqdn,'\.','_','G')
-  notify { $puppet_enterprise::profile::master::metrics_server_id: }
-  notify { $underscores: }
+  notify { $server_facts['environment']: }
 
 }
