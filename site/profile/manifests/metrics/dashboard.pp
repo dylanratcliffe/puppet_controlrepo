@@ -153,6 +153,6 @@ class profile::metrics::dashboard (
       'collectd_id' => regsubst($::fqdn,'\.','_','G')
     })
   }
-  notify { $server_facts['environment']: }
+  notify { regsubst($servername,'\..*',''): }
 
 }
