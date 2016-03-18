@@ -149,10 +149,9 @@ class profile::metrics::dashboard (
     group   => 'root',
     mode    => '0644',
     content => epp('profile/dashboard.json.epp',{
-      'server_id'   => $puppet_enterprise::profile::master::metrics_server_id,
-      'collectd_id' => regsubst($::fqdn,'\.','_','G')
+      'server_id'   => regsubst($servername,'\..*',''),
+      'collectd_id' => regsubst($servername,'\.','_','G')
     })
   }
-  notify { regsubst($servername,'\..*',''): }
 
 }
