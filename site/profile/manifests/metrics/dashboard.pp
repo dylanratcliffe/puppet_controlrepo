@@ -142,6 +142,7 @@ class profile::metrics::dashboard (
       require       => Class['grafana'],
   }
 
+
   file { 'default_dashboard':
     ensure  => file,
     path    => '/opt/grafana/app/dashboards/default.json',
@@ -149,8 +150,8 @@ class profile::metrics::dashboard (
     group   => 'root',
     mode    => '0644',
     content => epp('profile/dashboard.json.epp',{
-      'server_id'   => regsubst($servername,'\..*',''),
-      'collectd_id' => regsubst($servername,'\.','_','G')
+      'server_id'   => regsubst($servername,'\..*',''), # Could get this from hiera
+      'collectd_id' => regsubst($servername,'\.','_','G'),
     })
   }
 

@@ -1,6 +1,11 @@
 # We are not going to actually have this service anywhere on our servers but
 # our code needs to refresh it. This is to trck puppet into doing nothing
 
+$servername = 'somemaster.puppetlabs.com' # Workaround for the lack of a master
+
+unless $concat_basedir {
+  $concat_basedir = '/opt/puppetlabs/puppet/share/concat' # Workaround for lack of concat facts
+}
 service { 'pe-puppetserver':
   ensure     => 'running',
   enable     => false,
