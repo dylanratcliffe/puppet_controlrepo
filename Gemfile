@@ -13,7 +13,7 @@ if ENV['CONTROLREPO_gem'] == 'local'
   gem 'controlrepo', :path => '/Users/dylanratcliffe/git/controlrepo_gem'
 else
   gem 'controlrepo',
-    :git => 'https://github.com/dylanratcliffe/controlrepo_gem.git',
+    :git => 'https://github.com/dylanratcliffe/controlrepo_gem.git'
 end
 
 gem 'rspec-puppet',
