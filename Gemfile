@@ -14,7 +14,6 @@ if ENV['CONTROLREPO_gem'] == 'local'
 else
   gem 'controlrepo',
     :git => 'https://github.com/dylanratcliffe/controlrepo_gem.git',
-    :branch => 'METHOD-569'
 end
 
 gem 'rspec-puppet',
