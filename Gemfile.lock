@@ -6,21 +6,19 @@ GIT
     rspec-puppet (2.3.0)
       rspec
 
-GIT
-  remote: https://github.com/dylanratcliffe/controlrepo_gem.git
-  revision: 885e4e943fe75bfe273505fb5f5d42e4ec43d418
-  branch: METHOD-569
+PATH
+  remote: /Users/dylanratcliffe/git/controlrepo_gem
   specs:
-    controlrepo (2.0.5)
+    controlrepo (2.0.10)
       beaker-rspec
       bundler
       git
-      json
+      json (>= 1.8.2)
       puppet
-      puppetlabs_spec_helper
-      r10k
-      rake
-      rspec
+      puppetlabs_spec_helper (>= 0.4.0)
+      r10k (>= 2.1.0)
+      rake (>= 10.0.0)
+      rspec (>= 3.0.0)
       rspec-puppet
 
 GEM
