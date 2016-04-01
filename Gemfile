@@ -16,9 +16,7 @@ else
     :git => 'https://github.com/dylanratcliffe/controlrepo_gem.git'
 end
 
-gem 'rspec-puppet',
-  :git => 'https://github.com/adrienthebo/rspec-puppet.git',
-  :branch => 'issue-343-puppet-4-modulepath'
+gem 'rspec-puppet'
 gem "rake"
 gem 'yard'
 #########################
