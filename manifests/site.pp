@@ -1,4 +1,4 @@
-node 'jenkins.puppetlabs.demo' {
+node /jenkins/ {
   include role::jenkins
 }
 
