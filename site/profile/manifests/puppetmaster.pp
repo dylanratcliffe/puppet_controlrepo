@@ -16,4 +16,11 @@ class profile::puppetmaster {
     proto  => tcp,
     action => accept,
   }
+
+  # Tuning
+  # max-active-instances should be set to the number of cpus
+
+  # puppet server heap 512MB + (max-active-instances * 512MB).
+
+
 }
