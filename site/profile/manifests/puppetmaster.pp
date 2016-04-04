@@ -1,6 +1,6 @@
 class profile::puppetmaster {
   include profile::puppetmaster::tuning
-  
+
   firewall { '100 allow https access':
     dport  => 443,
     proto  => tcp,
@@ -21,6 +21,6 @@ class profile::puppetmaster {
 
   package { 'puppetclassify':
     ensure   => present,
-    provider => 'puppet_gem',
+    provider => 'puppetserver_gem',
   }
 }
