@@ -36,7 +36,7 @@ mod 'dwerder/grafana'               ,'1.2.0'
 mod 'puppet/collectd'               ,'4.3.0'
 mod 'puppetlabs/puppetserver_gem'   ,'0.2.0'
 mod 'WhatsARanjit/node_manager'     ,'0.2.1'
-mod 'dalen/puppetdbquery'           ,'2.2.2'
+mod 'dalen/puppetdbquery'           ,'2.1.1'
 
 mod 'stdlib',
   :git => 'https://github.com/puppetlabs/puppetlabs-stdlib.git'
