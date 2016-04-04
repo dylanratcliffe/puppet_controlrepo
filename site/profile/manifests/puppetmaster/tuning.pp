@@ -31,7 +31,6 @@ class profile::puppetmaster::tuning {
 
   # if not, bump up the subsystem memory; activemq, puppetdb etc.
   if ($puppetserver_optimal_memory < $puppetserver_available_memory) {
-    $puppetserver_memory = $puppetserver_optimal_memory
     # If we can afford to double the base memory of the other stuff, do it.
     if ((($console_services_base_memory +
     $orchestration_services_base_memory +
@@ -42,12 +41,18 @@ class profile::puppetmaster::tuning {
       $orchestration_services_memory = $orchestration_services_base_memory * 2
       $puppetdb_memory               = $puppetdb_base_memory * 2
       $activemq_memory               = $activemq_base_memory * 2
+      $puppetserver_memory           = ($memory_mb - $reserved_memory
+                                        - $console_services_memory
+                                        - $orchestration_services_memory
+                                        - $puppetdb_memory
+                                        - $activemq_memory)
     } else {
       # Otherwise just leave them where they are
       $console_services_memory       = $console_services_base_memory
       $orchestration_services_memory = $orchestration_services_base_memory
       $puppetdb_memory               = $puppetdb_base_memory
       $activemq_memory               = $activemq_base_memory
+      $puppetserver_memory           = $puppetserver_optimal_memory
     }
   } else {
     $puppetserver_memory           = $puppetserver_available_memory
@@ -56,6 +61,8 @@ class profile::puppetmaster::tuning {
     $puppetdb_memory               = $puppetdb_base_memory
     $activemq_memory               = $activemq_base_memory
   }
+
+  # Final config steps
 
   $pe_master_group       = node_groups('PE Master')
   $pe_console_group      = node_groups('PE Console')
