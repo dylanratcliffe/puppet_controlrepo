@@ -1,10 +1,11 @@
 class profile::puppetmaster {
   # Wait until we have installed the stuff first
-  if query_resources("Class['profile::puppetmaster']","Package['puppetclassify']") {
+  $query_results = query_resources("Class['profile::puppetmaster']","Package['puppetclassify']")
+  #if $query_results {
     #include profile::puppetmaster::tuning
-  }
+  #}
 
-  notify { query_resources("Class['profile::puppetmaster']","Package['puppetclassify']"): }
+  notify { $query_results: }
 
   firewall { '100 allow https access':
     dport  => 443,
