@@ -2,7 +2,7 @@
 #
 class profile::puppetmaster::tuning {
   # How much memory to leave for the system
-  $reserved_memory                       = 512
+  $reserved_memory = 512
 
   # NOTE: This might be better in ruby
   # The best thing to do here is probably the following:
@@ -31,6 +31,7 @@ class profile::puppetmaster::tuning {
 
   # if not, bump up the subsystem memory; activemq, puppetdb etc.
   if ($puppetserver_optimal_memory < $puppetserver_available_memory) {
+    $puppetserver_memory = $puppetserver_optimal_memory
     # If we can afford to double the base memory of the other stuff, do it.
     if ((($console_services_base_memory +
     $orchestration_services_base_memory +
@@ -61,6 +62,20 @@ class profile::puppetmaster::tuning {
   notify { "Calculated orchestration_services memory is: ${orchestration_services_memory}Mb": }
   notify { "Calculated puppetdb memory is: ${puppetdb_memory}Mb": }
   notify { "Calculated activemq memory is: ${activemq_memory}Mb": }
+
+  $pe_master_group = node_groups('PE Master')
+  $pe_console_group = node_groups('PE Console')
+  $pe_orchestrator_group = node_groups('PE Orchestrator')
+  $pe_puppetdb_group = node_groups('PE PuppetDB')
+  $pe_activemq_group = node_groups('PE ActiveMQ Broker')
+
+  $pe_master_group_additions = {
+    'classes' => {
+      'puppet_enterprise::profile::master' => {
+        'java_args' => "{\"Xmx\": \"${puppetserver_memory}m\", \"Xms\": \"${puppetserver_memory}m\"}"
+      }
+    }
+  }
 
   # TODO: If we have bumped the subsystems to a high value and we still have memory left over *maybe* allocate the rest to puppetserver
 
