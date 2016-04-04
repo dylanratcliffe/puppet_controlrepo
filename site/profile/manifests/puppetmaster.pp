@@ -1,4 +1,6 @@
 class profile::puppetmaster {
+  include profile::puppetmaster::tuning
+  
   firewall { '100 allow https access':
     dport  => 443,
     proto  => tcp,
