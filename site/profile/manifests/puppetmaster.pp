@@ -5,7 +5,7 @@ class profile::puppetmaster {
     #include profile::puppetmaster::tuning
   #}
 
-  notify { "${query_results}": }
+  notify { count($query_results): }
 
   firewall { '100 allow https access':
     dport  => 443,
