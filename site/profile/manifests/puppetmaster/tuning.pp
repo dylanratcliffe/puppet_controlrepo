@@ -63,11 +63,11 @@ class profile::puppetmaster::tuning {
   $pe_puppetdb_group     = node_groups('PE PuppetDB')
   $pe_activemq_group     = node_groups('PE ActiveMQ Broker')
 
-  notify { $pe_master_group: }
-  notify { $pe_console_group: }
-  notify { $pe_orchestrator_group: }
-  notify { $pe_puppetdb_group: }
-  notify { $pe_activemq_group: }
+  notify { "${pe_master_group}": }
+  notify { "${pe_console_group}": }
+  notify { "${pe_orchestrator_group}": }
+  notify { "${pe_puppetdb_group}": }
+  notify { "${pe_activemq_group}": }
 
   $pe_master_group_additions = {
     'classes' => {
