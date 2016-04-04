@@ -1,7 +1,7 @@
 class profile::base {
   include ::epel
 
-  package { ['tree','vim','git']:
+  package { ['tree','vim','git','htop']:
     ensure => latest,
   }
 
