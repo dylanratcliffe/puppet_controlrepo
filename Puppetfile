@@ -26,7 +26,6 @@ mod 'rtyler/jenkins'                ,'1.6.1'
 mod 'unibet/vagrant'                ,'0.2.0'
 mod 'darin/zypprepo'                ,'1.0.2'
 mod 'puppetlabs/strings'            ,'0.3.1'
-mod 'WhatsARanjit/node_manager'     ,'0.2.1'
 mod 'jfryman/nginx'                 ,'0.2.7'
 mod 'puppetlabs/nodejs'             ,'0.8.0'
 mod 'maestrodev/wget'               ,'1.7.1'
@@ -37,5 +36,9 @@ mod 'dwerder/grafana'               ,'1.2.0'
 mod 'puppet/collectd'               ,'4.3.0'
 mod 'puppetlabs/puppetserver_gem'   ,'0.2.0'
 
+mod 'WhatsARanjit/node_manager',
+  :git => 'https://github.com/puppetlabs/prosvcs-node_manager.git',
+  :branch => 'master'
+  
 mod 'stdlib',
   :git => 'https://github.com/puppetlabs/puppetlabs-stdlib.git'
