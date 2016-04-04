@@ -22,5 +22,6 @@ class profile::puppetmaster {
   package { 'puppetclassify':
     ensure   => present,
     provider => 'puppetserver_gem',
+    notify   => Service['pe-puppetserver'],
   }
 }

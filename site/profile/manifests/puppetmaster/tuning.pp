@@ -57,17 +57,17 @@ class profile::puppetmaster::tuning {
     $activemq_memory               = $activemq_base_memory
   }
 
-  notify { "Calculated puppetserver memory is: ${puppetserver_memory}Mb": }
-  notify { "Calculated console_services memory is: ${console_services_memory}Mb": }
-  notify { "Calculated orchestration_services memory is: ${orchestration_services_memory}Mb": }
-  notify { "Calculated puppetdb memory is: ${puppetdb_memory}Mb": }
-  notify { "Calculated activemq memory is: ${activemq_memory}Mb": }
-
-  $pe_master_group = node_groups('PE Master')
-  $pe_console_group = node_groups('PE Console')
+  $pe_master_group       = node_groups('PE Master')
+  $pe_console_group      = node_groups('PE Console')
   $pe_orchestrator_group = node_groups('PE Orchestrator')
-  $pe_puppetdb_group = node_groups('PE PuppetDB')
-  $pe_activemq_group = node_groups('PE ActiveMQ Broker')
+  $pe_puppetdb_group     = node_groups('PE PuppetDB')
+  $pe_activemq_group     = node_groups('PE ActiveMQ Broker')
+
+  notify { $pe_master_group: }
+  notify { $pe_console_group: }
+  notify { $pe_orchestrator_group: }
+  notify { $pe_puppetdb_group: }
+  notify { $pe_activemq_group: }
 
   $pe_master_group_additions = {
     'classes' => {
