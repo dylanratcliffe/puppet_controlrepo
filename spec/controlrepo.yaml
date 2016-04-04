@@ -1,5 +1,6 @@
 classes:
-  - 'role::puppetmaster'
+  - 'role::puppetmaster::basic'
+  - 'role::puppetmaster::metrics'
   - 'role::dbserver'
   - 'role::metrics'
 
@@ -29,6 +30,9 @@ node_groups:
     exclude: 'CentOS-7.0-64-master'
 
 class_groups:
+  master_classes:
+    - 'role::puppetmaster::basic'
+    - 'role::puppetmaster::metrics'
   databse_classes:
     - 'role::dbserver'
 
@@ -44,10 +48,10 @@ test_matrix:
       classes: 'all_classes'
       tests: 'acceptance'
   - CentOS-7.0-64-master:
-      classes: 'role::puppetmaster'
+      classes: 'master_classes'
       tests: 'spec'
   - Debian-7.8-64:
-      classes: 'role::puppetmaster'
+      classes: 'master_classes'
       tests: 'acceptance'
       options:
         runs_before_idempotency: 3
