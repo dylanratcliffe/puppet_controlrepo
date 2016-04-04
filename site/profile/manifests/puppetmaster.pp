@@ -17,10 +17,8 @@ class profile::puppetmaster {
     action => accept,
   }
 
-  # Tuning
-  # max-active-instances should be set to the number of cpus
-
-  # puppet server heap 512MB + (max-active-instances * 512MB).
-
-
+  package { 'puppetclassify':
+    ensure   => present,
+    provider => 'puppet_gem',
+  }
 }
