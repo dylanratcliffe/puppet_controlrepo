@@ -142,5 +142,10 @@ class profile::puppetmaster::tuning {
     parent  => 'PE Infrastructure',
   }
 
+  Pe_hocon_setting <| title == 'jruby-puppet.max-active-instances' |> {
+    ensure => present,
+    value  => $max_active_instances,
+  }
+
   # TODO: If we have bumped the subsystems to a high value and we still have memory left over *maybe* allocate the rest to puppetserver
 }
