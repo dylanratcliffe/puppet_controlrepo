@@ -56,11 +56,11 @@ class profile::puppetmaster::tuning {
     $activemq_memory               = $activemq_base_memory
   }
 
-  notice("Calculated puppetserver memory is: ${puppetserver_memory}Mb")
-  notice("Calculated console_services memory is: ${console_services_memory}Mb")
-  notice("Calculated orchestration_services memory is: ${orchestration_services_memory}Mb")
-  notice("Calculated puppetdb memory is: ${puppetdb_memory}Mb")
-  notice("Calculated activemq memory is: ${activemq_memory}Mb")
+  notify { "Calculated puppetserver memory is: ${puppetserver_memory}Mb": }
+  notify { "Calculated console_services memory is: ${console_services_memory}Mb": }
+  notify { "Calculated orchestration_services memory is: ${orchestration_services_memory}Mb": }
+  notify { "Calculated puppetdb memory is: ${puppetdb_memory}Mb": }
+  notify { "Calculated activemq memory is: ${activemq_memory}Mb": }
 
   # TODO: If we have bumped the subsystems to a high value and we still have memory left over *maybe* allocate the rest to puppetserver
 
