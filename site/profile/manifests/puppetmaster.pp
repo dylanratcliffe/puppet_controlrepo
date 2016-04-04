@@ -4,7 +4,8 @@ class profile::puppetmaster {
     include profile::puppetmaster::tuning
   }
 
-  notify { query_resources("Package['puppetclassify']"): }
+  notify { query_resources("Class['profile::puppetmaster']","Package['puppetclassify']"): }
+  
   firewall { '100 allow https access':
     dport  => 443,
     proto  => tcp,
