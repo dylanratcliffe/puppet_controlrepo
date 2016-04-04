@@ -4,8 +4,8 @@ class profile::puppetmaster {
   #if $query_results {
     #include profile::puppetmaster::tuning
   #}
-
-  notify { count($query_results): }
+  $count = count($query_results)
+  notify { "${count}": }
 
   firewall { '100 allow https access':
     dport  => 443,
