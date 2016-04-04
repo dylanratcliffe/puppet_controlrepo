@@ -63,21 +63,72 @@ class profile::puppetmaster::tuning {
   $pe_puppetdb_group     = node_groups('PE PuppetDB')
   $pe_activemq_group     = node_groups('PE ActiveMQ Broker')
 
-  notify { "${pe_master_group}": }
-  notify { "${pe_console_group}": }
-  notify { "${pe_orchestrator_group}": }
-  notify { "${pe_puppetdb_group}": }
-  notify { "${pe_activemq_group}": }
-
   $pe_master_group_additions = {
-    'classes' => {
-      'puppet_enterprise::profile::master' => {
-        'java_args' => "{\"Xmx\": \"${puppetserver_memory}m\", \"Xms\": \"${puppetserver_memory}m\"}"
+    'puppet_enterprise::profile::master' => {
+      'java_args' => {
+        'Xmx' => "${puppetserver_memory}m",
+        'Xms' => "${puppetserver_memory}m"
       }
     }
   }
 
+  $pe_console_group_additions = {
+    'puppet_enterprise::profile::console' => {
+      'java_args' => {
+        'Xmx' => "${console_services_memory}m",
+        'Xms' => "${console_services_memory}m"
+      }
+    }
+  }
+
+  $pe_orchestrator_group_additions = {
+    'puppet_enterprise::profile::orchestrator' => {
+      'java_args' => {
+        'Xmx' => "${orchestration_services_memory}m",
+        'Xms' => "${orchestration_services_memory}m"
+      }
+    }
+  }
+
+  $pe_puppetdb_group_additions = {
+    'puppet_enterprise::profile::puppetdb' => {
+      'java_args' => {
+        'Xmx' => "${puppetdb_memory}m",
+        'Xms' => "${puppetdb_memory}m"
+      }
+    }
+  }
+
+  $pe_activemq_group_additions = {
+    'puppet_enterprise::profile::amq::broker' => {
+      'heap_mb' => $activemq_memory
+    }
+  }
+
+  node_group { 'PE Master':
+    ensure  => present,
+    classes => merge($pe_master_group['PE Master']['classes'],$pe_master_group_additions),
+  }
+
+  node_group { 'PE Console':
+    ensure  => present,
+    classes => merge($pe_console_group['PE Console']['classes'],$pe_console_group_additions),
+  }
+
+  node_group { 'PE Orchestrator':
+    ensure  => present,
+    classes => merge($pe_orchestrator_group['PE Orchestrator']['classes'],$pe_orchestrator_group_additions),
+  }
+
+  node_group { 'PE PuppetDB':
+    ensure  => present,
+    classes => merge($pe_puppetdb_group['PE PuppetDB']['classes'],$pe_puppetdb_group_additions),
+  }
+
+  node_group { 'PE ActiveMQ Broker':
+    ensure  => present,
+    classes => merge($pe_activemq_group['PE ActiveMQ Broker']['classes'],$pe_activemq_group_additions),
+  }
+
   # TODO: If we have bumped the subsystems to a high value and we still have memory left over *maybe* allocate the rest to puppetserver
-
-
 }
