@@ -1,6 +1,6 @@
 class profile::puppetmaster {
   # Wait until we have installed the stuff first before including this class
-  if count(query_resources("Class['profile::puppetmaster']","Package['puppetclassify']")) > 0 {
+  if count(query_resources("Class['profile::puppetmaster']","Package['puppetclassify_server']")) > 0 {
     include profile::puppetmaster::tuning
   }
 
@@ -22,9 +22,17 @@ class profile::puppetmaster {
     action => accept,
   }
 
-  package { 'puppetclassify':
+  package { 'puppetclassify_server':
     ensure   => present,
+    name     => 'puppetclassify',
     provider => 'puppetserver_gem',
+    notify   => Service['pe-puppetserver'],
+  }
+
+  package { 'puppetclassify_agent':
+    ensure   => present,
+    name     => 'puppetclassify',
+    provider => 'puppet_gem',
     notify   => Service['pe-puppetserver'],
   }
 }
