@@ -1,7 +1,7 @@
 class profile::puppetmaster {
   # Wait until we have installed the stuff first
   if query_resources("Class['profile::puppetmaster']","Package['puppetclassify']") {
-    include profile::puppetmaster::tuning
+    #include profile::puppetmaster::tuning
   }
 
   notify { query_resources("Class['profile::puppetmaster']","Package['puppetclassify']"): }
