@@ -1,7 +1,7 @@
 class profile::puppetmaster {
   # Wait until we have installed the stuff first before including this class
   # TODO: Find a faster way of soing this
-  if generate('puppetserver gem list puppetclassify | grep -c puppetclassify') > 0 {
+  if generate('/opt/puppetlabs/server/bin/puppetserver gem list puppetclassify | grep -c puppetclassify') > 0 {
     include profile::puppetmaster::tuning
   }
 
