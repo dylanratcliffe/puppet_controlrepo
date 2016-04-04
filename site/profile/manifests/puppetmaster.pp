@@ -1,6 +1,6 @@
 class profile::puppetmaster {
   # Wait until we have installed the stuff first
-  $query_results = query_resources("Class['profile::puppetmaster']","Package['puppetclassify']")
+  $query_results = query_resources("Class['profile::puppetmaster']","Package['dslkjfng']")
   #if $query_results {
     #include profile::puppetmaster::tuning
   #}
