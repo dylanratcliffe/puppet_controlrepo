@@ -107,27 +107,27 @@ class profile::puppetmaster::tuning {
 
   node_group { 'PE Master':
     ensure  => present,
-    classes => merge($pe_master_group['PE Master']['classes'],$pe_master_group_additions),
+    classes => deep_merge($pe_master_group['PE Master']['classes'],$pe_master_group_additions),
   }
 
   node_group { 'PE Console':
     ensure  => present,
-    classes => merge($pe_console_group['PE Console']['classes'],$pe_console_group_additions),
+    classes => deep_merge($pe_console_group['PE Console']['classes'],$pe_console_group_additions),
   }
 
   node_group { 'PE Orchestrator':
     ensure  => present,
-    classes => merge($pe_orchestrator_group['PE Orchestrator']['classes'],$pe_orchestrator_group_additions),
+    classes => deep_merge($pe_orchestrator_group['PE Orchestrator']['classes'],$pe_orchestrator_group_additions),
   }
 
   node_group { 'PE PuppetDB':
     ensure  => present,
-    classes => merge($pe_puppetdb_group['PE PuppetDB']['classes'],$pe_puppetdb_group_additions),
+    classes => deep_merge($pe_puppetdb_group['PE PuppetDB']['classes'],$pe_puppetdb_group_additions),
   }
 
   node_group { 'PE ActiveMQ Broker':
     ensure  => present,
-    classes => merge($pe_activemq_group['PE ActiveMQ Broker']['classes'],$pe_activemq_group_additions),
+    classes => deep_merge($pe_activemq_group['PE ActiveMQ Broker']['classes'],$pe_activemq_group_additions),
   }
 
   # TODO: If we have bumped the subsystems to a high value and we still have memory left over *maybe* allocate the rest to puppetserver
