@@ -1,13 +1,11 @@
 # == Class: profile::puppetmaster::tuning
 #
 class profile::puppetmaster::tuning {
-  # How much memory to leave for the system
-  $reserved_memory = 512
-
-  # NOTE: This might be better in ruby
-  # The best thing to do here is probably the following:
   # Take the total system memory
   $memory_mb = (($::memory['system']['total_bytes'] / 1024) / 1024)
+
+  # How much memory to leave for the system
+  $reserved_memory = $memory_mb / 8
 
   # Subtract some memory to leave for the system
   $available_memory = $memory_mb - $reserved_memory
@@ -55,11 +53,26 @@ class profile::puppetmaster::tuning {
       $puppetserver_memory           = $puppetserver_optimal_memory
     }
   } else {
-    $puppetserver_memory           = $puppetserver_available_memory
-    $console_services_memory       = $console_services_base_memory
-    $orchestration_services_memory = $orchestration_services_base_memory
-    $puppetdb_memory               = $puppetdb_base_memory
-    $activemq_memory               = $activemq_base_memory
+    # If we are overallocated by more than x%, halve the memory of the subsystems
+    $x = 0.20
+
+    if (($puppetserver_optimal_memory - $puppetserver_available_memory)/$puppetserver_optimal_memory) > $x {
+      $console_services_memory       = $console_services_base_memory / 2
+      $orchestration_services_memory = $orchestration_services_base_memory / 2
+      $puppetdb_memory               = $puppetdb_base_memory / 2
+      $activemq_memory               = $activemq_base_memory / 2
+      $puppetserver_memory           = ($memory_mb - $reserved_memory
+                                        - $console_services_memory
+                                        - $orchestration_services_memory
+                                        - $puppetdb_memory
+                                        - $activemq_memory)
+    } else {
+      $puppetserver_memory           = $puppetserver_available_memory
+      $console_services_memory       = $console_services_base_memory
+      $orchestration_services_memory = $orchestration_services_base_memory
+      $puppetdb_memory               = $puppetdb_base_memory
+      $activemq_memory               = $activemq_base_memory
+    }
   }
 
   # Final config steps
@@ -147,5 +160,5 @@ class profile::puppetmaster::tuning {
     value  => $max_active_instances,
   }
 
-  # TODO: If we have bumped the subsystems to a high value and we still have memory left over *maybe* allocate the rest to puppetserver
+  # TODO: Add scaling down
 }
