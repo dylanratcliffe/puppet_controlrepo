@@ -159,6 +159,4 @@ class profile::puppetmaster::tuning {
     ensure => present,
     value  => $max_active_instances,
   }
-
-  # TODO: Add scaling down
 }
