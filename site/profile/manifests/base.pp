@@ -8,6 +8,7 @@ class profile::base {
   host { $::fqdn:
     ensure       => present,
     host_aliases => [$::hostname],
+    ip           => $::ipaddress,
   }
 
   # Make sure that we install git before we try to use it
