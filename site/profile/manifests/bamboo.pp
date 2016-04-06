@@ -7,7 +7,7 @@ class profile::bamboo {
     bamboo_data    => '/var/bamboo/data',
     java_manage    => true,
     db_manage      => true,
-    db_version     => '9.4.7',
+    #db_version     => '9.4.7',
     db_name        => 'bamboo_db',
     db_pass        => '2cPKZ7*rotGWQFwphsodo[BNoJqdDG;]NR)jnv}jJm.RCFGzRk',
   }
