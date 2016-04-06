@@ -6,7 +6,7 @@ class profile::bamboo {
     bamboo_home    => '/home/bamboo/data',
     bamboo_data    => '/var/bamboo/data',
     java_manage    => true,
-    java_version   => '1.8.0',
+    java_package   => 'java-1.8.0-openjdk-devel',
     db_manage      => true,
     #db_version     => '9.4.7',
     db_name        => 'bamboo_db',
