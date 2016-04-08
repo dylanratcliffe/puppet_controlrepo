@@ -10,7 +10,8 @@ class profile::base {
     'htop',
     'ruby',
     'ruby-devel',
-    'zlib'
+    'zlib',
+    'zlib-devel'
   ]
 
   package { $packages:
