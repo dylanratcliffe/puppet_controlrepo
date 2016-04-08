@@ -8,6 +8,7 @@ class profile::bamboo {
     java_manage    => false,
     db_manage      => false,
     require        => [Class['postgresql::server'],Class['java']],
+    notify         => Exec['systemctl-daemon-reload'],
   }
 
   class { 'postgresql::server': }
