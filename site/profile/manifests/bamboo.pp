@@ -31,7 +31,7 @@ class profile::bamboo {
     require  => Package['ruby', 'ruby-dev'],
   }
 
-  package { ['ruby', 'ruby-dev']:
+  package { ['ruby', 'ruby-devel']:
     ensure => present,
   }
 
