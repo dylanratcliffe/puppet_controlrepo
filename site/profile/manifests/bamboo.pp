@@ -28,7 +28,7 @@ class profile::bamboo {
   package { ['controlrepo','bundler']:
     ensure   => 'latest',
     provider => 'gem',
-    require  => Package['ruby', 'ruby-dev'],
+    require  => Package['ruby', 'ruby-devel'],
   }
 
   package { ['ruby', 'ruby-devel']:
