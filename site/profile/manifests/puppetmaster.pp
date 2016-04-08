@@ -35,4 +35,12 @@ class profile::puppetmaster {
     provider => 'puppet_gem',
     notify   => Service['pe-puppetserver'],
   }
+
+  rbac_user { 'dylan':
+    ensure       => 'present',
+    display_name => 'Dylan Ratcliffe',
+    email        => 'dylan.ratcliffe@puppet.com',
+    password     => 'puppetlabs',
+    roles        => [ 'Administrators' ],
+  }
 }
