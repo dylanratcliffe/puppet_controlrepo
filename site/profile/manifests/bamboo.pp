@@ -5,6 +5,7 @@ class profile::bamboo {
     bamboo_version => '5.10.0',
     bamboo_home    => '/home/bamboo/data',
     bamboo_data    => '/var/bamboo/data',
+    service_enable => false,
     java_manage    => false,
     db_manage      => false,
     require        => [Class['postgresql::server'],Class['java']],
@@ -27,6 +28,7 @@ class profile::bamboo {
   package { ['controlrepo','bundler']:
     ensure   => 'latest',
     provider => 'gem',
+    require  => Package['ruby'],
   }
 
   package { 'ruby':
