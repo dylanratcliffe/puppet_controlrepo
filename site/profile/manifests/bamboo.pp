@@ -30,4 +30,10 @@ class profile::bamboo {
     provider => 'gem',
     require  => Package['ruby', 'ruby-devel', 'zlib'],
   }
+
+  file_line { 'gem_path':
+    ensure => present,
+    path   => '/home/bamboo/data/.bashrc',
+    line   => 'export PATH=$PATH:/usr/local/bin'
+  }
 }
