@@ -1,6 +1,7 @@
 class profile::base {
   include ::epel
   include ::systemd
+  include ::gcc
 
   package { ['tree','vim','git','htop']:
     ensure => latest,
