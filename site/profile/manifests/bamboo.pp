@@ -28,10 +28,10 @@ class profile::bamboo {
   package { ['controlrepo','bundler']:
     ensure   => 'latest',
     provider => 'gem',
-    require  => Package['ruby'],
+    require  => Package['ruby', 'ruby-dev'],
   }
 
-  package { 'ruby':
+  package { ['ruby', 'ruby-dev']:
     ensure => present,
   }
 
