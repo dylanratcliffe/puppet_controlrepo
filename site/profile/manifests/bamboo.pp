@@ -23,4 +23,15 @@ class profile::bamboo {
     distribution => 'jdk',
     package      => 'java-1.8.0-openjdk-devel',
   }
+
+  package { ['controlrepo','bundler']:
+    ensure   => 'latest',
+    provider => 'gem',
+  }
+
+  package { 'ruby':
+    ensure => present,
+  }
+
+
 }
