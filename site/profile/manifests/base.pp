@@ -3,7 +3,17 @@ class profile::base {
   include ::systemd
   include ::gcc
 
-  package { ['tree','vim','git','htop']:
+  $packages = [
+    'tree',
+    'vim',
+    'git',
+    'htop',
+    'ruby',
+    'ruby-devel',
+    'zlib'
+  ]
+
+  package { $packages:
     ensure => latest,
   }
 
