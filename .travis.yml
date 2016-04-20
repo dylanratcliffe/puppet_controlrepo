@@ -3,13 +3,9 @@ cache:
   bundler: true
   directories:
     - .controlrepo
-
 env:
   #- CONTROLREPO_temp="controlrepo_cache"
 rvm:
-  - 1.8.7
-  - 1.9.3
-  - 2.0.0
   - 2.1.8
   - 2.2.4
   - 2.3.0
