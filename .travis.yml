@@ -10,8 +10,8 @@ rvm:
   - 1.8.7
   - 1.9.3
   - 2.0.0
-  - 2.1.9
+  - 2.1.8
   - 2.2.4
   - 2.3.0
 script: bundler exec controlrepo run spec
-bundler_args: --without acceptance
+bundler_args: --without acceptance, development
