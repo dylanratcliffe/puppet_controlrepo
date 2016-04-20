@@ -41,20 +41,35 @@ test_matrix:
   - non_windows:
       classes: 'role::metrics'
       tests: 'spec'
+      tags:
+        - 'metrics'
   - non_windows:
       classes: 'role::dbserver'
       tests: 'spec'
+      tags: 'db'
+  - non_windows:
+      classes:
+        include: 'all_classes'
+        exclude: 'master_classes'
+      tests: 'spec'
+      tags: 'non_master'
   - non_windows_acceptance:
       classes: 'all_classes'
       tests: 'acceptance'
   - CentOS-7.0-64-master:
       classes: 'master_classes'
       tests: 'spec'
+      tags: 'master'
   - Debian-7.8-64:
       classes: 'master_classes'
       tests: 'acceptance'
-      options:
-        runs_before_idempotency: 3
+      runs_before_idempotency: 3
 #  - windows_nodes:
 #      classes: 'role::puppetmaster'
 #      tests: 'acceptance'
+
+
+functions:
+  query_resources:
+    type: rvalue
+    returns: []
