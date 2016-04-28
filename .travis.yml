@@ -2,12 +2,12 @@ language: ruby
 cache:
   bundler: true
   directories:
-    - .controlrepo
+    - .onceover
 env:
   #- CONTROLREPO_temp="controlrepo_cache"
 rvm:
   - 2.1.8
   - 2.2.4
   - 2.3.0
-script: bundler exec controlrepo run spec
-bundler_args: --without acceptance, development
+script: bundler exec onceover run spec
+bundler_args: --without development

@@ -1,7 +1,8 @@
-PATH
-  remote: /Users/dylanratcliffe/git/controlrepo_gem
+GIT
+  remote: https://github.com/dylanratcliffe/controlrepo_gem.git
+  revision: 406712d49e80e958f0265ec2f25d2f9cabded3d7
   specs:
-    onceover (2.0.10)
+    onceover (3.0.1)
       beaker-rspec
       bundler
       colored (~> 1.2)
@@ -304,7 +305,7 @@ GEM
       rspec-core (>= 2, < 4, != 2.12.0)
     rsync (1.0.9)
     semantic_puppet (0.1.1)
-    serverspec (2.32.0)
+    serverspec (2.33.0)
       multi_json
       rspec (~> 3.0)
       rspec-its
@@ -316,7 +317,7 @@ GEM
       jwt (~> 1.5)
       multi_json (~> 1.10)
     slop (3.6.0)
-    specinfra (2.57.0)
+    specinfra (2.57.1)
       net-scp
       net-ssh (>= 2.7, < 4.0)
       net-telnet
