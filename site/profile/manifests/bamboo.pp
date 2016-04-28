@@ -25,7 +25,7 @@ class profile::bamboo {
     package      => 'java-1.8.0-openjdk-devel',
   }
 
-  package { ['bundler','onceover']:
+  package { ['bundler']:
     ensure   => 'latest',
     provider => 'gem',
     require  => Package['ruby', 'ruby-devel', 'zlib'],
