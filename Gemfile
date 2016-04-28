@@ -9,10 +9,10 @@ group :acceptance do
   gem 'beaker-rspec'
 end
 
-if ENV['CONTROLREPO_gem'] == 'local'
-  gem 'controlrepo', :path => '/Users/dylanratcliffe/git/controlrepo_gem'
+if ENV['ONCEOVER_gem'] == 'local'
+  gem 'onceover', :path => '/Users/dylanratcliffe/git/controlrepo_gem'
 else
-  gem 'controlrepo',
+  gem 'onceover',
     :git => 'https://github.com/dylanratcliffe/controlrepo_gem.git'
 end
 

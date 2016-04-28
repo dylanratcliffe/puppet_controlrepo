@@ -1,8 +1,7 @@
-GIT
-  remote: https://github.com/dylanratcliffe/controlrepo_gem.git
-  revision: ddc3ba8e55fc44db714d3bbb547f60a4a641000c
+PATH
+  remote: /Users/dylanratcliffe/git/controlrepo_gem
   specs:
-    controlrepo (2.0.10)
+    onceover (2.0.10)
       beaker-rspec
       bundler
       colored (~> 1.2)
@@ -341,9 +340,9 @@ DEPENDENCIES
   beaker
   beaker-rspec
   bundler
-  controlrepo!
   git
   json
+  onceover!
   pry
   pry-byebug
   puppet
