@@ -36,4 +36,14 @@ class profile::bamboo {
     path   => '/home/bamboo/data/.bashrc',
     line   => 'export PATH=$PATH:/usr/local/bin'
   }
+
+  include ::rvm
+
+  rvm::system_user { 'bamboo': }
+
+  rvm_system_ruby {
+    'ruby-2.3':
+      ensure      => 'present',
+      default_use => true,
+  }
 }

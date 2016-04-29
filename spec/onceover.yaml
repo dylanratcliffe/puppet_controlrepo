@@ -3,6 +3,7 @@ classes:
   - 'role::puppetmaster::metrics'
   - 'role::dbserver'
   - 'role::metrics'
+  - 'role::bamboo'
 
 nodes:
   - CentOS-6.6-64
@@ -43,14 +44,10 @@ class_groups:
 
 test_matrix:
   - non_windows_spec:
-      classes: 'role::metrics'
+      classes:
+        include: 'all_classes'
+        exclude: 'master_classes'
       tests: 'spec'
-      tags:
-        - 'metrics'
-  - non_windows_spec:
-      classes: 'role::dbserver'
-      tests: 'spec'
-      tags: 'db'
   - non_windows_acceptance:
       classes:
         include: 'all_classes'

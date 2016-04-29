@@ -41,6 +41,7 @@ mod 'dalen/puppetdbquery'           ,'2.1.1'
 mod 'pltraining/rbac'               ,'0.0.4'
 mod 'camptocamp/systemd'            ,'0.2.2'
 mod 'puppetlabs/stdlib'             ,'4.11.0'
+mod 'maestrodev/rvm'                ,'1.13.1'
 
 #mod 'stdlib',
 #  :git => 'https://github.com/puppetlabs/puppetlabs-stdlib.git'
