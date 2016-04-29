@@ -16,15 +16,4 @@ else
     :git => 'https://github.com/dylanratcliffe/controlrepo_gem.git'
 end
 
-gem 'rspec-puppet'
-gem "rake"
-gem 'yard'
-#########################
-gem 'json'
-gem 'puppetlabs_spec_helper'
-gem 'rspec'
-gem 'beaker'
-gem 'bundler'
-gem 'r10k'
-gem 'puppet'
-gem 'git'
+gem 'beaker', :git => 'https://github.com/puppetlabs/beaker.git'

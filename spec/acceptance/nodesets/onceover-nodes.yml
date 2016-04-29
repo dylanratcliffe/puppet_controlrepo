@@ -47,6 +47,15 @@ HOSTS:
     box: puppetlabs/ubuntu-14.04-64-puppet
     box_url: https://s3.amazonaws.com/puppetlabs-vagrantcloud/ubuntu-14.04-x86_64-virtualbox-puppet-1.0.2.box
     hypervisor: vagrant_virtualbox
+  CentOS-7.0-64-openstack:
+    roles:
+      - agent
+    type: aio
+    platform: el-7-x86_64
+    image: centos_7_x86_64_puppet
+    flavor: d1.small
+    hypervisor: openstack
+    user: centos
 #  Windows_Server-2008r2-64:
 #    roles:
 #      - agent
@@ -63,3 +72,14 @@ HOSTS:
 #    box: UNKNOWN
 #    box_url: URL goes here
 #    hypervisor: vagrant_virtualbox
+CONFIG:
+  openstack_api_key: 'OPENSTACK_PASSWORD'
+  openstack_username: dylan.ratcliffe
+  openstack_auth_url: 'https://slice-pdx1-prod.ops.puppetlabs.net:5000/v2.0/tokens'
+  openstack_tenant: dylan.ratcliffe
+  openstack_network : network0
+  openstack_keyname : bamboo
+  ssh:
+   auth_methods:
+     - publickey
+   keys: 'OPENSTACK_KEY'

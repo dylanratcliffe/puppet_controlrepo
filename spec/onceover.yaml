@@ -13,6 +13,7 @@ nodes:
   - Ubuntu-14.04-64
   - Windows_Server-2008r2-64
   - Windows_Server-2012r2-64
+  - CentOS-7.0-64-openstack
 
 node_groups:
   centos_servers:
@@ -59,6 +60,12 @@ test_matrix:
   - CentOS-7.0-64:
       classes: 'role::puppetmaster::basic'
       tests: 'acceptance'
+  - CentOS-7.0-64-openstack:
+      classes:
+        - 'role::dbserver'
+      tests: 'acceptance'
+      tags:
+        - 'openstack'
 #  - Debian-7.8-64:
 #      classes: 'master_classes'
 #      tests: 'acceptance'
