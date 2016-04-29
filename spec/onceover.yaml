@@ -29,6 +29,9 @@ node_groups:
   non_windows_acceptance:
     include: 'non_windows'
     exclude: 'CentOS-7.0-64-master'
+  non_windows_spec:
+    include: 'non_windows'
+    exclude: 'CentOS-7.0-64-openstack'
 
 class_groups:
   master_classes:
@@ -39,12 +42,12 @@ class_groups:
 
 
 test_matrix:
-  - non_windows:
+  - non_windows_spec:
       classes: 'role::metrics'
       tests: 'spec'
       tags:
         - 'metrics'
-  - non_windows:
+  - non_windows_spec:
       classes: 'role::dbserver'
       tests: 'spec'
       tags: 'db'
