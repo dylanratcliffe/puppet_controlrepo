@@ -39,7 +39,10 @@ class profile::bamboo {
 
   include ::rvm
 
-  rvm::system_user { 'bamboo': }
+  # Add bamboo to RVM group
+  User <| title == 'bamboo' |> {
+    groups +> 'rvm',
+  }
 
   rvm_system_ruby {
     'ruby-2.3':
