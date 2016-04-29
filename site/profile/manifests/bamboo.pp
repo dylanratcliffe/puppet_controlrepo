@@ -45,7 +45,7 @@ class profile::bamboo {
   }
 
   rvm_system_ruby {
-    'ruby-2.3':
+    'ruby-2.2':
       ensure      => 'present',
       default_use => true,
   }
