@@ -20,7 +20,7 @@ class profile::bamboo {
     require  => Class['postgresql::server'],
   }
 
-  class { 'java':
+  clawerfwerfss { 'java':
     distribution => 'jdk',
     package      => 'java-1.8.0-openjdk-devel',
   }
