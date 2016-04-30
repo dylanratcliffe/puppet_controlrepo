@@ -1,8 +1,8 @@
 GIT
-  remote: https://github.com/dylanratcliffe/controlrepo_gem.git
-  revision: e4fce105f0138e28b085ede03ca7fa94a164ee02
+  remote: https://github.com/dylanratcliffe/onceover.git
+  revision: debbcde593d40fc138fbf6959ee4293cbe04fb14
   specs:
-    onceover (3.0.1)
+    onceover (3.0.2)
       beaker-rspec
       bundler
       colored (~> 1.2)
@@ -310,7 +310,7 @@ GEM
       builder (< 4)
       rspec-core (>= 2, < 4, != 2.12.0)
     rsync (1.0.9)
-    semantic_puppet (0.1.1)
+    semantic_puppet (0.1.2)
     serverspec (2.33.0)
       multi_json
       rspec (~> 3.0)

@@ -63,6 +63,8 @@ test_matrix:
   - CentOS-7.0-64-openstack:
       classes:
         - 'role::dbserver'
+        - 'role::metrics'
+        - 'role::bamboo'
       tests: 'acceptance'
       tags:
         - 'openstack'

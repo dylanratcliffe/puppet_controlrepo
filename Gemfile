@@ -13,7 +13,7 @@ if ENV['ONCEOVER_gem'] == 'local'
   gem 'onceover', :path => '/Users/dylanratcliffe/git/controlrepo_gem'
 else
   gem 'onceover',
-    :git => 'https://github.com/dylanratcliffe/controlrepo_gem.git'
+    :git => 'https://github.com/dylanratcliffe/onceover.git'
 end
 
 gem 'beaker', :git => 'https://github.com/puppetlabs/beaker.git'
