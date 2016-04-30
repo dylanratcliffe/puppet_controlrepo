@@ -56,6 +56,15 @@ HOSTS:
     flavor: d1.small
     hypervisor: openstack
     user: centos
+  Ubuntu-14.04-64-openstack:
+    roles:
+      - agent
+    type: aio
+    platform: ubuntu-14.04-64
+    image: ubuntu_14.04_x86_64_puppet
+    flavor: d1.small
+    hypervisor: openstack
+    user: ubuntu
 #  Windows_Server-2008r2-64:
 #    roles:
 #      - agent
