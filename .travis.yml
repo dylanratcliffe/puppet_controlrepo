@@ -1,8 +1,13 @@
 language: ruby
+
 cache:
   bundler: true
   directories:
     - .onceover
+
+script: bundler exec onceover run spec
+bundler_args: --without development
+
 env:
   - PUPPET_version='4.5.0'
   - PUPPET_version='4.0.0'
@@ -14,5 +19,17 @@ rvm:
   - 2.1.8
   - 2.2.4
   - 2.3.0
-script: bundler exec onceover run spec
-bundler_args: --without development
+matrix:
+  exclude:
+    - rvm: 2.2.4
+      env:
+        - PUPPET_version='3.8.7'
+        - PUPPET_version='3.7.5'
+        - PUPPET_version='3.4.3'
+        - PUPPET_version='3.3.2'
+    - rvm: 2.3.0
+      env:
+        - PUPPET_version='3.8.7'
+        - PUPPET_version='3.7.5'
+        - PUPPET_version='3.4.3'
+        - PUPPET_version='3.3.2'
