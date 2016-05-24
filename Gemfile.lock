@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/dylanratcliffe/onceover.git
-  revision: debbcde593d40fc138fbf6959ee4293cbe04fb14
+  revision: ff05b650cbf8f4596a466fa525c003440cc961ac
   specs:
-    onceover (3.0.2)
+    onceover (3.0.5)
       beaker-rspec
       bundler
       colored (~> 1.2)

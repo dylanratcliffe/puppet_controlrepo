@@ -1,9 +1,9 @@
 {
-  "cmd": "bundle exec rake controlrepo_spec",
-  "name": "controlrepo_spec",
+  "cmd": "bundle exec onceover run spec",
+  "name": "onceover spec",
   "cwd": "{PROJECT_PATH}",
   "errorMatch": [
     "compilation:\\s.*production\\/(?<file>[\\w\\/]*.pp):(?<line>\\d*):(?<col>\\d*)"
   ],
-  "atomCommandName": "controlrepo:spec"
+  "atomCommandName": "onceover:spec"
 }
