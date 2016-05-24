@@ -5,6 +5,7 @@ class profile::base {
 
     # Make sure that systemd picks up any new services that we install
     Package <||> ~> Exec['systemctl-daemon-reload'] -> Service <||>
+    Class['::epel'] -> Package <||>
   }
 
   include ::gcc
@@ -32,5 +33,4 @@ class profile::base {
 
   # Make sure that we install git before we try to use it
   Package['git'] -> Vcsrepo <| provider == 'git' |>
-  Class['::epel'] -> Package <| |>
 }
