@@ -12,7 +12,7 @@ end
 if ENV['ONCEOVER_gem'] == 'local'
   gem 'onceover', :path => '/Users/dylanratcliffe/git/onceover'
 else
-  gem 'onceover', :git => 'https://github.com/dylanratcliffe/onceover.git'
+  gem 'onceover', :git => 'https://github.com/dylanratcliffe/onceover.git', :branch => 'issue-51'
 end
 
 gem 'puppet', ENV['PUPPET_version'] if ENV['PUPPET_version']
