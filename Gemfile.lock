@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/dylanratcliffe/onceover.git
-  revision: 89825ad5b69b3a92ed4f1c6605e20a4c53f23fe4
+  revision: 3a3acc208fe417b5a3e44983c2069cddb9368c86
   branch: issue-51
   specs:
     onceover (3.0.6)
