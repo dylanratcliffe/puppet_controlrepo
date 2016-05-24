@@ -34,7 +34,7 @@ class profile::bamboo {
     ensure  => present,
     path    => '/home/bamboo/data/.bashrc',
     line    => 'export PATH=$PATH:/usr/local/bin',
-    require => Class['::bamboo'],
+    require => User['bamboo'],
   }
 
   include ::rvm

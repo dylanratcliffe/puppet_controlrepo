@@ -65,10 +65,14 @@ test_matrix:
       classes: 'role::puppetmaster::basic'
       tests: 'acceptance'
   - CentOS-7.0-64-openstack:
-      classes:
-        - 'role::dbserver'
-        - 'role::bamboo'
+      classes: 'role::dbserver'
       tests: 'acceptance'
+      tags:
+        - 'openstack'
+  - CentOS-7.0-64-openstack:
+      classes: 'role::bamboo'
+      tests: 'acceptance'
+      runs_before_idempotency: 2
       tags:
         - 'openstack'
   - Ubuntu-14.04-64-openstack:
