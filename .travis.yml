@@ -23,5 +23,3 @@ matrix:
       env: PUPPET_version='3.7.5'
     - rvm: 2.1.8
       env: PUPPET_version='3.4.3'
-    - rvm: 2.1.8
-      env: PUPPET_version='3.3.2'
