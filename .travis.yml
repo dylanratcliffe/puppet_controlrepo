@@ -4,7 +4,12 @@ cache:
   directories:
     - .onceover
 env:
-  #- CONTROLREPO_temp="controlrepo_cache"
+  - PUPPET_version='4.5.0'
+  - PUPPET_version='4.0.0'
+  - PUPPET_version='3.8.7'
+  - PUPPET_version='3.7.5'
+  - PUPPET_version='3.4.3'
+  - PUPPET_version='3.3.2'
 rvm:
   - 2.1.8
   - 2.2.4
