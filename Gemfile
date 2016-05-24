@@ -10,7 +10,7 @@ group :acceptance do
 end
 
 if ENV['ONCEOVER_gem'] == 'local'
-  gem 'onceover'
+  gem 'onceover', :path => '/Users/dylanratcliffe/git/onceover'
 else
   gem 'onceover', :git => 'https://github.com/dylanratcliffe/onceover.git'
 end
