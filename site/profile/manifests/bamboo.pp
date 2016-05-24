@@ -9,7 +9,6 @@ class profile::bamboo {
     java_manage    => false,
     db_manage      => false,
     require        => [Class['postgresql::server'],Class['java']],
-    notify         => Exec['systemctl-daemon-reload'],
   }
 
   class { 'postgresql::server': }
@@ -32,9 +31,10 @@ class profile::bamboo {
   }
 
   file_line { 'gem_path':
-    ensure => present,
-    path   => '/home/bamboo/data/.bashrc',
-    line   => 'export PATH=$PATH:/usr/local/bin'
+    ensure  => present,
+    path    => '/home/bamboo/data/.bashrc',
+    line    => 'export PATH=$PATH:/usr/local/bin',
+    require => Class['::bamboo'],
   }
 
   include ::rvm

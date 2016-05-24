@@ -1,6 +1,12 @@
 class profile::base {
-  include ::epel
-  include ::systemd
+  if $::os['family'] == 'RedHat' {
+    include ::epel
+    include ::systemd
+
+    # Make sure that systemd picks up any new services that we install
+    Package <||> ~> Exec['systemctl-daemon-reload'] -> Service <||>
+  }
+
   include ::gcc
 
   $packages = [
