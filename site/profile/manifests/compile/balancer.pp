@@ -10,6 +10,5 @@ class profile::compile::balancer {
     collect_exported => true,
     ipaddress        => $::ipaddress,
     ports            => '8140',
-    require          => Class['::haproxy'],
   }
 }
