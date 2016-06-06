@@ -3,6 +3,15 @@ class profile::base {
     include ::epel
     include ::systemd
 
+    if $::ec2_metadata {
+      # Also enable the optional repo which is disabled in AWS
+      yumrepo { 'rhui-REGION-rhel-server-optional':
+        ensure  => 'present',
+        enabled => '1',
+        before  => Package['ruby-devel'],
+      }
+    }
+
     # Make sure that systemd picks up any new services that we install
     Package <||> ~> Exec['systemctl-daemon-reload'] -> Service <||>
     Class['::epel'] -> Package <||>

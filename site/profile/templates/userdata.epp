@@ -11,7 +11,7 @@ EOF
 mkdir -p /etc/puppetlabs/facter/facts.d
 cat > /etc/puppetlabs/facter/facts.d/facts.yaml <<'EOF'
 ---
-role: <%= $role %>
+role: '<%= $role %>'
 EOF
 
 curl -k https://<%= $master_fqdn %>:8140/packages/current/install.bash | bash

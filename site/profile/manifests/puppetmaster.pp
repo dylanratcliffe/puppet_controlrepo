@@ -10,13 +10,6 @@ class profile::puppetmaster {
     if count(query_resources("Class['profile::puppetmaster']","Class['autosign']")) > 0 {
       include profile::aws_nodes
     }
-
-    # Also enable the optional repo which is disabled in AWS
-    yumrepo { 'rhui-REGION-rhel-server-optional':
-      ensure  => 'present',
-      enabled => '1',
-      before  => Package['ruby-devel'],
-    }
   }
 
   $server_gems = [
