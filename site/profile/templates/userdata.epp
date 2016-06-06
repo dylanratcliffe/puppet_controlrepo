@@ -1,2 +1,3 @@
+#! /bin/bash
 echo "<%= $master_ip %> <%= $master_fqdn %>" >> /etc/hosts
 curl -k https://<%= $master_fqdn %>:8140/packages/current/install.bash | sudo bash
