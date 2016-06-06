@@ -16,7 +16,7 @@ class profile::aws_nodes {
     key_name          => 'personal_aws',
     monitoring        => false,
     region            => 'ap-southeast-2',
-    security_groups   => ['default'],
+    #security_groups   => ['default'],
     user_data         => epp('profile/userdata.epp',{
       'master_ip'   => $::ec2_metadata['public-ipv4'],
       'master_fqdn' => $::networking['fqdn'],
