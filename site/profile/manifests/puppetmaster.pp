@@ -20,6 +20,7 @@ class profile::puppetmaster {
     'puppetclassify',
     'aws-sdk-core',
     'retries',
+    'autosign',
   ]
 
   # Create basic firewall rules
@@ -85,5 +86,15 @@ class profile::puppetmaster {
     email        => 'dylan.ratcliffe@puppet.com',
     password     => 'puppetlabs',
     roles        => [ 'Administrators' ],
+  }
+
+  # Add policy based autosigning using https://forge.puppet.com/danieldreier/autosign
+  ini_setting {'policy-based autosigning':
+    setting => 'autosign',
+    path    => "${setings::confdir}/puppet.conf",
+    section => 'master',
+    value   => '/usr/local/bin/autosign-validator',
+    require => Package['autosign'],
+    notify  => Service['pe-puppetserver'],
   }
 }

@@ -47,6 +47,7 @@ mod 'treydock/gpg_key'              ,'0.0.3'
 mod 'evenup/hubot'                  ,'0.2.0'
 mod 'puppetlabs/haproxy'            ,'1.4.0'
 mod 'puppetlabs/aws'                ,'1.4.0'
+mod 'danieldreier/autosign'         ,'0.1.2'
 
 #mod 'stdlib',
 #  :git => 'https://github.com/puppetlabs/puppetlabs-stdlib.git'
