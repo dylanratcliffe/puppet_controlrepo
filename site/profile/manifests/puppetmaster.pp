@@ -95,8 +95,9 @@ class profile::puppetmaster {
     user     => 'pe-puppet',
     group    => 'pe-puppet',
     settings => {
-    'jwt_token' => {
-      'secret' => 'DkCieMT9UyMvg(JDQeuJm%Qao>.p*GLxYg}kaw%ExAfRDvh7Mz'
+      'jwt_token' => {
+        'secret' => 'DkCieMT9UyMvg(JDQeuJm%Qao>.p*GLxYg}kaw%ExAfRDvh7Mz'
+      },
     },
   }
 
