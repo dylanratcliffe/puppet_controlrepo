@@ -103,7 +103,7 @@ class profile::puppetmaster {
 
   ini_setting {'policy-based autosigning':
     setting => 'autosign',
-    path    => "${setings::confdir}/puppet.conf",
+    path    => "${settings::confdir}/puppet.conf",
     section => 'master',
     value   => '/opt/puppetlabs/puppet/bin/autosign-validator',
     require => Class['autosign'],
