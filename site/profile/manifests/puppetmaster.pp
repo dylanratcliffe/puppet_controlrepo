@@ -105,7 +105,7 @@ class profile::puppetmaster {
     setting => 'autosign',
     path    => "${setings::confdir}/puppet.conf",
     section => 'master',
-    value   => '/usr/local/bin/autosign-validator',
+    value   => '/opt/puppetlabs/puppet/bin/autosign-validator',
     require => Class['autosign'],
     notify  => Service['pe-puppetserver'],
   }
