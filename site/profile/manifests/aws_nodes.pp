@@ -10,14 +10,12 @@ class profile::aws_nodes {
       }
     ],
     ebs_optimized       => false,
-    hypervisor          => 'xen',
     image_id            => 'ami-e0c19f83',
     instance_type       => 't2.micro',
     key_name            => 'personal_aws',
     monitoring          => false,
     region              => 'ap-southeast-2',
     security_groups     => ['default'],
-    virtualization_type => 'hvm',
     user_data           => epp('profile/userdata.epp',{
       'master_ip'   => $::ec2_metadata['public-ipv4'],
       'master_fqdn' => $::networking['fqdn'],
