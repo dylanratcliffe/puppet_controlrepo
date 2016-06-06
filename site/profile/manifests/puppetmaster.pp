@@ -8,7 +8,7 @@ class profile::puppetmaster {
   if $::ec2_metadata {
     # Make sure that we don't try to do thus intil the gems are installed
     if count(query_resources("Class['profile::puppetmaster']","Class['autosign']")) > 0 {
-      include profile::aws_nodes
+      #include profile::aws_nodes
     }
 
     # Also enable the optional repo which is disabled in AWS
