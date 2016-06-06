@@ -6,7 +6,8 @@ class profile::aws_nodes {
     block_devices     => [
       {
         'delete_on_termination' => true,
-        'device_name'           => '/dev/sda1'
+        'device_name'           => '/dev/sda1',
+        'volume_size'           => 10,
       }
     ],
     ebs_optimized     => false,
