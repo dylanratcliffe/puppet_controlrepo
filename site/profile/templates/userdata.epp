@@ -15,5 +15,3 @@ role: '<%= $role %>'
 EOF
 
 curl -k https://<%= $master_fqdn %>:8140/packages/current/install.bash | bash
-
-rm -rf /etc/puppetlabs/puppet/csr_attributes.yaml
