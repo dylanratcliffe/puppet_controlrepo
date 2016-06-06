@@ -7,6 +7,13 @@ class profile::puppetmaster {
   # Only include this if the master is running in AWS
   if $::ec2_metadata {
     include profile::aws_nodes
+
+    # Also enable the optional repo which is disabled in AWS
+    yumrepo { 'rhui-REGION-rhel-server-optional':
+      ensure  => 'present',
+      enabled => '1',
+      before  => Package['ruby-devel'],
+    }
   }
 
   $server_gems = [
