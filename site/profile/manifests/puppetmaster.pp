@@ -7,9 +7,9 @@ class profile::puppetmaster {
   # Only include this if the master is running in AWS
   if $::ec2_metadata {
     # Make sure that we don't try to do thus intil the gems are installed
-    if count(query_resources("Class['profile::puppetmaster']","Class['autosign']")) > 0 {
-      include profile::aws_nodes
-    }
+    # if count(query_resources("Class['profile::puppetmaster']","Class['autosign']")) > 0 {
+    #   include profile::aws_nodes
+    # }
 
     # Also enable the optional repo which is disabled in AWS
     yumrepo { 'rhui-REGION-rhel-server-optional':
@@ -92,8 +92,13 @@ class profile::puppetmaster {
 
   # Add policy based autosigning using https://forge.puppet.com/danieldreier/autosign
   class { 'autosign':
-    user  => 'pe-puppet',
-    group => 'pe-puppet'
+    user     => 'pe-puppet',
+    group    => 'pe-puppet',
+    settings => {
+    'jwt_token' => {
+      'secret' => 'DkCieMT9UyMvg(JDQeuJm%Qao>.p*GLxYg}kaw%ExAfRDvh7Mz'
+    },
+  },
   }
 
   ini_setting {'policy-based autosigning':
