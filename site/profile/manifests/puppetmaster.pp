@@ -4,6 +4,18 @@ class profile::puppetmaster {
     include profile::puppetmaster::tuning
   }
 
+  # Only include this if the master is running in AWS
+  if $::ec2_metadata {
+    include profile::aws_nodes
+  }
+
+  $server_gems = [
+    'puppetclassify',
+    'aws-sdk-core',
+    'retries',
+  ]
+
+  # Create basic firewall rules
   firewall { '100 allow https access':
     dport  => 443,
     proto  => tcp,
@@ -22,20 +34,44 @@ class profile::puppetmaster {
     action => accept,
   }
 
-  package { 'puppetclassify_server':
-    ensure   => present,
-    name     => 'puppetclassify',
-    provider => 'puppetserver_gem',
-    notify   => Service['pe-puppetserver'],
+  $server_gems.each |$gem| {
+    package { "${gem}_server":
+      ensure   => present,
+      name     => $gem,
+      provider => 'puppetserver_gem',
+      notify   => Service['pe-puppetserver'],
+    }
+
+    package { "${gem}_agent":
+      ensure   => present,
+      name     => $gem,
+      provider => 'puppet_gem',
+      notify   => Service['pe-puppetserver'],
+    }
   }
 
-  package { 'puppetclassify_agent':
-    ensure   => present,
-    name     => 'puppetclassify',
-    provider => 'puppet_gem',
-    notify   => Service['pe-puppetserver'],
+  # Set up the default config for the AWS module
+  # I will also need to do the following on the Puppet Master:
+  #
+  # export AWS_ACCESS_KEY_ID=your_access_key_id
+  # export AWS_SECRET_ACCESS_KEY=your_secret_access_key
+
+  ini_setting { 'aws region':
+    ensure  => present,
+    path    => "${settings::confdir}/puppetlabs_aws_configuration.ini",
+    section => 'default',
+    setting => 'region',
+    value   => 'ap-southeast-2',
   }
 
+  file { '/root/.aws':
+    ensure => directory,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0700',
+  }
+
+  # Make sure that a user exists for me
   rbac_user { 'dylan':
     ensure       => 'present',
     display_name => 'Dylan Ratcliffe',

@@ -16,5 +16,5 @@ node /metrics/ {
 }
 
 node default {
-  # Do nothing
+  include $::role
 }
