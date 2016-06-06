@@ -7,9 +7,9 @@ class profile::puppetmaster {
   # Only include this if the master is running in AWS
   if $::ec2_metadata {
     # Make sure that we don't try to do thus intil the gems are installed
-    # if count(query_resources("Class['profile::puppetmaster']","Class['autosign']")) > 0 {
-    #   include profile::aws_nodes
-    # }
+    if count(query_resources("Class['profile::puppetmaster']","Class['autosign']")) > 0 {
+      include profile::aws_nodes
+    }
 
     # Also enable the optional repo which is disabled in AWS
     yumrepo { 'rhui-REGION-rhel-server-optional':
