@@ -21,7 +21,7 @@ class profile::aws_nodes {
     user_data         => epp('profile/userdata.epp',{
       'master_ip'   => $::ec2_metadata['public-ipv4'],
       'master_fqdn' => $::networking['fqdn'],
-      'signing_key' => gen_autosign_token('/.*\.compute.\.internal/', 300)
+      'signing_key' => gen_autosign_token('/.*\.compute\.internal/', 300)
       }),
   }
 }
