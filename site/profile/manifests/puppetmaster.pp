@@ -1,8 +1,8 @@
 class profile::puppetmaster {
   # Wait until we have installed the stuff first before including this class
-  # if count(query_resources("Class['profile::puppetmaster']","Package['puppetclassify_server']")) > 0 {
-  #   include profile::puppetmaster::tuning
-  # }
+  if count(query_resources("Class['profile::puppetmaster']","Package['puppetclassify_server']")) > 0 {
+    include profile::puppetmaster::tuning
+  }
 
   # Only include this if the master is running in AWS
   if $::ec2_metadata {
