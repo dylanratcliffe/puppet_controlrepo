@@ -8,6 +8,12 @@ custom_attributes:
   challengePassword: <%= $signing_key %>
 EOF
 
+mkdir -p /etc/puppetlabs/facter/facts.d
+cat > /etc/puppetlabs/facter/facts.d/facts.yaml <<'EOF'
+---
+role: <%= $role %>
+EOF
+
 curl -k https://<%= $master_fqdn %>:8140/packages/current/install.bash | bash
 
 rm -rf /etc/puppetlabs/puppet/csr_attributes.yaml
