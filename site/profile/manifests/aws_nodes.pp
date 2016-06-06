@@ -18,7 +18,7 @@ class profile::aws_nodes {
     region              => 'ap-southeast-2',
     security_groups     => ['default'],
     virtualization_type => 'hvm',
-    userdata            => epp('profile/userdata.epp',{
+    user_data           => epp('profile/userdata.epp',{
       'master_ip'   => $::ec2_metadata['public-ipv4'],
       'master_fqdn' => $::networking['fqdn'],
       })
