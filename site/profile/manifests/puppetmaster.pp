@@ -98,7 +98,6 @@ class profile::puppetmaster {
     'jwt_token' => {
       'secret' => 'DkCieMT9UyMvg(JDQeuJm%Qao>.p*GLxYg}kaw%ExAfRDvh7Mz'
     },
-  },
   }
 
   ini_setting {'policy-based autosigning':
