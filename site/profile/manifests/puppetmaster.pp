@@ -91,7 +91,11 @@ class profile::puppetmaster {
   }
 
   # Add policy based autosigning using https://forge.puppet.com/danieldreier/autosign
-  include ::autosign
+  class { 'autosign':
+    user  => 'pe-puppet',
+    group => 'pe-puppet'
+  }
+
   ini_setting {'policy-based autosigning':
     setting => 'autosign',
     path    => "${setings::confdir}/puppet.conf",
