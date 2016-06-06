@@ -129,30 +129,35 @@ class profile::puppetmaster::tuning {
     ensure  => present,
     classes => deep_merge($pe_master_group['PE Master']['classes'],$pe_master_group_additions),
     parent  => 'PE Infrastructure',
+    require => Package['puppetclassify_server'],
   }
 
   node_group { 'PE Console':
     ensure  => present,
     classes => deep_merge($pe_console_group['PE Console']['classes'],$pe_console_group_additions),
     parent  => 'PE Infrastructure',
+    require => Package['puppetclassify_server'],
   }
 
   node_group { 'PE Orchestrator':
     ensure  => present,
     classes => deep_merge($pe_orchestrator_group['PE Orchestrator']['classes'],$pe_orchestrator_group_additions),
     parent  => 'PE Infrastructure',
+    require => Package['puppetclassify_server'],
   }
 
   node_group { 'PE PuppetDB':
     ensure  => present,
     classes => deep_merge($pe_puppetdb_group['PE PuppetDB']['classes'],$pe_puppetdb_group_additions),
     parent  => 'PE Infrastructure',
+    require => Package['puppetclassify_server'],
   }
 
   node_group { 'PE ActiveMQ Broker':
     ensure  => present,
     classes => deep_merge($pe_activemq_group['PE ActiveMQ Broker']['classes'],$pe_activemq_group_additions),
     parent  => 'PE Infrastructure',
+    require => Package['puppetclassify_server'],
   }
 
   Pe_hocon_setting <| title == 'jruby-puppet.max-active-instances' |> {
