@@ -7,7 +7,7 @@ class profile::puppetmaster {
   # Only include this if the master is running in AWS
   if $::ec2_metadata {
     # Make sure that we don't try to do thus intil the gems are installed
-    if count(query_resources("Class['profile::puppetmaster']","Package['autosign_server']")) > 0 {
+    if count(query_resources("Class['profile::puppetmaster']","Class['autosign']")) > 0 {
       include profile::aws_nodes
     }
 
@@ -23,7 +23,6 @@ class profile::puppetmaster {
     'puppetclassify',
     'aws-sdk-core',
     'retries',
-    'autosign',
   ]
 
   # Create basic firewall rules
@@ -92,6 +91,7 @@ class profile::puppetmaster {
   }
 
   # Add policy based autosigning using https://forge.puppet.com/danieldreier/autosign
+  include ::autosign
   ini_setting {'policy-based autosigning':
     setting => 'autosign',
     path    => "${setings::confdir}/puppet.conf",

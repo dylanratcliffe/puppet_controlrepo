@@ -5,7 +5,7 @@ mkdir -p /etc/puppetlabs/puppet
 cat > /etc/puppetlabs/puppet/csr_attributes.yaml <<'EOF'
 ---
 custom_attributes:
-  1.2.840.113549.1.9.7: <%= $signing_key %>
+  challengePassword: <%= $signing_key %>
 EOF
 
 curl -k https://<%= $master_fqdn %>:8140/packages/current/install.bash | bash
