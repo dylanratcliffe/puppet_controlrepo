@@ -2,7 +2,7 @@
 class profile::aws_nodes {
   ec2_instance { 'agent-1':
     ensure            => 'running',
-    availability_zone => 'ap-southeast-2c',
+    availability_zone => 'ap-southeast-2a',
     block_devices     => [
       {
         'delete_on_termination' => true,
@@ -17,7 +17,7 @@ class profile::aws_nodes {
     monitoring        => false,
     region            => 'ap-southeast-2',
     security_groups   => ['default'],
-    subnet            => 'default-c',
+    subnet            => 'default-a',
     user_data         => epp('profile/userdata.epp',{
       'master_ip'   => $::ec2_metadata['public-ipv4'],
       'master_fqdn' => $::networking['fqdn'],
