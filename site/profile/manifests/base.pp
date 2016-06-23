@@ -38,6 +38,7 @@ class profile::base {
     ensure       => present,
     host_aliases => [$::hostname],
     ip           => $::ipaddress,
+    parameter    => 'value',
   }
 
   # Make sure that we install git before we try to use it
