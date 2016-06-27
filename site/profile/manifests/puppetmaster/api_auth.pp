@@ -13,8 +13,8 @@ class profile::puppetmaster::api_auth {
         'query-params' => {},
         'type'         => 'path'
       },
-      'name'          => 'puppetlabs environment classes',
-      'sort-order'    => 500
+      'name'          => 'puppetlabs environment classes allow all',
+      'sort-order'    => 490
     },
   }
 }
