@@ -1,6 +1,6 @@
-class role::puppetmaster::api {
+class role::puppetmaster::aws {
   include profile::base
   include profile::hiera
   include profile::puppetmaster
-  include profile::puppetmaster::api_auth
+  include profile::puppetmaster::aws
 }

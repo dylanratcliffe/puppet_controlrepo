@@ -4,17 +4,8 @@ class profile::puppetmaster {
     include profile::puppetmaster::tuning
   }
 
-  # Only include this if the master is running in AWS
-  if $::ec2_metadata {
-    # Make sure that we don't try to do thus intil the gems are installed
-    if count(query_resources("Class['profile::puppetmaster']","Class['autosign']")) > 0 {
-      include profile::aws_nodes
-    }
-  }
-
   $server_gems = [
     'puppetclassify',
-    'aws-sdk-core',
     'retries',
   ]
 
@@ -51,27 +42,6 @@ class profile::puppetmaster {
       provider => 'puppet_gem',
       notify   => Service['pe-puppetserver'],
     }
-  }
-
-  # Set up the default config for the AWS module
-  # I will also need to do the following on the Puppet Master:
-  #
-  # export AWS_ACCESS_KEY_ID=your_access_key_id
-  # export AWS_SECRET_ACCESS_KEY=your_secret_access_key
-
-  ini_setting { 'aws region':
-    ensure  => present,
-    path    => "${settings::confdir}/puppetlabs_aws_configuration.ini",
-    section => 'default',
-    setting => 'region',
-    value   => 'ap-southeast-2',
-  }
-
-  file { '/root/.aws':
-    ensure => directory,
-    owner  => 'root',
-    group  => 'root',
-    mode   => '0700',
   }
 
   # Make sure that a user exists for me
