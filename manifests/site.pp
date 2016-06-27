@@ -3,7 +3,7 @@ node /jenkins/ {
 }
 
 node /master/ {
-  include role::puppetmaster::basic
+  include role::puppetmaster::api
 }
 
 node /mom/ {
