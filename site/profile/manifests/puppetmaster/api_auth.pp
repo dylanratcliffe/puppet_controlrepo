@@ -6,15 +6,15 @@ class profile::puppetmaster::api_auth {
     setting => 'authorization.rules',
     type    => 'array_element',
     value   => {
-      'allow-unauthentcated' => true,
-      'match-request'        => {
+      'allow-unauthenticated' => true,
+      'match-request'         => {
         'method'       => 'get',
         'path'         => '/puppet/v3/environment_classes',
         'query-params' => {},
         'type'         => 'path'
       },
-      'name'                 => 'puppetlabs environment classes allow all',
-      'sort-order'           => 490
+      'name'                  => 'puppetlabs environment classes allow all',
+      'sort-order'            => 490
     },
     notify  => Service['pe-puppetserver'],
   }
