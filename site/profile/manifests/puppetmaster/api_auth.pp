@@ -65,7 +65,11 @@ class profile::puppetmaster::api_auth {
     value   => {
       'allow-unauthenticated' => true,
       'match-request'         => {
-        'method'       => 'delete',
+        'method'       => [
+          'get',
+          'put',
+          'delete'
+        ],
         'path'         => '/puppet-ca/v1/certificate_status',
         'query-params' => {},
         'type'         => 'path'
