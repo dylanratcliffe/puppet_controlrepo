@@ -1,6 +1,6 @@
 #
 class profile::puppetmaster::api_auth {
-  hocon_setting { 'allow all environment_classes':
+  hocon_setting { 'allow unauthenticated environment_classes':
     ensure  => present,
     path    => '/etc/puppetlabs/puppetserver/conf.d/auth.conf',
     setting => 'authorization.rules',
@@ -16,5 +16,6 @@ class profile::puppetmaster::api_auth {
       'name'                 => 'puppetlabs environment classes allow all',
       'sort-order'           => 490
     },
+    notify  => Service['pe-puppetserver'],
   }
 }
