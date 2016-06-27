@@ -2,9 +2,9 @@ node /jenkins/ {
   include role::jenkins
 }
 
-node /master/ {
-  include role::puppetmaster::api
-}
+# node /master/ {
+#   include role::puppetmaster::api
+# }
 
 node /mom/ {
   #include role::puppetmaster
