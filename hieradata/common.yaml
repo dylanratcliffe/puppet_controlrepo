@@ -3,6 +3,9 @@ profile::sumologic::sumologic_key: 'ZaVnC4dhaV3VYqOGacYfpB5CJHyLVR-eEG7NBMvcDdoV
 
 puppet_enterprise::profile::puppetdb::listen_address: '0.0.0.0'
 
+# Enable Orchestration
+puppet_enterprise::profile::orchestrator::use_application_services: true
+
 profile::jira::db_server: centos6b.syd.puppetlabs.demo
 profile::jira::db_user: jiraadm
 profile::jira::db_password: coolpassword1234
