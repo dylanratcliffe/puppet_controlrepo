@@ -6,7 +6,7 @@ class profile::puppetmaster::api_auth {
     setting => 'authorization.rules',
     type    => 'array_element',
     value   => {
-      'allow'         => 'pe-internal-classifier',
+      'allow'         => '*',
       'match-request' => {
         'method'       => 'get',
         'path'         => '/puppet/v3/environment_classes',
