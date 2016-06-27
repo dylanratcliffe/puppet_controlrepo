@@ -18,4 +18,42 @@ class profile::puppetmaster::api_auth {
     },
     notify  => Service['pe-puppetserver'],
   }
+
+  hocon_setting { 'allow unauthenticated environment-cache':
+    ensure  => present,
+    path    => '/etc/puppetlabs/puppetserver/conf.d/auth.conf',
+    setting => 'authorization.rules',
+    type    => 'array_element',
+    value   => {
+      'allow-unauthenticated' => true,
+      'match-request'         => {
+        'method'       => 'delete',
+        'path'         => '/puppet-admin-api/v1/environment-cache',
+        'query-params' => {},
+        'type'         => 'path'
+      },
+      'name'                  => 'puppetlabs environment cache allow all',
+      'sort-order'            => 490
+    },
+    notify  => Service['pe-puppetserver'],
+  }
+
+  hocon_setting { 'allow unauthenticated jruby-pool':
+    ensure  => present,
+    path    => '/etc/puppetlabs/puppetserver/conf.d/auth.conf',
+    setting => 'authorization.rules',
+    type    => 'array_element',
+    value   => {
+      'allow-unauthenticated' => true,
+      'match-request'         => {
+        'method'       => 'delete',
+        'path'         => '/puppet-admin-api/v1/jruby-pool',
+        'query-params' => {},
+        'type'         => 'path'
+      },
+      'name'                  => 'puppetlabs jruby pool allow all',
+      'sort-order'            => 490
+    },
+    notify  => Service['pe-puppetserver'],
+  }
 }
