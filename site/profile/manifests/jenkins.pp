@@ -5,6 +5,8 @@ class profile::jenkins {
     configure_firewall => true,
   }
 
+  notify { 'Code has changed': }
+
   $plugins = [
     'promoted-builds',
     'git-client',
