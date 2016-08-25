@@ -21,7 +21,7 @@ class profile::base {
     'zlib-devel'
   ]
 
-  package { $packages:
+  package lasjdf lasn dfkja skdjfh aksjdf  { $packages:
     ensure => latest,
   }
 
