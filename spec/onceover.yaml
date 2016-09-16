@@ -8,6 +8,7 @@ classes:
   - 'role::bamboo'
   - 'role::compile::balancer'
   - 'role::compile::master'
+  - 'role::windows::webserver'
 
 nodes:
   - CentOS-6.6-64
@@ -52,6 +53,8 @@ class_groups:
     - 'role::compile::master'
   databse_classes:
     - 'role::dbserver'
+  windows_classes:
+    - 'role::windows::webserver'
 
 
 test_matrix:
@@ -59,6 +62,9 @@ test_matrix:
       classes:
         include: 'all_classes'
         exclude: 'master_classes'
+      tests: 'spec'
+  - windows_nodes:
+      classes: 'windows_classes'
       tests: 'spec'
   - CentOS-7.0-64-master:
       classes: 'master_classes'
