@@ -18,7 +18,8 @@ class profile::base {
     'ruby',
     'ruby-devel',
     'zlib',
-    'zlib-devel'
+    'zlib-devel',
+    'jq',
   ]
 
   package { $packages:
