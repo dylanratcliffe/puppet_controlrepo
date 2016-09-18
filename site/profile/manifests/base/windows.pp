@@ -5,7 +5,7 @@ class profile::base::windows {
   }
 
   class { 'chocolatey':
-    stage => 'main',
+    stage => 'pre-run',
   }
 
   $packages = [
@@ -17,6 +17,7 @@ class profile::base::windows {
   ]
 
   package { $packages:
-    ensure => 'latest',
+    ensure   => 'latest',
+    provider => 'chocolatey',
   }
 }
