@@ -53,6 +53,7 @@ mod 'puppetlabs/dsc'                ,'1.1.0'
 mod 'puppetlabs/powershell'         ,'2.0.2'
 mod 'puppetlabs/reboot'             ,'1.2.1'
 mod 'chocolatey/chocolatey'         ,'1.2.6'
+mod 'badgerious/windows_env'        ,'2.2.2'
 
 #mod 'stdlib',
 #  :git => 'https://github.com/puppetlabs/puppetlabs-stdlib.git'
