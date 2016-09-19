@@ -17,17 +17,25 @@ class profile::base::windows {
     'atom',
     'googlechrome',
     '7zip.install',
-    'powershell',
   ]
 
   package { $packages:
     ensure   => 'latest',
     provider => 'chocolatey',
-    require  => Service['wuauserv'],
   }
 
   package { 'putty.install':
     ensure          => present,
     install_options => '--allow-empty-checksums',
+  }
+
+  package { 'powershell':
+    ensure  => present,
+    require => Service['wuauserv'],
+    notify  => Reboot['immediately'],
+  }
+
+  reboot { 'immediately':
+    apply => 'immediately',
   }
 }
