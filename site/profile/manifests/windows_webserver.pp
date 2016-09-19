@@ -3,6 +3,11 @@ class profile::windows_webserver {
   $install_dir    = 'C:/inetpub/sunburst'
   #$defaultwebsitepath = 'C:\inetpub\wwwroot'
 
+  File {
+    owner => 'Administrator',
+    group => 'Administrators',
+  }
+
   # Install the IIS role
   dsc_windowsfeature { 'IIS':
     dsc_ensure => 'present',
