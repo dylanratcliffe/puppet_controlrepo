@@ -15,7 +15,6 @@ class profile::base::windows {
 
   $packages = [
     'atom',
-    'putty.install',
     'googlechrome',
     '7zip.install',
     'powershell',
@@ -25,5 +24,10 @@ class profile::base::windows {
     ensure   => 'latest',
     provider => 'chocolatey',
     require  => Service['wuauserv'],
+  }
+
+  package { 'putty.install':
+    ensure          => present,
+    install_options => '--allow-empty-checksums',
   }
 }
