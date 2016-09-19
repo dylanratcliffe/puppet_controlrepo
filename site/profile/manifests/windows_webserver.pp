@@ -34,7 +34,7 @@ class profile::windows_webserver {
     dsc_ensure       => 'present',
     dsc_name         => 'sunburst',
     dsc_state        => 'Started',
-    dsc_physicalpath => $install_dir,
+    dsc_physicalpath => 'C:\\inetpub\\sunburst',
     require          => Dsc_windowsfeature['IIS','AspNet45'],
   }
 
