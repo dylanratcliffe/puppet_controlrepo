@@ -4,8 +4,8 @@ class profile::windows_webserver {
   #$defaultwebsitepath = 'C:\inetpub\wwwroot'
 
   File {
-    owner => 'Administrator',
-    group => 'Administrators',
+    owner => 'BUILTIN\\Administrators',
+    group => 'BUILTIN\\Administrators',
   }
 
   # Install the IIS role
