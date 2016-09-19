@@ -3,15 +3,15 @@ class profile::windows_webserver {
   $install_dir    = 'C:/inetpub/sunburst'
   #$defaultwebsitepath = 'C:\inetpub\wwwroot'
 
-  # File {
-  #   owner => 'BUILTIN\\Administrators',
-  #   group => 'BUILTIN\\Administrators',
-  # }
-
   # Install the IIS role
   dsc_windowsfeature { 'IIS':
     dsc_ensure => 'present',
     dsc_name   => 'Web-Server',
+  }
+
+  dsc_windowsfeature { 'IIS Console':
+    dsc_ensure => 'present',
+    dsc_name   => 'Web-Mgmt-Console',
   }
 
   # Install the ASP .NET 4.5 role
