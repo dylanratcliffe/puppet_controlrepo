@@ -8,6 +8,11 @@ class profile::base::windows {
     stage => 'pre-run',
   }
 
+  service { 'wuauserv':
+    ensure => 'running',
+    enable => 'true',
+  }
+
   $packages = [
     'atom',
     'putty',
@@ -19,5 +24,6 @@ class profile::base::windows {
   package { $packages:
     ensure   => 'latest',
     provider => 'chocolatey',
+    require  => Service['wuauserv'],
   }
 }
