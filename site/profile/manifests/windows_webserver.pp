@@ -3,10 +3,10 @@ class profile::windows_webserver {
   $install_dir    = 'C:/inetpub/sunburst'
   #$defaultwebsitepath = 'C:\inetpub\wwwroot'
 
-  File {
-    owner => 'BUILTIN\\Administrators',
-    group => 'BUILTIN\\Administrators',
-  }
+  # File {
+  #   owner => 'BUILTIN\\Administrators',
+  #   group => 'BUILTIN\\Administrators',
+  # }
 
   # Install the IIS role
   dsc_windowsfeature { 'IIS':
@@ -44,8 +44,6 @@ class profile::windows_webserver {
 
   file { "${install_dir}/index.html":
     ensure => file,
-    owner  => 'root',
-    group  => 'root',
     mode   => '0644',
     source => 'http://bl.ocks.org/mbostock/raw/4348373/index.html',
   }
@@ -59,8 +57,6 @@ class profile::windows_webserver {
 
   file { "${install_dir}/flare.json":
     ensure => file,
-    owner  => 'root',
-    group  => 'root',
     mode   => '0644',
     source => 'http://bl.ocks.org/mbostock/raw/4063550/flare.json',
   }
