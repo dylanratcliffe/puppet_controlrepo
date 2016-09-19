@@ -21,7 +21,6 @@ class profile::base::windows {
 
   package { $packages:
     ensure   => 'latest',
-    provider => 'chocolatey',
   }
 
   package { 'putty.install':
