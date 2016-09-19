@@ -15,7 +15,7 @@ class profile::base::windows {
 
   $packages = [
     'atom',
-    'putty',
+    'putty.install',
     'googlechrome',
     '7zip.install',
     'powershell',
