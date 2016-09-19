@@ -29,9 +29,10 @@ class profile::base::windows {
   }
 
   package { 'powershell':
-    ensure  => present,
-    require => Service['wuauserv'],
-    notify  => Reboot['immediately'],
+    ensure          => present,
+    install_options => '--ignore-package-exit-codes'
+    require         => Service['wuauserv'],
+    notify          => Reboot['immediately'],
   }
 
   reboot { 'immediately':

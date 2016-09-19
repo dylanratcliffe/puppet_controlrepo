@@ -33,6 +33,10 @@ class profile::windows_webserver {
     require          => Dsc_windowsfeature['IIS','AspNet45'],
   }
 
+  file { $install_dir:
+    ensure => directory,
+  }
+
   file { "${install_dir}/index.html":
     ensure => file,
     owner  => 'root',
