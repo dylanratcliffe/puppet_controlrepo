@@ -10,7 +10,7 @@ class profile::base::windows {
 
   service { 'wuauserv':
     ensure => 'running',
-    enable => 'true',
+    enable => true,
   }
 
   $packages = [

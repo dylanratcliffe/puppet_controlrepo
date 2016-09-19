@@ -22,11 +22,10 @@ class profile::windows_webserver {
 
   # Stop an existing website (set up in Sample_xWebsite_Default)
   dsc_xwebsite { 'Stop DefaultSite':
-    dsc_ensure       => 'present',
-    dsc_name         => 'Default Web Site',
-    dsc_state        => 'Stopped',
-    #dsc_physicalpath => $defaultwebsitepath,
-    require          => Dsc_windowsfeature['IIS','AspNet45'],
+    dsc_ensure => 'present',
+    dsc_name   => 'Default Web Site',
+    dsc_state  => 'Stopped',
+    require    => Dsc_windowsfeature['IIS','AspNet45'],
   }
 
   # Create a new website

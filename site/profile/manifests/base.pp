@@ -1,3 +1,4 @@
+#
 class profile::base {
   if $::os['family'] == 'RedHat' {
     include ::epel
