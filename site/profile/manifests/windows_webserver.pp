@@ -40,6 +40,7 @@ class profile::windows_webserver {
 
   file { $install_dir:
     ensure => directory,
+    before => Dsc_xwebsite['Sunburst'],
   }
 
   file { "${install_dir}/index.html":
