@@ -36,6 +36,7 @@ class profile::base::windows {
   }
 
   reboot { 'immediately':
-    apply => 'immediately',
+    apply   => 'immediately',
+    timeout => '0',
   }
 }
