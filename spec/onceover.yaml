@@ -8,40 +8,34 @@ classes:
   - 'role::bamboo'
   - 'role::compile::balancer'
   - 'role::compile::master'
-  - 'role::windows::webserver'
 
 nodes:
   - CentOS-6.6-64
   - CentOS-7.0-64
   - CentOS-7.0-64-master
-  - Debian-7.8-64
-  - Ubuntu-12.04-32
-  - Ubuntu-14.04-64
+  - CentOS-7.0-64-openstack
   - Windows_Server-2008r2-64
   - Windows_Server-2012r2-64
-  - CentOS-7.0-64-openstack
-  - Ubuntu-14.04-64-openstack
 
 node_groups:
-  centos_servers:
+  centos:
     - CentOS-6.6-64
     - CentOS-7.0-64
     - CentOS-7.0-64-master
-  windows_nodes:
+    - CentOS-7.0-64-openstack
+  windows:
     - Windows_Server-2008r2-64
     - Windows_Server-2012r2-64
   openstack:
     - CentOS-7.0-64-openstack
-    - Ubuntu-14.04-64-openstack
-  non_windows:
-    include: 'all_nodes'
-    exclude: 'windows_nodes'
-  non_windows_acceptance:
-    include: 'non_windows'
+  acceptance:
+    include: 'centos'
     exclude: 'CentOS-7.0-64-master'
-  non_windows_spec:
-    include: 'non_windows'
+  spec:
+    include: 'centos'
     exclude: 'openstack'
+  master:
+    - CentOS-7.0-64-master
 
 class_groups:
   master_classes:
@@ -51,28 +45,23 @@ class_groups:
     - 'role::puppetmaster::api'
     - 'role::compile::balancer'
     - 'role::compile::master'
-  databse_classes:
-    - 'role::dbserver'
-  windows_classes:
-    - 'role::windows::webserver'
+
 
 
 test_matrix:
-  - non_windows_spec:
+  # Main spec tests for all CentOS roles
+  - spec:
       classes:
         include: 'all_classes'
         exclude: 'master_classes'
       tests: 'spec'
-  - windows_nodes:
-      classes: 'windows_classes'
-      tests: 'spec'
+  # Master based spec tests
   - CentOS-7.0-64-master:
       classes: 'master_classes'
       tests: 'spec'
       tags: 'master'
-  - CentOS-7.0-64:
-      classes: 'role::puppetmaster::basic'
-      tests: 'acceptance'
+
+  # Openstack acceptance testing servers
   - CentOS-7.0-64-openstack:
       classes: 'role::dbserver'
       tests: 'acceptance'
@@ -84,23 +73,12 @@ test_matrix:
       runs_before_idempotency: 2
       tags:
         - 'openstack'
-  - Ubuntu-14.04-64-openstack:
-      classes:
-        - 'role::metrics'
-      tests: acceptance
-      tags:
-        - openstack
+
+  # Local acceptance testing
   - CentOS-7.0-64:
       classes: 'role::bamboo'
       tests: 'acceptance'
       runs_before_idempotency: 2
-#  - Debian-7.8-64:
-#      classes: 'master_classes'
-#      tests: 'acceptance'
-#      runs_before_idempotency: 3
-#  - windows_nodes:
-#      classes: 'role::puppetmaster'
-#      tests: 'acceptance'
 
 
 functions:
