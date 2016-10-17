@@ -1,11 +1,9 @@
-class profile::metrics::dashboard (
-  $apache_default_vhost = false,
-  $carbon_port          = 7777,
-  $grafana_host         = $::fqdn,
-  $grafana_apache_port  = 80,
-  $graphite_apache_port = 7000,
-  $graphite_host        = $::fqdn,
-){
+class profile::metrics::dashboard {
+  $carbon_port          = 7777
+  $grafana_host         = $::fqdn
+  $graphite_host        = $::fqdn
+  $graphite_port        = 7000
+
   firewall { '100 allow http access':
     dport  => 80,
     proto  => 'tcp',
@@ -13,13 +11,13 @@ class profile::metrics::dashboard (
   }
 
   firewall { '100 allow graphite and carbon access':
-    dport  => [7777, 7000, 2003, 2004],
+    dport  => [7777, $graphite_port, 2003, 2004],
     proto  => 'tcp',
     action => 'accept',
   }
 
   class { 'apache':
-    default_vhost => $apache_default_vhost,
+    default_vhost => false,
   }
 
   class { 'apache::mod::wsgi':
@@ -28,6 +26,10 @@ class profile::metrics::dashboard (
 
   class { 'graphite':
     gr_web_server                => 'none',
+    gr_web_group                 => 'apache',
+    gr_web_user                  => 'apache',
+    gr_group                     => 'apache',
+    gr_user                      => 'apache',
     gr_aggregator_max_intervals  => 60,
     gr_storage_schemas           => [
       {
@@ -66,12 +68,12 @@ class profile::metrics::dashboard (
 
   apache::vhost { 'graphite':
     servername                  => $graphite_host,
-    port                        => $graphite_apache_port,
+    port                        => $graphite_port,
     docroot                     => '/opt/graphite/webapp',
     error_log_file              => 'graphite-error.log',
     access_log_file             => 'graphite-access.log',
     wsgi_script_aliases         => {
-      '/' => '/opt/graphite/conf/graphite.wsgi'},
+      '/' => '/opt/graphite/conf/graphite_wsgi.py'},
     wsgi_import_script          => '/opt/graphite/conf/graphite.wsgi',
     wsgi_import_script_options  => {
       'process-group'     => 'graphite',
@@ -115,19 +117,27 @@ class profile::metrics::dashboard (
       | END
   }
 
-  class { 'grafana':
-    graphite_host => $graphite_host,
-    graphite_port => $graphite_apache_port,
+  # Relly ugly hack to test issue in graphite module
+  Package <| provider == 'pip' |> {
+    require +> Package['python-pip']
   }
 
-  profile::grafana::dashboard { 'master.methodologies.com':
-    metrics_server_id => 'puppetmaster',
+  # include ::docker
+  class { '::grafana':
+    graphite_host => $::fqdn,
+    graphite_port => $graphite_port,
   }
+
+  # nginx::resource::vhost { 'grafana':
+  #   listen_port => '80',
+  #   www_root    => '/opt/grafana',
+  # }
 
   apache::vhost { 'grafana':
     servername      => $grafana_host,
-    port            => $grafana_apache_port,
+    port            => '80',
     docroot         => '/opt/grafana',
+    manage_docroot  => false,
     error_log_file  => 'grafana-error.log',
     access_log_file => 'grafana-access.log',
     directories     => [
@@ -139,7 +149,7 @@ class profile::metrics::dashboard (
         order          => 'Allow,Deny',
       }
       ],
-      require       => Class['grafana'],
+    require         => Class['grafana'],
   }
 
 
