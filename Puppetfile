@@ -54,6 +54,7 @@ mod 'puppetlabs/powershell'         ,'2.0.2'
 mod 'puppetlabs/reboot'             ,'1.2.1'
 mod 'chocolatey/chocolatey'         ,'1.2.6'
 mod 'badgerious/windows_env'        ,'2.2.2'
+mod 'jfryman/selinux'               ,'0.4.0'
 
 #mod 'stdlib',
 #  :git => 'https://github.com/puppetlabs/puppetlabs-stdlib.git'
