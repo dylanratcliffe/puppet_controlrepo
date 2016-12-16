@@ -16,9 +16,9 @@ class profile::mysql_server {
   }
 
   $mysql_users = [
-    'dylan',
-    'joe',
-    'karl',
+    'dylan@localhost',
+    'joe@localhost',
+    'karl@localhost',
   ]
 
   # Create the users
