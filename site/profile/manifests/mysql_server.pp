@@ -12,7 +12,7 @@ class profile::mysql_server {
   # Create the databases
   mysql_database { ['customers','products']:
     ensure  => present,
-    require => Class['mtsql::server']
+    require => Class['mysql::server']
   }
 
   $mysql_users = [
@@ -24,7 +24,7 @@ class profile::mysql_server {
   # Create the users
   mysql_user { $mysql_users:
     ensure  => present,
-    require => Class['mtsql::server']
+    require => Class['mysql::server']
   }
 
   # Purge any extra users or databases
