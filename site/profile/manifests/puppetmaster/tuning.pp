@@ -76,6 +76,11 @@ class profile::puppetmaster::tuning {
   }
 
   # Final config steps
+  notice(node_groups('PE Master'))
+  notice(node_groups('PE Console'))
+  notice(node_groups('PE Orchestrator'))
+  notice(node_groups('PE PuppetDB'))
+  notice(node_groups('PE ActiveMQ Broker'))
 
   $pe_master_group       = node_groups('PE Master')
   $pe_console_group      = node_groups('PE Console')
