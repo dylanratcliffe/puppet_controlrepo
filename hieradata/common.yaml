@@ -3,20 +3,16 @@ profile::sumologic::sumologic_key: 'ZaVnC4dhaV3VYqOGacYfpB5CJHyLVR-eEG7NBMvcDdoV
 
 puppet_enterprise::profile::puppetdb::listen_address: '0.0.0.0'
 
-# Enable Orchestration
-puppet_enterprise::profile::orchestrator::use_application_services: true
-
 profile::jira::db_server: centos6b.syd.puppetlabs.demo
 profile::jira::db_user: jiraadm
 profile::jira::db_password: coolpassword1234
 
 # Enable metrics
-profile::puppetmaster::metrics::metrics_graphite_enabled: true
-profile::puppetmaster::metrics::metrics_graphite_host: monitoring.prod.puppet.com
-profile::puppetmaster::metrics::metrics_graphite_port: 7000
-profile::puppetmaster::metrics::metrics_graphite_update_interval_seconds: 5
+puppet_enterprise::profile::master::metrics_graphite_enabled: true
+puppet_enterprise::profile::master::metrics_graphite_host: monitoring.prod.puppet.com
+puppet_enterprise::profile::master::metrics_graphite_port: 7000
+puppet_enterprise::profile::master::metrics_graphite_update_interval_seconds: 5
+profile::metrics::monitoring_node: %{profile::puppetmaster::metrics::metrics_graphite_host}
 
 # Enable the mbeans service:
 puppet_enterprise::master::puppetserver::metrics_webservice_enabled: true
-
-profile::metrics::monitoring_node: %{profile::puppetmaster::metrics::metrics_graphite_host}
