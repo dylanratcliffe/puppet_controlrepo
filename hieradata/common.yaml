@@ -18,3 +18,5 @@ profile::puppetmaster::metrics::metrics_graphite_update_interval_seconds: 5
 
 # Enable the mbeans service:
 puppet_enterprise::master::puppetserver::metrics_webservice_enabled: true
+
+profile::metrics::monitoring_node: 'monitoring.prod.puppet.com'
