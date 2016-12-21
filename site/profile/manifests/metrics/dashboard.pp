@@ -125,7 +125,7 @@ class profile::metrics::dashboard {
   # include ::docker
   class { '::grafana':
     graphite_host => $::fqdn,
-    graphite_port => $graphite_port,
+    graphite_port => 2003,
   }
 
   # nginx::resource::vhost { 'grafana':
