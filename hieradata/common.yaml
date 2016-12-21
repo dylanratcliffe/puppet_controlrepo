@@ -10,11 +10,11 @@ profile::jira::db_server: centos6b.syd.puppetlabs.demo
 profile::jira::db_user: jiraadm
 profile::jira::db_password: coolpassword1234
 
-# # Enable metrics
-# profile::puppetmaster::metrics::metrics_graphite_enabled: true
-# profile::puppetmaster::metrics::metrics_graphite_host: metrics.puppetconf.com
-# profile::puppetmaster::metrics::metrics_graphite_port: 7000
-# profile::puppetmaster::metrics::metrics_graphite_update_interval_seconds: 10
+# Enable metrics
+profile::puppetmaster::metrics::metrics_graphite_enabled: true
+profile::puppetmaster::metrics::metrics_graphite_host: monitoring.prod.puppet.com
+profile::puppetmaster::metrics::metrics_graphite_port: 7000
+profile::puppetmaster::metrics::metrics_graphite_update_interval_seconds: 5
 
 # Enable the mbeans service:
 puppet_enterprise::master::puppetserver::metrics_webservice_enabled: true

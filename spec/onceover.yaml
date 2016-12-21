@@ -85,3 +85,6 @@ functions:
   query_resources:
     type: rvalue
     returns: []
+  puppetdb_query:
+    type: rvalue
+    returns: []

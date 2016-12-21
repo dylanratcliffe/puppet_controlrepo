@@ -11,11 +11,15 @@ class profile::metrics::collectd {
   include ::collectd::plugin::interface
   include ::collectd::plugin::df
 
-  collectd::plugin::write_graphite::carbon {'my_graphite':
-    graphitehost   => 'metrics.methodologies.com',
-    graphiteport   => 2003,
-    graphiteprefix => '',
-    protocol       => 'tcp'
+  $monitoring_node = hiera('profile::metrics::monitoring_node',false)
+
+  if $monitoring_node {
+    collectd::plugin::write_graphite::carbon {'my_graphite':
+      graphitehost   => $monitoring_node,
+      graphiteport   => 2003,
+      graphiteprefix => '',
+      protocol       => 'tcp'
+    }
   }
 
 }
