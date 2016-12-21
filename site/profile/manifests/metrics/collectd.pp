@@ -6,12 +6,13 @@ class profile::metrics::collectd {
   }
 
   include ::collectd::plugin::cpu
-  include ::collectd::plugin::disk
+  #include ::collectd::plugin::disk
   include ::collectd::plugin::memory
   include ::collectd::plugin::interface
   include ::collectd::plugin::df
 
-  $monitoring_node = hiera('profile::metrics::monitoring_node',false)
+  $monitoring_node = lookup('profile::metrics::monitoring_node',false)
+  notice "monitoring_node: ${monitoring_node}"
 
   if $monitoring_node {
     collectd::plugin::write_graphite::carbon {'my_graphite':
