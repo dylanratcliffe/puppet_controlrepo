@@ -27,12 +27,6 @@ class profile::base {
     ensure => latest,
   }
 
-  host { $::fqdn:
-    ensure       => present,
-    host_aliases => [$::hostname],
-    ip           => $::ipaddress,
-  }
-
   class { 'selinux':
     mode => 'permissive',
     type => 'targeted',
