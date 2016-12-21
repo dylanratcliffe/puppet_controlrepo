@@ -1,7 +1,6 @@
 classes:
   - 'role::puppetmaster::basic'
   - 'role::puppetmaster::aws'
-  - 'role::puppetmaster::metrics'
   - 'role::puppetmaster::api'
   - 'role::dbserver'
   - 'role::metrics'
@@ -41,7 +40,6 @@ class_groups:
   master_classes:
     - 'role::puppetmaster::basic'
     - 'role::puppetmaster::aws'
-    - 'role::puppetmaster::metrics'
     - 'role::puppetmaster::api'
     - 'role::compile::balancer'
     - 'role::compile::master'
