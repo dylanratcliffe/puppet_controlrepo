@@ -15,7 +15,6 @@ class profile::metrics::collectd {
     'name'          => 'profile::metrics::monitoring_node',
     'default_value' => false,
   })
-  notice "monitoring_node: ${monitoring_node}"
 
   if $monitoring_node {
     collectd::plugin::write_graphite::carbon {'my_graphite':
