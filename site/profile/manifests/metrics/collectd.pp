@@ -11,8 +11,9 @@ class profile::metrics::collectd {
   include ::collectd::plugin::interface
   include ::collectd::plugin::df
 
-  $monitoring_node = lookup('profile::metrics::monitoring_node',{
-    'default_value' => false
+  $monitoring_node = lookup({
+    'name'          => 'profile::metrics::monitoring_node',
+    'default_value' => false,
   })
   notice "monitoring_node: ${monitoring_node}"
 
