@@ -12,7 +12,6 @@ puppet_enterprise::profile::master::metrics_graphite_enabled: true
 puppet_enterprise::profile::master::metrics_graphite_host: monitoring.prod.puppet.com
 puppet_enterprise::profile::master::metrics_graphite_port: 7000
 puppet_enterprise::profile::master::metrics_graphite_update_interval_seconds: 5
-profile::metrics::monitoring_node: %{profile::puppetmaster::metrics::metrics_graphite_host}
 
 # Enable the mbeans service:
 puppet_enterprise::master::puppetserver::metrics_webservice_enabled: true

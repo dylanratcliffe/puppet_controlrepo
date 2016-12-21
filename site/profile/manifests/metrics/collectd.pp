@@ -12,7 +12,7 @@ class profile::metrics::collectd {
   include ::collectd::plugin::df
 
   $monitoring_node = lookup({
-    'name'          => 'profile::metrics::monitoring_node',
+    'name'          => 'puppet_enterprise::profile::master::metrics_graphite_host',
     'default_value' => false,
   })
 
