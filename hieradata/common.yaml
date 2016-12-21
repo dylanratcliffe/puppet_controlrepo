@@ -15,3 +15,6 @@ profile::jira::db_password: coolpassword1234
 # profile::puppetmaster::metrics::metrics_graphite_host: metrics.puppetconf.com
 # profile::puppetmaster::metrics::metrics_graphite_port: 7000
 # profile::puppetmaster::metrics::metrics_graphite_update_interval_seconds: 10
+
+# Enable the mbeans service:
+puppet_enterprise::master::puppetserver::metrics_webservice_enabled: true
