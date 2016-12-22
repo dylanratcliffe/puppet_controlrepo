@@ -94,14 +94,14 @@ class profile::jenkins {
 
   # Create credentials with the Jenkins user's token
   # but only if the token has been created
-  $token = console::user::token('jenkins')
-  if $token {
-    # jenkins::credentials { 'puppet-token':
-    #   password            => '',
-    #   private_key_or_path => $token,
-    #   uuid                => 'd584ab06-3a2d-49df-b48f-7b2a43285ae9',
-    # }
-  }
+  # $token = console::user::token('jenkins')
+  # if $token {
+  #   jenkins::credentials { 'puppet-token':
+  #     password            => '',
+  #     private_key_or_path => $token,
+  #     uuid                => 'd584ab06-3a2d-49df-b48f-7b2a43285ae9',
+  #   }
+  # }
 
   jenkins::cli::exec { 'credentials_list_json': }
 }
