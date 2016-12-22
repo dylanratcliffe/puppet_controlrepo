@@ -24,12 +24,6 @@ class profile::bamboo {
     package      => 'java-1.8.0-openjdk-devel',
   }
 
-  package { ['bundler']:
-    ensure   => 'latest',
-    provider => 'gem',
-    require  => Package['ruby', 'ruby-devel', 'zlib'],
-  }
-
   file_line { 'gem_path':
     ensure  => present,
     path    => '/home/bamboo/data/.bashrc',
@@ -42,11 +36,5 @@ class profile::bamboo {
   # Add bamboo to RVM group
   User <| title == 'bamboo' |> {
     groups +> 'rvm',
-  }
-
-  rvm_system_ruby {
-    'ruby-2.2':
-      ensure      => 'present',
-      default_use => true,
   }
 }

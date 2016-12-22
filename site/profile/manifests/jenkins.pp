@@ -60,12 +60,6 @@ class profile::jenkins {
 
   include profile::base
 
-  package { 'bundler':
-    ensure   => '1.10.5',
-    provider => 'gem',
-    require  => Package['ruby'],
-  }
-
   include ::nginx
 
   # Include a reverse proxy in front
