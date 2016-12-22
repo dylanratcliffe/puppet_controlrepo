@@ -41,6 +41,18 @@ class profile::jenkins {
     'workflow-job',
     'plain-credentials',
     'display-url-api',
+    'github-api',
+    'conditional-buildstep',
+    'momentjs',
+    'pipeline-rest-api',
+    'handlebars',
+    'jquery-detached',
+    'durable-task',
+    'Puppet Enterprise Pipeline',
+    'ace-editor',
+    'jquery-detached',
+    'branch-api',
+    'cloudbees-folder',
   ]
 
   jenkins::plugin { $plugins : }
