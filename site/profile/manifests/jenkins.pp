@@ -3,6 +3,7 @@ class profile::jenkins {
     version            => 'latest',
     service_enable     => false,
     configure_firewall => true,
+    executors          => $::processors['count'],
   }
 
   $plugins = [
@@ -59,6 +60,10 @@ class profile::jenkins {
   ]
 
   jenkins::plugin { $plugins : }
+
+  jenkins::job { 'Onceover':
+    source => 'puppet:///modules/profile/onceover_jenkins_job.xml',
+  }
 
   include profile::base
 
