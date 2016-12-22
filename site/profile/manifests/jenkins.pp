@@ -18,20 +18,17 @@ class profile::jenkins {
     'rebuild',
     'script-security',
     'junit',
-    'credentials',
     'github',
     'git'
   ]
 
   jenkins::plugin { $plugins : }
 
-  package { ['ruby','ruby-devel','zlib','zlib-devel','rubygems','git','gcc-c++']:
-    ensure => latest,
-  }
+  include profile::base
 
   package { 'bundler':
     ensure   => '1.10.5',
     provider => 'gem',
-    require  => Package['ruby','ruby-devel','rubygems'],
+    require  => Package['ruby'],
   }
 }
