@@ -98,7 +98,7 @@ class profile::jenkins {
   if $token {
     jenkins::credentials { 'puppet-token':
       password            => '',
-      private_key_or_path => $token,
+      private_key_or_path => 'foo',
       uuid                => 'd584ab06-3a2d-49df-b48f-7b2a43285ae9',
     }
   }
