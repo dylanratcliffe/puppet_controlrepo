@@ -75,4 +75,7 @@ class profile::puppetmaster {
     require => Class['autosign'],
     notify  => Service['pe-puppetserver'],
   }
+
+  # Import all exported console users
+  Console::User <<| |>>
 }

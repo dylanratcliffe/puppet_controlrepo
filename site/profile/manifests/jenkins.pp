@@ -86,4 +86,16 @@ class profile::jenkins {
     require => Package['jenkins'],
   }
 
+  # Create a user in the Puppet console for Jenkins
+  @@console::user { 'jenkins':
+    password     => fqdn_rand_string(20, '', 'jenkins'),
+    display_name => 'User for Jenkins plugin',
+  }
+
+  # Create credentials with the Jenkins user's token
+  jenkins::credentials { 'puppet-token':
+    password            => '',
+    private_key_or_path => console::user::token('jenkins'),
+    uuid                => 'd584ab06-3a2d-49df-b48f-7b2a43285ae9',
+  }
 }
