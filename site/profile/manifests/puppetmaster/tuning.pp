@@ -38,11 +38,11 @@ class profile::puppetmaster::tuning {
   }
 
   # Finally: Set up all the variables
-  $console_services_memory       = $subsystem_memory * $console_services_memory_proportion
-  $orchestration_services_memory = $subsystem_memory * $orchestration_services_memory_proportion
-  $puppetdb_memory               = $subsystem_memory * $puppetdb_memory_proportion
-  $activemq_memory               = $subsystem_memory * $activemq_memory_proportion
-  $puppetserver_memory           = $puppetserver_optimal_memory
+  $console_services_memory       = Integer[$subsystem_memory * $console_services_memory_proportion]
+  $orchestration_services_memory = Integer[$subsystem_memory * $orchestration_services_memory_proportion]
+  $puppetdb_memory               = Integer[$subsystem_memory * $puppetdb_memory_proportion]
+  $activemq_memory               = Integer[$subsystem_memory * $activemq_memory_proportion]
+  $puppetserver_memory           = Integer[$puppetserver_optimal_memory]
 
   # TODO: Deal with overallocation
 

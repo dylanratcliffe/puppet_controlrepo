@@ -1,3 +1,4 @@
+# NOTE: This is old and failing tests
 class profile::vagrant {
   $version = '1.7.4'
 
