@@ -54,6 +54,8 @@ class profile::jenkins {
     'pipeline-graph-analysis',
     'run-condition',
     'git-server',
+    'rvm',
+    'ruby-runtime',
   ]
 
   jenkins::plugin { $plugins : }
