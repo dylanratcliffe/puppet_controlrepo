@@ -92,16 +92,20 @@ class profile::jenkins {
     display_name => 'User for Jenkins plugin',
   }
 
-  # Create credentials with the Jenkins user's token
-  # but only if the token has been created
-  # $token = console::user::token('jenkins')
-  # if $token {
-  #   jenkins::credentials { 'puppet-token':
-  #     password            => '',
-  #     private_key_or_path => $token,
-  #     uuid                => 'd584ab06-3a2d-49df-b48f-7b2a43285ae9',
-  #   }
-  # }
+  # Create the details for the Puppet token
+  $uuid = 'd584ab06-3a2d-49df-b48f-7b2a43285ae9'
+  $token = console::user::token('jenkins')
+  $secret_json = epp('profile/jenkins_secret_text.json.epp',{
+    'uuid' => $uuid,
+    'description' => 'Managed by Puppet',
+    'secret' => $token,
+  })
 
-  jenkins::cli::exec { 'credentials_list_json': }
+  # If the token has been generated then create it
+  if $token {
+    jenkins::cli::exec { 'add_secret':
+      command => "credentials_update_json <<< ${secret_json}",
+      unless  => "${::jenkins::cli_helper::helper_cmd} credentials_list_json | grep ${uuid}",
+    }
+  }
 }
