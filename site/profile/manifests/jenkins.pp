@@ -78,11 +78,10 @@ class profile::jenkins {
   }
 
   # Set Jenkins' default shell to bash
-  file_line { 'jenkins_default_shell':
+  file { 'jenkins_default_shell':
     ensure  => present,
     path    => '/var/lib/jenkins/hudson.tasks.Shell.xml',
-    line    => '  <shell>/bin/bash</shell>',
-    match   => '^\s*<shell>',
+    source  => 'puppet:///modules/profile/hudson.tasks.Shell.xml',
     notify  => Service['jenkins'],
     require => Package['jenkins'],
   }
