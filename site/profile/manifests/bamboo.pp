@@ -33,6 +33,8 @@ class profile::bamboo {
 
   include ::rvm
 
+  rvm::system_user { 'jenkins':}
+
   # Add bamboo to RVM group
   User <| title == 'bamboo' |> {
     groups +> 'rvm',
