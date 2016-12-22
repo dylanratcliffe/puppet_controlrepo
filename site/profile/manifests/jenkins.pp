@@ -59,13 +59,11 @@ class profile::jenkins {
     'ruby-runtime',
   ]
 
-  jenkins::plugin { $plugins :
-    require => Class['::jenkins'],
-  }
+  jenkins::plugin { $plugins : }
 
   jenkins::job { 'Onceover':
     config  => epp('profile/onceover_jenkins_job.xml'),
-    require => Class['::jenkins'],
+    require => Package['jenkins'],
   }
 
   include profile::base
@@ -86,7 +84,7 @@ class profile::jenkins {
     line    => '  <shell>/bin/bash</shell>',
     match   => '^\s*<shell>',
     notify  => Service['jenkins'],
-    require => Class['::jenkins'],
+    require => Package['jenkins'],
   }
 
 }
