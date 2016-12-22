@@ -36,7 +36,8 @@ class profile::jenkins {
 
   # Include a reverse proxy in front
   nginx::resource::vhost { $::hostname:
-    listen_port => 80,
-    proxy       => 'http://localhost:8080',
+    listen_port    => 80,
+    listen_options => 'default_server',
+    proxy          => 'http://localhost:8080',
   }
 }
