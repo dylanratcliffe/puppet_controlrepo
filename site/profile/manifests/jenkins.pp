@@ -79,11 +79,12 @@ class profile::jenkins {
 
   # Set Jenkins' default shell to bash
   file_line { 'jenkins_default_shell':
-    ensure => present,
-    path   => '/var/lib/jenkins/hudson.tasks.Shell.xml',
-    line   => '  <shell>/bin/bash</shell>',
-    match  => '^\s*<shell>',
-    notify => Service['jenkins'],
+    ensure  => present,
+    path    => '/var/lib/jenkins/hudson.tasks.Shell.xml',
+    line    => '  <shell>/bin/bash</shell>',
+    match   => '^\s*<shell>',
+    notify  => Service['jenkins'],
+    require => Class['::jenkins'],
   }
 
 }
