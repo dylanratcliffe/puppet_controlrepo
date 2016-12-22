@@ -124,7 +124,7 @@ class profile::metrics::dashboard {
 
   # include ::docker
   class { '::grafana':
-    graphite_host => $::networking['ip'],
+    graphite_host => pick($::ec2_metadata['public-ipv4'],$::networking['ip']),
     graphite_port => $graphite_port,
   }
 
