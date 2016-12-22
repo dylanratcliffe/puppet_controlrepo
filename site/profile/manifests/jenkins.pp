@@ -31,4 +31,10 @@ class profile::jenkins {
     provider => 'gem',
     require  => Package['ruby'],
   }
+
+  # Include a reverse proxy in front
+  nginx::resource::vhost { $::fqdn:
+    listen_port => 80,
+    proxy       => 'http://localhost:8080',
+  }
 }
