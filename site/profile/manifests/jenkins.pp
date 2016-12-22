@@ -100,11 +100,12 @@ class profile::jenkins {
     'description' => 'Managed by Puppet',
     'secret' => $token,
   })
+  $secret_json_escaped = shell_escape($secret_json)
 
   # If the token has been generated then create it
   if $token {
     jenkins::cli::exec { 'add_secret':
-      command => "credentials_update_json <<< ${secret_json}",
+      command => "credentials_update_json <<< ${secret_json_escaped}",
       unless  => "${::jenkins::cli_helper::helper_cmd} credentials_list_json | grep ${uuid}",
     }
   }
