@@ -43,12 +43,6 @@ class profile::puppetmaster::tuning {
   $puppetdb_memory               = Integer($subsystem_memory * $puppetdb_memory_proportion)
   $activemq_memory               = Integer($subsystem_memory * $activemq_memory_proportion)
   $puppetserver_memory           = Integer($puppetserver_optimal_memory)
-  notice("NOTE:${console_services_memory}")
-  notice("NOTE:${orchestration_services_memory}")
-  notice("NOTE:${puppetdb_memory}")
-  notice("NOTE:${activemq_memory}")
-  notice("NOTE:${puppetserver_memory}")
-
 
   # TODO: Deal with overallocation
 
@@ -97,7 +91,7 @@ class profile::puppetmaster::tuning {
 
   $pe_activemq_group_additions = {
     'puppet_enterprise::profile::amq::broker' => {
-      'heap_mb' => $activemq_memory
+      'heap_mb' => "${activemq_memory}"
     }
   }
 
