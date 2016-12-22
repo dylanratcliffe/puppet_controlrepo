@@ -23,7 +23,12 @@ mod 'puppetlabs/firewall'           ,'1.8.1'
 mod 'hunner/hiera'                  ,'2.0.2'
 mod 'danzilio/report_all_the_things','0.1.0'
 mod 'mukaibot/bamboo'               ,'1.7.0'
-mod 'rtyler/jenkins'                ,'1.7.0'
+#mod 'rtyler/jenkins'                ,'1.7.0'
+# This is to fix https://github.com/jenkinsci/puppet-jenkins/issues/633
+# it will be released in 1.8.0
+mod 'jenkins',
+  :git => 'https://github.com/jenkinsci/puppet-jenkins.git',
+  :ref => 'a5d5ba6667855df644c43654741a9ab586aa6681'
 mod 'unibet/vagrant'                ,'0.2.1'
 mod 'darin/zypprepo'                ,'1.0.2'
 mod 'puppetlabs/strings'            ,'0.4.0'
