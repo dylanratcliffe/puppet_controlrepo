@@ -39,11 +39,7 @@ class profile::puppetmaster::tuning {
       $orchestration_services_memory = $orchestration_services_base_memory * 2
       $puppetdb_memory               = $puppetdb_base_memory * 2
       $activemq_memory               = $activemq_base_memory * 2
-      $puppetserver_memory           = ($memory_mb - $reserved_memory
-                                        - $console_services_memory
-                                        - $orchestration_services_memory
-                                        - $puppetdb_memory
-                                        - $activemq_memory)
+      $puppetserver_memory           = $puppetserver_optimal_memory
     } else {
       # Otherwise just leave them where they are
       $console_services_memory       = $console_services_base_memory
@@ -61,11 +57,7 @@ class profile::puppetmaster::tuning {
       $orchestration_services_memory = $orchestration_services_base_memory / 2
       $puppetdb_memory               = $puppetdb_base_memory / 2
       $activemq_memory               = $activemq_base_memory / 2
-      $puppetserver_memory           = ($memory_mb - $reserved_memory
-                                        - $console_services_memory
-                                        - $orchestration_services_memory
-                                        - $puppetdb_memory
-                                        - $activemq_memory)
+      $puppetserver_memory           = $puppetserver_optimal_memory
     } else {
       $puppetserver_memory           = $puppetserver_available_memory
       $console_services_memory       = $console_services_base_memory
