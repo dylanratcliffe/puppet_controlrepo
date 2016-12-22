@@ -59,7 +59,9 @@ class profile::jenkins {
     'ruby-runtime',
   ]
 
-  jenkins::plugin { $plugins : }
+  jenkins::plugin { $plugins :
+    require => Class['::jenkins'],
+  }
 
   jenkins::job { 'Onceover':
     config  => epp('profile/onceover_jenkins_job.xml'),
