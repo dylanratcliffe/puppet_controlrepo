@@ -4,7 +4,7 @@ define console::user (
   String        $password,
   String        $ensure       = 'present',
   String        $display_name = $name,
-  String        $email        = '',
+  String        $email        = 'foo@puppet.com',
   Array[String] $roles        = [ 'Operators' ],
 ) {
   include ::console
