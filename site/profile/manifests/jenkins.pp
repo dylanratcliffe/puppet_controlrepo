@@ -51,6 +51,9 @@ class profile::jenkins {
     'jquery-detached',
     'branch-api',
     'cloudbees-folder',
+    'pipeline-graph-analysis',
+    'run-condition',
+    'git-server',
   ]
 
   jenkins::plugin { $plugins : }
