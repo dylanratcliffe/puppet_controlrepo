@@ -97,7 +97,7 @@ class profile::jenkins {
   $token = console::user::token('jenkins')
   $secret_json = epp('profile/jenkins_secret_text.json.epp',{
     'uuid' => $uuid,
-    'description' => 'Managed by Puppet',
+    'description' => 'PE Depoloy Token',
     'secret' => $token,
   })
   $secret_json_escaped = shell_escape($secret_json)
