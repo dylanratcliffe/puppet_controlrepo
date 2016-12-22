@@ -62,7 +62,7 @@ class profile::jenkins {
   jenkins::plugin { $plugins : }
 
   jenkins::job { 'Onceover':
-    source => 'puppet:///modules/profile/onceover_jenkins_job.xml',
+    config => epp('profile/onceover_jenkins_job.xml'),
   }
 
   include profile::base
