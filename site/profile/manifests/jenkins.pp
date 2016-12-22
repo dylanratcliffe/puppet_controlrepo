@@ -62,7 +62,8 @@ class profile::jenkins {
   jenkins::plugin { $plugins : }
 
   jenkins::job { 'Onceover':
-    config => epp('profile/onceover_jenkins_job.xml'),
+    config  => epp('profile/onceover_jenkins_job.xml'),
+    require => Class['::jenkins'],
   }
 
   include profile::base
