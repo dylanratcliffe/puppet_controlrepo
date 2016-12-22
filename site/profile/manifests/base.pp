@@ -16,8 +16,6 @@ class profile::base {
     'vim',
     'git',
     'htop',
-    'ruby',
-    'ruby-devel',
     'zlib',
     'zlib-devel',
     'jq',
@@ -25,6 +23,19 @@ class profile::base {
 
   package { $packages:
     ensure => latest,
+  }
+
+  include ::rvm
+
+  rvm_system_ruby { 'ruby-2.3.3':
+    ensure      => 'present',
+    default_use => true,
+  }
+
+  package { 'bundler':
+    ensure   => present,
+    provider => 'gem',
+    require  => Rvm_system_ruby['ruby-2.3.3'],
   }
 
   class { 'selinux':

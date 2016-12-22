@@ -74,4 +74,5 @@ class profile::jenkins {
     listen_options => 'default_server',
     proxy          => 'http://localhost:8080',
   }
+
 }
