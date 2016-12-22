@@ -1,5 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<flow-definition plugin="workflow-job@2.9">
+<?xml version="1.0" encoding="UTF-8"?><flow-definition plugin="workflow-job@2.9">
   <actions/>
   <description>Runs onceover tests</description>
   <keepDependencies>false</keepDependencies>
