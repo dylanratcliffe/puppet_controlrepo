@@ -10,62 +10,41 @@ class profile::puppetmaster::tuning {
   # Subtract some memory to leave for the system
   $available_memory = $memory_mb - $reserved_memory
 
-  # Calculate the base memory for other puppet systems; activemq etc.
-  $console_services_base_memory       = 256
-  $orchestration_services_base_memory = 192
-  $puppetdb_base_memory               = 256
-  $activemq_base_memory               = 512
+  # Calculate the subsystem memory split
+  $console_services_memory_proportion       = 0.2
+  $orchestration_services_memory_proportion = 0.2
+  $puppetdb_memory_proportion               = 0.2
+  $activemq_memory_proportion               = 0.4
+
+  # How much total memory should be allocated to the subsystems
+  $subsystem_base_memory = 1280
 
   # Calculate how much the puppetserver and jrubies are going to need
   $max_active_instances = $::processors['count']
   $puppetserver_optimal_memory = (512 + ($max_active_instances * 512))
 
-  # Make sure that we are not overallocating memory
-  $puppetserver_available_memory = ($memory_mb - $reserved_memory
-                                    - $console_services_base_memory
-                                    - $orchestration_services_base_memory
-                                    - $puppetdb_base_memory
-                                    - $activemq_base_memory)
+  # Calculate how much memory we have to play with given:
+  #   - Puppetserver has optimal memory
+  #   - Everything else has base
+  $unallocated_memory_base = ($memory_mb - $reserved_memory
+                                    - $puppetserver_optimal_memory
+                                    - $subsystem_base_memory)
 
-  # if not, bump up the subsystem memory; activemq, puppetdb etc.
-  if ($puppetserver_optimal_memory < $puppetserver_available_memory) {
-    # If we can afford to double the base memory of the other stuff, do it.
-    if ((($console_services_base_memory +
-    $orchestration_services_base_memory +
-    $puppetdb_base_memory +
-    $activemq_base_memory) * 2) +
-    $puppetserver_optimal_memory) < $memory_mb {
-      $console_services_memory       = $console_services_base_memory * 2
-      $orchestration_services_memory = $orchestration_services_base_memory * 2
-      $puppetdb_memory               = $puppetdb_base_memory * 2
-      $activemq_memory               = $activemq_base_memory * 2
-      $puppetserver_memory           = $puppetserver_optimal_memory
-    } else {
-      # Otherwise just leave them where they are
-      $console_services_memory       = $console_services_base_memory
-      $orchestration_services_memory = $orchestration_services_base_memory
-      $puppetdb_memory               = $puppetdb_base_memory
-      $activemq_memory               = $activemq_base_memory
-      $puppetserver_memory           = $puppetserver_optimal_memory
-    }
+  # Double the subsystem memory if possible
+  if ($unallocated_memory_base > $subsystem_base_memory) {
+    $subsystem_memory = $subsystem_base_memory * 2
   } else {
-    # If we are overallocated by more than x%, halve the memory of the subsystems
-    $x = 0.20
-
-    if (($puppetserver_optimal_memory - $puppetserver_available_memory)/$puppetserver_optimal_memory) > $x {
-      $console_services_memory       = $console_services_base_memory / 2
-      $orchestration_services_memory = $orchestration_services_base_memory / 2
-      $puppetdb_memory               = $puppetdb_base_memory / 2
-      $activemq_memory               = $activemq_base_memory / 2
-      $puppetserver_memory           = $puppetserver_optimal_memory
-    } else {
-      $puppetserver_memory           = $puppetserver_available_memory
-      $console_services_memory       = $console_services_base_memory
-      $orchestration_services_memory = $orchestration_services_base_memory
-      $puppetdb_memory               = $puppetdb_base_memory
-      $activemq_memory               = $activemq_base_memory
-    }
+    $subsystem_memory = $subsystem_base_memory
   }
+
+  # Finally: Set up all the variables
+  $console_services_memory       = $subsystem_memory * $console_services_memory_proportion
+  $orchestration_services_memory = $subsystem_memory * $orchestration_services_memory_proportion
+  $puppetdb_memory               = $subsystem_memory * $puppetdb_memory_proportion
+  $activemq_memory               = $subsystem_memory * $activemq_memory_proportion
+  $puppetserver_memory           = $puppetserver_optimal_memory
+
+  # TODO: Deal with overallocation
 
   # Final config steps
   $pe_master_group       = node_groups('PE Master')
