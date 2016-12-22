@@ -19,7 +19,9 @@ class profile::jenkins {
     'script-security',
     'junit',
     'github',
-    'git'
+    'git',
+    'workflow-aggregator',
+    'puppet-enterprise-pipeline',
   ]
 
   jenkins::plugin { $plugins : }
