@@ -1,3 +1,4 @@
+#
 class profile::sumologic {
   $sumologic_key = hiera('profile::sumologic::sumologic_key','NOT_FOUND')
 

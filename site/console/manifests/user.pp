@@ -1,5 +1,6 @@
 # Creates a user in the console and generates a token for them
 # You can still pass name into this, it will work.
+#
 define console::user (
   String        $password,
   String        $ensure       = 'present',
