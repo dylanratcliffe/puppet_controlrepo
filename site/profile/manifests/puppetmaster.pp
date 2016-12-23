@@ -1,6 +1,6 @@
 class profile::puppetmaster {
   # Wait until we have installed the stuff first before including this class
-  if count(query_resources("Class['profile::puppetmaster']","Package['puppetclassify_server']")) > 0 {
+  if puppetdb_query('resources { type = "Package" and title = "puppetclassify_agent" }').count > 0 {
     include profile::puppetmaster::tuning
   }
 
