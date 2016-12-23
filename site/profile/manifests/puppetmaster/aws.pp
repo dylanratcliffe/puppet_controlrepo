@@ -5,7 +5,7 @@ class profile::puppetmaster::aws {
     notify   => Service['pe-puppetserver'],
   }
 
-  if count(query_resources("Class['profile::puppetmaster']","Class['autosign']")) > 0 {
+  if puppetdb_query('resources { type = "Class" and title = "autosign" }').count > 0 {
     include profile::aws_nodes
   }
 

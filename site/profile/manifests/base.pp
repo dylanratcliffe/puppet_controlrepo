@@ -38,7 +38,7 @@ class profile::base {
   }
 
   class { 'selinux':
-    mode => 'disabled',
+    mode => 'permissive',
     type => 'targeted',
   }
 
