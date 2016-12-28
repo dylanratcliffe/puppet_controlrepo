@@ -1,5 +1,5 @@
 node {
-  puppet.credentials 'PE Depoloy Token'
+  puppet.credentials 'PE-Depoloy-Token'
    stage('Git Checkout') { // for display purposes
       // Get some code from a GitHub repository
       checkout([
