@@ -68,7 +68,7 @@ class profile::jenkins {
 
   include profile::base
 
-  include ::nginx
+  include profile::nginx
 
   # Include a reverse proxy in front
   nginx::resource::vhost { $::hostname:
