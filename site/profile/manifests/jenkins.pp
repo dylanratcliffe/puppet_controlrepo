@@ -93,11 +93,10 @@ class profile::jenkins {
   }
 
   # Create the details for the Puppet token
-  $uuid = 'd584ab06-3a2d-49df-b48f-7b2a43285ae9'
   $token = console::user::token('jenkins')
   $secret_json = epp('profile/jenkins_secret_text.json.epp',{
-    'uuid' => $uuid,
-    'description' => 'PE Depoloy Token',
+    'id' => 'PE-Deploy-Token',
+    'description' => 'Used to invoke actions on the Puppet Master',
     'secret' => $token,
   })
   $secret_json_escaped = shell_escape($secret_json)

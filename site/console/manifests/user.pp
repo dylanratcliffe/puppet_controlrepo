@@ -29,7 +29,7 @@ define console::user (
     ensure  => file,
     owner   => 'pe-puppet',
     group   => 'pe-puppet',
-    mode    => '0700',
+    mode    => '0600',
     require => Exec["create_${title}_token"],
   }
 }
