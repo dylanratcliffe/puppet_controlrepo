@@ -1,24 +1,24 @@
 node {
   puppet.credentials 'PE-Depoloy-Token'
-   stage('Git Checkout') { // for display purposes
-      // Get some code from a GitHub repository
-      checkout([
-          $class: 'GitSCM',
-          branches: [[name: env.BRANCH_NAME]],
-          doGenerateSubmoduleConfigurations: false,
-          userRemoteConfigs: [[url: 'https://github.com/dylanratcliffe/puppet_controlrepo.git']]])
-   }
-   stage('Install Gems') {
-      // Run the onceover tests
-      sh '''source /usr/local/rvm/scripts/rvm
-bundle install --path=.gems --binstubs'''
-   }
-   stage('Run Onceover Tests') {
-      // Run the onceover tests
-      sh '''source /usr/local/rvm/scripts/rvm
-./bin/onceover run spec'''
-      junit '.onceover/spec.xml'
-   }
+//    stage('Git Checkout') { // for display purposes
+//       // Get some code from a GitHub repository
+//       checkout([
+//           $class: 'GitSCM',
+//           branches: [[name: env.BRANCH_NAME]],
+//           doGenerateSubmoduleConfigurations: false,
+//           userRemoteConfigs: [[url: 'https://github.com/dylanratcliffe/puppet_controlrepo.git']]])
+//    }
+//    stage('Install Gems') {
+//       // Run the onceover tests
+//       sh '''source /usr/local/rvm/scripts/rvm
+// bundle install --path=.gems --binstubs'''
+//    }
+//    stage('Run Onceover Tests') {
+//       // Run the onceover tests
+//       sh '''source /usr/local/rvm/scripts/rvm
+// ./bin/onceover run spec'''
+//       junit '.onceover/spec.xml'
+//    }
    stage('Deploy Code') {
       echo env.BRANCH_NAME
       puppet.codeDeploy env.BRANCH_NAME
