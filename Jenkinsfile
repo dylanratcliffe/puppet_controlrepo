@@ -20,8 +20,8 @@ node {
 //    }
    stage('Deploy Code') {
       puppet.credentials 'PE-Depoloy-Token'
-      // echo env.BRANCH_NAME
-      // puppet.codeDeploy env.BRANCH_NAME
+      echo env.BRANCH_NAME
+      puppet.codeDeploy env.BRANCH_NAME
       // puppet.job env.BRANCH_NAME
    }
   //  stage('Run Puppet') {
