@@ -1,5 +1,4 @@
 node {
-  puppet.credentials 'PE-Depoloy-Token'
 //    stage('Git Checkout') { // for display purposes
 //       // Get some code from a GitHub repository
 //       checkout([
@@ -20,9 +19,10 @@ node {
 //       junit '.onceover/spec.xml'
 //    }
    stage('Deploy Code') {
-      echo env.BRANCH_NAME
-      puppet.codeDeploy env.BRANCH_NAME
-      puppet.job env.BRANCH_NAME
+      puppet.credentials 'PE-Depoloy-Token'
+      // echo env.BRANCH_NAME
+      // puppet.codeDeploy env.BRANCH_NAME
+      // puppet.job env.BRANCH_NAME
    }
   //  stage('Run Puppet') {
   //     git 'https://github.com/dylanratcliffe/puppet_controlrepo.git'
