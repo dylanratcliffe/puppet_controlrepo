@@ -20,6 +20,7 @@ bundle install --path=.gems --binstubs'''
       junit '.onceover/spec.xml'
    }
    stage('Deploy Code') {
+      echo env.BRANCH_NAME
       puppet.codeDeploy env.BRANCH_NAME
       puppet.job env.BRANCH_NAME
    }
