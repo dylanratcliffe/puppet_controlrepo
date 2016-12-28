@@ -1,4 +1,5 @@
 node {
+  puppet.credentials 'PE Depoloy Token'
    stage('Git Checkout') { // for display purposes
       // Get some code from a GitHub repository
       checkout([
@@ -19,7 +20,8 @@ bundle install --path=.gems --binstubs'''
       junit '.onceover/spec.xml'
    }
    stage('Deploy Code') {
-      puppet.codeDeploy env.BRANCH_NAME, credentials: 'PE Depoloy Token'
+      puppet.codeDeploy env.BRANCH_NAME
+      puppet.job env.BRANCH_NAME
    }
   //  stage('Run Puppet') {
   //     git 'https://github.com/dylanratcliffe/puppet_controlrepo.git'
