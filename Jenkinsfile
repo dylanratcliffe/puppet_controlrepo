@@ -10,13 +10,11 @@ node {
    }
    stage('Install Gems') {
       // Run the onceover tests
-      sh '''source /usr/local/rvm/scripts/rvm
-bundle install --path=.gems --binstubs'''
+      sh '''source /usr/local/rvm/scripts/rvm && bundle install --path=.gems --binstubs'''
    }
    stage('Run Onceover Tests') {
       // Run the onceover tests
-      sh '''source /usr/local/rvm/scripts/rvm
-./bin/onceover run spec'''
+      sh '''source /usr/local/rvm/scripts/rvm && ./bin/onceover run spec'''
       junit '.onceover/spec.xml'
    }
    stage('Deploy Code') {
@@ -24,9 +22,8 @@ bundle install --path=.gems --binstubs'''
       puppet.codeDeploy env.BRANCH_NAME
       // puppet.job env.BRANCH_NAME
    }
-  //  stage('Run Puppet') {
-  //     git 'https://github.com/dylanratcliffe/puppet_controlrepo.git'
-  //     changedFiles = sh(returnStdout: true, script: './scripts/get_changed_classes.rb').trim().split('\n')
-  //     echo changedFiles
-  //  }
+   stage('Run Puppet') {
+      changedClasses = sh(returnStdout: true, script: './scripts/get_changed_classes.rb').trim().split('\n')
+      echo changedClasses
+   }
 }
