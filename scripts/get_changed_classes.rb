@@ -7,10 +7,12 @@ files.each do |file|
   # if the changed file is a manifest
   if file =~ /\.pp$/
     segments = file.split('/')
+    # Capitalize the segments so that they work as a reference
+    segments = segments.map { |seg| seg.capitalize }
     # Get the name of the module
-    mod = segments[segments.index('manifests') - 1]
+    mod = segments[segments.index('Manifests') - 1]
     # Delete everything up to & including manifests
-    segments = segments - segments[0..segments.index('manifests')]
+    segments = segments - segments[0..segments.index('Manifests')]
     # Get the final section
     final = segments.last.chomp('.pp')
     # Delete it
