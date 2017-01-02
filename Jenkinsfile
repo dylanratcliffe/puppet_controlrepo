@@ -24,7 +24,6 @@ node {
   }
   stage('Run Puppet') {
     changedClasses = sh(returnStdout: true, script: './scripts/get_changed_classes.rb').trim().split('\n')
-    echo changedClasses.getClass()
     echo ("[\"" + changedClasses.join("\",\"") + "\"]")
   }
 }
