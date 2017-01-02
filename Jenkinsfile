@@ -24,9 +24,8 @@ node {
   }
   stage('Run Puppet') {
     changedClasses = sh(returnStdout: true, script: './scripts/get_changed_classes.rb').trim().split('\n')
-    for (String item : list) {
-      System.out.println(item)
+    for (String item : changedClasses) {
+      echo item
     }
-    echo changedClasses
   }
 }
