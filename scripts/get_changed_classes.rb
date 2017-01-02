@@ -1,4 +1,4 @@
-#! env ruby
+#! /bin/env ruby
 
 files = `git --no-pager diff --name-only HEAD HEAD~1`.split("\n")
 classes = []
