@@ -66,6 +66,11 @@ class profile::jenkins {
     require => Package['jenkins'],
   }
 
+  jenkins::job { 'Controlre Deploy':
+    config  => epp('profile/controlrepo_deploy_jenkins_job.xml'),
+    require => Package['jenkins'],
+  }
+
   include profile::base
 
   include profile::nginx
