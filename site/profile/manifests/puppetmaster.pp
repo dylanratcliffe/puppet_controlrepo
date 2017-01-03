@@ -53,6 +53,63 @@ class profile::puppetmaster {
     roles        => [ 'Administrators' ],
   }
 
+  # Create a Developers role
+  rbac_role { 'Developers':
+    ensure      => 'present',
+    description => 'Can run Puppet, deploy code and use PuppetDB',
+    id          => '5',
+    permissions => [
+      {
+        'action'      => 'edit_child_rules',
+        'instance'    => '*',
+        'object_type' => 'node_groups'
+      }, {
+        'action'      => 'edit_params_and_vars',
+        'instance'    => '*',
+        'object_type' => 'node_groups'
+      }, {
+        'action'      => 'edit_classification',
+        'instance'    => '*',
+        'object_type' => 'node_groups'
+      }, {
+        'action'      => 'view',
+        'instance'    => '*',
+        'object_type' => 'console_page'
+      }, {
+        'action'      => 'view_data',
+        'instance'    => '*',
+        'object_type' => 'nodes'
+      }, {
+        'action'      => 'set_environment',
+        'instance'    => '*',
+        'object_type' => 'node_groups'
+      }, {
+        'action'      => 'modify_children',
+        'instance'    => '*',
+        'object_type' => 'node_groups'
+      }, {
+        'action'      => 'deploy_code',
+        'instance'    => '*',
+        'object_type' => 'environment'
+      }, {
+        'action'      => 'view',
+        'instance'    => '*',
+        'object_type' => 'node_groups'
+      }, {
+        'action'      => 'accept_reject',
+        'instance'    => '*',
+        'object_type' => 'cert_requests'
+      }, {
+        'action'      => 'run',
+        'instance'    => '*',
+        'object_type' => 'puppet_agent'
+      }
+    ],
+  }
+
+  # Import all exported console users
+  Console::User <<| |>>
+
   # Add policy based autosigning using https://forge.puppet.com/danieldreier/autosign
   class { 'autosign':
     user     => 'pe-puppet',
@@ -75,7 +132,4 @@ class profile::puppetmaster {
     require => Class['autosign'],
     notify  => Service['pe-puppetserver'],
   }
-
-  # Import all exported console users
-  Console::User <<| |>>
 }

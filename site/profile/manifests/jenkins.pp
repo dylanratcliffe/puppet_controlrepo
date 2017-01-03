@@ -89,7 +89,8 @@ class profile::jenkins {
   # Create a user in the Puppet console for Jenkins
   @@console::user { 'jenkins':
     password     => fqdn_rand_string(20, '', 'jenkins'),
-    display_name => 'User for Jenkins plugin',
+    display_name => 'Jenkins',
+    roles        => ['Developers'],
   }
 
   # Create the details for the Puppet token
@@ -105,7 +106,7 @@ class profile::jenkins {
   if $token {
     jenkins::cli::exec { 'add_secret':
       command => "credentials_update_json <<< ${secret_json_escaped}",
-      unless  => "${::jenkins::cli_helper::helper_cmd} credentials_list_json | grep ${uuid}",
+      unless  => "${::jenkins::cli_helper::helper_cmd} credentials_list_json | grep PE-Deploy-Token",
     }
   }
 }
