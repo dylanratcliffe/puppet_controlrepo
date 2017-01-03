@@ -20,12 +20,25 @@ node {
   stage('Deploy Code') {
     echo env.BRANCH_NAME
     puppet.codeDeploy env.BRANCH_NAME
-    // puppet.job env.BRANCH_NAME
   }
   stage('Run Puppet') {
-    changedClasses = sh(returnStdout: true, script: './scripts/get_changed_classes.rb').trim().split('\n')
-    if (changedClasses.length > 1) {
-      puppet.job env.BRANCH_NAME, query: 'nodes { resources { type = "Class" and title in ' + ("[\"" + changedClasses.join("\",\"") + "\"]") + ' } and catalog_environment = "' + env.BRANCH_NAME +'" }'
+    // Get all of the classes that have changed
+    changedClasses    = sh(returnStdout: true, script: './scripts/get_changed_classes.rb').trim().split('\n')
+    // Get the number of classes that have changed
+    numChangedClasses = sh(returnStdout: true, script: './scripts/count_changed_classes.rb').trim().toInteger()
+    // Generate a query that we will use
+    nodeQuery         = ('nodes { resources { type = "Class" and title in ' + ("[\"" + changedClasses.join("\",\"") + "\"]") + ' } and catalog_environment = "' + env.BRANCH_NAME +'" }').toString()
+    // If things have changed then execute the query
+    if (numChangedClasses > 0) {
+      echo nodeQuery
+      affectedNodes  = puppet.query nodeQuery
+      // If nothing has been affected by the change we don't need to try to
+      // initiate the run
+      if (affectedNodes.size() > 0) {
+        puppet.job env.BRANCH_NAME, query: nodeQuery
+      } else {
+        echo "Classes: " + changedClasses.join(",") + " changed. But no nodes were affected, skipping run."
+      }
     } else {
       echo "No classes changed, skipping this step."
     }

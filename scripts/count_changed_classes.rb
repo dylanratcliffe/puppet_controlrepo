@@ -23,4 +23,4 @@ files.each do |file|
   end
 end
 
-puts classes if classes.length > 0
+puts classes.length

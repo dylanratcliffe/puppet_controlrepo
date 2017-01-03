@@ -1,3 +1,4 @@
+#
 class profile::bamboo {
   class { '::bamboo':
     username       => 'bamboo',
