@@ -66,7 +66,7 @@ class profile::jenkins {
     require => Package['jenkins'],
   }
 
-  jenkins::job { 'Controlrepo Test & Deploy':
+  jenkins::job { 'Controlrepo Test and Deploy':
     config  => epp('profile/controlrepo_deploy_jenkins_job.xml'),
     require => Package['jenkins'],
   }
