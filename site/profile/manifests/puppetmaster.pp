@@ -57,7 +57,6 @@ class profile::puppetmaster {
   rbac_role { 'Developers':
     ensure      => 'present',
     description => 'Can run Puppet, deploy code and use PuppetDB',
-    id          => '5',
     permissions => [
       {
         'action'      => 'edit_child_rules',
