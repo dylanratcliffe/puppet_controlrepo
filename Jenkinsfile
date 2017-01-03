@@ -24,6 +24,6 @@ node {
   }
   stage('Run Puppet') {
     changedClasses = sh(returnStdout: true, script: './scripts/get_changed_classes.rb').trim().split('\n')
-    puppet.job env.BRANCH_NAME, query: 'nodes { resources { type = "Class" and title in ' + ("[\"" + changedClasses.join("\",\"") + "\"]") + ' } }' 
+    puppet.job env.BRANCH_NAME, query: 'nodes { resources { type = "Class" and title in ' + ("[\"" + changedClasses.join("\",\"") + "\"]") + ' } and catalog_environment = "' + env.BRANCH_NAME +'" }' 
   }
 }
