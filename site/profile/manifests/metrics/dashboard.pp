@@ -1,3 +1,4 @@
+# Creates the metrics dashboard
 class profile::metrics::dashboard {
   $carbon_port          = 7777
   $grafana_host         = $::fqdn
