@@ -109,4 +109,11 @@ class profile::puppetmaster {
 
   # Import all exported console users
   Console::User <<| |>>
+
+  # Configure default color scheme for puppetmaster logs
+  file_line { 'log4j_color_puppetlogs':
+    ensure => present,
+    path   => '/etc/multitail.conf',
+    line   => 'scheme:log4j:/var/log/puppetlabs/',
+  }
 }
