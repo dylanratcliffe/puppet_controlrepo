@@ -28,8 +28,8 @@ class profile::base {
   }
 
   class { 'selinux':
-    mode => 'permissive',
-    type => 'targeted',
+    mode => 'disabled',
+    type => 'minimum',
   }
 
   # Make sure that we install git before we try to use it
