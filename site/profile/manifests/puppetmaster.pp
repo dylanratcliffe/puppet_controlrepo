@@ -115,5 +115,6 @@ class profile::puppetmaster {
     ensure => present,
     path   => '/etc/multitail.conf',
     line   => 'scheme:log4j:/var/log/puppetlabs/',
+    after  => 'default colorschemes',
   }
 }
