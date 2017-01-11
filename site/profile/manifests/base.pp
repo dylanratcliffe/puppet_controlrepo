@@ -21,6 +21,7 @@ class profile::base {
     'jq',
     'ruby',
     'ruby-devel',
+    'multitail',
   ]
 
   package { $packages:
