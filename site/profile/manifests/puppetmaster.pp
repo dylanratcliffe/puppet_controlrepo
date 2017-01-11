@@ -109,27 +109,4 @@ class profile::puppetmaster {
 
   # Import all exported console users
   Console::User <<| |>>
-
-  # Add policy based autosigning using https://forge.puppet.com/danieldreier/autosign
-  class { 'autosign':
-    user     => 'pe-puppet',
-    group    => 'pe-puppet',
-    settings => {
-      'general'   => {
-        'loglevel' => 'DEBUG',
-      },
-      'jwt_token' => {
-        'secret' => 'DkCieMT9UyMvg(JDQeuJm%Qao>.p*GLxYg}kaw%ExAfRDvh7Mz'
-      },
-    },
-  }
-
-  ini_setting {'policy-based autosigning':
-    setting => 'autosign',
-    path    => "${settings::confdir}/puppet.conf",
-    section => 'master',
-    value   => '/opt/puppetlabs/puppet/bin/autosign-validator',
-    require => Class['autosign'],
-    notify  => Service['pe-puppetserver'],
-  }
 }
