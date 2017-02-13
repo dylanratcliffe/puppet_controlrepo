@@ -57,6 +57,7 @@ class profile::jenkins {
     'git-server',
     'rvm',
     'ruby-runtime',
+    'pipeline-model-definition',
   ]
 
   jenkins::plugin { $plugins : }
