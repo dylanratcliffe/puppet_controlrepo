@@ -64,6 +64,8 @@ class profile::jenkins {
     'pipeline-model-declarative-agent',
     'pipeline-stage-tags-metadata',
     'docker-commons',
+    'icon-shim',
+    'authentication-tokens',
   ]
 
   jenkins::plugin { $plugins : }
