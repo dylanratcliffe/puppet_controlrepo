@@ -58,6 +58,11 @@ class profile::jenkins {
     'rvm',
     'ruby-runtime',
     'pipeline-model-definition',
+    'credentials-binding',
+    'docker-workflow',
+    'pipeline-model-api',
+    'pipeline-model-declarative-agent',
+    'pipeline-stage-tags-metadata',
   ]
 
   jenkins::plugin { $plugins : }
