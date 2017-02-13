@@ -63,6 +63,7 @@ class profile::jenkins {
     'pipeline-model-api',
     'pipeline-model-declarative-agent',
     'pipeline-stage-tags-metadata',
+    'docker-commons',
   ]
 
   jenkins::plugin { $plugins : }
