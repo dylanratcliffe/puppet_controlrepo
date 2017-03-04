@@ -1,7 +1,8 @@
-PATH
-  remote: /Users/dylanratcliffe/git/onceover
+GIT
+  remote: https://github.com/dylanratcliffe/onceover.git
+  revision: 2473bc2eec970978525691284a47a278d3d88bd3
   specs:
-    onceover (3.1.0)
+    onceover (3.1.1)
       beaker-rspec
       bundler
       colored (~> 1.2)

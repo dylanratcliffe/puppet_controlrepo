@@ -33,7 +33,7 @@ class profile::sunburst_app {
 
   include profile::nginx
 
-  nginx::resource::vhost { $::fqdn:
+  nginx::resource::server { $::fqdn:
     www_root => $install_dir,
   }
 
