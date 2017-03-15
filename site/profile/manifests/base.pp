@@ -22,6 +22,7 @@ class profile::base {
     'ruby',
     'ruby-devel',
     'multitail',
+    'haveged',
   ]
 
   package { $packages:
@@ -31,6 +32,13 @@ class profile::base {
   class { 'selinux':
     mode => 'disabled',
     type => 'minimum',
+  }
+
+  # Use haveged for entropy generation
+  service { 'haveged':
+    ensure  => running,
+    enable  => true,
+    require => Package['haveged'],
   }
 
   # Make sure that we install git before we try to use it
