@@ -62,6 +62,7 @@ class profile::jenkins {
     'docker-workflow',
     'pipeline-model-api',
     'pipeline-model-declarative-agent',
+    'pipeline-model-extensions',
     'pipeline-stage-tags-metadata',
     'docker-commons',
     'icon-shim',
