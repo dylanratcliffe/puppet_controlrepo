@@ -23,6 +23,7 @@ class profile::base {
     'ruby-devel',
     'multitail',
     'haveged',
+    'cmake'
   ]
 
   package { $packages:
