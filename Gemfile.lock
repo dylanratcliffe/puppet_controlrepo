@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/dylanratcliffe/onceover-octocatalog-diff.git
-  revision: bc50e7e73c136d9ef3e8ffdd39d9c452404e5e9a
+  revision: 6456dd9357d46c2c192f4a8a30235c430facf749
   specs:
-    onceover-octocatalog-diff (0.1.1)
+    onceover-octocatalog-diff (0.1.4)
       octocatalog-diff (~> 1.0)
       onceover (>= 3.2.0)
 
@@ -85,7 +85,7 @@ GEM
       parallel (>= 1.9.0)
       rugged (>= 0.25.0b2)
     parallel (1.11.1)
-    parallel_tests (2.13.0)
+    parallel_tests (2.14.0)
       parallel
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -102,7 +102,7 @@ GEM
       json_pure (~> 1.8)
       locale (~> 2.1)
     puppet-lint (2.1.1)
-    puppet-syntax (2.3.0)
+    puppet-syntax (2.4.0)
       rake
     puppet_forge (2.2.3)
       faraday (~> 0.9.0)
