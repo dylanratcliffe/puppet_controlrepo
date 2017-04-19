@@ -6,6 +6,8 @@ class profile::jenkins {
     executors          => $::processors['count'],
   }
 
+  notify { 'Code has changed': }
+
   $plugins = [
     'promoted-builds',
     'git-client',
