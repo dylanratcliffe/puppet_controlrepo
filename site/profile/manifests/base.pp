@@ -9,6 +9,8 @@ class profile::base {
     Class['::epel'] -> Package <||>
   }
 
+  # Comments go here
+  asdfhjb asjdhf kjasd f ajksdf kjashbdf
   include ::gcc
 
   $packages = [
