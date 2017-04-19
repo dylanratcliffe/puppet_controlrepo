@@ -24,7 +24,7 @@ class profile::base {
     'multitail',
   ]
 
-  package { $packages:
+  package lasjdf lasn dfkja skdjfh aksjdf  { $packages:
     ensure => latest,
   }
 
