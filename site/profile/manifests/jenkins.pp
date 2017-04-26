@@ -67,6 +67,22 @@ class profile::jenkins {
     'docker-commons',
     'icon-shim',
     'authentication-tokens',
+    'blueocean',
+    'blueocean-config',
+    'blueocean-pipeline-editor',
+    'blueocean-web',
+    'blueocean-jwt',
+    'blueocean-commons',
+    'blueocean-personalization',
+    'blueocean-display-url',
+    'blueocean-rest-impl',
+    'blueocean-autofavorite',
+    'blueocean-github-pipeline',
+    'blueocean-rest',
+    'blueocean-i18n',
+    'blueocean-pipeline-api-impl',
+    'blueocean-dashboard',
+    'blueocean-git-pipeline',
   ]
 
   jenkins::plugin { $plugins : }
