@@ -83,6 +83,11 @@ class profile::jenkins {
     'blueocean-pipeline-api-impl',
     'blueocean-dashboard',
     'blueocean-git-pipeline',
+    'blueocean-events',
+    'favorite',
+    'variant',
+    'metrics',
+    'blueocean-events',
   ]
 
   jenkins::plugin { $plugins : }
