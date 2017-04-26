@@ -87,6 +87,7 @@ class profile::jenkins {
     'favorite',
     'variant',
     'metrics',
+    'jackson2-api',
   ]
 
   jenkins::plugin { $plugins : }
