@@ -87,7 +87,7 @@ class profile::jenkins {
     'favorite',
     'variant',
     'metrics',
-    'jackson2-api',
+    'jackson2-api'
     'github-branch-source',
     'pubsub-light',
     'sse-gateway',
