@@ -88,6 +88,7 @@ class profile::jenkins {
     'variant',
     'metrics',
     'jackson2-api',
+    'github-branch-source',
   ]
 
   jenkins::plugin { $plugins : }
