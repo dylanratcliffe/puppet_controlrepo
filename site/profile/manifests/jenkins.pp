@@ -89,6 +89,8 @@ class profile::jenkins {
     'metrics',
     'jackson2-api',
     'github-branch-source',
+    'pubsub-light',
+    'sse-gateway',
   ]
 
   jenkins::plugin { $plugins : }
