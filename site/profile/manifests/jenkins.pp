@@ -87,7 +87,6 @@ class profile::jenkins {
     'favorite',
     'variant',
     'metrics',
-    'blueocean-events',
   ]
 
   jenkins::plugin { $plugins : }
