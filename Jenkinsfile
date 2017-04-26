@@ -15,7 +15,6 @@ node {
   stage('Run Onceover Tests') {
     // Run the onceover tests
     sh '''source /usr/local/rvm/scripts/rvm && ./bin/onceover run spec'''
-    junit '.onceover/spec.xml'
   }
   stage('Deploy Code') {
     echo env.BRANCH_NAME
@@ -41,6 +40,11 @@ node {
       }
     } else {
       echo "No classes changed, skipping this step."
+    }
+  }
+  post {
+    always {
+      junit '.onceover/spec.xml'
     }
   }
 }
