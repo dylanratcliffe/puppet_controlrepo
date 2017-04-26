@@ -42,9 +42,9 @@ node {
       echo "No classes changed, skipping this step."
     }
   }
-  post {
-    always {
-      junit '.onceover/spec.xml'
-    }
+}
+post {
+  always {
+    junit '.onceover/spec.xml'
   }
 }
