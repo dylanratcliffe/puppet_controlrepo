@@ -1,6 +1,6 @@
 pipeline {
+  puppet.credentials 'PE-Deploy-Token'
   stages {
-    puppet.credentials 'PE-Deploy-Token'
     stage('Git Checkout') { // for display purposes
       // Get some code from a GitHub repository
       checkout([
