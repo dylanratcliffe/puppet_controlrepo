@@ -1,6 +1,6 @@
 class profile::jenkins {
   class { '::jenkins':
-    version            => '2.53-1.1',
+    version            => '2.26.2',
     service_enable     => false,
     configure_firewall => true,
     executors          => $::processors['count'],
