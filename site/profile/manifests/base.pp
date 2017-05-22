@@ -32,8 +32,13 @@ class profile::base {
   }
 
   class { 'selinux':
-    mode => 'disabled',
-    type => 'minimum',
+    mode   => 'disabled',
+    type   => 'minimum',
+    notify => Reboot['after_run'],
+  }
+
+  reboot { 'after_run':
+    apply  => finished,
   }
 
   # Use haveged for entropy generation
