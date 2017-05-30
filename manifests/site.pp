@@ -7,7 +7,5 @@ if $::kernel == 'windows' {
 node default {
   if $::role {
     include $::role
-  } else {
-    fail('This machine has no role')
   }
 }
