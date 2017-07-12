@@ -38,7 +38,6 @@ class profile::jenkins {
     'pipeline-stage-step',
     'workflow-cps-global-lib',
     'workflow-step-api',
-    'workflow-job',
     'plain-credentials',
     'display-url-api',
     'github-api',
@@ -93,7 +92,7 @@ class profile::jenkins {
     'blueocean-pipeline-scm-api',
   ]
 
-  jenkins::plugin { $plugins : }
+  #jenkins::plugin { $plugins : }
 
   jenkins::job { 'Onceover':
     config  => epp('profile/onceover_jenkins_job.xml'),
