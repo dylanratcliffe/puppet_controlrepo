@@ -23,7 +23,6 @@ class profile::jenkins {
     'git',
     'workflow-aggregator',
     'puppet-enterprise-pipeline',
-    'structs',
     'javadoc',
     'workflow-scm-step',
     'workflow-cps',
