@@ -1,9 +1,9 @@
 # Deals with the Puppet Master
 class profile::puppetmaster {
   # Wait until we have installed the stuff first before including this class
-  if puppetdb_query('resources { type = "Package" and title = "puppetclassify_agent" }').count > 0 {
-    include profile::puppetmaster::tuning
-  }
+  # if puppetdb_query('resources { type = "Package" and title = "puppetclassify_agent" }').count > 0 {
+  #   include profile::puppetmaster::tuning
+  # }
 
   $server_gems = [
     'puppetclassify',
