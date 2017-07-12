@@ -90,6 +90,7 @@ class profile::jenkins {
     'github-branch-source',
     'pubsub-light',
     'sse-gateway',
+    'blueocean-pipeline-scm-api',
   ]
 
   jenkins::plugin { $plugins : }
