@@ -48,17 +48,18 @@ class profile::jenkins {
   # Create the details for the Puppet token
   $token = console::user::token('jenkins')
   $secret_json = epp('profile/jenkins_secret_text.json.epp',{
-    'id' => 'PE-Deploy-Token',
+    'id'          => 'PE-Deploy-Token',
     'description' => 'Puppet Enterprise Token',
-    'secret' => $token,
+    'secret'      => $token,
   })
   $secret_json_escaped = shell_escape($secret_json)
 
   # If the token has been generated then create it
   if $token {
-    jenkins::cli::exec { 'add_secret':
-      command => "credentials_update_json <<< ${secret_json_escaped}",
-      unless  => "${::jenkins::cli_helper::helper_cmd} credentials_list_json | grep PE-Deploy-Token",
+    jenkins::credentials { 'PE-Deploy-Token':
+      impl        => 'StringCredentialsImpl',
+      secret      => $token,
+      description => 'Puppet Enterprise Token',
     }
   }
 }
