@@ -55,11 +55,11 @@ class profile::jenkins {
   $secret_json_escaped = shell_escape($secret_json)
 
   # If the token has been generated then create it
-  if $token {
-    jenkins_credentials { 'PE-Deploy-Token':
-      impl        => 'StringCredentialsImpl',
-      secret      => $token,
-      description => 'Puppet Enterprise Token',
-    }
-  }
+  # if $token {
+  #   jenkins_credentials { 'PE-Deploy-Token':
+  #     impl        => 'StringCredentialsImpl',
+  #     secret      => $token,
+  #     description => 'Puppet Enterprise Token',
+  #   }
+  # }
 }
