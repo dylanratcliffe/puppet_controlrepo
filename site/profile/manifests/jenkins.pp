@@ -59,6 +59,7 @@ class profile::jenkins {
     'pipeline-stage-tags-metadata',
     'plain-credentials',
     'pubsub-light',
+    'puppet-enterprise-pipeline',
     'scm-api',
     'script-security',
     'sse-gateway',
@@ -89,9 +90,9 @@ class profile::jenkins {
     require => Package['jenkins'],
   }
 
-  include profile::base
+  include ::profile::base
 
-  include profile::nginx
+  include ::profile::nginx
 
   # Include a reverse proxy in front
   nginx::resource::server { $::hostname:
@@ -102,7 +103,7 @@ class profile::jenkins {
 
   # Set Jenkins' default shell to bash
   file { 'jenkins_default_shell':
-    ensure  => present,
+    ensure  => file,
     path    => '/var/lib/jenkins/hudson.tasks.Shell.xml',
     source  => 'puppet:///modules/profile/hudson.tasks.Shell.xml',
     notify  => Service['jenkins'],
