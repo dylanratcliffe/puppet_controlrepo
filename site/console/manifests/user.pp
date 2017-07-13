@@ -19,7 +19,7 @@ define console::user (
   }
 
   exec { "create_${title}_token":
-    command => "echo \"${password}\" | puppet access login --username ${name} -l 0 --print | tail -n1 > ${::console::token_dir}/${name}",
+    command => "echo \"${password}\" | puppet access login --username ${name} --lifetime 0 --print | tail -n1 > ${::console::token_dir}/${name}",
     creates => "${::console::token_dir}/${name}",
     path    => $::path,
     require => Rbac_user[$title],
