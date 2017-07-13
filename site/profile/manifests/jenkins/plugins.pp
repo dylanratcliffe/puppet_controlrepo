@@ -1,6 +1,13 @@
 # Plugins with the correct version
 class profile::jenkins::plugins {
   $plugins = {
+    'pipeline-milestone-step'          => '1.3.1',
+    'pipeline-rest-api'                => '2.8',
+    'handlebars'                       => '1.1.1',
+    'momentjs'                         => '1.1.1',
+    'pipeline-stage-view'              => '2.8',
+    'pipeline-build-step'              => '2.5.1',
+    'workflow-aggregator'              => '2.5',
     'pipeline-model-api'               => '1.1.8',
     'bouncycastle-api'                 => '2.16.1',
     'favorite'                         => '2.3.0',
