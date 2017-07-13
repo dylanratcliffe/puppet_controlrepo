@@ -56,7 +56,7 @@ class profile::jenkins {
 
   # If the token has been generated then create it
   if $token {
-    jenkins::credentials { 'PE-Deploy-Token':
+    jenkins_credentials { 'PE-Deploy-Token':
       impl        => 'StringCredentialsImpl',
       secret      => $token,
       description => 'Puppet Enterprise Token',
