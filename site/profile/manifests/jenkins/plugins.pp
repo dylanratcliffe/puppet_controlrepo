@@ -6,11 +6,9 @@ class profile::jenkins::plugins {
     'favorite'                         => '1.625.3',
     'jackson2-api'                     => '1.612',
     'github-api'                       => '1.615',
-    'structs'                          => '1.580.1',
     'workflow-step-api'                => '1.642.3',
     'workflow-scm-step'                => '2.60',
     'pubsub-light'                     => '2.0',
-    'credentials'                      => '1.625.3',
     'docker-workflow'                  => '1.642.3',
     'ssh-credentials'                  => '1.609',
     'blueocean-config'                 => '2.7.1',
@@ -71,7 +69,7 @@ class profile::jenkins::plugins {
     'blueocean-pipeline-editor'        => '2.7.1',
     'blueocean-autofavorite'           => '2.7.1',
     'blueocean-dashboard'              => '2.7.1',
-    'puppet-enterprise-pipeline'       => '1.642.3'
+    'puppet-enterprise-pipeline'       => '1.642.3',
   }
 
   $plugins.each |$name,$version| {
