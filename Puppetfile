@@ -65,6 +65,5 @@ mod 'cidr_facts',
   :git => 'https://github.com/dylanratcliffe/puppet-cidr_facts.git'
 mod 'test_fact'
   :git => 'https://github.com/dylanratcliffe/test_facts.git'
-mod 'test_fact'
 #mod 'stdlib',
 #  :git => 'https://github.com/puppetlabs/puppetlabs-stdlib.git'
