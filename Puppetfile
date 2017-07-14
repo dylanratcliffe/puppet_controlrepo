@@ -63,7 +63,7 @@ mod 'puppet-archive'                ,'1.3.0'
 mod 'puppetlabs-transition'         ,'0.1.1'
 mod 'cidr_facts',
   :git => 'https://github.com/dylanratcliffe/puppet-cidr_facts.git'
-mod 'test_fact'
+mod 'test_fact',
   :git => 'https://github.com/dylanratcliffe/test_facts.git'
 #mod 'stdlib',
 #  :git => 'https://github.com/puppetlabs/puppetlabs-stdlib.git'
