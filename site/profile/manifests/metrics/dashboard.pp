@@ -123,12 +123,14 @@ class profile::metrics::dashboard {
     require +> Package['python-pip']
   }
 
+  $useful_ip = $::ec2_metadata ? {
+    undef   => $::networking['ip'],
+    default => $::ec2_metadata['public-ipv4'],
+  }
+
   # include ::docker
   class { '::grafana':
-    graphite_host => $::ec2_metadata ? {
-      undef   => $::networking['ip'],
-      default => $::ec2_metadata['public-ipv4'],
-    },
+    graphite_host => $useful_ip,
     graphite_port => $graphite_port,
   }
 

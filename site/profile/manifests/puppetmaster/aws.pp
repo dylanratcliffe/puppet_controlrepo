@@ -44,7 +44,7 @@ class profile::puppetmaster::aws {
       },
     },
   }
-  
+
   ini_setting {'policy-based autosigning':
     setting => 'autosign',
     path    => "${settings::confdir}/puppet.conf",

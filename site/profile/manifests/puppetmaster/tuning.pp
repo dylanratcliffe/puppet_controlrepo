@@ -89,11 +89,13 @@ class profile::puppetmaster::tuning {
     }
   }
 
+  # lint:ignore:only_variable_string
   $pe_activemq_group_additions = {
     'puppet_enterprise::profile::amq::broker' => {
       'heap_mb' => "${activemq_memory}"
     }
   }
+  # lint:endignore
 
   node_group { 'PE Master':
     ensure  => present,
