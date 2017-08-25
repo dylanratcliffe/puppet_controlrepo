@@ -1,9 +1,9 @@
 {
-  "name": "master",
+  "name": "centos7b.syd.puppetlabs.demo",
   "values": {
     "initsystem": "systemd",
-    "aio_agent_build": "1.2.6.331.g7a9bb17",
-    "aio_agent_version": "1.2.6.331",
+    "aio_agent_build": "1.2.2",
+    "aio_agent_version": "1.2.2",
     "architecture": "x86_64",
     "augeas": {
       "version": "1.4.0"
@@ -22,6 +22,7 @@
     "chassistype": "Other",
     "concat_basedir": "/opt/puppetlabs/puppet/cache/concat",
     "custom_auth_conf": "false",
+    "datacenter": "sydney",
     "dhcp_servers": {
       "enp0s3": "10.0.2.2",
       "enp0s8": "192.168.56.100",
@@ -53,19 +54,18 @@
       "product": {
         "name": "VirtualBox",
         "serial_number": "0",
-        "uuid": "C6F03159-5A86-4F33-8FEC-18FEE6A359FD"
+        "uuid": "9D7BE471-F3DA-47EE-B023-F659129270EF"
       }
     },
-    "facterversion": "3.1.1",
+    "domain": "syd.puppetlabs.demo",
+    "facterversion": "3.0.2",
     "filesystems": "xfs",
-    "fqdn": "master",
+    "fqdn": "centos7b.syd.puppetlabs.demo",
     "gid": "root",
-    "git_exec_path": "/usr/libexec/git-core",
-    "git_html_path": "/usr/share/doc/git-1.8.3.1",
-    "git_version": "1.8.3.1",
     "hardwareisa": "x86_64",
     "hardwaremodel": "x86_64",
-    "hostname": "master",
+    "homedir": "/root",
+    "hostname": "centos7b",
     "id": "root",
     "identity": {
       "gid": 0,
@@ -78,12 +78,13 @@
     "ipaddress": "10.0.2.15",
     "ipaddress6": "fe80::a00:27ff:fe39:183c",
     "ipaddress6_enp0s3": "fe80::a00:27ff:fe39:183c",
-    "ipaddress6_enp0s8": "fe80::a00:27ff:febe:f383",
+    "ipaddress6_enp0s8": "fe80::a00:27ff:fe39:832c",
     "ipaddress6_lo": "::1",
     "ipaddress_enp0s3": "10.0.2.15",
-    "ipaddress_enp0s8": "10.20.1.107",
+    "ipaddress_enp0s8": "10.20.1.92",
     "ipaddress_lo": "127.0.0.1",
     "iptables_version": "1.4.21",
+    "is_admin": true,
     "is_pe": false,
     "is_virtual": true,
     "kernel": "Linux",
@@ -91,13 +92,13 @@
     "kernelrelease": "3.10.0-123.el7.x86_64",
     "kernelversion": "3.10.0",
     "load_averages": {
-      "15m": 0.83,
-      "1m": 3.09,
-      "5m": 2.06
+      "15m": 0.05,
+      "1m": 0.26,
+      "5m": 0.12
     },
     "macaddress": "08:00:27:39:18:3c",
     "macaddress_enp0s3": "08:00:27:39:18:3c",
-    "macaddress_enp0s8": "08:00:27:be:f3:83",
+    "macaddress_enp0s8": "08:00:27:39:83:2c",
     "manufacturer": "innotek GmbH",
     "memory": {
       "swap": {
@@ -110,24 +111,24 @@
         "used_bytes": 0
       },
       "system": {
-        "available": "1002.80 MiB",
-        "available_bytes": 1051512832,
-        "capacity": "73.56%",
-        "total": "3.70 GiB",
-        "total_bytes": 3976761344,
-        "used": "2.72 GiB",
-        "used_bytes": 2925248512
+        "available": "297.76 MiB",
+        "available_bytes": 312225792,
+        "capacity": "39.28%",
+        "total": "490.41 MiB",
+        "total_bytes": 514228224,
+        "used": "192.64 MiB",
+        "used_bytes": 202002432
       }
     },
-    "memoryfree": "1002.80 MiB",
-    "memoryfree_mb": 1002.80078125,
-    "memorysize": "3.70 GiB",
-    "memorysize_mb": 3792.53515625,
+    "memoryfree": "297.76 MiB",
+    "memoryfree_mb": 297.76171875,
+    "memorysize": "490.41 MiB",
+    "memorysize_mb": 490.40625,
     "mountpoints": {
       "/": {
-        "available": "16.35 GiB",
-        "available_bytes": 17556463616,
-        "capacity": "11.46%",
+        "available": "17.30 GiB",
+        "available_bytes": 18574749696,
+        "capacity": "6.32%",
         "device": "/dev/mapper/centos-root",
         "filesystem": "xfs",
         "options": [
@@ -139,8 +140,8 @@
         ],
         "size": "18.47 GiB",
         "size_bytes": 19828572160,
-        "used": "2.12 GiB",
-        "used_bytes": 2272108544
+        "used": "1.17 GiB",
+        "used_bytes": 1253822464
       },
       "/boot": {
         "available": "393.11 MiB",
@@ -164,6 +165,7 @@
     "mtu_enp0s3": 1500,
     "mtu_enp0s8": 1500,
     "mtu_lo": 65536,
+    "mysql_server_id": 8563388,
     "netmask": "255.255.255.0",
     "netmask6": "ffff:ffff:ffff:ffff::",
     "netmask6_enp0s3": "ffff:ffff:ffff:ffff::",
@@ -182,24 +184,11 @@
     "network_lo": "127.0.0.0",
     "networking": {
       "dhcp": "10.0.2.2",
-      "fqdn": "master",
-      "hostname": "master",
+      "domain": "syd.puppetlabs.demo",
+      "fqdn": "centos7b.syd.puppetlabs.demo",
+      "hostname": "centos7b",
       "interfaces": {
         "enp0s3": {
-          "bindings": [
-            {
-              "address": "10.0.2.15",
-              "netmask": "255.255.255.0",
-              "network": "10.0.2.0"
-            }
-          ],
-          "bindings6": [
-            {
-              "address": "fe80::a00:27ff:fe39:183c",
-              "netmask": "ffff:ffff:ffff:ffff::",
-              "network": "fe80::"
-            }
-          ],
           "dhcp": "10.0.2.2",
           "ip": "10.0.2.15",
           "ip6": "fe80::a00:27ff:fe39:183c",
@@ -211,24 +200,10 @@
           "network6": "fe80::"
         },
         "enp0s8": {
-          "bindings": [
-            {
-              "address": "10.20.1.107",
-              "netmask": "255.255.255.0",
-              "network": "10.20.1.0"
-            }
-          ],
-          "bindings6": [
-            {
-              "address": "fe80::a00:27ff:febe:f383",
-              "netmask": "ffff:ffff:ffff:ffff::",
-              "network": "fe80::"
-            }
-          ],
           "dhcp": "192.168.56.100",
-          "ip": "10.20.1.107",
-          "ip6": "fe80::a00:27ff:febe:f383",
-          "mac": "08:00:27:be:f3:83",
+          "ip": "10.20.1.92",
+          "ip6": "fe80::a00:27ff:fe39:832c",
+          "mac": "08:00:27:39:83:2c",
           "mtu": 1500,
           "netmask": "255.255.255.0",
           "netmask6": "ffff:ffff:ffff:ffff::",
@@ -236,20 +211,6 @@
           "network6": "fe80::"
         },
         "lo": {
-          "bindings": [
-            {
-              "address": "127.0.0.1",
-              "netmask": "255.0.0.0",
-              "network": "127.0.0.0"
-            }
-          ],
-          "bindings6": [
-            {
-              "address": "::1",
-              "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
-              "network": "::1"
-            }
-          ],
           "ip": "127.0.0.1",
           "ip6": "::1",
           "mtu": 65536,
@@ -266,8 +227,7 @@
       "netmask": "255.255.255.0",
       "netmask6": "ffff:ffff:ffff:ffff::",
       "network": "10.0.2.0",
-      "network6": "fe80::",
-      "primary": "enp0s3"
+      "network6": "fe80::"
     },
     "operatingsystem": "CentOS",
     "operatingsystemmajrelease": "7",
@@ -291,14 +251,14 @@
       "/dev/mapper/centos-root": {
         "filesystem": "xfs",
         "mount": "/",
-        "size": "18.48 GiB",
-        "size_bytes": 19839057920,
+        "size": "0 bytes",
+        "size_bytes": 0,
         "uuid": "db651e5f-a2c2-4236-9570-6226f63e1fcd"
       },
       "/dev/mapper/centos-swap": {
         "filesystem": "swap",
-        "size": "1.03 GiB",
-        "size_bytes": 1107296256,
+        "size": "0 bytes",
+        "size_bytes": 0,
         "uuid": "ff4ec16c-28c0-4715-846d-11e7c9b4e53b"
       },
       "/dev/sda1": {
@@ -315,26 +275,18 @@
         "uuid": "pg7zVv-M3hI-zpjY-eYlZ-06aD-ZRO2-J30GLd"
       }
     },
-    "path": "/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/opt/puppetlabs/bin:/root/bin",
-    "pe_build": "2015.3.0-rc4-39-g9499e54",
+    "path": "/opt/puppetlabs/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin",
     "pe_concat_basedir": "/opt/puppetlabs/puppet/cache/pe_concat",
     "pe_razor_server_version": "package pe-razor-server is not installed",
-    "pe_server_version": "2015.3.0",
     "physicalprocessorcount": 1,
     "platform_symlink_writable": true,
     "platform_tag": "el-7-x86_64",
     "processor0": "Intel(R) Core(TM) i7-4850HQ CPU @ 2.30GHz",
-    "processor1": "Intel(R) Core(TM) i7-4850HQ CPU @ 2.30GHz",
-    "processor2": "Intel(R) Core(TM) i7-4850HQ CPU @ 2.30GHz",
-    "processor3": "Intel(R) Core(TM) i7-4850HQ CPU @ 2.30GHz",
-    "processorcount": 4,
+    "processorcount": 1,
     "processors": {
-      "count": 4,
+      "count": 1,
       "isa": "x86_64",
       "models": [
-        "Intel(R) Core(TM) i7-4850HQ CPU @ 2.30GHz",
-        "Intel(R) Core(TM) i7-4850HQ CPU @ 2.30GHz",
-        "Intel(R) Core(TM) i7-4850HQ CPU @ 2.30GHz",
         "Intel(R) Core(TM) i7-4850HQ CPU @ 2.30GHz"
       ],
       "physicalcount": 1
@@ -342,16 +294,16 @@
     "productname": "VirtualBox",
     "puppet_files_dir_present": false,
     "puppet_vardir": "/opt/puppetlabs/puppet/cache",
-    "puppetversion": "4.3.0",
+    "puppetversion": "4.2.1",
     "root_home": "/root",
     "ruby": {
       "platform": "x86_64-linux",
       "sitedir": "/opt/puppetlabs/puppet/lib/ruby/site_ruby/2.1.0",
-      "version": "2.1.7"
+      "version": "2.1.6"
     },
     "rubyplatform": "x86_64-linux",
     "rubysitedir": "/opt/puppetlabs/puppet/lib/ruby/site_ruby/2.1.0",
-    "rubyversion": "2.1.7",
+    "rubyversion": "2.1.6",
     "selinux": false,
     "serialnumber": "0",
     "ssh": {
@@ -382,20 +334,20 @@
     "system_uptime": {
       "days": 0,
       "hours": 0,
-      "seconds": 139,
-      "uptime": "0:02 hours"
+      "seconds": 78,
+      "uptime": "0:01 hours"
     },
     "timezone": "UTC",
-    "uptime": "0:02 hours",
+    "uptime": "0:01 hours",
     "uptime_days": 0,
     "uptime_hours": 0,
-    "uptime_seconds": 139,
-    "uuid": "C6F03159-5A86-4F33-8FEC-18FEE6A359FD",
+    "uptime_seconds": 78,
+    "uuid": "9D7BE471-F3DA-47EE-B023-F659129270EF",
     "virtual": "virtualbox",
-    "clientcert": "master",
-    "clientversion": "4.3.0",
+    "clientcert": "centos7b.syd.puppetlabs.demo",
+    "clientversion": "4.2.1",
     "clientnoop": false
   },
-  "timestamp": "2015-11-19T22:56:25.797070700+00:00",
-  "expiration": "2015-11-19T23:26:25.797623298+00:00"
+  "timestamp": "2015-09-23T23:50:15.484459763+00:00",
+  "expiration": "2015-09-24T00:20:15.484744482+00:00"
 }
