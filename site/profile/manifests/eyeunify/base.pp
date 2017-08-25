@@ -5,7 +5,9 @@ class profile::eyeunify::base {
     distribution => 'jre',
   }
 
-  include ::wildfly
+  class { '::wildfly':
+    java_home => '/usr/lib/jvm/java-1.8.0/'
+  }
 
   # Create cache directory
   file { '/var/cache/wget':
