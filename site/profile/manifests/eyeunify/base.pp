@@ -6,4 +6,10 @@ class profile::eyeunify::base {
   }
 
   include ::wildfly
+
+  # Create cache directory
+  file { '/var/cache/wget':
+    ensure => directory,
+    before => Class['::wildfly'],
+  }
 }
