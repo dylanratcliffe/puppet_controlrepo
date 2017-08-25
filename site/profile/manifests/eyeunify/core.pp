@@ -33,7 +33,7 @@ class profile::eyeunify::core {
   }
 
   wildfly::deployment { 'mysql-connector-java-5.1.43.tar.gz':
-    source  => 'file://opt/eyeunify/mysql_connector/mysql-connector-java-5.1.43-bin.jar',
+    source  => 'file:///opt/eyeunify/mysql_connector/mysql-connector-java-5.1.43-bin.jar',
     require => Archive['mysql_connector'],
   }
 
