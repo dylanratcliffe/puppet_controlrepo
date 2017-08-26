@@ -34,6 +34,20 @@ class profile::eyeunify::core (
     roles => 'administrator,operator',
   }
 
+  # Create the security domain that eyeunify will use
+  wildfly::security::domain { 'unify-default':
+    login_modules => {
+      'main-login-module' => {
+        'code'           => 'UsersRoles',
+        'flag'           => 'required',
+        'module_options' => {
+          'usersProperties' => "${wildfly::dirname}/${wildfly::mode}/configuration/unify-default-users.properties",
+          'rolesProperties' => "${wildfly::dirname}/${wildfly::mode}/configuration/application-roles.properties",
+        },
+      },
+    },
+  }
+
   # Actually deploy the core
   archive { 'eyeunify_core.zip':
     path         => '/tmp/eyeunify_core.zip',
