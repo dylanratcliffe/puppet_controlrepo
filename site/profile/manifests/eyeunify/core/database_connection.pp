@@ -24,7 +24,7 @@ class profile::eyeunify::core::database_connection (
     config  => {
       'driver-name'    => 'postgresql',
       'connection-url' => "jdbc:postgresql://${database_server}/${database_name}",
-      'jndi-name'      => 'java:jboss/datasources/eyeUNIFY_datasource',
+      'jndi-name'      => 'java:/datasources/heliopsis',
       'user-name'      => $username,
       'password'       => $password,
     },
