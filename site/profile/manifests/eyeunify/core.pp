@@ -62,7 +62,7 @@ class profile::eyeunify::core (
     require      => Package['unzip'],
   }
 
-  wildfly::deployment { 'eyeunify_core.war':
+  wildfly::deployment { 'eyeunify_core.ear':
     source  => 'file:///tmp/eyeUNIFYcore_1_2_8953ad59.ear',
     require => Archive['eyeunify_core.zip'],
   }
