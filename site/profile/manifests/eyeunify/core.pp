@@ -40,6 +40,7 @@ class profile::eyeunify::core (
       'main-login-module' => {
         'code'           => 'UsersRoles',
         'flag'           => 'required',
+        'domain'         => 'unify-default',
         'module_options' => {
           'usersProperties' => "${wildfly::dirname}/${wildfly::mode}/configuration/unify-default-users.properties",
           'rolesProperties' => "${wildfly::dirname}/${wildfly::mode}/configuration/application-roles.properties",
