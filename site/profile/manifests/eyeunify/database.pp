@@ -6,8 +6,9 @@ class profile::eyeunify::database {
 
   class { '::postgresql::server': }
 
-  # postgresql::server::db { 'eyeunify':
-  #   user     => 'eyeunify',
-  #   password => postgresql_password('eyeunify', 'hunter2'),
-  # }
+  postgresql::server::db { 'eyeunify':
+    user     => 'eyeunify',
+    password => postgresql_password('eyeunify', 'hunter2'),
+    require  => Class['::postgresql::server'],
+  }
 }
