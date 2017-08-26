@@ -2,19 +2,22 @@ class profile::eyeunify::core {
   include ::profile::eyeunify::base
 
   # Create users
-  wildfly::resource { '/unify-default-users=properties':
-    content => {
-      'admin' => 'admin',
-      'guest' => 'guest',
-    },
+  wildfly::config::user { 'admin':
+    password  => 'admin',
+    file_name => 'unify-default-users.properties',
   }
 
-  # User roles
-  wildfly::resource { '/unify-default-roles=properties':
-    content => {
-      'admin' => 'administrator,operator',
-      'guest' => 'guest',
-    },
+  wildfly::config::user_roles { 'admin':
+    roles  => 'administrator,operator',
+  }
+
+  wildfly::config::user { 'guest':
+    password  => 'guest',
+    file_name => 'unify-default-users.properties',
+  }
+
+  wildfly::config::user_roles { 'guest':
+    roles  => 'administrator,operator',
   }
 
   file { ['/opt/eyeunify','/opt/eyeunify/mysql_connector']:
