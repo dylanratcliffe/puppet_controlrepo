@@ -1,5 +1,4 @@
 class profile::eyeunify::core (
-  String $filename = 'eyeunify_core.zip',
   String $source = 'https://eyeunify.org/wp_root/wp-content/uploads/2016/11/eyeUNIFYcore_1_2_8953ad59.zip',
 ) {
   include ::profile::eyeunify::base
@@ -45,6 +44,7 @@ class profile::eyeunify::core (
     cleanup      => true,
     user         => $wildfly::user,
     group        => $wildfly::user,
+    require      => Package['unzip'],
   }
 
   wildfly::deployment { 'eyeunify_core.war':
