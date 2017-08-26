@@ -22,11 +22,12 @@ class profile::eyeunify::core::database_connection (
   wildfly::datasources::datasource { 'eyeUNIFY_datasource':
     name    => 'eyeUNIFY_datasource',
     config  => {
-      'driver-name'    => 'postgresql',
-      'connection-url' => "jdbc:postgresql://${database_server}/${database_name}",
-      'jndi-name'      => 'java:/datasources/heliopsis',
-      'user-name'      => $username,
-      'password'       => $password,
+      'driver-name'           => 'postgresql',
+      'connection-url'        => "jdbc:postgresql://${database_server}/${database_name}",
+      'jndi-name'             => 'java:/datasources/heliopsis',
+      'transaction-isolation' => 'TRANSACTION_SERIALIZABLE',
+      'user-name'             => $username,
+      'password'              => $password,
     },
     require => Wildfly::Datasources::Driver['Driver postgresql'],
   }
