@@ -24,7 +24,7 @@ class profile::eyeunify::ctrl (
   }
 
   # Also add a reverse proxy
-  include profile::nginx
+  include ::profile::nginx
 
   nginx::resource::server { $::facts['fqdn']:
     listen_port => '80',
