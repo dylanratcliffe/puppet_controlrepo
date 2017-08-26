@@ -1,4 +1,7 @@
-class profile::eyeunify::core {
+class profile::eyeunify::core (
+  String $filename = 'eyeunify_core.zip',
+  String $source = 'https://eyeunify.org/wp_root/wp-content/uploads/2016/11/eyeUNIFYcore_1_2_8953ad59.zip',
+) {
   include ::profile::eyeunify::base
   include ::profile::eyeunify::core::database_connection
 
@@ -30,5 +33,22 @@ class profile::eyeunify::core {
 
   wildfly::config::user_roles { 'guest':
     roles => 'administrator,operator',
+  }
+
+  # Actually deploy the core
+  archive { 'eyeunify_core.zip':
+    path         => '/tmp/eyeunify_core.zip',
+    source       => $source,
+    extract      => true,
+    extract_path => '/tmp',
+    creates      => '/tmp/gpl.txt',
+    cleanup      => true,
+    user         => $wildfly::user,
+    group        => $wildfly::user,
+  }
+
+  wildfly::deployment { 'eyeunify_core.war':
+    source  => 'file://tmp/eyeUNIFYctrl_1_2_74261798.war',
+    require => Archive['eyeunify_core.zip'],
   }
 }
