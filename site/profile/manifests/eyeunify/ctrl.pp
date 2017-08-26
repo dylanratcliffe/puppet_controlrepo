@@ -22,4 +22,12 @@ class profile::eyeunify::ctrl (
     source  => 'file:///tmp/eyeUNIFYctrl_1_2_74261798.war',
     require => Archive['eyeunify_ctrl.zip'],
   }
+
+  # Also add a reverse proxy
+  include profile::nginx
+
+  nginx::resource::server { $::facts['fqdn']:
+    listen_port => '80',
+    proxy       => 'http://localhost:8080/eyeUNIFYctrl',
+  }
 }
