@@ -2,9 +2,18 @@ class profile::eyeunify::core {
   include ::profile::eyeunify::base
 
   # Create users
+  file { 'unify_users_file':
+    ensure => file,
+    path   => "${wildfly::dirname}/${wildfly::mode}/configuration/unify-default-users.properties",
+    owner  => $wildfly::user,
+    group  => $wildfly::group,
+    mode   => '0644',
+  }
+
   wildfly::config::user { 'admin':
     password  => 'admin',
     file_name => 'unify-default-users.properties',
+    require   => File['unify_users_file'],
   }
 
   wildfly::config::user_roles { 'admin':
@@ -14,6 +23,7 @@ class profile::eyeunify::core {
   wildfly::config::user { 'guest':
     password  => 'guest',
     file_name => 'unify-default-users.properties',
+    require   => File['unify_users_file'],
   }
 
   wildfly::config::user_roles { 'guest':
