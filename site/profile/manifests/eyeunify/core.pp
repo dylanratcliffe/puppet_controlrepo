@@ -9,7 +9,7 @@ class profile::eyeunify::core {
     owner   => $wildfly::user,
     group   => $wildfly::group,
     mode    => '0644',
-    require => Class['::wildfly'],
+    require => Class['::wildfly::install'],
   }
 
   wildfly::config::user { 'admin':
@@ -19,7 +19,7 @@ class profile::eyeunify::core {
   }
 
   wildfly::config::user_roles { 'admin':
-    roles  => 'administrator,operator',
+    roles   => 'administrator,operator',
   }
 
   wildfly::config::user { 'guest':
@@ -29,6 +29,6 @@ class profile::eyeunify::core {
   }
 
   wildfly::config::user_roles { 'guest':
-    roles  => 'administrator,operator',
+    roles   => 'administrator,operator',
   }
 }
