@@ -40,7 +40,7 @@ class profile::eyeunify::core (
     source       => $source,
     extract      => true,
     extract_path => '/tmp',
-    creates      => '/tmp/gpl.txt',
+    creates      => '/tmp/eyeUNIFYcore_1_2_8953ad59.ear',
     cleanup      => true,
     user         => $wildfly::user,
     group        => $wildfly::user,
@@ -48,7 +48,7 @@ class profile::eyeunify::core (
   }
 
   wildfly::deployment { 'eyeunify_core.war':
-    source  => 'file://tmp/eyeUNIFYctrl_1_2_74261798.war',
+    source  => 'file://tmp/eyeUNIFYcore_1_2_8953ad59.ear',
     require => Archive['eyeunify_core.zip'],
   }
 }
