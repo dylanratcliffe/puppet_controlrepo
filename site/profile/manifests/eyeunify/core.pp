@@ -48,7 +48,7 @@ class profile::eyeunify::core (
   }
 
   wildfly::deployment { 'eyeunify_core.war':
-    source  => 'file://tmp/eyeUNIFYcore_1_2_8953ad59.ear',
+    source  => 'file:///tmp/eyeUNIFYcore_1_2_8953ad59.ear',
     require => Archive['eyeunify_core.zip'],
   }
 }
