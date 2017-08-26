@@ -14,9 +14,9 @@ class profile::eyeunify::core (
     require => Class['::wildfly::install'],
   }
 
-  wildfly::config::user { 'admin':
+  wildfly::config::user { 'admin:ApplicationRealm':
     password  => 'admin',
-    file_name => 'unify-default-users.properties',
+    file_name => 'application-users.properties',
     require   => File['unify_users_file'],
   }
 
@@ -24,9 +24,9 @@ class profile::eyeunify::core (
     roles => 'administrator,operator',
   }
 
-  wildfly::config::user { 'guest':
+  wildfly::config::user { 'guest:ApplicationRealm':
     password  => 'guest',
-    file_name => 'unify-default-users.properties',
+    file_name => 'application-users.properties',
     require   => File['unify_users_file'],
   }
 
@@ -42,7 +42,7 @@ class profile::eyeunify::core (
         'flag'           => 'required',
         'domain'         => 'unify-default',
         'module_options' => {
-          'usersProperties' => "${wildfly::dirname}/${wildfly::mode}/configuration/unify-default-users.properties",
+          'usersProperties' => "${wildfly::dirname}/${wildfly::mode}/configuration/application-users.properties",
           'rolesProperties' => "${wildfly::dirname}/${wildfly::mode}/configuration/application-roles.properties",
         },
       },
