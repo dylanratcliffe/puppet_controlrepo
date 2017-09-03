@@ -62,6 +62,9 @@ mod 'puppet-windows_env'               ,'2.3.0'
 mod 'puppet-archive'                   ,'1.3.0'
 mod 'puppetlabs-transition'            ,'0.1.1'
 mod 'dylanratcliffe-windows_disk_facts','0.2.1'
+mod 'biemond-wildfly'                  ,'2.1.0'
+mod 'jethrocarr-initfact'              ,'1.0.1'
+mod 'puppetlabs-iis'                   ,'4.1.0'
 
 #mod 'stdlib',
 #  :git => 'https://github.com/puppetlabs/puppetlabs-stdlib.git'
