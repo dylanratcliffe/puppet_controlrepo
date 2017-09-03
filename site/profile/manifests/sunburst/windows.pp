@@ -72,19 +72,16 @@ class profile::sunburst::windows (
   file { "${install_dir}/index.html":
     ensure => file,
     mode   => '0644',
-    source => 'https://bl.ocks.org/mbostock/raw/4348373/index.html',
-  }
-
-  file_line { 'json_source':
-    path    => "${install_dir}/index.html",
-    line    => 'd3.json("/flare.json", function(error, root) {',
-    match   => '^d3.json\(.*, function\(error, root\) {$',
-    require => File["${install_dir}/index.html"],
+    owner  => $user,
+    group  => $group,
+    source => 'puppet:///modules/profile/sunburst/index.html',
   }
 
   file { "${install_dir}/flare.json":
     ensure => file,
     mode   => '0644',
-    source => 'https://bl.ocks.org/mbostock/raw/4348373/flare.json',
+    owner  => $user,
+    group  => $group,
+    source => 'puppet:///modules/profile/sunburst/flare.json',
   }
 }
