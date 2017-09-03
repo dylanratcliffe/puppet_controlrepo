@@ -71,7 +71,7 @@ class profile::sunburst::windows (
   file { "${install_dir}/index.html":
     ensure => file,
     mode   => '0644',
-    source => 'http://bl.ocks.org/mbostock/raw/4348373/index.html',
+    source => 'https://bl.ocks.org/mbostock/raw/4348373/index.html',
   }
 
   file_line { 'json_source':
@@ -84,6 +84,6 @@ class profile::sunburst::windows (
   file { "${install_dir}/flare.json":
     ensure => file,
     mode   => '0644',
-    source => 'http://bl.ocks.org/mbostock/raw/4063550/flare.json',
+    source => 'https://bl.ocks.org/mbostock/raw/4348373/flare.json',
   }
 }
