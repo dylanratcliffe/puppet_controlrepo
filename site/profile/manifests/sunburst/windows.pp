@@ -36,7 +36,6 @@ class profile::sunburst::windows (
 
   file { $install_dir:
     ensure => directory,
-    before => Dsc_xwebsite['Sunburst'],
   }
 
   acl { $install_dir:
