@@ -41,6 +41,7 @@ class profile::sunburst::windows (
     ensure          => 'started',
     physicalpath    => 'C:\\inetpub\\sunburst',
     applicationpool => 'sunburst',
+    defaultpage     => 'index.html',
     require         => [Iis_application_pool['sunburst'], Dsc_windowsfeature['IIS','AspNet45']],
   }
 
