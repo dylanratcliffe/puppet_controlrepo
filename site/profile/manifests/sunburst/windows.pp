@@ -11,7 +11,8 @@ class profile::sunburst::windows (
   user { $user:
     ensure  => present,
     comment => 'Sunburst Application Service Account',
-    gid     => $group,
+    groups  => ['Users',$group],
+    require => Group[$group],
   }
 
   group { $group:
