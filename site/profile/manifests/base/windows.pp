@@ -49,6 +49,7 @@ class profile::base::windows {
     'atom',
     'googlechrome',
     '7zip.install',
+    'carbon',
   ]
 
   package { $packages:

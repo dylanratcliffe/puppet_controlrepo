@@ -19,6 +19,14 @@ class profile::sunburst::windows (
     ensure => present,
   }
 
+  exec { 'grant_SeServiceLogonRight':
+    command     => "Grant-Privilege -Identity ${user} -Privilege SeServiceLogonRight",
+    provider    => 'powershell',
+    refreshonly => true,
+    subscribe   => User[$user],
+    require     => Package['carbon'],
+  }
+
   iis_application_pool { 'sunburst':
     ensure        => present,
     state         => 'started',
