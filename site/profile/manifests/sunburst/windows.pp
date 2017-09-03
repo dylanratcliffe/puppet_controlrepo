@@ -19,8 +19,8 @@ class profile::sunburst::windows (
     ensure => present,
   }
 
-  exec { 'grant_SeServiceLogonRight':
-    command     => "Grant-Privilege -Identity ${user} -Privilege SeServiceLogonRight",
+  exec { 'grant_SeBatchLogonRight':
+    command     => "Grant-Privilege -Identity ${user} -Privilege SeBatchLogonRight",
     provider    => 'powershell',
     refreshonly => true,
     subscribe   => User[$user],
