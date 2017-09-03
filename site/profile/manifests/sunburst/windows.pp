@@ -9,10 +9,11 @@ class profile::sunburst::windows (
   require ::profile::windows::webserver
 
   user { $user:
-    ensure  => present,
-    comment => 'Sunburst Application Service Account',
-    groups  => ['Users',$group],
-    require => Group[$group],
+    ensure   => present,
+    comment  => 'Sunburst Application Service Account',
+    groups   => ['Users',$group],
+    password => $password,
+    require  => Group[$group],
   }
 
   group { $group:
