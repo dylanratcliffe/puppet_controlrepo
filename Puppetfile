@@ -65,6 +65,7 @@ mod 'dylanratcliffe-windows_disk_facts','0.2.1'
 mod 'biemond-wildfly'                  ,'2.1.0'
 mod 'jethrocarr-initfact'              ,'1.0.1'
 mod 'puppetlabs-iis'                   ,'4.1.0'
+mod 'puppetlabs-registry'              ,'1.1.4'
 
 #mod 'stdlib',
 #  :git => 'https://github.com/puppetlabs/puppetlabs-stdlib.git'
