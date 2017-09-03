@@ -66,7 +66,7 @@ class profile::sunburst::windows (
         'rights'   => ['read', 'execute'],
       },
     ],
-    require                    => File[$install_dir],
+    require                    => [User[$user],File[$install_dir]],
   }
 
   file { "${install_dir}/index.html":
