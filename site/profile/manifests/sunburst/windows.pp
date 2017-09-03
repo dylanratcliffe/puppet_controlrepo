@@ -44,6 +44,13 @@ class profile::sunburst::windows (
     require         => [Iis_application_pool['sunburst'], Dsc_windowsfeature['IIS','AspNet45']],
   }
 
+  iis_virtual_directory { 'sunburst_vdir':
+    ensure       => 'present',
+    sitename     => 'sunburst',
+    physicalpath => 'C:\\inetpub\\sunburst',
+    require      => File[$install_dir],
+  }
+
   file { $install_dir:
     ensure => directory,
   }
