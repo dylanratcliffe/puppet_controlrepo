@@ -39,7 +39,7 @@ class profile::sunburst::windows (
     before => Dsc_xwebsite['Sunburst'],
   }
 
-  acl { 'C:\app':
+  acl { $install_dir:
     group                      => 'Administrators',
     inherit_parent_permissions => false,
     purge                      => true,
@@ -76,7 +76,7 @@ class profile::sunburst::windows (
         'rights'   => ['read', 'execute'],
       }
     ],
-    require                    => File['C:\app'],
+    require                    => File[$install_dir],
   }
 
   file { "${install_dir}/index.html":
