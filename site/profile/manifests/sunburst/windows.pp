@@ -81,11 +81,6 @@ class profile::sunburst::windows (
         'identity' => "${facts['hostname'].upcase}\\${group}",
         'rights'   => ['read', 'execute'],
       },
-      {
-        'affects'  => 'all',
-        'identity' => 'IISCompleteGroup',
-        'rights'   => ['read', 'execute'],
-      },
     ],
     require                    => [User[$user],File[$install_dir]],
   }
