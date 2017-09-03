@@ -3,7 +3,7 @@
 class profile::sunburst::windows (
   String $install_dir = 'C:/inetpub/sunburst',
   String $user        = 'sunburst',
-  String $group       = 'sunburst',
+  String $group       = 'sunburst-admins',
   String $password    = 'change3me',
 ) {
   require ::profile::windows::webserver
@@ -39,10 +39,10 @@ class profile::sunburst::windows (
   }
 
   acl { $install_dir:
-    group                      => 'Administrators',
     inherit_parent_permissions => false,
     purge                      => true,
-    owner                      => 'Administrator',
+    owner                      => $user,
+    group                      => $group,
     permissions                => [
       {
         'affects'  => 'all',
@@ -64,16 +64,6 @@ class profile::sunburst::windows (
         'identity' => "BUILTIN\\${group}",
         'rights'   => ['read', 'execute'],
       },
-      {
-        'affects'  => 'all',
-        'identity' => 'BUILTIN\IUSR',
-        'rights'   => ['read', 'execute'],
-      },
-      {
-        'affects'  => 'all',
-        'identity' => 'BUILTIN\IIS_IUSRS',
-        'rights'   => ['read', 'execute'],
-      }
     ],
     require                    => File[$install_dir],
   }
