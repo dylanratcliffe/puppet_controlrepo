@@ -57,12 +57,12 @@ class profile::sunburst::windows (
       },
       {
         'affects'  => 'all',
-        'identity' => "BUILTIN\\${user}",
+        'identity' => "${facts['hostname'].upcase}\\${user}",
         'rights'   => ['full'],
       },
       {
         'affects'  => 'all',
-        'identity' => "BUILTIN\\${group}",
+        'identity' => "${facts['hostname'].upcase}\\${group}",
         'rights'   => ['read', 'execute'],
       },
     ],
