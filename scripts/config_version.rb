@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby
+#! /opt/puppetlabs/puppet/bin/ruby
 require 'json'
 
 environmentpath = ARGV[0]
