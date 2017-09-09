@@ -43,6 +43,8 @@ mod 'puppet-yum'                       ,'2.0.0'
 mod 'puppetlabs/puppetserver_gem'      ,'1.0.0'
 mod 'WhatsARanjit/node_manager'        ,'0.4.2'
 mod 'pltraining/rbac'                  ,'0.0.5'
+  :git => 'https://github.com/dylanratcliffe/pltraining-rbac.git',
+  :ref => 'master'
 mod 'camptocamp/systemd'               ,'0.4.0'
 mod 'puppetlabs/stdlib'                ,'4.17.1'
 mod 'maestrodev/rvm'                   ,'1.13.1'
