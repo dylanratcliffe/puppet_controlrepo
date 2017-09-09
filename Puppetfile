@@ -42,7 +42,7 @@ mod 'puppet/collectd'                  ,'5.3.0'
 mod 'puppet-yum'                       ,'2.0.0'
 mod 'puppetlabs/puppetserver_gem'      ,'1.0.0'
 mod 'WhatsARanjit/node_manager'        ,'0.4.2'
-mod 'pltraining/rbac'                  ,'0.0.5'
+mod 'pltraining/rbac',
   :git => 'https://github.com/dylanratcliffe/pltraining-rbac.git',
   :ref => 'master'
 mod 'camptocamp/systemd'               ,'0.4.0'
