@@ -61,59 +61,49 @@ class profile::puppetmaster {
     description => 'Can run Puppet, deploy code and use PuppetDB',
     permissions => [
       {
-        'action'      => 'view',
-        'instance'    => '*',
-        'object_type' => 'node_groups',
-      },
-      {
-        'action'      => 'deploy_code',
-        'instance'    => '*',
-        'object_type' => 'environment',
-      },
-      {
-        'action'      => 'modify_children',
-        'instance'    => '*',
-        'object_type' => 'node_groups',
-      },
-      {
-        'action'      => 'edit_child_rules',
-        'instance'    => '*',
-        'object_type' => 'node_groups',
-      },
-      {
-        'action'      => 'view_data',
-        'instance'    => '*',
-        'object_type' => 'nodes',
-      },
-      {
-        'action'      => 'edit_classification',
-        'instance'    => '*',
-        'object_type' => 'node_groups',
-      },
-      {
-        'action'      => 'view',
-        'instance'    => '*',
-        'object_type' => 'console_page',
-      },
-      {
-        'action'      => 'accept_reject',
-        'instance'    => '*',
-        'object_type' => 'cert_requests',
-      },
-      {
-        'action'      => 'set_environment',
-        'instance'    => '*',
-        'object_type' => 'node_groups',
-      },
-      {
         'action'      => 'run',
         'instance'    => '*',
-        'object_type' => 'puppet_agent',
-      },
-      {
+        'object_type' => 'puppet_agent'
+      }, {
+        'action'      => 'modify_children',
+        'instance'    => '*',
+        'object_type' => 'node_groups'
+      }, {
+        'action'      => 'edit_child_rules',
+        'instance'    => '*',
+        'object_type' => 'node_groups'
+      }, {
+        'action'      => 'deploy_code',
+        'instance'    => '*',
+        'object_type' => 'environment'
+      }, {
+        'action'      => 'accept_reject',
+        'instance'    => '*',
+        'object_type' => 'cert_requests'
+      }, {
         'action'      => 'edit_params_and_vars',
         'instance'    => '*',
-        'object_type' => 'node_groups',
+        'object_type' => 'node_groups'
+      }, {
+        'action'      => 'edit_classification',
+        'instance'    => '*',
+        'object_type' => 'node_groups'
+      }, {
+        'action'      => 'view',
+        'instance'    => '*',
+        'object_type' => 'node_groups'
+      }, {
+        'action'      => 'view_data',
+        'instance'    => '*',
+        'object_type' => 'nodes'
+      }, {
+        'action'      => 'view',
+        'instance'    => '*',
+        'object_type' => 'console_page'
+      }, {
+        'action'      => 'set_environment',
+        'instance'    => '*',
+        'object_type' => 'node_groups'
       },
     ],
   }
