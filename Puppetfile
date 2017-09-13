@@ -61,9 +61,9 @@ mod 'puppet-selinux'                ,'1.2.0'
 mod 'puppet-windows_env'            ,'2.3.0'
 mod 'puppet-archive'                ,'1.3.0'
 mod 'puppetlabs-transition'         ,'0.1.1'
-mod 'cidr_facts',
-  :git => 'https://github.com/dylanratcliffe/puppet-cidr_facts.git'
+
+# CIDR Based Facts Example
+mod 'dylanratcliffe-cidr_facts'     ,'0.1.6'
 mod 'test_fact',
   :git => 'https://github.com/dylanratcliffe/test_facts.git'
-#mod 'stdlib',
-#  :git => 'https://github.com/puppetlabs/puppetlabs-stdlib.git'
+  :ref => 'cce5d57b445f57edeea9ebda3b366910a8240ca8'
