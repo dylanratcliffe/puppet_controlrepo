@@ -2,7 +2,8 @@
 # our code needs to refresh it. This is to trck puppet into doing nothing
 
 $servername = 'somemaster.puppetlabs.com' # Workaround for the lack of a master
-
+$choco_install_path = 'C:\\foo'
+$chocolateyversion = '0.10.10'
 unless $concat_basedir {
   $concat_basedir = '/opt/puppetlabs/puppet/share/concat' # Workaround for lack of concat facts
 }

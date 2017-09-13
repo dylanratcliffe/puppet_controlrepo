@@ -1,14 +1,5 @@
 classes:
-  - 'role::puppetmaster::basic'
-  - 'role::puppetmaster::aws'
-  - 'role::puppetmaster::api'
-  - 'role::dbserver'
-  - 'role::metrics'
-  - 'role::bamboo'
-  - 'role::jenkins'
-  - 'role::compile::balancer'
-  - 'role::compile::master'
-  - 'role::sunburst_webserver'
+  - '/role::/'
 
 nodes:
   - CentOS-6.6-64
@@ -23,18 +14,9 @@ node_groups:
     - CentOS-6.6-64
     - CentOS-7.0-64
     - CentOS-7.0-64-master
-    - CentOS-7.0-64-openstack
   windows:
     - Windows_Server-2008r2-64
     - Windows_Server-2012r2-64
-  openstack:
-    - CentOS-7.0-64-openstack
-  acceptance:
-    include: 'centos'
-    exclude: 'CentOS-7.0-64-master'
-  spec:
-    include: 'centos'
-    exclude: 'openstack'
   master:
     - CentOS-7.0-64-master
 
@@ -45,15 +27,17 @@ class_groups:
     - 'role::puppetmaster::api'
     - 'role::compile::balancer'
     - 'role::compile::master'
+  windows_classes:
+    - /windows/
 
 
 
 test_matrix:
   # Main spec tests for all CentOS roles
-  - spec:
+  - centos:
       classes:
         include: 'all_classes'
-        exclude: 'master_classes'
+        exclude: 'windows_classes'
       tests: 'spec'
   # Master based spec tests
   - CentOS-7.0-64-master:
