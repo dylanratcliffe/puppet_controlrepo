@@ -57,6 +57,7 @@ class profile::puppetmaster {
   # Create a Developers role
   rbac_role { 'Developers':
     ensure      => 'present',
+    name        => 'Developers',
     description => 'Can run Puppet, deploy code and use PuppetDB',
     permissions => [
       {
@@ -103,7 +104,7 @@ class profile::puppetmaster {
         'action'      => 'set_environment',
         'instance'    => '*',
         'object_type' => 'node_groups'
-      }
+      },
     ],
   }
 
