@@ -65,5 +65,5 @@ mod 'puppetlabs-transition'         ,'0.1.1'
 # CIDR Based Facts Example
 mod 'dylanratcliffe-cidr_facts'     ,'0.1.6'
 mod 'test_fact',
-  :git => 'https://github.com/dylanratcliffe/test_facts.git'
+  :git => 'https://github.com/dylanratcliffe/test_facts.git',
   :ref => 'cce5d57b445f57edeea9ebda3b366910a8240ca8'
