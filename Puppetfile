@@ -44,7 +44,7 @@ mod 'puppetlabs/puppetserver_gem'      ,'1.0.0'
 mod 'WhatsARanjit/node_manager'        ,'0.4.2'
 mod 'pltraining/rbac',
   :git => 'https://github.com/dylanratcliffe/pltraining-rbac.git',
-  :ref => 'master'
+  :ref => '93243f3a9e14285d5f55010867c4fb9c8719ba19'
 mod 'camptocamp/systemd'               ,'0.4.0'
 mod 'puppetlabs/stdlib'                ,'4.17.1'
 mod 'maestrodev/rvm'                   ,'1.13.1'
