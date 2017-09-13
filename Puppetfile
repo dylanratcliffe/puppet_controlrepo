@@ -71,5 +71,8 @@ mod 'puppetlabs-iis'                   ,'4.1.0'
 mod 'puppetlabs-registry'              ,'1.1.4'
 mod 'puppetlabs-acl'                   ,'2.0.1'
 
-#mod 'stdlib',
-#  :git => 'https://github.com/puppetlabs/puppetlabs-stdlib.git'
+# CIDR Based Facts Example
+mod 'dylanratcliffe-cidr_facts'     ,'0.1.6'
+mod 'test_fact',
+  :git => 'https://github.com/dylanratcliffe/test_facts.git',
+  :ref => 'cce5d57b445f57edeea9ebda3b366910a8240ca8'
