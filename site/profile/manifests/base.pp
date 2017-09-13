@@ -25,6 +25,7 @@ class profile::base {
     'haveged',
     'cmake',
     'tmux',
+    'unzip',
   ]
 
   package { $packages:
