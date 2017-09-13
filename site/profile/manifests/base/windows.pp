@@ -1,10 +1,12 @@
 #
 class profile::base::windows {
+  include ::profile::base::windows::hardening
+
   stage { 'pre-run':
     before => Stage['main'],
   }
 
-  class { 'chocolatey':
+  class { '::chocolatey':
     stage => 'pre-run',
   }
 
@@ -13,10 +15,41 @@ class profile::base::windows {
     enable => true,
   }
 
+  file { 'C:\app':
+    ensure => 'directory',
+  }
+
+  # Set detailed permissions on the app directory
+  acl { 'C:\app':
+    group                      => 'Administrators',
+    inherit_parent_permissions => false,
+    purge                      => true,
+    owner                      => 'Administrator',
+    permissions                => [
+      {
+        'affects'  => 'self_only',
+        'identity' => 'NT AUTHORITY\SYSTEM',
+        'rights'   => ['full']
+      },
+      {
+        'affects'  => 'self_only',
+        'identity' => 'BUILTIN\Administrators',
+        'rights'   => ['full']
+      },
+      {
+        'affects'  => 'self_only',
+        'identity' => 'BUILTIN\Users',
+        'rights'   => ['read', 'execute']
+      }
+    ],
+    require                    => File['C:\app'],
+  }
+
   $packages = [
     'atom',
     'googlechrome',
     '7zip.install',
+    'carbon',
   ]
 
   package { $packages:

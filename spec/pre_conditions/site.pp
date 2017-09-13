@@ -25,3 +25,7 @@ user { 'puppet':
 group { 'puppet':
   ensure => present,
 }
+
+class pe_repo::platform::windows_i386 {}
+class pe_repo::platform::windows_x86_64 {}
+class pe_repo::platform::el_6_x86_64 {}
