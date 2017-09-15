@@ -1,1 +1,3 @@
 ---
+profile::base::windows::noop: false
+profile::base::windows::hardening::noop: true
