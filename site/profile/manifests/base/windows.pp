@@ -2,6 +2,8 @@
 class profile::base::windows (
   Boolean $noop = false,
 ) {
+  noop($noop)
+
   include ::profile::base::windows::hardening
 
   stage { 'pre-run':
