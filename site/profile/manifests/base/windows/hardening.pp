@@ -28,4 +28,30 @@ class profile::base::windows::hardening (
     path => 'HKLM\System\CurrentControlSet\Services\Eventlog\Security\WarningLevel',
     data => '90',
   }
+
+  # Set detailed permissions on the app directory
+  acl { 'C:\app':
+    group                      => 'Administrators',
+    inherit_parent_permissions => false,
+    purge                      => true,
+    owner                      => 'Administrator',
+    permissions                => [
+      {
+        'affects'  => 'self_only',
+        'identity' => 'NT AUTHORITY\SYSTEM',
+        'rights'   => ['full']
+      },
+      {
+        'affects'  => 'self_only',
+        'identity' => 'BUILTIN\Administrators',
+        'rights'   => ['full']
+      },
+      {
+        'affects'  => 'self_only',
+        'identity' => 'BUILTIN\Users',
+        'rights'   => ['read', 'execute']
+      }
+    ],
+    require                    => File['C:\app'],
+  }
 }
