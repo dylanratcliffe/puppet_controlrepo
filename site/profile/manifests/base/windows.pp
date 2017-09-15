@@ -1,5 +1,7 @@
 #
-class profile::base::windows {
+class profile::base::windows (
+  Boolean $noop = false,
+) {
   include ::profile::base::windows::hardening
 
   stage { 'pre-run':
@@ -47,7 +49,6 @@ class profile::base::windows {
 
   $packages = [
     'atom',
-    'googlechrome',
     '7zip.install',
     'carbon',
   ]

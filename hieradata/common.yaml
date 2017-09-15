@@ -15,3 +15,7 @@ puppet_enterprise::profile::master::metrics_graphite_update_interval_seconds: 5
 
 # Enable the mbeans service:
 puppet_enterprise::master::puppetserver::metrics_webservice_enabled: true
+
+# Enable noop by default
+profile::base::windows::hardening::noop: true
+profile::base::windows::noop: true
