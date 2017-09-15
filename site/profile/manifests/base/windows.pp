@@ -1,5 +1,7 @@
 #
-class profile::base::windows {
+class profile::base::windows (
+  Boolean $noop = false,
+) {
   include ::profile::base::windows::hardening
 
   stage { 'pre-run':

@@ -1,6 +1,8 @@
 # == Class: profile::base::windows::hardening
 #
-class profile::base::windows::hardening {
+class profile::base::windows::hardening (
+  Boolean $noop = false,
+) {
   # CIS Benchmark section 18.3.1
   registry_value { 'AutoAdminLogon':
     path => 'HKLM\Software\Microsoft\Windows NT\CurrentVersion\Winlogon\AutoAdminLogon',
