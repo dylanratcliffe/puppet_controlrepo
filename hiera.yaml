@@ -9,7 +9,7 @@ hierarchy:
     path: "nodes/%{trusted.certname}.yaml"  # File path, relative to datadir.
                                    # ^^^ IMPORTANT: include the file extension!
   - name: "Per-Environment"
-    path: "environments/%{environment}.yaml"
+    path: "environments/%{agent_specified_environment}.yaml"
 
   - name: "Common Data"
     path: "common.yaml"
