@@ -1,8 +1,8 @@
 #
 class profile::base::windows (
-  Boolean $noop = false,
+  Boolean $enable_noop = false,
 ) {
-  noop($noop)
+  noop($enable_noop)
 
   include ::profile::base::windows::hardening
 

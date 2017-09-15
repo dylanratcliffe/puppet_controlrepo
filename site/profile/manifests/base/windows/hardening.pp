@@ -1,9 +1,9 @@
 # == Class: profile::base::windows::hardening
 #
 class profile::base::windows::hardening (
-  Boolean $noop,
+  Boolean $enable_noop = false,
 ) {
-  noop($noop)
+  noop($enable_noop)
 
   # CIS Benchmark section 18.3.1
   registry_value { 'AutoAdminLogon':

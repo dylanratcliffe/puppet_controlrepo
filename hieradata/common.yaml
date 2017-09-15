@@ -17,5 +17,5 @@ puppet_enterprise::profile::master::metrics_graphite_update_interval_seconds: 5
 puppet_enterprise::master::puppetserver::metrics_webservice_enabled: true
 
 # Enable noop by default
-profile::base::windows::hardening::noop: true
-profile::base::windows::noop: true
+profile::base::windows::hardening::enable_noop: true
+profile::base::windows::enable_noop: true
