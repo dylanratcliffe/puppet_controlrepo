@@ -69,6 +69,7 @@ mod 'puppetlabs-iis'                   ,'4.1.0'
 mod 'puppetlabs-registry'              ,'1.1.4'
 mod 'puppetlabs-acl'                   ,'2.0.1'
 mod 'trlinkin-noop'                    ,'0.1.0'
+mod 'puppetlabs-puppet_agent'          ,'1.4.1'
 
 # CIDR Based Facts Example
 mod 'dylanratcliffe-cidr_facts'     ,'0.1.6'
