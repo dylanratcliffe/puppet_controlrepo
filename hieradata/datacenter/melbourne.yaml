@@ -1,0 +1,3 @@
+---
+profile::compile::balancer::listening_pool: melbourne
+profile::compile::master::listening_pool: melbourne

@@ -11,5 +11,8 @@ hierarchy:
   - name: "Per-Environment"
     path: "environments/%{agent_specified_environment}.yaml"
 
+  - name: "Per-Datacenter"
+    path: "datacenter/%{datacenter}.yaml"
+
   - name: "Common Data"
     path: "common.yaml"
