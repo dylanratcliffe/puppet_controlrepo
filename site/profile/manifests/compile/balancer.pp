@@ -13,4 +13,10 @@ class profile::compile::balancer (
     ipaddress        => $::ipaddress,
     ports            => '8140',
   }
+
+  haproxy::listen { $listening_pool:
+    collect_exported => true,
+    ipaddress        => $::ipaddress,
+    ports            => '8142',
+  }
 }
