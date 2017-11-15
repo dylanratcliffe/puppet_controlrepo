@@ -5,7 +5,7 @@ cache:
   directories:
     - .onceover
 
-script: bundler exec onceover run spec --debug
+script: bundl exec onceover run spec --debug
 bundler_args: --without development --path vendor/bundle
 
 rvm:
