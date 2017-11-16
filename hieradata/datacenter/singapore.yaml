@@ -2,4 +2,5 @@
 profile::compile::balancer::listening_pool: singapore
 profile::compile::master::listening_pool: singapore
 pe_repo::compile_master_pool_address: lb-sg-01.puppet.com
-puppet_enterprise::pxp_agent::broker_ws_uri: lb-sg-01.puppet.com
+puppet_enterprise::profile::agent::pcp_broker_list:
+  - lb-sg-01.puppet.com
