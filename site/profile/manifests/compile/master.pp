@@ -14,6 +14,9 @@ class profile::compile::master (
     server_names      => $::fqdn,
     ipaddresses       => $::networking['ip'],
     ports             => '8142',
-    options           => 'check',
+    options           => [
+      'check',
+      'timeout tunnel 15m',
+    ],
   }
 }
