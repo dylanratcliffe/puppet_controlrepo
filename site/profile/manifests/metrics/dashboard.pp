@@ -17,15 +17,15 @@ class profile::metrics::dashboard {
     action => 'accept',
   }
 
-  class { 'apache':
+  class { '::apache':
     default_vhost => false,
   }
 
-  class { 'apache::mod::wsgi':
+  class { '::apache::mod::wsgi':
     wsgi_socket_prefix => '/var/run/wsgi',
   }
 
-  class { 'graphite':
+  class { '::graphite':
     gr_web_server                => 'none',
     gr_web_group                 => 'apache',
     gr_web_user                  => 'apache',
@@ -116,11 +116,6 @@ class profile::metrics::dashboard {
       SetHandler None
       </Location>
       | END
-  }
-
-  # Relly ugly hack to test issue in graphite module
-  Package <| provider == 'pip' |> {
-    require +> Package['python-pip']
   }
 
   $useful_ip = $::ec2_metadata ? {

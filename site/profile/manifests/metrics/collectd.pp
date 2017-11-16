@@ -2,7 +2,7 @@ class profile::metrics::collectd {
 
   class { '::collectd':
     purge_config => true,
-    interval     => '5',
+    interval     => 5,
   }
 
   include ::collectd::plugin::cpu
@@ -21,7 +21,7 @@ class profile::metrics::collectd {
       graphitehost   => $monitoring_node,
       graphiteport   => 2003,
       graphiteprefix => '',
-      protocol       => 'tcp'
+      protocol       => 'tcp',
     }
   }
 
