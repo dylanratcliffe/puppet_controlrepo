@@ -53,7 +53,7 @@ mod 'evenup/hubot'                     ,'0.2.0'
 mod 'puppetlabs/haproxy'               ,'1.5.0'
 mod 'puppetlabs/aws'                   ,'2.0.0'
 mod 'danieldreier/autosign'            ,'0.1.2'
-mod 'puppetlabs/hocon'                 ,'1.0.0'
+mod 'puppetlabs/hocon'                 ,'0.9.4' # Hold due to MODULES-5837
 mod 'puppetlabs/dsc'                   ,'1.4.0'
 mod 'puppetlabs/powershell'            ,'2.1.2'
 mod 'puppetlabs/reboot'                ,'1.2.1'
