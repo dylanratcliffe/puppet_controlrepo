@@ -1,3 +1,4 @@
 ---
 profile::compile::balancer::listening_pool: singapore
 profile::compile::master::listening_pool: singapore
+pe_repo::compile_master_pool_address: lb-sg-01.puppet.com

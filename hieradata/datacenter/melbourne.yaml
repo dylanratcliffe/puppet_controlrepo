@@ -1,3 +1,4 @@
 ---
 profile::compile::balancer::listening_pool: melbourne
 profile::compile::master::listening_pool: melbourne
+pe_repo::compile_master_pool_address: lb-au-01.puppet.com
