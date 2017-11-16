@@ -18,5 +18,11 @@ class profile::compile::balancer (
     collect_exported => true,
     ipaddress        => $::ipaddress,
     ports            => '8142',
+    options          => {
+      'timeout' => [
+        'tunnel 15m',
+      ],
+      'balance' => 'leastconn',
+    },
   }
 }
