@@ -1,12 +1,15 @@
 #
 class profile::base {
   if $::os['family'] == 'RedHat' {
-    include ::epel
-    include ::systemd
+    stage { 'repos':
+      before => Stage['main'],
+    }
 
-    # Make sure that systemd picks up any new services that we install
-    # Package <||> ~> Exec['systemctl-daemon-reload'] -> Service <||>
-    Class['::epel'] -> Package <||>
+    class { '::epel':
+      stage => 'repos',
+    }
+
+    include ::systemd
   }
 
   include ::gcc
@@ -32,7 +35,7 @@ class profile::base {
     ensure => latest,
   }
 
-  class { 'selinux':
+  class { '::selinux':
     mode   => 'disabled',
     type   => 'minimum',
     notify => Reboot['after_run'],
