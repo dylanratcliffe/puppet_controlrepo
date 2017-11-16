@@ -11,7 +11,7 @@ class profile::puppetmaster::autosign {
     owner  => 'pe-puppet',
     group  => 'pe-puppet',
     mode   => '0700',
-    source => 'puppet:///modules/profile/autosign.sh'
+    source => 'puppet:///modules/profile/autosign.sh',
   }
 
   ini_setting { 'policy_based_autosigning':
