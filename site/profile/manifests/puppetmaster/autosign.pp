@@ -1,12 +1,4 @@
 class profile::puppetmaster::autosign {
-  ini_setting {'policy-based autosigning':
-    setting => 'autosign',
-    path    => "${::settings::confdir}/puppet.conf",
-    section => 'master',
-    value   => '/opt/puppetlabs/puppet/bin/autosign-validator',
-    notify  => Service['puppetmaster'],
-  }
-
   class { '::autosign':
     ensure   => 'latest',
     settings => {
@@ -18,6 +10,15 @@ class profile::puppetmaster::autosign {
         'validity' => '7200',
       }
     },
+  }
+
+  ini_setting {'policy-based autosigning':
+    setting => 'autosign',
+    path    => "${::settings::confdir}/puppet.conf",
+    section => 'master',
+    value   => '/opt/puppetlabs/puppet/bin/autosign-validator',
+    notify  => Service['pe-puppetserver'],
+    require => Class['::autosign'],
   }
 
   #
