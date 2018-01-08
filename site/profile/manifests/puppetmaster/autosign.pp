@@ -4,12 +4,20 @@ class profile::puppetmaster::autosign {
     settings => {
       'general'   => {
         'loglevel' => 'INFO',
+        'logfile'  => '/var/log/puppetlabs/puppetserver/autosign.log'
       },
       'jwt_token' => {
         'secret'   => fqdn_rand_string(10),
         'validity' => '7200',
       }
     },
+  }
+
+  file { '/var/log/puppetlabs/puppetserver/autosign.log':
+    ensure => file,
+    owner  => 'pe-puppet',
+    group  => 'pe-puppet',
+    mode   => '0600',
   }
 
   ini_setting {'policy-based autosigning':
