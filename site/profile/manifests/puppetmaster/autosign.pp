@@ -1,6 +1,6 @@
 class profile::puppetmaster::autosign (
   String $logfile     = '/var/log/puppetlabs/puppetserver/autosign.log',
-  String $journalfile = '/opt/puppetlabs/puppetserver/autosign.journal',
+  String $journalfile = '/etc/puppetlabs/puppetserver/autosign.journal',
 ) {
   class { '::autosign':
     ensure   => 'latest',
