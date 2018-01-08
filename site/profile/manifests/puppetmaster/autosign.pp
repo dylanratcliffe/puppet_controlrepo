@@ -12,7 +12,7 @@ class profile::puppetmaster::autosign {
     settings => {
       'general'   => {
         'loglevel' => 'INFO',
-      }
+      },
       'jwt_token' => {
         'secret'   => fqdn_rand_string(10),
         'validity' => '7200',
