@@ -29,7 +29,7 @@ mod 'mukaibot/bamboo'                  ,'1.7.0'
 # it will be released in 1.8.0
 mod 'jenkins',
   :git => 'https://github.com/jenkinsci/puppet-jenkins.git',
-  :ref => 'f12276938834cb5413cd33632bfa42d22dfd5574'
+  :ref => '23df7764d58aed80b573621b102f82a702217a7a'
 mod 'unibet/vagrant'                   ,'0.2.1'
 mod 'darin/zypprepo'                   ,'1.0.2'
 mod 'puppet/nginx'                     ,'0.9.0'
@@ -55,7 +55,7 @@ mod 'puppetlabs/aws'                   ,'2.1.0'
 #mod 'danieldreier/autosign'            ,'0.1.2'
 mod 'autosign',
   :git => 'https://github.com/dylanratcliffe/puppet-autosign.git',
-  :ref => 'ecd013da4e495fed593184835607083a63b70dc4'
+  :ref => 'f12276938834cb5413cd33632bfa42d22dfd5574'
 mod 'puppetlabs/hocon'                 ,'0.9.4' # Hold due to MODULES-5837
 mod 'puppetlabs/dsc'                   ,'1.4.0'
 mod 'puppetlabs/powershell'            ,'2.1.3'
