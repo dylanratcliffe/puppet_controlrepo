@@ -52,7 +52,10 @@ mod 'treydock/gpg_key'                 ,'0.0.4'
 mod 'evenup/hubot'                     ,'0.2.0'
 mod 'puppetlabs/haproxy'               ,'2.0.1'
 mod 'puppetlabs/aws'                   ,'2.1.0'
-mod 'danieldreier/autosign'            ,'0.1.2'
+#mod 'danieldreier/autosign'            ,'0.1.2'
+mod 'autosign',
+  :git => 'https://github.com/dylanratcliffe/puppet-autosign.git',
+  :ref => 'ecd013da4e495fed593184835607083a63b70dc4'
 mod 'puppetlabs/hocon'                 ,'0.9.4' # Hold due to MODULES-5837
 mod 'puppetlabs/dsc'                   ,'1.4.0'
 mod 'puppetlabs/powershell'            ,'2.1.3'
