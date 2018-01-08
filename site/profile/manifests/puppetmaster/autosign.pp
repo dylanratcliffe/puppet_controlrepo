@@ -1,19 +1,23 @@
-class profile::puppetmaster::autosign {
+class profile::puppetmaster::autosign (
+  String $logfile     = '/var/log/puppetlabs/puppetserver/autosign.log',
+  String $journalfile = '/opt/puppetlabs/puppetserver/autosign.journal',
+) {
   class { '::autosign':
     ensure   => 'latest',
     settings => {
       'general'   => {
         'loglevel' => 'INFO',
-        'logfile'  => '/var/log/puppetlabs/puppetserver/autosign.log'
+        'logfile'  => $logfile,
       },
       'jwt_token' => {
-        'secret'   => fqdn_rand_string(10),
-        'validity' => '7200',
+        'secret'      => fqdn_rand_string(10),
+        'validity'    => '7200',
+        'journalfile' => $journalfile,
       }
     },
   }
 
-  file { '/var/log/puppetlabs/puppetserver/autosign.log':
+  file { [$logfile, $journalfile]:
     ensure => file,
     owner  => 'pe-puppet',
     group  => 'pe-puppet',
