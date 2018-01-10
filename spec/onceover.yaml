@@ -5,6 +5,7 @@ nodes:
   - CentOS-6.6-64
   - CentOS-7.0-64
   - CentOS-7.0-64-master
+  - CentOS-7.0-64-master-2017.3.2
   - CentOS-7.0-64-openstack
   - Windows_Server-2008r2-64
   - Windows_Server-2012r2-64
@@ -19,6 +20,7 @@ node_groups:
     - Windows_Server-2012r2-64
   master:
     - CentOS-7.0-64-master
+    - CentOS-7.0-64-master-2017.3.2
 
 class_groups:
   master_classes:
