@@ -42,7 +42,7 @@ test_matrix:
         exclude: 'windows_classes'
       tests: 'spec'
   # Master based spec tests
-  - CentOS-7.0-64-master:
+  - master:
       classes: 'master_classes'
       tests: 'spec'
       tags: 'master'

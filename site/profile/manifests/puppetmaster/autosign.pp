@@ -17,13 +17,6 @@ class profile::puppetmaster::autosign (
     },
   }
 
-  file { [$logfile, $journalfile]:
-    ensure => file,
-    owner  => 'pe-puppet',
-    group  => 'pe-puppet',
-    mode   => '0600',
-  }
-
   ini_setting {'policy-based autosigning':
     setting => 'autosign',
     path    => "${::settings::confdir}/puppet.conf",
