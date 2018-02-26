@@ -13,4 +13,4 @@ else
   gem 'onceover-octocatalog-diff', :git => 'https://github.com/dylanratcliffe/onceover-octocatalog-diff.git'
 end
 
-gem 'puppet', ENV['PUPPET_version'] || '5.3.3'
+gem 'puppet', ENV['PUPPET_version'] || '~> 5'

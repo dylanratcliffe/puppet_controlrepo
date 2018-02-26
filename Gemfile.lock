@@ -89,15 +89,15 @@ GEM
     pry-byebug (3.6.0)
       byebug (~> 10.0)
       pry (~> 0.10)
-    puppet (5.3.3)
-      facter (> 2.0, < 4)
-      gettext-setup (>= 0.10, < 1)
+    puppet (5.4.0)
+      facter (> 2.0.1, < 4)
+      fast_gettext (~> 1.1.2)
       hiera (>= 3.2.1, < 4)
       locale (~> 2.1)
-    puppet (5.3.3-universal-darwin)
+    puppet (5.4.0-universal-darwin)
       CFPropertyList (~> 2.2)
-      facter (> 2.0, < 4)
-      gettext-setup (>= 0.10, < 1)
+      facter (> 2.0.1, < 4)
+      fast_gettext (~> 1.1.2)
       hiera (>= 3.2.1, < 4)
       locale (~> 2.1)
     puppet-lint (2.3.3)
@@ -162,7 +162,7 @@ DEPENDENCIES
   onceover-octocatalog-diff!
   pry
   pry-byebug
-  puppet (= 5.3.3)
+  puppet (~> 5)
 
 BUNDLED WITH
    1.16.1
