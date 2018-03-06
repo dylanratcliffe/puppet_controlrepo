@@ -1,7 +1,7 @@
 # We are not going to actually have this service anywhere on our servers but
 # our code needs to refresh it. This is to trck puppet into doing nothing
 
-$servername = 'somemaster.puppetlabs.com' # Workaround for the lack of a master
+# $servername = 'somemaster.puppetlabs.com' # Workaround for the lack of a master
 $choco_install_path = 'C:\\foo'
 $chocolateyversion = '0.10.10'
 unless $concat_basedir {
