@@ -9,4 +9,14 @@ class profile::metrics::dashboard (
     master_list            => $master_list,
     overwrite_dashboards   => false,
   }
+
+  include nginx
+
+  nginx::resource::server { $facts['fqdn']:
+    listen_port => 80,
+    ssl         => true,
+    ssl_cert    => "/etc/puppetlabs/puppet/ssl/certs/${facts['fqdn']}.pem",
+    ssl_key     => "/etc/puppetlabs/puppet/ssl/private_keys/${facts['fqdn']}.pem",
+    proxy       => 'http://localhost:3000',
+  }
 }
