@@ -79,3 +79,6 @@ mod 'dylanratcliffe-cidr_facts'     ,'0.1.6'
 mod 'test_fact',
   :git => 'https://github.com/dylanratcliffe/test_facts.git',
   :ref => 'cce5d57b445f57edeea9ebda3b366910a8240ca8'
+mod 'task_test',
+  :git => 'https://github.com/dylanratcliffe/puppet-task_test.git',
+  :ref => '6d47cca'
