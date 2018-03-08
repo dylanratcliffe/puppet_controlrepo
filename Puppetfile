@@ -81,4 +81,4 @@ mod 'test_fact',
   :ref => 'cce5d57b445f57edeea9ebda3b366910a8240ca8'
 mod 'task_test',
   :git => 'https://github.com/dylanratcliffe/puppet-task_test.git',
-  :ref => 'f9132aa'
+  :ref => '371c66d'
