@@ -36,7 +36,7 @@ class profile::base {
   }
 
   class { '::selinux':
-    mode   => 'disabled',
+    mode   => 'permissive',
     type   => 'minimum',
     notify => Reboot['after_run'],
   }
