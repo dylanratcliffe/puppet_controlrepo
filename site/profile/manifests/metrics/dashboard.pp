@@ -19,4 +19,10 @@ class profile::metrics::dashboard (
     ssl_key     => "/etc/puppetlabs/puppet/ssl/private_keys/${facts['fqdn']}.pem",
     proxy       => 'http://localhost:3000',
   }
+
+  # Remove the default config file
+  file { '/etc/nginx/conf.d/default.conf':
+    ensure => absent,
+    notify => Service['nginx'],
+  }
 }
