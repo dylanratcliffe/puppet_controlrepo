@@ -11,7 +11,7 @@ class profile::eyeunify::base {
   }
 
   class { '::wildfly':
-    java_home      => '/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.141-1.b16.el7_3.x86_64/jre',
+    java_home      => '/usr/lib/jvm/jre-1.8.0',
     external_facts => true,
     mgmt_user      => {
       'username' => 'wildfly',
