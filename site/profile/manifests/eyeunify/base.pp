@@ -1,6 +1,11 @@
 # == Class: profile::eyeunify::base
 #
 class profile::eyeunify::base {
+  package { 'wget':
+    ensure => present,
+    before => Class['profile::eyeunify::core::database_connection'],
+  }
+
   class { '::java':
     distribution => 'jre',
   }
