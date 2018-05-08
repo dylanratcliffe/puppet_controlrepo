@@ -19,3 +19,15 @@ puppet_enterprise::master::puppetserver::metrics_webservice_enabled: true
 # Enable noop by default
 profile::base::windows::hardening::enable_noop: true
 profile::base::windows::enable_noop: true
+
+# Autosign Password
+profile::puppetmaster::autosign::password: >
+    ENC[PKCS7,MIIBiQYJKoZIhvcNAQcDoIIBejCCAXYCAQAxggEhMIIBHQIBADAFMAACAQEw
+    DQYJKoZIhvcNAQEBBQAEggEAQieuMbGa8UKaSliy+EK5SvbIiqYsDNM8isOM
+    aRXo3/9zurZt1MGJEHv5u3/rRXRLfS7epuRGgTP8dYin9KYJcnIx7MbDGZM3
+    kR5vizzwgfbnRZOTUM912S7P3OdR8OGhF5xa19oEVy76HugjI7+Wgp9bFYIq
+    TSzagl0ubzMA/Z7M6WOa/eppSfibFYMbAmIZjNH0qSAAG90+3cspgJSzCo3i
+    6jHr+nAomV03twDNpu2+J804HfjMKxS6LhFhk0rnwzEb/5mNkE9E130iz7cx
+    WxGTibizmWaJZk/jpl9Q9Sv+AiqNWIpHHeeF3Sp+mf7vpHGoJK4ElceKOHRH
+    kpwsOjBMBgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBAkEJWLwjPw468iTK8L
+    gvkugCCjjJJ/K/rZg0kwnsQE8j9QAPiobrsxZhiMzKBkaXLULg==]
