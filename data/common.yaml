@@ -31,3 +31,8 @@ profile::puppetmaster::autosign::password: >
     WxGTibizmWaJZk/jpl9Q9Sv+AiqNWIpHHeeF3Sp+mf7vpHGoJK4ElceKOHRH
     kpwsOjBMBgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBAkEJWLwjPw468iTK8L
     gvkugCCjjJJ/K/rZg0kwnsQE8j9QAPiobrsxZhiMzKBkaXLULg==]
+
+# HAProxy listening pools
+profile::haproxy::listening_pools:
+  eyeunify:
+    ports: 80
