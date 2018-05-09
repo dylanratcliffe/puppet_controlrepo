@@ -1,6 +1,9 @@
 # == Class: profile::eyeunify::base
 #
-class profile::eyeunify::base {
+class profile::eyeunify::base (
+  String $xmx = '512m',
+  String $xms = '256m',
+) {
   package { 'wget':
     ensure => present,
     before => Class['profile::eyeunify::core::database_connection'],
@@ -12,6 +15,8 @@ class profile::eyeunify::base {
 
   class { '::wildfly':
     java_home      => '/usr/lib/jvm/jre-1.8.0',
+    java_xmx       => $xmx,
+    java_xms       => $xms,
     external_facts => true,
     mgmt_user      => {
       'username' => 'wildfly',

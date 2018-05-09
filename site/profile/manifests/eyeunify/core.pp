@@ -60,10 +60,11 @@ class profile::eyeunify::core (
     user         => $wildfly::user,
     group        => $wildfly::user,
     require      => Package['unzip'],
+    before       => Wildfly::Deployment['eyeunify_core.ear'],
   }
 
   wildfly::deployment { 'eyeunify_core.ear':
     source  => 'file:///tmp/eyeUNIFYcore_1_2_8953ad59.ear',
-    require => Archive['eyeunify_core.zip'],
+    require => Class['profile::eyeunify::core::database_connection'],
   }
 }
