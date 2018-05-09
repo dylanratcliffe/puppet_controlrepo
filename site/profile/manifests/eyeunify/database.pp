@@ -13,4 +13,13 @@ class profile::eyeunify::database {
     password => postgresql_password('eyeunify', 'hunter2'),
     require  => Class['::postgresql::server'],
   }
+
+  postgresql::server::pg_hba_rule { 'allow application network to access app database':
+    description => 'Open up PostgreSQL for access from app server/s',
+    type        => 'host',
+    database    => 'eyeunify',
+    user        => 'eyeunify',
+    address     => "${facts['networking']['network']}/24",
+    auth_method => 'md5',
+  }
 }

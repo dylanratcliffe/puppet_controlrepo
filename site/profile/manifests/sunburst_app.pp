@@ -42,4 +42,13 @@ class profile::sunburst_app {
     proto  => tcp,
     action => accept,
   }
+
+  # Export balancer member in case this load balanced
+  @@haproxy::balancermember { "${facts['fqdn']}-sunburst":
+    listening_service => 'sunburst',
+    ports             => '8080',
+    server_names      => $facts['fqdn'],
+    ipaddresses       => $facts['networking']['ip'],
+    options           => 'check',
+  }
 }
