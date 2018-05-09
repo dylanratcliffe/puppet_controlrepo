@@ -4,7 +4,9 @@ class profile::eyeunify::database {
     version             => '9.4',
   }
 
-  class { '::postgresql::server': }
+  class { '::postgresql::server':
+    listen_addresses => $facts['ip'],
+  }
 
   postgresql::server::db { 'eyeunify':
     user     => 'eyeunify',
