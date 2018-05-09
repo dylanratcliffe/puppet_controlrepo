@@ -27,11 +27,13 @@ class profile::eyeunify::ctrl (
   # Also add a reverse proxy
   include ::profile::nginx
 
+  # Reverse proxy on port 80
   nginx::resource::server { $::facts['fqdn']:
     listen_port => 80,
     proxy       => 'http://localhost:8080',
   }
 
+  # Export balancer member in case this load balanced
   @@haproxy::balancermember { "${facts['fqdn']}-eyeunify":
     listening_service => 'eyeunify',
     ports             => '80',

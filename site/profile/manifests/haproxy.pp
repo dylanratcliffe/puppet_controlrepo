@@ -12,4 +12,12 @@ class profile::haproxy (
       *         => $params,
     }
   }
+
+  ini_setting { 'runinterval':
+    ensure  => present,
+    path    => '/etc/puppetlabs/puppet/puppet.conf',
+    section => 'agent',
+    setting => 'runinterval',
+    value   => '60',
+  }
 }
