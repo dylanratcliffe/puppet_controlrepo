@@ -28,6 +28,6 @@ class profile::eyeunify::ctrl (
 
   nginx::resource::server { $::facts['fqdn']:
     listen_port => 80,
-    proxy       => 'http://localhost:8080/eyeUNIFYctrl',
+    proxy       => 'http://localhost:8080',
   }
 }
