@@ -3,7 +3,7 @@
 class profile::eyeunify::ctrl (
   String $source = 'https://eyeunify.org/wp_root/wp-content/uploads/2016/11/eyeUNIFYctrl_1_2_74261798.zip',
 ) {
-  include ::profile::eyeunify::base
+  require ::profile::eyeunify::base
 
   # Actually deploy the core
   archive { 'eyeunify_ctrl.zip':
@@ -29,5 +29,13 @@ class profile::eyeunify::ctrl (
   nginx::resource::server { $::facts['fqdn']:
     listen_port => 80,
     proxy       => 'http://localhost:8080',
+  }
+
+  @@haproxy::balancermember { "${facts['fqdn']}-eyeunify":
+    listening_service => 'eyeunify',
+    ports             => '80',
+    server_names      => $::hostname,
+    ipaddresses       => $::ipaddress,
+    options           => 'check',
   }
 }

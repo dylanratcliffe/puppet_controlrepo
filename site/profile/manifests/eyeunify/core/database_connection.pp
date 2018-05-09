@@ -38,5 +38,6 @@ class profile::eyeunify::core::database_connection (
       'password'              => $password,
     },
     require => Wildfly::Datasources::Driver['Driver postgresql'],
+    notify  => Class['::wildfly::service'],
   }
 }
