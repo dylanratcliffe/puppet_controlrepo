@@ -3,7 +3,7 @@
 class profile::eyeunify::ctrl (
   String $source = 'https://eyeunify.org/wp_root/wp-content/uploads/2016/11/eyeUNIFYctrl_1_2_74261798.zip',
 ) {
-  require ::profile::eyeunify::base
+  include ::profile::eyeunify::base
 
   # Actually deploy the core
   archive { 'eyeunify_ctrl.zip':
@@ -16,11 +16,12 @@ class profile::eyeunify::ctrl (
     user         => $wildfly::user,
     group        => $wildfly::user,
     require      => Package['unzip'],
+    before       => Wildfly::Deployment['eyeunify_ctrl.war'],
   }
 
   wildfly::deployment { 'eyeunify_ctrl.war':
     source  => 'file:///tmp/eyeUNIFYctrl_1_2_74261798.war',
-    require => Archive['eyeunify_ctrl.zip'],
+    require => Class['profile::eyeunify::core::database_connection'],
   }
 
   # Also add a reverse proxy
