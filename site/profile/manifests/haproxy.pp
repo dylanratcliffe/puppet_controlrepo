@@ -1,5 +1,7 @@
 # == Class: profile::haproxy
 #
+# Hosts stats at :9090 puppet:puppet
+#
 # @param listening_pools A hash of listening pools
 class profile::haproxy (
   Hash $listening_pools = {}
@@ -19,5 +21,18 @@ class profile::haproxy (
     section => 'agent',
     setting => 'runinterval',
     value   => '60',
+  }
+
+  haproxy::listen { 'stats':
+    order     => '30',
+    ipaddress => $facts['networking']['ip'],
+    ports     => '9090',
+    options   => {
+      'mode'  => 'http',
+      'stats' => [
+        'uri /',
+        'auth puppet:puppet',
+      ],
+    },
   }
 }
