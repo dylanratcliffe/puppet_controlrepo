@@ -35,8 +35,8 @@ class profile::eyeunify::ctrl (
   @@haproxy::balancermember { "${facts['fqdn']}-eyeunify":
     listening_service => 'eyeunify',
     ports             => '80',
-    server_names      => $::hostname,
-    ipaddresses       => $::ipaddress,
+    server_names      => $facts['fqdn'],
+    ipaddresses       => $facts['networking']['ip'],
     options           => 'check',
   }
 }
