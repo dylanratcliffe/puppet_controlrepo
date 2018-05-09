@@ -5,7 +5,7 @@ class profile::eyeunify::database {
   }
 
   class { '::postgresql::server':
-    listen_addresses => $facts['ip'],
+    listen_addresses => $facts['networking']['ip'],
   }
 
   postgresql::server::db { 'eyeunify':
