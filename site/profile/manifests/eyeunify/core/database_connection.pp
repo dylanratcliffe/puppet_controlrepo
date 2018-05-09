@@ -17,6 +17,7 @@ class profile::eyeunify::core::database_connection (
   wildfly::config::module { 'org.postgresql':
     source       => 'http://central.maven.org/maven2/org/postgresql/postgresql/9.4-1206-jdbc42/postgresql-9.4-1206-jdbc42.jar',
     dependencies => ['javax.api', 'javax.transaction.api'],
+    require      => Class['::wildfly::install'],
   }
 
   wildfly::datasources::driver { 'Driver postgresql':
@@ -37,6 +38,5 @@ class profile::eyeunify::core::database_connection (
       'password'              => $password,
     },
     require => Wildfly::Datasources::Driver['Driver postgresql'],
-    notify  => Class['::wildfly::service'],
   }
 }
