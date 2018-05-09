@@ -35,4 +35,4 @@ profile::puppetmaster::autosign::password: >
 # HAProxy listening pools
 profile::haproxy::listening_pools:
   eyeunify:
-    ports: 80
+    ports: '80'
