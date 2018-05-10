@@ -1,8 +1,10 @@
 # == Class: profile::eyeunify::base
 #
 class profile::eyeunify::base (
-  String $xmx = '512m',
-  String $xms = '256m',
+  String $xmx                 = '512m',
+  String $xms                 = '256m',
+  String $management_user     = 'admin',
+  String $management_password = 'hunter2'
 ) {
   package { 'wget':
     ensure => present,
@@ -19,8 +21,8 @@ class profile::eyeunify::base (
     java_xms       => $xms,
     external_facts => true,
     mgmt_user      => {
-      'username' => 'wildfly',
-      'password' => 'hunter2',
+      'username' => $management_user,
+      'password' => $management_password,
     },
     properties     => {
       'jboss.bind.address'            => '0.0.0.0',

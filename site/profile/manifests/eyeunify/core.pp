@@ -1,5 +1,7 @@
 class profile::eyeunify::core (
-  String $source = 'https://eyeunify.org/wp_root/wp-content/uploads/2016/11/eyeUNIFYcore_1_2_8953ad59.zip',
+  String $source         = 'https://eyeunify.org/wp_root/wp-content/uploads/2016/11/eyeUNIFYcore_1_2_8953ad59.zip',
+  String $admin_user     = $profile::eyeunify::core::management_user,
+  String $admin_password = $profile::eyeunify::core::management_password,
 ) {
   include ::profile::eyeunify::base
   include ::profile::eyeunify::core::database_connection
@@ -14,13 +16,13 @@ class profile::eyeunify::core (
     require => Class['::wildfly::install'],
   }
 
-  wildfly::config::user { 'admin:ApplicationRealm':
-    password  => 'admin',
+  wildfly::config::user { "${admin_user}:ApplicationRealm":
+    password  => $admin_password,
     file_name => 'application-users.properties',
     require   => File['unify_users_file'],
   }
 
-  wildfly::config::user_roles { 'admin':
+  wildfly::config::user_roles { $admin_user:
     roles => 'administrator,operator',
   }
 
