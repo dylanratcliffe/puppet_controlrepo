@@ -1,7 +1,7 @@
 class profile::eyeunify::core (
   String $source         = 'https://eyeunify.org/wp_root/wp-content/uploads/2016/11/eyeUNIFYcore_1_2_8953ad59.zip',
-  String $admin_user     = $profile::eyeunify::core::management_user,
-  String $admin_password = $profile::eyeunify::core::management_password,
+  String $admin_user     = $profile::eyeunify::base::management_user,
+  String $admin_password = $profile::eyeunify::base::management_password,
 ) {
   include ::profile::eyeunify::base
   include ::profile::eyeunify::core::database_connection
