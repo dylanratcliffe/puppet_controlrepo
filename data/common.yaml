@@ -39,3 +39,16 @@ profile::haproxy::listening_pools:
   # sunburst:
   #   ports: '8080'
 
+profile::eyeunify::base::management_user: admin
+profile::eyeunify::base::management_password: >
+    ENC[PKCS7,MIIBeQYJKoZIhvcNAQcDoIIBajCCAWYCAQAxggEhMIIBHQIBADAFMAACAQEw
+    DQYJKoZIhvcNAQEBBQAEggEARq0Q712rX8UyIRn/MDD4Il2l9J5uve/yE8Vu
+    NThCLBQKvVkN1FbGWVUSEwT7ZefYkL+acJTAX36Xmg3ASo7rPVuXfaMl9RFD
+    IT5Af0kNkZ1rcYvbcB5uxL4oFcbaXlDXEt5MOCtfxQa5W0tPpZ+7j19JF3Hm
+    BmAG8QMJYJncO4USFbiMXXOOveEjglxZQKAJUfgs7l1xuIXOojE396OLRrR4
+    KKRRTnufezHMMI+lJ5DhgJTFrsggxcE4UX2rGhvewEKV0rjhKacyKAOdms3Y
+    RdLOvQcI20BK6gzP+PH+2aobm4UgZZDg0mEX/IHfnsGPwKgIYl07HwUkxJsz
+    wcgGSjA8BgkqhkiG9w0BBwEwHQYJYIZIAWUDBAEqBBBXAtMaR3IbWCICFarl
+    MYVggBBSUvo317Jjnnhus6TYlcSe]
+ 
+
