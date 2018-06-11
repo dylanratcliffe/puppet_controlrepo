@@ -78,3 +78,6 @@ mod 'puppet-grafana'                   ,'4.2.0'
 mod 'pe_metrics_dashboard',
   :git => 'https://github.com/puppetlabs/puppetlabs-pe_metrics_dashboard.git',
   :ref => 'f346b08c510bdfe099e2fb237d63a55513282889'
+mod 'compliance_api',
+  :git => 'https://github.com/dylanratcliffe/puppet-compliance_api.git',
+  :ref => 'master'
