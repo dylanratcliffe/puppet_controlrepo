@@ -10,6 +10,7 @@ class profile::base {
     }
 
     include ::systemd
+    include ::profile::base::rhel
   }
 
   include ::gcc
