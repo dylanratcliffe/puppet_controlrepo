@@ -6,7 +6,7 @@ class profile::base::rhel {
   package { 'ypserv':
     ensure => absent,
     tag    => [
-      'red_hat_enterprise_linux_7',
+      'stig_red_hat_enterprise_linux_7',
       'V-71969',
     ],
   }
@@ -14,7 +14,7 @@ class profile::base::rhel {
   package { 'tftp-server':
     ensure => absent,
     tag    => [
-      'red_hat_enterprise_linux_7',
+      'stig_red_hat_enterprise_linux_7',
       'V-72301',
     ],
   }
@@ -22,7 +22,7 @@ class profile::base::rhel {
   package { 'rsh-server':
     ensure => absent,
     tag    => [
-      'red_hat_enterprise_linux_7',
+      'stig_red_hat_enterprise_linux_7',
       'V-71967',
     ],
   }
@@ -30,7 +30,7 @@ class profile::base::rhel {
   package { 'vsftpd':
     ensure => absent,
     tag    => [
-      'red_hat_enterprise_linux_7',
+      'stig_red_hat_enterprise_linux_7',
       'V-72299',
     ],
   }
@@ -38,7 +38,7 @@ class profile::base::rhel {
   package { 'telnet-server':
     ensure => absent,
     tag    => [
-      'red_hat_enterprise_linux_7',
+      'stig_red_hat_enterprise_linux_7',
       'V-72077',
     ],
   }
