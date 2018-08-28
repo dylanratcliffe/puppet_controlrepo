@@ -61,12 +61,12 @@ class profile::base {
   }
 
   file { '/etc/motd':
-    ensure  => file,
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0644',
-    content => 'puppet:///modules/profile/motd',
-    tag     => [
+    ensure => file,
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0644',
+    source => 'puppet:///modules/profile/motd',
+    tag    => [
       'cis_red_hat_enterprise_linux_7',
       '1.7.1.1',
     ],
