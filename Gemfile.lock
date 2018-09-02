@@ -1,12 +1,4 @@
 GIT
-  remote: https://github.com/dylanratcliffe/onceover-octocatalog-diff.git
-  revision: 49c81da8fa39ba5d21f1a39e3c1bed644123a564
-  specs:
-    onceover-octocatalog-diff (0.1.7)
-      octocatalog-diff (~> 1.0)
-      onceover (>= 3.2.0)
-
-GIT
   remote: https://github.com/dylanratcliffe/onceover.git
   revision: baf1eaffbb53a5677878f03724cd911a3e3f67df
   specs:
@@ -75,13 +67,7 @@ GEM
     mocha (1.7.0)
       metaclass (~> 0.0.1)
     multi_json (1.13.1)
-    multi_xml (0.6.0)
     multipart-post (2.0.0)
-    octocatalog-diff (1.5.3)
-      diffy (>= 3.1.0)
-      hashdiff (>= 0.3.0)
-      httparty (>= 0.11.0)
-      rugged (>= 0.25.0b2)
     parallel (1.12.1)
     parallel_tests (2.22.0)
       parallel
@@ -153,6 +139,7 @@ GEM
     semantic_puppet (1.0.2)
     table_print (1.5.6)
     text (1.3.1)
+    trollop (2.1.3)
     versionomy (0.5.0)
       blockenspiel (~> 0.5)
 
@@ -161,11 +148,11 @@ PLATFORMS
   x86_64-darwin-15
 
 DEPENDENCIES
+  hiera-eyaml
   onceover!
-  onceover-octocatalog-diff!
   pry
   pry-byebug
   puppet (~> 5)
 
 BUNDLED WITH
-   1.16.1
+   1.16.3
