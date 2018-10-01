@@ -7,6 +7,7 @@ class profile::file_sync {
 
   puppet_enterprise::trapperkeeper::bootstrap_cfg { 'jruby-puppet-pooled-service' :
     namespace => 'puppetlabs.services.jruby.jruby-puppet-service',
+    container => 'puppetserver',
   }
 
   class { 'puppet_enterprise::master::file_sync':
