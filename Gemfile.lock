@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/dylanratcliffe/onceover.git
-  revision: baf1eaffbb53a5677878f03724cd911a3e3f67df
+  revision: f3b7db3719561df3f38b0df32d27cd736019eb77
   specs:
-    onceover (3.7.0)
+    onceover (3.8.0)
       colored (~> 1.2)
       cri (>= 2.6)
       deep_merge (>= 1.0.0)
@@ -29,7 +29,7 @@ GEM
     byebug (10.0.2)
     coderay (1.1.2)
     colored (1.2)
-    cri (2.6.1)
+    cri (2.15.1)
       colored (~> 1.2)
     deep_merge (1.2.1)
     diff-lcs (1.3)
@@ -49,7 +49,7 @@ GEM
       gettext (>= 3.0.2)
       locale
     git (1.5.0)
-    hiera (3.4.4)
+    hiera (3.4.5)
     hiera-eyaml (2.1.0)
       highline (~> 1.6.19)
       trollop (~> 2.0)
@@ -69,7 +69,7 @@ GEM
     multi_json (1.13.1)
     multipart-post (2.0.0)
     parallel (1.12.1)
-    parallel_tests (2.22.0)
+    parallel_tests (2.23.0)
       parallel
     pry (0.11.3)
       coderay (~> 1.1.0)
@@ -99,15 +99,15 @@ GEM
       gettext-setup (~> 0.11)
       minitar
       semantic_puppet (~> 1.0)
-    puppetlabs_spec_helper (2.10.0)
+    puppetlabs_spec_helper (2.11.0)
       mocha (~> 1.0)
       puppet-lint (~> 2.0)
       puppet-syntax (~> 2.0)
       rspec-puppet (~> 2.0)
-    r10k (2.6.4)
+    r10k (3.0.2)
       colored (= 1.2)
-      cri (~> 2.6.1)
-      gettext-setup (~> 0.5)
+      cri (~> 2.15.1)
+      gettext-setup (~> 0.24)
       log4r (= 1.1.10)
       multi_json (~> 1.10)
       puppet_forge (~> 2.2.8)
