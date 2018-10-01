@@ -1,6 +1,8 @@
 # Sets up file sync on an arbitrary host
 #
 class profile::file_sync {
+  Package <| tag == 'pe-master-packages' |>
+
   puppet_enterprise::trapperkeeper::pe_service { 'puppetserver': }
 
   class { 'puppet_enterprise::master::file_sync':
