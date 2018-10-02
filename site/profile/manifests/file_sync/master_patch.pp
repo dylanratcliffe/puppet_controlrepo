@@ -12,7 +12,7 @@ class profile::file_sync::master_patch {
   pe_hocon_setting { 'override file-sync.client-certnames':
     path    => "${puppet_enterprise::master::file_sync::confdir}/conf.d/99_file_sync_override.conf",
     setting => 'file-sync.client-certnames',
-    value   => $$puppet_enterprise::master::file_sync::certs_authorized_to_communicate_with_file_sync,
+    value   => $puppet_enterprise::master::file_sync::certs_authorized_to_communicate_with_file_sync,
     type    => 'array',
     notify  => Service['pe-puppetserver'],
   }
