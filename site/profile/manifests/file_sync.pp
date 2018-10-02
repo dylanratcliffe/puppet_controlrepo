@@ -1,15 +1,23 @@
 # Sets up file sync on an arbitrary host
 #
 class profile::file_sync (
-  $puppetserver_conf_dir = '/etc/puppetlabs/puppetserver/conf.d'
+  $puppetserver_conf_dir = '/etc/puppetlabs/puppetserver/conf.d',
+  $enable_gc_logging     = true,
+  $java_args             = {
+    'Xmx' => '256m',
+    'Xms' => '256m',
+  },
 ) {
-  Package <| tag == 'pe-master-packages' |>
-
-  puppet_enterprise::trapperkeeper::pe_service { 'puppetserver': }
-
+  # Set defaults that all settings are for puppetserver
   Puppet_enterprise::Trapperkeeper::Bootstrap_cfg {
     container => 'puppetserver',
   }
+
+  # Install all packages required
+  Package <| tag == 'pe-master-packages' |>
+
+  # Ensure that the pe-puppetserver service is managed
+  puppet_enterprise::trapperkeeper::pe_service { 'puppetserver': }
 
   # Remove all confil files after install to get rid of default stuff
   exec { 'remove default config':
@@ -61,6 +69,7 @@ class profile::file_sync (
     notify  => Service['pe-puppetserver'],
   }
 
+  # Ensure that the /status endpoint exists
   pe_hocon_setting { 'web-router-service.status-service':
     path    => "${puppetserver_conf_dir}/web-routes.conf",
     setting => 'web-router-service."puppetlabs.trapperkeeper.services.status.status-service/status-service"',
@@ -81,6 +90,7 @@ class profile::file_sync (
     notify  => Service['pe-puppetserver'],
   }
 
+  # Create all services in bootstrap.cfg
   puppet_enterprise::trapperkeeper::bootstrap_cfg { 'jetty9-service':
     namespace => 'puppetlabs.trapperkeeper.services.webserver.jetty9-service',
   }
@@ -105,6 +115,7 @@ class profile::file_sync (
     namespace => 'puppetlabs.trapperkeeper.services.metrics.metrics-service',
   }
 
+  # Set up file-sync
   class { 'puppet_enterprise::master::file_sync':
     puppet_master_host                        => $puppet_enterprise::puppet_master_host,
     master_of_masters_certname                => $puppet_enterprise::puppet_master_host,
@@ -113,4 +124,11 @@ class profile::file_sync (
     puppetserver_webserver_ssl_port           => '8140',
     storage_service_disabled                  => true,
   }
+
+  # Set the Java args
+  puppet_enterprise::trapperkeeper::java_args { 'puppetserver':
+    java_args => $java_args,
+    enable_gc_logging => $enable_gc_logging,
+  }
+
 }

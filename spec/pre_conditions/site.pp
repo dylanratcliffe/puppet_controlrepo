@@ -44,3 +44,4 @@ class puppet_enterprise::master::file_sync (
   $storage_service_disabled,
 ) {}
 define pe_hocon_setting ($path, $value, $setting) {}
+define puppet_enterprise::trapperkeeper::java_args ($java_args, $enable_gc_logging) {}
