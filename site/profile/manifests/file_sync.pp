@@ -30,10 +30,11 @@ class profile::file_sync (
   ]
 
   file { $new_config_files:
-    ensure => file,
-    owner  => 'root',
-    group  => 'root',
-    mode   => '0644',
+    ensure  => file,
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+    require => Package['pe-puppetserver'],
   }
 
   # Set the metrics server ID
