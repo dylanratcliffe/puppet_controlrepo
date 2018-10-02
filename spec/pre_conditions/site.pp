@@ -43,5 +43,5 @@ class puppet_enterprise::master::file_sync (
   $puppetserver_webserver_ssl_port,
   $storage_service_disabled,
 ) {}
-define pe_hocon_setting ($path, $value, $setting) {}
+define pe_hocon_setting ($path, $value, $setting, $type = '') {}
 define puppet_enterprise::trapperkeeper::java_args ($java_args, $enable_gc_logging) {}
