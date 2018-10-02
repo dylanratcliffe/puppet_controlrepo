@@ -66,10 +66,10 @@ puppet_enterprise::profile::puppetdb::java_args:
   'XX:PermSize': '=64m'
   'XX:+UseG1GC': ''
 puppet_enterprise::profile::console::java_args:
-  Xmx: '64m'
+  Xmx: '128m'
   Xms: '64m'
   'XX:MaxPermSize': '=96m'
-  'XX:PermSize': '=64m'
+  'XX:PermSize': '=96m'
   'XX:+UseG1GC': ''
 puppet_enterprise::profile::console::delayed_job_workers: 1
 #shared_buffers takes affect during install but is not managed after
