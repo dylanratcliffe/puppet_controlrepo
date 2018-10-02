@@ -18,6 +18,10 @@ service { 'pe-puppetserver':
   provider   => 'base',
 }
 
+package { 'pe-puppetserver':
+  ensure => present,
+}
+
 user { 'puppet':
   ensure => present,
 }
@@ -39,3 +43,4 @@ class puppet_enterprise::master::file_sync (
   $puppetserver_webserver_ssl_port,
   $storage_service_disabled,
 ) {}
+define pe_hocon_setting ($path, $value) {}
