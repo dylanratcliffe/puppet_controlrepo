@@ -21,10 +21,6 @@ class profile::file_sync {
     namespace => 'puppetlabs.trapperkeeper.services.scheduler.scheduler-service',
   }
 
-  puppet_enterprise::trapperkeeper::bootstrap_cfg { 'file-sync-client-service':
-    namespace => 'puppetlabs.enterprise.services.file-sync-client.file-sync-client-service',
-  }
-
   puppet_enterprise::trapperkeeper::bootstrap_cfg { 'status-service':
     namespace => 'puppetlabs.trapperkeeper.services.status.status-service',
   }
@@ -35,10 +31,6 @@ class profile::file_sync {
 
   puppet_enterprise::trapperkeeper::bootstrap_cfg { 'metrics-service':
     namespace => 'puppetlabs.trapperkeeper.services.metrics.metrics-service',
-  }
-
-  puppet_enterprise::trapperkeeper::bootstrap_cfg { 'file-sync-web-service':
-    namespace => 'puppetlabs.enterprise.services.file-sync-web-service.file-sync-web-service',
   }
 
   class { 'puppet_enterprise::master::file_sync':

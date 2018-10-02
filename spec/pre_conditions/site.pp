@@ -29,3 +29,13 @@ group { 'puppet':
 class pe_repo::platform::windows_i386 {}
 class pe_repo::platform::windows_x86_64 {}
 class pe_repo::platform::el_6_x86_64 {}
+define puppet_enterprise::trapperkeeper::pe_service () {}
+define puppet_enterprise::trapperkeeper::bootstrap_cfg ($namespace, $container) { }
+class puppet_enterprise::master::file_sync (
+  $puppet_master_host,
+  $master_of_masters_certname,
+  $localcacert,
+  $puppetserver_jruby_puppet_master_code_dir,
+  $puppetserver_webserver_ssl_port,
+  $storage_service_disabled,
+) {}
