@@ -5,9 +5,40 @@ class profile::file_sync {
 
   puppet_enterprise::trapperkeeper::pe_service { 'puppetserver': }
 
-  puppet_enterprise::trapperkeeper::bootstrap_cfg { 'jruby-puppet-pooled-service' :
-    namespace => 'puppetlabs.services.jruby.jruby-puppet-service',
+  Puppet_enterprise::Trapperkeeper::Bootstrap_cfg {
     container => 'puppetserver',
+  }
+
+  puppet_enterprise::trapperkeeper::bootstrap_cfg { 'jetty9-service':
+    namespace => 'puppetlabs.trapperkeeper.services.webserver.jetty9-service',
+  }
+
+  puppet_enterprise::trapperkeeper::bootstrap_cfg { 'webrouting-service':
+    namespace => 'puppetlabs.trapperkeeper.services.webrouting.webrouting-service',
+  }
+
+  puppet_enterprise::trapperkeeper::bootstrap_cfg { 'scheduler-service':
+    namespace => 'puppetlabs.trapperkeeper.services.scheduler.scheduler-service',
+  }
+
+  puppet_enterprise::trapperkeeper::bootstrap_cfg { 'file-sync-client-service':
+    namespace => 'puppetlabs.enterprise.services.file-sync-client.file-sync-client-service',
+  }
+
+  puppet_enterprise::trapperkeeper::bootstrap_cfg { 'status-service':
+    namespace => 'puppetlabs.trapperkeeper.services.status.status-service',
+  }
+
+  puppet_enterprise::trapperkeeper::bootstrap_cfg { 'authorization-service':
+    namespace => 'puppetlabs.trapperkeeper.services.authorization.authorization-service',
+  }
+
+  puppet_enterprise::trapperkeeper::bootstrap_cfg { 'metrics-service':
+    namespace => 'puppetlabs.trapperkeeper.services.metrics.metrics-service',
+  }
+
+  puppet_enterprise::trapperkeeper::bootstrap_cfg { 'file-sync-web-service':
+    namespace => 'puppetlabs.enterprise.services.file-sync-web-service.file-sync-web-service',
   }
 
   class { 'puppet_enterprise::master::file_sync':
