@@ -45,3 +45,6 @@ class puppet_enterprise::master::file_sync (
 ) {}
 define pe_hocon_setting ($path, $value, $setting, $type = '') {}
 define puppet_enterprise::trapperkeeper::java_args ($java_args, $enable_gc_logging) {}
+function pe_union ($param, $param2) {}
+function pe_sort ($param) {}
+function pe_unique ($param) {}

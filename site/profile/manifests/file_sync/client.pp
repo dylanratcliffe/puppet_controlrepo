@@ -12,10 +12,6 @@
 # @param code_dir Where to sync the code
 # @param java_args Java arguments for the pe-puppetserver process
 #
-if defined('role::file_sync') {
-  class puppet_enterprise::profile::master {}
-}
-
 class profile::file_sync::client (
   $puppetserver_conf_dir = '/etc/puppetlabs/puppetserver/conf.d',
   $enable_gc_logging     = true,
@@ -147,7 +143,4 @@ class profile::file_sync::client (
     java_args         => $java_args,
     enable_gc_logging => $enable_gc_logging,
   }
-
-  # Ultra hack test
-  include puppet_enterprise::profile::master
 }
