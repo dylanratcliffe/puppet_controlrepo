@@ -1,8 +1,21 @@
 # Sets up file sync on an arbitrary host
+# --------------------------------------
+# 
+# This class installs the pe-puppetserver service in a customised configuration
+# which means that it only runs the file sync client service, no jrubies, no file
+# server etc. This can be installed on any hosts that for whatever reason need an
+# up-to-date copy of the Puppet code without having to create a new mechanism to
+# keep it in sync
+#
+# @param puppetserver_conf_dir Directory where config files are written
+# @param enable_gc_logging Whether garbage collection should be logged
+# @param code_dir Where to sync the code
+# @param java_args Java arguments for the pe-puppetserver process
 #
 class profile::file_sync (
   $puppetserver_conf_dir = '/etc/puppetlabs/puppetserver/conf.d',
   $enable_gc_logging     = true,
+  $code_dir              = '/etc/puppetlabs/code',
   $java_args             = {
     'Xmx' => '256m',
     'Xms' => '256m',
@@ -19,7 +32,7 @@ class profile::file_sync (
   # Ensure that the pe-puppetserver service is managed
   puppet_enterprise::trapperkeeper::pe_service { 'puppetserver': }
 
-  # Remove all confil files after install to get rid of default stuff
+  # Remove all config files after install to get rid of default stuff
   exec { 'remove default config':
     command     => "rm -rf ${puppetserver_conf_dir}/*",
     path        => $facts['path'],
@@ -77,17 +90,17 @@ class profile::file_sync (
     notify  => Service['pe-puppetserver'],
   }
 
-  # Removed the versioned code service as this brings in all of the puppetserver dependencies
-  Puppet_enterprise::Trapperkeeper::Bootstrap_cfg <| title == 'file-sync-versioned-code-service' |> {
-    ensure => 'absent',
-  }
-
   # Set the authorization version as this is required
   pe_hocon_setting { 'authorization.version':
     setting => 'authorization.version',
     path    => '/etc/puppetlabs/puppetserver/conf.d/auth.conf',
     value   => 1,
     notify  => Service['pe-puppetserver'],
+  }
+
+  # Removed the versioned code service as this brings in all of the puppetserver dependencies
+  Puppet_enterprise::Trapperkeeper::Bootstrap_cfg <| title == 'file-sync-versioned-code-service' |> {
+    ensure => 'absent',
   }
 
   # Create all services in bootstrap.cfg
@@ -120,14 +133,14 @@ class profile::file_sync (
     puppet_master_host                        => $puppet_enterprise::puppet_master_host,
     master_of_masters_certname                => $puppet_enterprise::puppet_master_host,
     localcacert                               => $puppet_enterprise::params::localcacert,
-    puppetserver_jruby_puppet_master_code_dir => '/etc/puppetlabs/code',
+    puppetserver_jruby_puppet_master_code_dir => $code_dir,
     puppetserver_webserver_ssl_port           => '8140',
     storage_service_disabled                  => true,
   }
 
   # Set the Java args
   puppet_enterprise::trapperkeeper::java_args { 'puppetserver':
-    java_args => $java_args,
+    java_args         => $java_args,
     enable_gc_logging => $enable_gc_logging,
   }
 
