@@ -61,6 +61,13 @@ class profile::file_sync (
     notify  => Service['pe-puppetserver'],
   }
 
+  pe_hocon_setting { 'web-router-service.status-service':
+    path    => "${puppetserver_conf_dir}/web-routes.conf",
+    setting => 'web-router-service."puppetlabs.trapperkeeper.services.status.status-service/status-service"',
+    value   => '/status',
+    notify  => Service['pe-puppetserver'],
+  }
+
   # Removed the versioned code service as this brings in all of the puppetserver dependencies
   Puppet_enterprise::Trapperkeeper::Bootstrap_cfg <| title == 'file-sync-versioned-code-service' |> {
     ensure => 'absent',
