@@ -144,4 +144,7 @@ class profile::file_sync::client (
     enable_gc_logging => $enable_gc_logging,
   }
 
+  # Ultra hack test
+  class puppet_enterprise::profile::master {}
+  include puppet_enterprise::profile::master
 }
