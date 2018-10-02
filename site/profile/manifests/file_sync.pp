@@ -9,6 +9,11 @@ class profile::file_sync {
     container => 'puppetserver',
   }
 
+  # Removed the versioned code service as this brings in all of the puppetserver dependencies
+  Puppet_enterprise::Trapperkeeper::Bootstrap_cfg <| title == 'file-sync-versioned-code-service' |> {
+    ensure => 'absent',
+  }
+
   puppet_enterprise::trapperkeeper::bootstrap_cfg { 'jetty9-service':
     namespace => 'puppetlabs.trapperkeeper.services.webserver.jetty9-service',
   }
