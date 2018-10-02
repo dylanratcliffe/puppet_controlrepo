@@ -43,4 +43,4 @@ class puppet_enterprise::master::file_sync (
   $puppetserver_webserver_ssl_port,
   $storage_service_disabled,
 ) {}
-define pe_hocon_setting ($path, $value) {}
+define pe_hocon_setting ($path, $value, $setting) {}
