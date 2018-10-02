@@ -13,7 +13,7 @@ class profile::file_sync::master_patch {
                       ['=', ['node','active'], true]]]])) |$master| { $master['certname'] }
   $whitelisted_certnames = lookup('puppet_enterprise::master::file_sync::whitelisted_certnames', {'default_value' => []})
   $authorized_certs      = pe_union([$facts['certname']], $whitelisted_certnames)
-  $certs_authorized_to_communicate_with_file_sync = pe_sort((pe_unique(pe_union($authorized_certs, $masters_in_puppetdb)) - undef))
+  $certs_authorized_to_communicate_with_file_sync = pe_sort(delete_undef_values(pe_unique(pe_union($authorized_certs, $masters_in_puppetdb))))
 
 
   Pe_hocon_setting <| title == 'file-sync.client-certnames' |> {
