@@ -47,6 +47,6 @@ class profile::file_sync {
     localcacert                               => $puppet_enterprise::params::localcacert,
     puppetserver_jruby_puppet_master_code_dir => '/etc/puppetlabs/code',
     puppetserver_webserver_ssl_port           => '8140',
-    storage_service_disabled                  => false,
+    storage_service_disabled                  => true,
   }
 }
