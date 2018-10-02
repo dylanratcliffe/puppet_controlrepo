@@ -12,7 +12,9 @@
 # @param code_dir Where to sync the code
 # @param java_args Java arguments for the pe-puppetserver process
 #
-class puppet_enterprise::profile::master {}
+if defined('role::file_sync') {
+  class puppet_enterprise::profile::master {}
+}
 
 class profile::file_sync::client (
   $puppetserver_conf_dir = '/etc/puppetlabs/puppetserver/conf.d',
