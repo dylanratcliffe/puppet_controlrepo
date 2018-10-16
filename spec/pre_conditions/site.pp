@@ -18,6 +18,10 @@ service { 'pe-puppetserver':
   provider   => 'base',
 }
 
+package { 'pe-puppetserver':
+  ensure => present,
+}
+
 user { 'puppet':
   ensure => present,
 }
@@ -29,3 +33,18 @@ group { 'puppet':
 class pe_repo::platform::windows_i386 {}
 class pe_repo::platform::windows_x86_64 {}
 class pe_repo::platform::el_6_x86_64 {}
+define puppet_enterprise::trapperkeeper::pe_service () {}
+define puppet_enterprise::trapperkeeper::bootstrap_cfg ($namespace, $container) { }
+class puppet_enterprise::master::file_sync (
+  $puppet_master_host,
+  $master_of_masters_certname,
+  $localcacert,
+  $puppetserver_jruby_puppet_master_code_dir,
+  $puppetserver_webserver_ssl_port,
+  $storage_service_disabled,
+) {}
+define pe_hocon_setting ($path, $value, $setting, $type = '') {}
+define puppet_enterprise::trapperkeeper::java_args ($java_args, $enable_gc_logging) {}
+function pe_union  ($param, $param2) { [$param, $param2] }
+function pe_sort   ($param)          { [1,2,3] }
+function pe_unique ($param)          { [1,2,3] }
