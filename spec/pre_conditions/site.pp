@@ -45,6 +45,8 @@ class puppet_enterprise::master::file_sync (
 ) {}
 define pe_hocon_setting ($path, $value, $setting, $type = '') {}
 define puppet_enterprise::trapperkeeper::java_args ($java_args, $enable_gc_logging) {}
+define puppet_enterprise::trapperkeeper::webserver_settings($container,$ssl_listen_address,$ssl_listen_port) {}
+)
 function pe_union  ($param, $param2) { [$param, $param2] }
 function pe_sort   ($param)          { [1,2,3] }
 function pe_unique ($param)          { [1,2,3] }

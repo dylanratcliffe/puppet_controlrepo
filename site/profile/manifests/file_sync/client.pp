@@ -134,6 +134,7 @@ class profile::file_sync::client (
     container          => 'puppetserver',
     ssl_listen_address => '0.0.0.0',
     ssl_listen_port    => 8140,
+    default_server     => true,
     notify             => Service['pe-puppetserver'],
   }
 
