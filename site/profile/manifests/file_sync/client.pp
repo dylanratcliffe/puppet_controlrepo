@@ -41,7 +41,7 @@ class profile::file_sync::client (
   }
 
   # Ensure that all hocon settings come after the exec
-  Exec['remove default config'] -> Pe_hocon_setting <| |> 
+  Exec['remove default config'] -> Pe_hocon_setting <| |>
 
   # Create config files that were delete and are now unmanaged
   $new_config_files = [
@@ -63,14 +63,6 @@ class profile::file_sync::client (
     setting => 'metrics.server-id',
     path    => "${puppetserver_conf_dir}/metrics.conf",
     value   => $facts['hostname'],
-    notify  => Service['pe-puppetserver'],
-  }
-
-  # Set the webserver port
-  pe_hocon_setting { 'webserver.port':
-    setting => 'webserver.port',
-    path    => "${puppetserver_conf_dir}/webserver.conf",
-    value   => 8140,
     notify  => Service['pe-puppetserver'],
   }
 
@@ -136,6 +128,13 @@ class profile::file_sync::client (
     puppetserver_jruby_puppet_master_code_dir => $code_dir,
     puppetserver_webserver_ssl_port           => '8140',
     storage_service_disabled                  => true,
+  }
+
+  puppet_enterprise::trapperkeeper::webserver_settings { 'puppetserver':
+    container          => 'puppetserver',
+    ssl_listen_address => '0.0.0.0',
+    ssl_listen_port    => 8140,
+    notify             => Service['pe-puppetserver'],
   }
 
   # Set the Java args
