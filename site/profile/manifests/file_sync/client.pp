@@ -90,6 +90,14 @@ class profile::file_sync::client (
     notify  => Service['pe-puppetserver'],
   }
 
+  # Set a gem home so that gems can be listed
+  pe_hocon_setting { 'jruby-puppet.gem-home':
+    setting => 'jruby-puppet.gem-home',
+    path    => "${puppetserver_conf_dir}/pe-puppet-server.conf",
+    value   => '/opt/puppetlabs/server/data/puppetserver/jruby-gems',
+    notify  => Service['pe-puppetserver'],
+  }
+
   # Removed the versioned code service as this brings in all of the puppetserver dependencies
   Puppet_enterprise::Trapperkeeper::Bootstrap_cfg <| title == 'file-sync-versioned-code-service' |> {
     ensure => 'absent',
