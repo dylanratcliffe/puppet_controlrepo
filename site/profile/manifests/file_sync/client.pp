@@ -130,7 +130,7 @@ class profile::file_sync::client (
     storage_service_disabled                  => true,
   }
 
-  puppet_enterprise::trapperkeeper::webserver_settings { 'puppetserver':
+  puppet_enterprise::trapperkeeper::webserver_settings { 'puppet-server':
     container          => 'puppetserver',
     ssl_listen_address => '0.0.0.0',
     ssl_listen_port    => 8140,
