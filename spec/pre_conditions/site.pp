@@ -47,7 +47,15 @@ define pe_hocon_setting ($path, $value, $setting, $type = '') {}
 define puppet_enterprise::trapperkeeper::java_args ($java_args, $enable_gc_logging) {}
 define puppet_enterprise::trapperkeeper::webserver_settings ($container,$ssl_listen_address,$ssl_listen_port,$default_server = false) {}
 
-define pe_puppet_authorization::rule () {}
+define pe_puppet_authorization::rule (
+  $path                  = undef,
+  $match_request_path    = undef,
+  $match_request_type    = undef,
+  $match_request_method  = undef,
+  $allow                 = undef,
+  $allow_unauthenticated = undef,
+  $sort_order            = undef,
+) {}
 
 function pe_union  ($param, $param2) { [$param, $param2] }
 function pe_sort   ($param)          { [1,2,3] }
