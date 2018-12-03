@@ -26,4 +26,12 @@ class profile::file_sync::master_patch {
   Pe_hocon_setting <| title == 'file-sync.client-certnames' |> {
     value => $certs_authorized_to_communicate_with_file_sync,
   }
+
+  Pe_puppet_authorization::Rule <| title == 'puppetlabs file sync api' |> {
+    allow => $certs_authorized_to_communicate_with_file_sync,
+  }
+
+  Pe_puppet_authorization::Rule <| title == 'puppetlabs file sync repo' |> {
+    allow => $certs_authorized_to_communicate_with_file_sync,
+  }
 }
