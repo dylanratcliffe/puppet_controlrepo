@@ -54,6 +54,8 @@ GEM
       highline (~> 1.6.19)
       trollop (~> 2.0)
     highline (1.6.21)
+    hocon (1.2.5)
+    httpclient (2.8.3)
     json (2.1.0)
     little-plugger (1.1.4)
     locale (2.1.2)
@@ -77,20 +79,28 @@ GEM
     pry-byebug (3.6.0)
       byebug (~> 10.0)
       pry (~> 0.10)
-    puppet (5.5.8)
+    puppet (6.0.4)
       facter (> 2.0.1, < 4)
       fast_gettext (~> 1.1.2)
       hiera (>= 3.2.1, < 4)
+      httpclient (~> 2.8)
       locale (~> 2.1)
       multi_json (~> 1.10)
-    puppet (5.5.8-universal-darwin)
+      puppet-resource_api (~> 1.5)
+      semantic_puppet (~> 1.0)
+    puppet (6.0.4-universal-darwin)
       CFPropertyList (~> 2.2)
       facter (> 2.0.1, < 4)
       fast_gettext (~> 1.1.2)
       hiera (>= 3.2.1, < 4)
+      httpclient (~> 2.8)
       locale (~> 2.1)
       multi_json (~> 1.10)
+      puppet-resource_api (~> 1.5)
+      semantic_puppet (~> 1.0)
     puppet-lint (2.3.6)
+    puppet-resource_api (1.6.2)
+      hocon (>= 1.0)
     puppet-syntax (2.4.1)
       rake
     puppet_forge (2.2.9)
@@ -151,7 +161,7 @@ DEPENDENCIES
   onceover!
   pry
   pry-byebug
-  puppet (~> 5)
+  puppet (~> 6)
 
 BUNDLED WITH
    1.17.1
