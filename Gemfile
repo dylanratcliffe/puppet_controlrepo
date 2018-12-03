@@ -14,4 +14,4 @@ else
 end
 
 gem 'hiera-eyaml'
-gem 'puppet', ENV['PUPPET_version'] || '~> 5'
+gem 'puppet', ENV['PUPPET_version'] || '~> 6'
