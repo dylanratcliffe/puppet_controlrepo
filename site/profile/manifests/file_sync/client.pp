@@ -150,7 +150,6 @@ class profile::file_sync::client (
     match_request_path    => '/status/v1/services',
     match_request_type    => 'path',
     match_request_method  => 'get',
-    allow                 => true,
     allow_unauthenticated => true,
     sort_order            => 500,
     notify                => Service['pe-puppetserver'],
