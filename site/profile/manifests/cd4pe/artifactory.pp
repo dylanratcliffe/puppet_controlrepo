@@ -17,7 +17,7 @@ class profile::cd4pe::artifactory (
     owner  => 'root',
     group  => 'root',
     mode   => '0600',
-    source => 'puppet:///modules/profile/atrifactory/config_descriptor.xml',
+    source => 'puppet:///modules/profile/artifactory/config_descriptor.xml',
   }
 
   exec { 'move config_descriptor into volume':
@@ -33,7 +33,7 @@ class profile::cd4pe::artifactory (
     owner  => 'root',
     group  => 'root',
     mode   => '0600',
-    source => 'puppet:///modules/profile/atrifactory/security_descriptor.xml',
+    source => 'puppet:///modules/profile/artifactory/security_descriptor.xml',
   }
 
   exec { 'move security_descriptor into volume':
