@@ -1,5 +1,4 @@
 class profile::cd4pe (
-  String $artifactory_version            = 'latest',
   String $cd4pe_version                  = 'latest',
   String $network_name                   = 'cd4pe-network',
   Sensitive[String] $mysql_root_password = Sensitive(fqdn_rand_string(20)),
@@ -7,6 +6,10 @@ class profile::cd4pe (
   Sensitive[String] $cd4pe_db_password   = Sensitive(fqdn_rand_string(20)),
 ) {
   include profile::docker
+
+  class { 'profile::cd4pe::artifactory':
+    network_name => $network_name,
+  }
 
   # Set this default because there seems to be a bug in puppetlabs/docker 3.0.0
   # that makes it effectively required.
@@ -24,10 +27,6 @@ class profile::cd4pe (
 
   docker::image { 'mysql':
     image_tag => '5.7',
-  }
-
-  docker::image { 'docker.bintray.io/jfrog/artifactory-oss':
-    image_tag => $artifactory_version,
   }
 
   docker::image { 'puppet/continuous-delivery-for-puppet-enterprise':
@@ -54,13 +53,6 @@ class profile::cd4pe (
     ],
   }
 
-  docker::run { 'cd4pe-artifactory':
-    image   => "docker.bintray.io/jfrog/artifactory-oss:${artifactory_version}",
-    net     => $network_name,
-    ports   => ['8081:8081'],
-    volumes => ['data_s3:/var/opt/jfrog/artifactory'],
-  }
-
   docker::run { 'cd4pe':
     image   => "puppet/continuous-delivery-for-puppet-enterprise:${cd4pe_version}",
     net     => $network_name,
@@ -74,7 +66,7 @@ class profile::cd4pe (
       'DB_USER=cd4pe',
       "DB_PASS=${cd4pe_db_password}",
       'DUMP_URI=dump://localhost:7000',
-      'PFI_SECRET_KEY=5pM51Fu502mkPN3eKrHbvg==',
+      'PFI_SECRET_KEY=CapsQQCKq+hdYYWS+DhIpw==',
     ],
   }
 }
