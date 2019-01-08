@@ -3,6 +3,10 @@ class profile::cd4pe::artifactory (
   String $network_name        = 'cd4pe-network',
   String $bootstrap_dir       = '/etc/artifactory_bootstrap',
 ) {
+  Docker::Run {
+    health_check_interval => 30,
+  }
+
   # Create the volume and insert bootstrap data
   docker_volume { 'data_s3':
     ensure => present,
