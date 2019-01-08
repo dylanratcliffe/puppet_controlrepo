@@ -53,6 +53,13 @@ class profile::cd4pe::artifactory (
     }
   }
 
+  exec { 'set permissions':
+    command     => "${docker_command_prefix} chown -R 1030:1030 /dest",
+    path        => $facts['path'],
+    refreshonly => true,
+    subscribe   => File["${bootstrap_dir}/artifactory.config.import.xml","${bootstrap_dir}/security.import.xml"],
+  }
+
   docker::image { 'docker.bintray.io/jfrog/artifactory-oss':
     image_tag => $artifactory_version,
   }
