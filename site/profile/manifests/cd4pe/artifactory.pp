@@ -20,14 +20,6 @@ class profile::cd4pe::artifactory (
     source => 'puppet:///modules/profile/artifactory/config_descriptor.xml',
   }
 
-  exec { 'move config_descriptor into volume':
-    command     => "docker cp ${bootstrap_dir}/artifactory.config.import.xml data_s3:/etc/artifactory.config.import.xml",
-    path        => $facts['path'],
-    refreshonly => true,
-    require     => Docker_volume['data_s3'],
-    subscribe   => File["${bootstrap_dir}/artifactory.config.import.xml"],
-  }
-
   file { "${bootstrap_dir}/security.import.xml":
     ensure => file,
     owner  => 'root',
@@ -36,12 +28,25 @@ class profile::cd4pe::artifactory (
     source => 'puppet:///modules/profile/artifactory/security_descriptor.xml',
   }
 
-  exec { 'move security_descriptor into volume':
-    command     => "docker cp ${bootstrap_dir}/security.import.xml data_s3:/etc/security.import.xml",
+  # Start a quick alpine container to copt files around
+  $docker_command_prefix = "docker run --rm -v ${bootstrap_dir}:/source -v data_s3:/dest -w /source alpine"
+
+  exec { 'create /etc inside data_s3':
+    command     => "${docker_command_prefix} mkdir -p /dest/etc",
     path        => $facts['path'],
     refreshonly => true,
     require     => Docker_volume['data_s3'],
-    subscribe   => File["${bootstrap_dir}/security.import.xml"],
+    subscribe   => File["${bootstrap_dir}/artifactory.config.import.xml"],
+  }
+
+  ['artifactory.config.import.xml', 'security.import.xml'].each |$file| {
+    exec { "move ${file} into data_s3":
+      command     => "${docker_command_prefix} cp /source/${file} /dest/etc/${file}",
+      path        => $facts['path'],
+      refreshonly => true,
+      require     => Exec['create /etc inside data_s3'],
+      subscribe   => File["${bootstrap_dir}/artifactory.config.import.xml"],
+    }
   }
 
   docker::image { 'docker.bintray.io/jfrog/artifactory-oss':
