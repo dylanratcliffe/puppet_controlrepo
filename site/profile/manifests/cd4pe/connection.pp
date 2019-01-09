@@ -68,6 +68,7 @@ class profile::cd4pe::connection (
   exec { 'connect_instances':
     command     => '/etc/cd4pe/connection_script.sh',
     refreshonly => true,
+    logoutput   => true,
     path        => $facts['path'],
     subscribe   => File['/etc/cd4pe/connection_script.sh'],
     require     => [
