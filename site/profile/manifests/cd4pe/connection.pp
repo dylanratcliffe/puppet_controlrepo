@@ -66,7 +66,7 @@ class profile::cd4pe::connection (
   }
 
   exec { 'connect_instances':
-    command     => 'bash /etc/cd4pe/connection_script.sh',
+    command     => 'bash -x /etc/cd4pe/connection_script.sh',
     cwd         => '/etc/cd4pe',
     refreshonly => true,
     logoutput   => true,
