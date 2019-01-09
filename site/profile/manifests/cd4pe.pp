@@ -6,6 +6,7 @@ class profile::cd4pe (
   Sensitive[String] $cd4pe_db_password   = Sensitive(fqdn_rand_string(20)),
 ) {
   include profile::docker
+  include profile::cd4pe::connection # Sets up the connection between all components
 
   class { 'profile::cd4pe::artifactory':
     network_name => $network_name,

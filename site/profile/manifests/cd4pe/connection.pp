@@ -9,10 +9,6 @@ class profile::cd4pe::connection (
   String            $cd4pe_dump           = "${facts['fqdn']}:7000",
   String            $cd4pe_backend        = "${facts['fqdn']}:8000",
 ) {
-  # Ensure that all setup is done before this is completed
-  require profile::cd4pe
-  require profile::cd4pe::artifactory
-
   # Create a folder for these files
   file { '/etc/cd4pe':
     ensure => 'directory',
@@ -44,6 +40,18 @@ class profile::cd4pe::connection (
       'cd4pe_root_pw'        => $cd4pe_root_pw,
       'cd4pe_dump'           => $cd4pe_dump,
       'cd4pe_backend'        => $cd4pe_backend,
-    })
+    }),
+    require => File['/etc/cd4pe/license.json'],
+  }
+
+  exec { 'connect_instances':
+    command     => '/etc/cd4pe/connection_script.sh',
+    refreshonly => true,
+    path        => $facts['path'],
+    require     => [
+      Docker::Run['cd4pe-artifactory'],
+      Docker::Run['cd4pe'],
+      File['/etc/cd4pe/connection_script.sh']
+    ]
   }
 }
