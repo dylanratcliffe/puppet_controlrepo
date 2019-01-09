@@ -43,8 +43,8 @@ class profile::cd4pe::artifactory (
     subscribe   => File["${bootstrap_dir}/artifactory.config.import.xml"],
   }
 
-  #['artifactory.config.import.xml', 'security.import.xml'].each |$file| {
-  ['artifactory.config.import.xml'].each |$file| {
+  ['artifactory.config.import.xml', 'security.import.xml'].each |$file| {
+  # ['artifactory.config.import.xml'].each |$file| {
     exec { "move ${file} into data_s3":
       command     => "${docker_command_prefix} cp /source/${file} /dest/etc/${file}",
       path        => $facts['path'],

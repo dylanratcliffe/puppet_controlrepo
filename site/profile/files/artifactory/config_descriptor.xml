@@ -5,10 +5,6 @@
     <fileUploadMaxSizeMb>100</fileUploadMaxSizeMb>
     <revision>1</revision>
     <dateFormat>dd-MM-yy HH:mm:ss z</dateFormat>
-    <addons>
-        <showAddonsInfo>true</showAddonsInfo>
-        <showAddonsInfoCookie>1546961358619</showAddonsInfoCookie>
-    </addons>
     <security>
         <anonAccessEnabled>true</anonAccessEnabled>
         <hideUnauthorizedResources>false</hideUnauthorizedResources>
