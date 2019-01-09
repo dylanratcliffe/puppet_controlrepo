@@ -56,7 +56,7 @@ class profile::cd4pe::connection (
   }
 
   exec { 'cd4pe_running':
-    command     => "curl -vvv ${cd4pe_endpoint}/root | grep \"302 Found\"",
+    command     => "curl -vvv ${cd4pe_endpoint}/root 2>&1 | grep \"302 Found\"",
     path        => $facts['path'],
     tries       => 10,
     try_sleep   => 5,
