@@ -33,11 +33,11 @@ class profile::cd4pe::connection (
     mode    => '0700',
     content => epp('profile/cd4pe/connection_script.sh.epp', {
       'artifactory_user'     => $artifactory_user,
-      'artifactory_password' => $artifactory_password,
+      'artifactory_password' => $artifactory_password.unwrap,
       'artifactory_endpoint' => $artifactory_endpoint,
       'cd4pe_endpoint'       => $cd4pe_endpoint,
       'cd4pe_root_login'     => $cd4pe_root_login,
-      'cd4pe_root_pw'        => $cd4pe_root_pw,
+      'cd4pe_root_pw'        => $cd4pe_root_pw.unwrap,
       'cd4pe_dump'           => $cd4pe_dump,
       'cd4pe_backend'        => $cd4pe_backend,
     }),
