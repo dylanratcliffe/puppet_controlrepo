@@ -55,6 +55,16 @@ class profile::cd4pe::connection (
     require     => Docker::Run['cd4pe-artifactory'],
   }
 
+  exec { 'cd4pe_running':
+    command     => "curl -vvv ${cd4pe_endpoint}/root | grep \"302 Found\"",
+    path        => $facts['path'],
+    tries       => 10,
+    try_sleep   => 5,
+    refreshonly => true,
+    subscribe   => File['/etc/cd4pe/connection_script.sh'],
+    require     => Docker::Run['cd4pe'],
+  }
+
   exec { 'connect_instances':
     command     => '/etc/cd4pe/connection_script.sh',
     refreshonly => true,
@@ -64,6 +74,7 @@ class profile::cd4pe::connection (
       Docker::Run['cd4pe-artifactory'],
       Docker::Run['cd4pe'],
       Exec['artifactory_running'],
+      Exec['cd4pe_running'],
     ],
   }
 }
