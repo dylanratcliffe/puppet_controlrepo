@@ -52,6 +52,7 @@ class profile::cd4pe::connection (
     try_sleep   => 5,
     refreshonly => true,
     subscribe   => File['/etc/cd4pe/connection_script.sh'],
+    require     => Docker::Run['cd4pe-artifactory'],
   }
 
   exec { 'connect_instances':
