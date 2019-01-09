@@ -48,10 +48,10 @@ class profile::cd4pe::connection (
     command     => '/etc/cd4pe/connection_script.sh',
     refreshonly => true,
     path        => $facts['path'],
+    subscribe   => File['/etc/cd4pe/connection_script.sh'],
     require     => [
       Docker::Run['cd4pe-artifactory'],
       Docker::Run['cd4pe'],
-      File['/etc/cd4pe/connection_script.sh']
-    ]
+    ],
   }
 }
