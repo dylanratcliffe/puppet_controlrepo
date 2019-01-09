@@ -44,6 +44,16 @@ class profile::cd4pe::connection (
     require => File['/etc/cd4pe/license.json'],
   }
 
+  # Add a wait until artifactory is ready
+  exec { 'artifactory_running':
+    command     => "curl ${artifactory_endpoint}/artifactory/api/system/ping | grep OK",
+    path        => $facts['path'],
+    tries       => 10,
+    try_sleep   => 5,
+    refreshonly => true,
+    subscribe   => File['/etc/cd4pe/connection_script.sh'],
+  }
+
   exec { 'connect_instances':
     command     => '/etc/cd4pe/connection_script.sh',
     refreshonly => true,
@@ -52,6 +62,7 @@ class profile::cd4pe::connection (
     require     => [
       Docker::Run['cd4pe-artifactory'],
       Docker::Run['cd4pe'],
+      Exec['artifactory_running'],
     ],
   }
 }
