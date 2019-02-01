@@ -4,6 +4,12 @@
 #
 # **OS:** RedHat
 #
+# ## Services
+#
+# ### Clock
+#
+# Protocol: HTTP
+# Port: `8080`
 class role::clock {
   include ::profile::base
   include ::profile::polar_clock

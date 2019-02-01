@@ -24,7 +24,7 @@ class profile::haproxy (
   }
 
   haproxy::listen { 'stats':
-    ipaddress => $facts['networking']['ip'],
+    ipaddress => '0.0.0.0',
     ports     => '9090',
     options   => {
       'mode'  => 'http',

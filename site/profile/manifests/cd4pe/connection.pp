@@ -1,3 +1,16 @@
+# # CD4PE Connection Settings
+#
+# Manages the connection between CD4PE and Artifactory
+#
+# @param license The license file, in raw format
+# @param artifactory_user Username for artifactory
+# @param artifactory_password Default password for artifactory
+# @param artifactory_endpoint URL for Artifactory, including port
+# @param cd4pe_endpoint URL for CD4PE, including port
+# @param cd4pe_root_login Email to use for the root login
+# @param cd4pe_root_pw Root password
+# @param cd4pe_dump Dump URL
+# @param cd4pe_backend Backend URL
 class profile::cd4pe::connection (
   Sensitive[String] $license,
   String            $artifactory_user     = 'admin',

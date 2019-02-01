@@ -36,8 +36,8 @@ profile::puppetmaster::autosign::password: >
 profile::haproxy::listening_pools:
   eyeunify:
     ports: '80'
-  # sunburst:
-  #   ports: '8080'
+  polar_clock:
+    ports: '8080'
 
 profile::eyeunify::base::management_user: admin
 profile::eyeunify::base::management_password: >

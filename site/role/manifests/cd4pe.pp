@@ -10,7 +10,7 @@
 # ### Root User
 #
 # Username: `root`
-# Email: `rootuser@puppet.com`
+# Email: `noreply@puppet.com`
 # Password: `puppetlabs`
 #
 # ### Personal User
@@ -19,7 +19,10 @@
 # Email: dylan.ratcliffe@puppet.com
 # Password: `puppetlabs`
 #
-
+# ## Manual Configuration
+#
+# 1. Register for an account using the personal user credentials
+# 1. NEED TO SET UP GITLAB
 class role::cd4pe {
   include profile::base
   include profile::cd4pe
