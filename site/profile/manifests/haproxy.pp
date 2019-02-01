@@ -8,6 +8,12 @@ class profile::haproxy (
 ) {
   include ::haproxy
 
+  # Disbale firewall for load balancers
+  service { 'firewalld':
+    ensure => 'stopped',
+    enable => false,
+  }
+
   $listening_pools.each |$name, $params| {
     haproxy::listen { $name:
       ipaddress => $::ipaddress,
