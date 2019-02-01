@@ -16,7 +16,7 @@ class profile::haproxy (
 
   $listening_pools.each |$name, $params| {
     haproxy::listen { $name:
-      ipaddress => $::ipaddress,
+      ipaddress => '0.0.0.0',
       *         => $params,
     }
   }
