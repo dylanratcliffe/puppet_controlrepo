@@ -33,12 +33,18 @@ class profile::eyeunify::ctrl (
     proxy       => 'http://localhost:8080',
   }
 
+  # Detect the correct IP based on what virualisation we are using
+  $ip = $facts['virtual'] ? {
+    'virtualbox' => $facts['networking']['interfaces']['enp0s8']['ip'],
+    default      => $facts['networking']['ip'],
+  }
+
   # Export balancer member in case this load balanced
   @@haproxy::balancermember { "${facts['fqdn']}-eyeunify":
     listening_service => 'eyeunify',
     ports             => '80',
     server_names      => $facts['fqdn'],
-    ipaddresses       => $facts['networking']['ip'],
+    ipaddresses       => $ip,
     options           => 'check',
   }
 }
