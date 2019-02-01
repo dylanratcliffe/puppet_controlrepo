@@ -1,4 +1,8 @@
-# == Class: role::sunburst_webserver
+# # Sunburst Webserver
+#
+# Runs a basic "sunburst" application
+#
+# **OS:** RedHat
 #
 class role::sunburst_webserver {
   include ::profile::base

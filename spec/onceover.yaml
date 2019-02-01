@@ -45,25 +45,6 @@ test_matrix:
       tests: 'spec'
       tags: 'master'
 
-  # Openstack acceptance testing servers
-  - CentOS-7.0-64-openstack:
-      classes: 'role::dbserver'
-      tests: 'acceptance'
-      tags:
-        - 'openstack'
-  - CentOS-7.0-64-openstack:
-      classes: 'role::bamboo'
-      tests: 'acceptance'
-      runs_before_idempotency: 2
-      tags:
-        - 'openstack'
-
-  # Local acceptance testing
-  - CentOS-7.0-64:
-      classes: 'role::bamboo'
-      tests: 'acceptance'
-      runs_before_idempotency: 2
-
 
 functions:
   puppetdb_query:
