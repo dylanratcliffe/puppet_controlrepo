@@ -22,4 +22,11 @@ class profile::eyeunify::database {
     address     => "${facts['networking']['network']}/24",
     auth_method => 'md5',
   }
+
+  # Allow through the firewall
+  firewall { "100 allow postgres 5432":
+    proto  => 'tcp',
+    dport  => 5432,
+    action => 'accept',
+  }
 }

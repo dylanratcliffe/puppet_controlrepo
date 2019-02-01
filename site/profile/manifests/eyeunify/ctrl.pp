@@ -33,6 +33,13 @@ class profile::eyeunify::ctrl (
     proxy       => 'http://localhost:8080',
   }
 
+  # Allow through the firewall
+  firewall { "100 allow nginx 80":
+    proto  => 'tcp',
+    dport  => 80,
+    action => 'accept',
+  }
+
   # Detect the correct IP based on what virualisation we are using
   $ip = $facts['virtual'] ? {
     'virtualbox' => $facts['networking']['interfaces']['enp0s8']['ip'],
