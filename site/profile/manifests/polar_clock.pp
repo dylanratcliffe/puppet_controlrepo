@@ -39,12 +39,18 @@ class profile::polar_clock (
     action => accept,
   }
 
+  # Detect the correct IP based on what virualisation we are using
+  $ip = $facts['virtual'] ? {
+    'virtualbox' => $facts['networking']['interfaces']['enp0s8']['ip'],
+    default      => $facts['networking']['ip'],
+  }
+
   # Export balancer member in case this load balanced
   @@haproxy::balancermember { "${facts['fqdn']}-polar_clock":
     listening_service => 'polar_clock',
     ports             => $port,
     server_names      => $facts['fqdn'],
-    ipaddresses       => $facts['networking']['ip'],
+    ipaddresses       => $ip,
     options           => 'check',
   }
 }
