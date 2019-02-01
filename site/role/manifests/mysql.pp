@@ -4,6 +4,9 @@
 #
 # **OS:** RedHat
 #
+# ## Listening Services
+#
+# * MySQL: `3306`
 class role::mysql {
   include ::profile::base
   include ::profile::mysql_server
