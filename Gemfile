@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 group :development do
   gem 'pry'
   gem 'pry-byebug'
+  gem 'rb-readline'
 end
 
 if ENV['ONCEOVER_gem'] == 'local'

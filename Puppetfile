@@ -54,7 +54,7 @@ mod 'puppetlabs/aws',                   '2.1.0'
 mod 'autosign',
   :git => 'https://github.com/dylanratcliffe/puppet-autosign.git',
   :ref => '07ca3e0ad181483bd40ad1bd25466a19ac240fa7'
-mod 'puppetlabs/hocon',                 '1.0.1' # Hold due to MODULES-5837
+mod 'puppetlabs/hocon',                 '0.9.4' # Hold due to MODULES-5837
 mod 'puppetlabs/dsc',                   '1.8.0'
 mod 'puppetlabs/powershell',            '2.2.0'
 mod 'puppetlabs/reboot',                '2.1.2'
