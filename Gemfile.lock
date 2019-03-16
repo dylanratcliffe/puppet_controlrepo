@@ -1,6 +1,5 @@
-GIT
-  remote: https://github.com/dylanratcliffe/onceover.git
-  revision: 454235362408bf119d5dfd86af7b63927c5ac66f
+PATH
+  remote: /Users/dylan/git/onceover
   specs:
     onceover (3.11.1)
       backticks (>= 1.0.2)

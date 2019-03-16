@@ -12,15 +12,15 @@
 # @param cd4pe_dump Dump URL
 # @param cd4pe_backend Backend URL
 class profile::cd4pe::connection (
-  Sensitive[String] $license,
-  String            $artifactory_user     = 'admin',
-  Sensitive[String] $artifactory_password = Sensitive('password'),
-  String            $artifactory_endpoint = "${facts['fqdn']}:8081",
-  String            $cd4pe_endpoint       = "${facts['fqdn']}:8080",
-  String            $cd4pe_root_login     = 'noreply@puppet.com',
-  Sensitive[String] $cd4pe_root_pw        = Sensitive('puppetlabs'),
-  String            $cd4pe_dump           = "${facts['fqdn']}:7000",
-  String            $cd4pe_backend        = "${facts['fqdn']}:8000",
+  Variant[String,Sensitive[String]] $license,
+  String                            $artifactory_user     = 'admin',
+  Sensitive[String]                 $artifactory_password = Sensitive('password'),
+  String                            $artifactory_endpoint = "${facts['fqdn']}:8081",
+  String                            $cd4pe_endpoint       = "${facts['fqdn']}:8080",
+  String                            $cd4pe_root_login     = 'noreply@puppet.com',
+  Sensitive[String]                 $cd4pe_root_pw        = Sensitive('puppetlabs'),
+  String                            $cd4pe_dump           = "${facts['fqdn']}:7000",
+  String                            $cd4pe_backend        = "${facts['fqdn']}:8000",
 ) {
   # Create a folder for these files
   file { '/etc/cd4pe':
