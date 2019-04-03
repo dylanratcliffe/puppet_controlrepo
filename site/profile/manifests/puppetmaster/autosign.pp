@@ -1,6 +1,7 @@
 class profile::puppetmaster::autosign (
   String $logfile     = '/var/log/puppetlabs/puppetserver/autosign.log',
   String $journalfile = '/etc/puppetlabs/puppetserver/autosign.journal',
+  String $confdir     = '/etc/puppetlabs/puppet',
   String $password    = undef,
 ) {
   class { '::autosign':
@@ -23,7 +24,7 @@ class profile::puppetmaster::autosign (
 
   ini_setting {'policy-based autosigning':
     setting => 'autosign',
-    path    => "${::settings::confdir}/puppet.conf",
+    path    => "${confdir}/puppet.conf",
     section => 'master',
     value   => '/opt/puppetlabs/puppet/bin/autosign-validator',
     notify  => Service['pe-puppetserver'],
