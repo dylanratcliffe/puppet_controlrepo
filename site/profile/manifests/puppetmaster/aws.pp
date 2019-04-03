@@ -1,4 +1,6 @@
-class profile::puppetmaster::aws {
+class profile::puppetmaster::aws (
+  String $confdir = '/etc/puppetlabs/puppet',
+) {
   package { 'aws-sdk-core':
     ensure   => present,
     provider => 'puppetserver_gem',
@@ -17,7 +19,7 @@ class profile::puppetmaster::aws {
 
   ini_setting { 'aws region':
     ensure  => present,
-    path    => "${settings::confdir}/puppetlabs_aws_configuration.ini",
+    path    => "${confdir}/puppetlabs_aws_configuration.ini",
     section => 'default',
     setting => 'region',
     value   => 'ap-southeast-2',
@@ -47,7 +49,7 @@ class profile::puppetmaster::aws {
 
   ini_setting {'policy-based autosigning':
     setting => 'autosign',
-    path    => "${settings::confdir}/puppet.conf",
+    path    => "${confdir}/puppet.conf",
     section => 'master',
     value   => '/opt/puppetlabs/puppet/bin/autosign-validator',
     require => Class['autosign'],
