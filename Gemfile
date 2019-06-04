@@ -4,6 +4,7 @@ group :development do
   gem 'pry'
   gem 'pry-byebug'
   gem 'rb-readline'
+  gem 'puppet-debugger'
 end
 
 if ENV['ONCEOVER_gem'] == 'local'

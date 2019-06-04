@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/dylanratcliffe/onceover.git
-  revision: ff2717c0b61355766ad07e7a1ce94cebd11f808c
+  revision: f5baf4c1206bac620223123b188ed834095975c6
   specs:
-    onceover (3.12.4)
+    onceover (3.13.2)
       backticks (>= 1.0.2)
       colored (~> 1.2)
       cri (>= 2.6)
@@ -25,18 +25,21 @@ GEM
   remote: https://rubygems.org/
   specs:
     CFPropertyList (2.3.6)
+    awesome_print (1.8.0)
     backticks (1.0.2)
     blockenspiel (0.5.0)
     byebug (11.0.1)
     coderay (1.1.2)
     colored (1.2)
-    cri (2.15.3)
-      colored (~> 1.2)
+    cri (2.15.6)
     deep_merge (1.2.1)
     diff-lcs (1.3)
     facter (2.5.1)
     facter (2.5.1-universal-darwin)
       CFPropertyList (~> 2.2)
+    facterdb (0.6.0)
+      facter
+      jgrep
     faraday (0.13.1)
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.12.2)
@@ -57,6 +60,7 @@ GEM
     highline (1.6.21)
     hocon (1.2.5)
     httpclient (2.8.3)
+    jgrep (1.5.0)
     json (2.2.0)
     little-plugger (1.1.4)
     locale (2.1.2)
@@ -70,19 +74,20 @@ GEM
     mocha (1.8.0)
       metaclass (~> 0.0.1)
     multi_json (1.13.1)
-    multipart-post (2.0.0)
+    multipart-post (2.1.1)
     optimist (3.0.0)
     parallel (1.17.0)
-    parallel_tests (2.28.0)
+    parallel_tests (2.29.0)
       parallel
     pathspec (0.2.1)
+    pluginator (1.5.0)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     pry-byebug (3.7.0)
       byebug (~> 11.0)
       pry (~> 0.10)
-    puppet (6.4.0)
+    puppet (6.4.2)
       facter (> 2.0.1, < 4)
       fast_gettext (~> 1.1.2)
       hiera (>= 3.2.1, < 4)
@@ -91,7 +96,7 @@ GEM
       multi_json (~> 1.10)
       puppet-resource_api (~> 1.5)
       semantic_puppet (~> 1.0)
-    puppet (6.4.0-universal-darwin)
+    puppet (6.4.2-universal-darwin)
       CFPropertyList (~> 2.2)
       facter (> 2.0.1, < 4)
       fast_gettext (~> 1.1.2)
@@ -101,6 +106,13 @@ GEM
       multi_json (~> 1.10)
       puppet-resource_api (~> 1.5)
       semantic_puppet (~> 1.0)
+    puppet-debugger (0.12.3)
+      awesome_print (~> 1.7)
+      facterdb (>= 0.4.0)
+      pluginator (~> 1.5.0)
+      puppet (>= 3.8)
+      rb-readline (>= 0.5.5)
+      table_print (>= 1.0.0)
     puppet-lint (2.3.6)
     puppet-resource_api (1.8.1)
       hocon (>= 1.0)
@@ -118,9 +130,9 @@ GEM
       puppet-lint (~> 2.0)
       puppet-syntax (~> 2.0)
       rspec-puppet (~> 2.0)
-    r10k (3.1.1)
+    r10k (3.3.0)
       colored (= 1.2)
-      cri (~> 2.15.1)
+      cri (= 2.15.6)
       gettext-setup (~> 0.24)
       log4r (= 1.1.10)
       multi_json (~> 1.10)
@@ -133,7 +145,7 @@ GEM
       rspec-mocks (~> 3.8.0)
     rspec-core (3.8.0)
       rspec-support (~> 3.8.0)
-    rspec-expectations (3.8.2)
+    rspec-expectations (3.8.3)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.8.0)
     rspec-mocks (3.8.0)
@@ -160,6 +172,7 @@ DEPENDENCIES
   pry
   pry-byebug
   puppet (~> 6)
+  puppet-debugger
   rb-readline
 
 BUNDLED WITH

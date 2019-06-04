@@ -1,6 +1,7 @@
 #mod 'dylanratcliffe/sumologic',
 #  :git => 'https://github.com/dylanratcliffe/sumologic.git'
 mod 'dylanratcliffe/sumologic',         '1.0.2'
+mod 'nwops-debug',                      '0.1.3'
 mod 'puppetlabs/mysql',                 '8.0.0'
 mod 'puppetlabs/inifile',               '2.5.0'
 mod 'puppet-r10k',                      '6.8.0'
