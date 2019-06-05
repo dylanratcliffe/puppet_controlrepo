@@ -1,3 +1,4 @@
 .onceover
 .DS_Store
 .bundle
+Gemfile.lock
