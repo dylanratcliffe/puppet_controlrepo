@@ -46,6 +46,77 @@ class puppet_enterprise::master::file_sync (
 define pe_hocon_setting ($path, $value, $setting, $type = '') {}
 define puppet_enterprise::trapperkeeper::java_args ($java_args, $enable_gc_logging) {}
 define puppet_enterprise::trapperkeeper::webserver_settings ($container,$ssl_listen_address,$ssl_listen_port,$default_server = false) {}
+class pe_postgresql::globals (
+  $user                 = undef,
+  $group                = undef,
+  $client_package_name  = undef,
+  $contrib_package_name = undef,
+  $server_package_name  = undef,
+  $service_name         = undef,
+  $default_database     = undef,
+  $version              = undef,
+  $bindir               = undef,
+  $datadir              = undef,
+  $confdir              = undef,
+  $psql_path            = undef,
+  $needs_initdb         = undef,
+  $pg_hba_conf_defaults = undef,
+) {}
+class pe_postgresql::server (
+  $listen_addresses        = undef,
+  $ip_mask_allow_all_users = undef,
+  $package_ensure          = undef,
+) {}
+class pe_postgresql::server::contrib (
+  $package_ensure = undef,
+) {}
+class pe_postgresql::client (
+    $package_ensure = undef,
+) {}
+define pe_postgresql::server::database (
+  $owner = undef,
+) {}
+define pe_postgresql::server::tablespace (
+  $location = undef,
+) {}
+define pe_postgresql::server::db (
+  $user       = undef,
+  $password   = undef,
+  $tablespace = undef,
+) {}
+define pe_concat (
+  $owner          = undef,
+  $group          = undef,
+  $force          = undef,
+  $mode           = undef,
+  $warn           = undef,
+  $ensure_newline = undef,
+) {}
+define pe_postgresql::server::pg_hba_rule (
+  $database    = undef,
+  $user        = undef,
+  $type        = undef,
+  $auth_method = undef,
+  $order       = undef,
+) {}
+define pe_postgresql::server::config_entry (
+  $value = undef,
+) {}
+define puppet_enterprise::pg::cert_whitelist_entry (
+  $user                          = undef,
+  $database                      = undef,
+  $allowed_client_certname       = undef,
+  $pg_ident_conf_path            = undef,
+  $ip_mask_allow_all_users_ssl   = undef,
+  $ipv6_mask_allow_all_users_ssl = undef,
+) {}
+class pe_postgresql::server::install {}
+include pe_postgresql::server::install
+class pe_postgresql::server::initdb {}
+include pe_postgresql::server::initdb
+class pe_postgresql::server::reload {}
+include pe_postgresql::server::reload
+package { 'postgresql-server': }
 
 define pe_puppet_authorization::rule (
   $path                  = undef,
