@@ -80,8 +80,6 @@ puppet_enterprise::profile::orchestrator::java_args:
   Xms: "128m"
   "XX:+UseG1GC": ""
 
-puppet_enterprise::profile::master::r10k_private_key: /vagrant/keys/deploy_key
-
 lookup_options:
   profile::cd4pe::connection::license:
     convert_to: "Sensitive"
