@@ -95,7 +95,10 @@ mod 'puppetlabs-package',               '1.1.0'
 mod 'puppetlabs-puppet_conf',           '0.6.0'
 mod 'puppetlabs-yumrepo_core',          '1.0.4'
 mod 'puppetlabs-augeas_core',           '1.0.5'
-mod 'puppetlabs-cd4pe',                 '1.4.0'
+mod 'puppetlabs-cd4pe',
+  :git => 'git@github.com:dylanratcliffe/puppetlabs-cd4pe.git',
+  :ref => 'ha'
+  
 mod 'puppetlabs-puppet_authorization',  '0.5.0'
 mod 'puppetlabs-docker',                '3.9.0'
 mod 'puppetlabs-translate',             '2.1.0'
