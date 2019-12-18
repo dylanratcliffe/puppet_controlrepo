@@ -54,8 +54,8 @@ profile::eyeunify::base::management_password: >
 # Tune the master to work with very low memory
 puppet_enterprise::master::puppetserver::jruby_max_active_instances: 1
 puppet_enterprise::profile::master::java_args:
-  Xmx: "256m"
-  Xms: "128m"
+  Xmx: "512m"
+  Xms: "256m"
   "XX:MaxPermSize": "=96m"
   "XX:PermSize": "=64m"
   "XX:+UseG1GC": ""
