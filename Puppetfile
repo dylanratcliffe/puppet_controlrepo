@@ -102,3 +102,4 @@ mod 'puppetlabs-cd4pe',
 mod 'puppetlabs-puppet_authorization',  '0.5.0'
 mod 'puppetlabs-docker',                '3.9.0'
 mod 'puppetlabs-translate',             '2.1.0'
+mod 'puppetlabs-splunk_hec',            '0.7.1'
