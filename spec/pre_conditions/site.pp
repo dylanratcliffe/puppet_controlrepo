@@ -116,7 +116,9 @@ class pe_postgresql::server::initdb {}
 include pe_postgresql::server::initdb
 class pe_postgresql::server::reload {}
 include pe_postgresql::server::reload
-package { 'postgresql-server': }
+if $onceover_class == 'role::cd4pe' {
+  package { 'postgresql-server': }
+}
 
 define pe_puppet_authorization::rule (
   $path                  = undef,
