@@ -73,7 +73,6 @@ puppet_enterprise::profile::console::java_args:
   "XX:+UseG1GC": ""
 puppet_enterprise::profile::console::delayed_job_workers: 1
 #shared_buffers takes affect during install but is not managed after
-puppet_enterprise::profile::database::shared_buffers: "4MB"
 #2015.3.2 and above
 puppet_enterprise::profile::orchestrator::java_args:
   Xmx: "512m"
