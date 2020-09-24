@@ -18,6 +18,11 @@ service { 'pe-puppetserver':
   provider   => 'base',
 }
 
+service { 'pe-console-services':
+  ensure     => 'running',
+  enable     => true,
+}
+
 package { 'pe-puppetserver':
   ensure => present,
 }

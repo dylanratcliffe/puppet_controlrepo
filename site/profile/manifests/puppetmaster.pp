@@ -1,5 +1,6 @@
 # Deals with the Puppet Master
 class profile::puppetmaster {
+  include pe_databases
   # Wait until we have installed the stuff first before including this class
   # if puppetdb_query('resources { type = "Package" and title = "puppetclassify_agent" }').count > 0 {
   #   include profile::puppetmaster::tuning

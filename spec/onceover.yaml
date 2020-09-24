@@ -4,7 +4,6 @@ classes:
 nodes:
   - CentOS-7.0-64
   - CentOS-7.0-64-master
-  - CentOS-7.0-64-master-2017.3.2
   - CentOS-7.0-64-openstack
   - Windows_Server-2008r2-64
   - Windows_Server-2012r2-64
@@ -18,7 +17,6 @@ node_groups:
     - Windows_Server-2012r2-64
   master:
     - CentOS-7.0-64-master
-    - CentOS-7.0-64-master-2017.3.2
 
 class_groups:
   master_classes:
@@ -29,13 +27,16 @@ class_groups:
     - "role::compile::master"
   windows_classes:
     - /windows/
+  linux_classes:
+    include: "all_classes"
+    exclude: "windows_classes"
 
 test_matrix:
   # Main spec tests for all CentOS roles
   - centos:
       classes:
-        include: "all_classes"
-        exclude: "windows_classes"
+        include: "linux_classes"
+        exclude: "master_classes"
       tests: "spec"
   # Master based spec tests
   - master:
