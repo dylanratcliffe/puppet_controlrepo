@@ -40,7 +40,7 @@ mod 'stahnma/epel',                     '1.3.1'
 mod 'puppetlabs/apache',                '4.0.0'
 mod 'puppet/collectd',                  '10.1.0'
 mod 'puppet-yum',                       '3.1.1'
-mod 'puppetlabs/puppetserver_gem',      '1.1.0'
+mod 'puppetlabs/puppetserver_gem',      '1.1.1'
 mod 'WhatsARanjit/node_manager',        '0.7.1'
 
 # Needs to use this fork until this is merged:
