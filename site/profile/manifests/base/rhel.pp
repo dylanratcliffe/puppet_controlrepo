@@ -42,8 +42,4 @@ class profile::base::rhel {
       'V-72077',
     ],
   }
-
-  package { 'sl':
-    ensure => absent,
-  }
 }

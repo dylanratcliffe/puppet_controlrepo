@@ -10,10 +10,6 @@ class profile::polar_clock (
   Stdlib::Absolutepath $install_dir = '/var/clock',
   Integer              $port        = 8080,
 ) {
-  package { 'sl':
-    ensure => present,
-  }
-
   file { $install_dir:
     ensure => directory,
     owner  => 'root',
