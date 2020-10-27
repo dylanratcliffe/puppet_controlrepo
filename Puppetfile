@@ -88,6 +88,11 @@ mod 'compliance_api',
   :git => 'https://github.com/dylanratcliffe/puppet-compliance_api.git',
   :ref => 'master'
 
+mod 'deployment_signature',
+  :git => 'git@github.com:dylanratcliffe/puppet-deployment_signature.git',
+  :ref => 'master'
+
+
 mod 'puppetlabs-bolt_shim',             '0.2.1'
 mod 'puppetlabs-facts',                 '0.5.0'
 mod 'puppetlabs-service',               '0.5.0'
