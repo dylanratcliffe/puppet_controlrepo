@@ -89,7 +89,7 @@ mod 'compliance_api',
   :ref => 'master'
 
 mod 'deployment_signature',
-  :git => 'git@github.com:dylanratcliffe/puppet-deployment_signature.git',
+  :git => 'https://github.com/dylanratcliffe/puppet-deployment_signature.git',
   :ref => 'master'
 
 
