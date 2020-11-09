@@ -27,7 +27,7 @@ ruby_search_path   = './etc/puppetlabs/code/environments/production/site/*/lib/*
 erb_search_path    = './etc/puppetlabs/code/environments/production/site/**/*.erb'
 epp_search_path    = './etc/puppetlabs/code/environments/production/site/**/*.epp'
 
-describe "When checking Puppet syntax" do
+describe "When checking Puppet syntax", syntax: true do
   Dir[puppet_search_path].each do |manifest|
     context manifest do
       it "should be valid Puppet syntax" do
@@ -41,7 +41,7 @@ describe "When checking Puppet syntax" do
   end
 end
 
-describe "When checking Ruby syntax" do
+describe "When checking Ruby syntax", syntax: true do
   Dir[ruby_search_path].each do |ruby_file|
     context ruby_file do
       it "should be valid Ruby syntax" do
@@ -51,7 +51,7 @@ describe "When checking Ruby syntax" do
   end
 end
 
-describe "When checking ERB syntax" do
+describe "When checking ERB syntax", syntax: true do
   Dir[erb_search_path].each do |template|
     context template do
       it "should be valid ERB syntax" do
@@ -61,7 +61,7 @@ describe "When checking ERB syntax" do
   end
 end
 
-describe "When checking EPP syntax" do
+describe "When checking EPP syntax", syntax: true do
   before(:all) do
     @parser = Puppet::Pops::Parser::EvaluatingParser::EvaluatingEppParser.new()
   end
