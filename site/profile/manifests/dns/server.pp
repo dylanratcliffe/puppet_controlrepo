@@ -20,6 +20,13 @@ class profile::dns::server {
     allow_updates => [ 'key local-update' ],
   }
 
+  bind::view { 'local':
+    recursion => true,
+    zones     => [
+      'puppet.local',
+    ],
+  }
+
   # Collect exported records
   Resource_record <<| zone == 'puppet.local' |>>
 
