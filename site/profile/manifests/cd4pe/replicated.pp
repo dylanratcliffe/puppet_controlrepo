@@ -14,7 +14,7 @@ class profile::cd4pe::replicated () {
     listening_service => 'cd4pe',
     ports             => '443',
     server_names      => $facts['fqdn'],
-    ipaddresses       => $facts['ip'],
+    ipaddresses       => $facts['networking']['ip'],
     options           => 'check',
   }
 
@@ -22,7 +22,7 @@ class profile::cd4pe::replicated () {
     listening_service => 'cd4pe-webhooks',
     ports             => '8000',
     server_names      => $facts['fqdn'],
-    ipaddresses       => $facts['ip'],
+    ipaddresses       => $facts['networking']['ip'],
     options           => 'check',
   }
 
@@ -31,7 +31,7 @@ class profile::cd4pe::replicated () {
     listening_service => 'k8s-api',
     ports             => '6443',
     server_names      => $facts['fqdn'],
-    ipaddresses       => $facts['ip'],
+    ipaddresses       => $facts['networking']['ip'],
     options           => 'check',
   }
 
@@ -39,7 +39,7 @@ class profile::cd4pe::replicated () {
     listening_service => 'k8s-console',
     ports             => '8800',
     server_names      => $facts['fqdn'],
-    ipaddresses       => $facts['ip'],
+    ipaddresses       => $facts['networking']['ip'],
     options           => 'check',
   }
 
@@ -47,7 +47,7 @@ class profile::cd4pe::replicated () {
     listening_service => 'k8s-registry',
     ports             => '9001',
     server_names      => $facts['fqdn'],
-    ipaddresses       => $facts['ip'],
+    ipaddresses       => $facts['networking']['ip'],
     options           => 'check',
   }
 }
