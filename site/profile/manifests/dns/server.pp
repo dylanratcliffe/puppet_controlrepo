@@ -35,31 +35,22 @@ class profile::dns::server {
     recursion => true,
     zones     => [
       'puppet.local',
-    ],
-  }
-
-  resource_record { 'foo.puppet.local':
-    ensure  => present,
-    record  => 'foo.puppet.local',
-    type    => 'A',
-    zone    => 'puppet.local',
-    data    => [
-      '10.0.0.10',
+      $facts['networking']['domain'],
     ],
   }
 
   # Collect exported records
   Resource_record <<| zone == 'puppet.local' |>>
 
-  # if $facts['networking']['domain'] {
-  #     # Create a zone for the local domain
-  #     bind::zone { $facts['networking']['domain']:
-  #       zone_type     => 'master',
-  #       domain        => $facts['networking']['domain'],
-  #       allow_updates => [ 'key local-update' ],
-  #     }
+  if $facts['networking']['domain'] {
+      # Create a zone for the local domain
+      bind::zone { $facts['networking']['domain']:
+        zone_type     => 'master',
+        domain        => $facts['networking']['domain'],
+        allow_updates => [ 'key local-update' ],
+      }
 
-  #     # Collect exported records
-  #     Resource_record <<| zone == $facts['networking']['domain'] |>>
-  # }
+      # Collect exported records
+      Resource_record <<| zone == $facts['networking']['domain'] |>>
+  }
 }
