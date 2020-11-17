@@ -15,8 +15,8 @@ class profile::dns::server {
   # Inject credentials
   Resource_record <| |> {
     keyname => 'local-update',
-    secret  => $local_secret,
     hmac    => 'hmac-sha256',
+    secret  => $local_secret,
   }
 
   bind::key { 'local-update':
