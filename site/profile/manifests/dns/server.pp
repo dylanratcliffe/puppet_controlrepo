@@ -9,8 +9,19 @@ class profile::dns::server {
     version    => 'Controlled by Puppet',
   }
 
+  # This key is just randomly generated. Not really a secret
+  $local_secret = '+0VnhFp9T+N0EcaDluU8rDdWX1/ecVPhrZQ/yse997DkfgBg57Xo2TTEdjiYBHs1v/bk8RTLi92WY+r39Aw2YQ=='
+
+  # Inject credentials
+  Resource_record <| |> {
+    keyname => 'local-update',
+    secret  => $local_secret,
+    hmac    => 'hmac-sha256',
+  }
+
   bind::key { 'local-update':
-    secret_bits => 512,
+    algorithm => 'hmac-sha256',
+    secret    => $local_secret,
   }
 
   # Create a zone for the local domain
