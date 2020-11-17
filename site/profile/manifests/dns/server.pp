@@ -9,10 +9,15 @@ class profile::dns::server {
     version    => 'Controlled by Puppet',
   }
 
+  bind::key { 'local-update':
+    secret_bits => 512,
+  }
+
   # Create a zone for the local domain
   bind::zone { 'puppet.local':
-    zone_type => 'master',
-    domain    => 'puppet.local',
+    zone_type     => 'master',
+    domain        => 'puppet.local',
+    allow_updates => [ 'key local-update' ],
   }
 
   # Collect exported records
@@ -21,8 +26,9 @@ class profile::dns::server {
   if $facts['networking']['domain'] {
       # Create a zone for the local domain
       bind::zone { $facts['networking']['domain']:
-        zone_type => 'master',
-        domain    => $facts['networking']['domain'],
+        zone_type     => 'master',
+        domain        => $facts['networking']['domain'],
+        allow_updates => [ 'key local-update' ],
       }
 
       # Collect exported records

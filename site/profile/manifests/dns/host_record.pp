@@ -5,11 +5,12 @@ define profile::dns::host_record (
   String $ip     = $facts['networking']['ip'],
 ) {
   @@resource_record { $name:
-    ensure => present,
-    record => $record,
-    type   => 'A',
-    zone   => $zone,
-    data   => [
+    ensure  => present,
+    record  => $record,
+    type    => 'A',
+    zone    => $zone,
+    keyname => 'local-update',
+    data    => [
       $ip,
     ],
   }
