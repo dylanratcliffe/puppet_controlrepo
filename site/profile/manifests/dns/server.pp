@@ -18,4 +18,14 @@ class profile::dns::server {
   # Collect exported records
   Resource_record <<| zone == 'puppet.local' |>>
 
+  if $facts['networking']['domain'] {
+      # Create a zone for the local domain
+      bind::zone { $facts['networking']['domain']:
+        zone_type => 'master',
+        domain    => $facts['networking']['domain'],
+      }
+
+      # Collect exported records
+      Resource_record <<| zone == $facts['networking']['domain'] |>>
+  }
 }
