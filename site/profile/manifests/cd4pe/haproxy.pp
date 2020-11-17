@@ -56,7 +56,7 @@ class profile::cd4pe::haproxy {
       ensure => present,
       record => $dns_name,
       type   => 'A',
-      zone   => $facts['networking']['domain'],
+      zone   => 'puppet.local',
       data   => [
         $ip,
       ],
