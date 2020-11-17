@@ -4,7 +4,7 @@ define profile::dns::host_record (
   String $zone   = $facts['domain'],
   String $ip     = $facts['networking']['ip'],
 ) {
-  @@resource_record { "${name}_dns_address":
+  @@resource_record { $name:
     ensure => present,
     record => $record,
     type   => 'A',
