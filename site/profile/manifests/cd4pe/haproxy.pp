@@ -53,12 +53,12 @@ class profile::cd4pe::haproxy {
     }
 
     @@resource_record { $dns_name:
-      ensure   => present,
-      record   => $dns_name,
-      type     => 'A',
-      zone     => 'puppet.local',
-      key_name => 'local-update',
-      data     => [
+      ensure  => present,
+      record  => $dns_name,
+      type    => 'A',
+      zone    => 'puppet.local',
+      keyname => 'local-update',
+      data    => [
         $ip,
       ],
     }
