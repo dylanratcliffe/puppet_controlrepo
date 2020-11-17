@@ -3,6 +3,11 @@
 # Installs RedHat specific base config. This includes config from the STIG
 # standard for RHEL 7
 class profile::base::rhel {
+  # Default DNS to the Puppet master
+  class { 'resolv_conf':
+    nameservers => [$serverip, '8.8.8.8'],
+  }
+
   package { 'ypserv':
     ensure => absent,
     tag    => [

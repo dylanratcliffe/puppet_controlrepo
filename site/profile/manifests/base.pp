@@ -15,6 +15,11 @@ class profile::base {
 
   include ::gcc
 
+  profile::dns::host_record { $facts['fqdn']:
+    record => $facts['fqdn'],
+    ip     => $facts['networking']['ip'],
+  }
+
   $packages = [
     'tree',
     'vim',

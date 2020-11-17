@@ -3,4 +3,5 @@ class role::puppetmaster::api {
   include ::profile::puppetmaster
   include ::profile::puppetmaster::api_auth
   include ::profile::puppetmaster::autosign
+  include ::profile::dns::server
 }

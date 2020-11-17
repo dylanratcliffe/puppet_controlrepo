@@ -10,4 +10,5 @@
 class role::lb {
   include ::profile::base
   include ::profile::haproxy
+  include ::profile::cd4pe::haproxy
 }

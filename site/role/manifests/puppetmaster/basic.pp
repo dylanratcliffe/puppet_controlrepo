@@ -7,4 +7,5 @@ class role::puppetmaster::basic {
   include ::pe_repo::platform::windows_x86_64
   include ::pe_repo::platform::el_6_x86_64
   include ::profile::file_sync::master_patch
+  include ::profile::dns::server
 }
