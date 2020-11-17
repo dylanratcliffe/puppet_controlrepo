@@ -24,7 +24,7 @@ class profile::cd4pe::haproxy {
     },
     {
       'name' => 'cd4pe-webhooks',
-      'port' => '8000',
+      'port' => '443',
     },
     {
       'name' => 'k8s-api',
