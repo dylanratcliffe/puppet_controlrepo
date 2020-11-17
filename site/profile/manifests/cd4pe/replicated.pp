@@ -20,7 +20,7 @@ class profile::cd4pe::replicated () {
 
   @@haproxy::balancermember { "${facts['fqdn']}-cd4pe-webhooks":
     listening_service => 'cd4pe-webhooks',
-    ports             => '8000',
+    ports             => '443',
     server_names      => $facts['fqdn'],
     ipaddresses       => $facts['networking']['ip'],
     options           => 'check',
