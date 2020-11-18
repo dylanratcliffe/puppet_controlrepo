@@ -45,7 +45,7 @@ class profile::cd4pe::replicated () {
 
   @@haproxy::balancermember { "${facts['fqdn']}-k8s-registry":
     listening_service => 'k8s-registry',
-    ports             => '9001',
+    ports             => '443',
     server_names      => $facts['fqdn'],
     ipaddresses       => $facts['networking']['ip'],
     options           => 'check',
