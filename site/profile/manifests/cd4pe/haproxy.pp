@@ -36,7 +36,7 @@ class profile::cd4pe::haproxy {
     },
     {
       'name' => 'k8s-registry',
-      'port' => '9001',
+      'port' => '443',
     },
   ]
 
