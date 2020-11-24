@@ -120,4 +120,8 @@ class profile::puppetmaster {
     after   => 'default colorschemes',
     require => Package['multitail'],
   }
+
+  class { 'deployment_signature':
+      signing_secret => Sensitive('hunter2'),
+  }
 }
