@@ -37,7 +37,7 @@ plan deployments::signed_deployment (
   # Create the signature
   $signature = deployments::generate(
     ($deployment_info + $approval_info),
-    $signing_secret,
+    $signing_secret.unwrap,
   )
 
   # Register the signature
