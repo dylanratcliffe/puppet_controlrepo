@@ -35,7 +35,7 @@ plan deployments::signed_deployment (
   $approval_info = cd4pe_deployments::wait_for_approval($deployment_info['node_group_environment']) |String $url| { }
 
   # Create the signature
-  $signature = deployment_signature::generate(
+  $signature = deployments::generate(
     ($deployment_info + $approval_info),
     $signing_secret,
   )
