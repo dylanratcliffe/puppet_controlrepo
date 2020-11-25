@@ -134,6 +134,6 @@ class profile::puppetmaster {
     owner   => 'pe-puppet',
     group   => 'pe-puppet',
     mode    => '0700',
-    content => "#!/bin/bash \r\nexit 0",
+    content => "#!/bin/bash\nexit 0",
   }
 }
