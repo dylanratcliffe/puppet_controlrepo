@@ -40,12 +40,13 @@ plan deployments::signed_deployment (
     $signing_secret.unwrap,
   )
 
-  fail_plan({
+fail_plan('The plan is failing', 'mymodules/pear-shaped', {
     'signature'       => $signature,
     'deployment_info' => $deployment_info,
     'approval_info'   => $approval_info,
     'secret'          => $signing_secret.unwrap,
   })
+
 
   # Register the signature
   run_task(
