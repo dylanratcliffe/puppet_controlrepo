@@ -35,9 +35,20 @@ plan deployments::signed_deployment (
   # Wait for approval if the environment is protected
   $approval_info = cd4pe_deployments::wait_for_approval($deployment_info['node_group_environment']) |String $url| { }
 
+  $update_git_ref_result = cd4pe_deployments::update_git_branch_ref(
+    $deployment_info['repo_type'],
+    $deployment_info['repo_target_branch'],
+    $deployment_info['commit']
+  )
+
+  $signature_data = $deployment_info + {
+    'approval'       => $approval_info,
+    'git_ref_update' => $update_git_ref_result,
+  }
+
   # Create the signature
   $signature = deployments::generate(
-    ($deployment_info + $approval_info),
+    $signature_data,
     $signing_secret.unwrap,
   )
 
