@@ -40,6 +40,13 @@ plan deployments::signed_deployment (
     $signing_secret.unwrap,
   )
 
+  fail_plan({
+    'signature'       => $signature,
+    'deployment_info' => $deployment_info,
+    'approval_info'   => $approval_info,
+    'secret'          => $signing_secret.unrwrap,
+  })
+
   # Register the signature
   run_task(
     'deployment_signature::register',
