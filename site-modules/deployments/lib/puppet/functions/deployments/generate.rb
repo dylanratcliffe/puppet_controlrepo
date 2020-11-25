@@ -8,7 +8,7 @@ Puppet::Functions.create_function(:'deployments::generate') do
     require 'jwt'
 
     # Remove quotes to work around CDPE-3903
-    secret.gsub!(/"/, '')
+    # secret.gsub!(/"/, '')
 
     JWT.encode(data, secret)
   end
