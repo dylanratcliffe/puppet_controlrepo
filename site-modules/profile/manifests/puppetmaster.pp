@@ -122,6 +122,18 @@ class profile::puppetmaster {
   }
 
   class { 'deployment_signature':
-      signing_secret => Sensitive('hunter2'),
+    signing_secret => Sensitive('hunter2'),
+    validators     => [
+      '/etc/puppetlabs/puppet/validate.sh',
+    ],
+  }
+
+  # Create a validator tah always passes
+  file { '/etc/puppetlabs/puppet/validate.sh':
+    ensure  => 'file',
+    owner   => 'pe-puppet',
+    group   => 'pe-puppet',
+    mode    => '0700',
+    content => "#!/bin/bash \r\nexit 0",
   }
 }
