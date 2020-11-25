@@ -9,7 +9,6 @@
 # @param deployment_server The fqdn of the primary Puppet server that code should be deployed to
 # @param signing_secret Sensitve valie of a signining secret. This can be any string and needs to be the same as what was set on the
 #   target server
-#
 plan deployments::signed_deployment (
   String            $deployment_server,
   Sensitive[String] $signing_secret = Sensitive('puppetlabs'),
