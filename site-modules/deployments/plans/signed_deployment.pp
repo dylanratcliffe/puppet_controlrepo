@@ -44,7 +44,7 @@ plan deployments::signed_deployment (
     'signature'       => $signature,
     'deployment_info' => $deployment_info,
     'approval_info'   => $approval_info,
-    'secret'          => $signing_secret.unrwrap,
+    'secret'          => $signing_secret.unwrap,
   })
 
   # Register the signature
