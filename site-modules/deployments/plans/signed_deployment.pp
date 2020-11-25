@@ -86,9 +86,9 @@ plan deployments::signed_deployment (
       'deployment_signature::file_sync_commit',
       $deployment_server,
       {
-        'message'      => 'TODO',
-        'name'         => 'TODO GET FROM APPROVAL',
-        'email'        => 'TODO GET FROM APPROVAL',
+        'message'      => "Deployed with a valid signature and approval dated: ${deployment_info.dig('result', 'approvalDecisionDate')}",
+        'name'         => $deployment_info.dig('result', 'approverUsername'),
+        'email'        => 'NA',
         'submodule_id' => $deployment_info['node_group_environment'],
       }
     )
