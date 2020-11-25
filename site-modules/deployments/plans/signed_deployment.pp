@@ -113,6 +113,7 @@ plan deployments::signed_deployment (
       $deployment_server,
       {
         'environment' => $deployment_info['node_group_environment'],
+        'commit_hash' => $deployment_info['commit'],
       }
     )
 
