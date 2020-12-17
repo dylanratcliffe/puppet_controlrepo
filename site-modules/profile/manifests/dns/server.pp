@@ -1,10 +1,20 @@
 # Manages a DNS server
 class profile::dns::server {
-  class { 'bind':
-    forwarders => [
+  # Use P9 forwarders if they exst. Really I should be using hiera for this...
+  $forwarders = $facts['domain'] ? {
+    'platform9.puppet.net' => [
+      '192.168.0.5',
+      '192.168.0.7',
+      '192.168.0.4',
+    ],
+    default => [
         '8.8.8.8',
         '8.8.4.4',
     ],
+  }
+
+  class { 'bind':
+    forwarders => $forwarders,
     dnssec     => false,
     version    => 'Controlled by Puppet',
   }
