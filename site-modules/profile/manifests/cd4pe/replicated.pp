@@ -36,7 +36,7 @@ class profile::cd4pe::replicated () {
   }
 
   @@haproxy::balancermember { "${facts['fqdn']}-kots-console":
-    listening_service => 'k8s-console',
+    listening_service => 'kots-console',
     ports             => '8800',
     server_names      => $facts['fqdn'],
     ipaddresses       => $facts['networking']['ip'],
