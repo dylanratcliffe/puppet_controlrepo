@@ -31,7 +31,7 @@ class profile::cd4pe::haproxy {
       'port' => '6443',
     },
     {
-      'name' => 'k8s-console',
+      'name' => 'kots-console',
       'port' => '8800',
     },
     {
