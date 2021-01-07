@@ -22,10 +22,10 @@ env = Puppet.lookup(:current_environment)
 loaders = Puppet::Pops::Loaders.new(env)
 
 # Where to search fort files to syntax validate
-puppet_search_path = './etc/puppetlabs/code/environments/production/site/*/{manifests,functions,types}/**/*.pp'
-ruby_search_path   = './etc/puppetlabs/code/environments/production/site/*/lib/**/*.rb'
-erb_search_path    = './etc/puppetlabs/code/environments/production/site/**/*.erb'
-epp_search_path    = './etc/puppetlabs/code/environments/production/site/**/*.epp'
+puppet_search_path = './etc/puppetlabs/code/environments/production/site-modules/*/{manifests,functions,types}/**/*.pp'
+ruby_search_path   = './etc/puppetlabs/code/environments/production/site-modules/*/lib/**/*.rb'
+erb_search_path    = './etc/puppetlabs/code/environments/production/site-modules/**/*.erb'
+epp_search_path    = './etc/puppetlabs/code/environments/production/site-modules/**/*.epp'
 
 describe "When checking Puppet syntax", syntax: true do
   Dir[puppet_search_path].each do |manifest|
