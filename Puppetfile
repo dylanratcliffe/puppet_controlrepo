@@ -111,3 +111,7 @@ mod 'inkblot-bind',                     '7.4.0'
 mod 'saz-resolv_conf',                  '4.2.1'
 mod 'nessus_agent_tasks',
   :git => 'https://github.com/kinners00/nessus_agent_tasks'
+
+mod 'r10k-monkeypatch',
+  git: 'https://github.com/puppetlabs/r10k.git',
+  tag: '3.9.0'
