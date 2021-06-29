@@ -1,4 +1,4 @@
-function deferred_epp (
+function deferred_epp::eval (
   String $template,
   Hash   $options,
 ) {
@@ -31,6 +31,5 @@ function deferred_epp (
   # order until something is found
   $template_contents = file(*$all_locations)
 
-  # Deferred('inline_epp', [ $template, $options ])
-
+  Deferred('inline_epp', [ $template, $options ])
 }
