@@ -8,14 +8,28 @@ function deferred_epp::eval(
   # - basemodulepath
   # - environmentpath
   $module_locations = [
-    $settings::basemodulepath,
-    $settings::modulepath,
-  ]
+    $settings::basemodulepath.split(':'),
+    $settings::modulepath.split(':'),
+  ].flatten
 
-  # Read the template from the Puppetserver and store it in a variable so that it can be passed in the catalog
-  # $template_contents = file("")
+  # Get the individual name components so that we can construct the full paths
+  # where we might find the file
+  $module_name = $template.split('/')[0]
+  $template_name = $template.split('/')[1,-1].join('')
 
-  $module_locations.each |$path| {
-    notify { $path: }
+  notify { "module_name: ${module_name}": }
+  notify { "template_name: ${template_name}": }
+
+
+  $all_locations = $module_locations.map |$location| {
+    "${location}/${module_name}/templates/${template_name}"
+  }
+  # Read the template from the Puppetserver and store it in a variable so that
+  # it can be passed in the catalog. All possible file locations will be read in
+  # order until something is found
+  $template_contents = file($all_locations)
+
+  $all_locations.each |$path| {
+    notify { "all_locations: ${path}": }
   }
 }
