@@ -10,7 +10,7 @@ function deferred_epp::eval(
   $module_locations = [
     $settings::basemodulepath.split(':'),
     $settings::modulepath.split(':'),
-  ].flatten
+  ].flatten.unique
 
   # Get the individual name components so that we can construct the full paths
   # where we might find the file
