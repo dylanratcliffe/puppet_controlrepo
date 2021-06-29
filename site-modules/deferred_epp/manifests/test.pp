@@ -1,5 +1,5 @@
 class deferred_epp::test {
-  deferred_epp('profile/userdata.epp',  {
+  deferred_epp::eval('profile/userdata.epp',  {
     'foo' => 'bar',
   })
 }
