@@ -1,4 +1,4 @@
-function deferred_epp::eval(
+function deferred_epp (
   String $template,
   Hash   $options,
 ) {
@@ -20,16 +20,17 @@ function deferred_epp::eval(
   notify { "module_name: ${module_name}": }
   notify { "template_name: ${template_name}": }
 
-
+  # Convert all into fully qualified paths, addin in /templates/ since this is
+  # usually implied
   $all_locations = $module_locations.map |$location| {
     "${location}/${module_name}/templates/${template_name}"
   }
+
   # Read the template from the Puppetserver and store it in a variable so that
   # it can be passed in the catalog. All possible file locations will be read in
   # order until something is found
   $template_contents = file(*$all_locations)
 
-  $all_locations.each |$path| {
-    notify { "all_locations: ${path}": }
-  }
+  # Deferred('inline_epp', [ $template, $options ])
+
 }
