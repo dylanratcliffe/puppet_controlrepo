@@ -17,9 +17,6 @@ function deferred_epp::eval (
   $module_name = $template.split('/')[0]
   $template_name = $template.split('/')[1,-1].join('')
 
-  notify { "module_name: ${module_name}": }
-  notify { "template_name: ${template_name}": }
-
   # Convert all into fully qualified paths, addin in /templates/ since this is
   # usually implied
   $all_locations = $module_locations.map |$location| {
@@ -32,6 +29,6 @@ function deferred_epp::eval (
   $template_contents = file(*$all_locations)
 
   notify { 'deferred epp':
-    message => Deferred('inline_epp', [ $template, $options ]),
+    message => Deferred('inline_epp', [ $template_contents, $options ]),
   }
 }
