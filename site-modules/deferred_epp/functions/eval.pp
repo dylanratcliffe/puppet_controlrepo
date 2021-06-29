@@ -31,5 +31,7 @@ function deferred_epp::eval (
   # order until something is found
   $template_contents = file(*$all_locations)
 
-  Deferred('inline_epp', [ $template, $options ])
+  notify { 'deferred epp':
+    message => Deferred('inline_epp', [ $template, $options ]),
+  }
 }
