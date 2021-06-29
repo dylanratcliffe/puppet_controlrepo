@@ -27,7 +27,7 @@ function deferred_epp::eval(
   # Read the template from the Puppetserver and store it in a variable so that
   # it can be passed in the catalog. All possible file locations will be read in
   # order until something is found
-  $template_contents = file($all_locations)
+  $template_contents = file(*$all_locations)
 
   $all_locations.each |$path| {
     notify { "all_locations: ${path}": }
