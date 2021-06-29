@@ -1,4 +1,4 @@
-function deferred_epp(
+function deferred_epp::eval(
   String $template,
   Hash   $options,
 ) {
