@@ -17,3 +17,6 @@ end
 
 gem 'hiera-eyaml'
 gem 'puppet', ENV['PUPPET_version'] || '~> 6'
+
+# Require by telegraf module
+gem 'toml-rb'

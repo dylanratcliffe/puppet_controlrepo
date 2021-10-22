@@ -80,10 +80,10 @@ mod 'puppetlabs-puppet_agent',          '2.0.1'
 mod 'puppetlabs-exec',                  '0.3.0'
 # CIDR Based Facts Example
 mod 'dylanratcliffe-cidr_facts',        '0.1.6'
-mod 'puppet-grafana',                   '5.0.0'
-mod 'pe_metrics_dashboard',
-  :git => 'https://github.com/puppetlabs/puppetlabs-pe_metrics_dashboard.git',
-  :ref => 'f346b08c510bdfe099e2fb237d63a55513282889'
+mod 'puppet-grafana',                   '7.0.0'
+mod 'puppetlabs-puppet_metrics_dashboard', '2.5.0'
+mod 'puppet-telegraf',                  '4.1.0'
+
 mod 'compliance_api',
   :git => 'https://github.com/dylanratcliffe/puppet-compliance_api.git',
   :ref => 'master'
