@@ -24,13 +24,7 @@ mod 'puppetlabs/concat',                '5.2.0'
 mod 'puppetlabs/firewall',              '1.15.0'
 mod 'puppet/hiera',                     '3.3.4'
 mod 'danzilio/report_all_the_things',   '0.1.0'
-mod 'mukaibot/bamboo',                  '1.7.0'
-#mod 'rtyler/jenkins',                  '1.7.0'
-# This is to fix https://github.com/jenkinsci/puppet-jenkins/issues/633
-# it will be released in 1.8.0
-mod 'jenkins',
-  :git => 'https://github.com/jenkinsci/puppet-jenkins.git',
-  :ref => '23df7764d58aed80b573621b102f82a702217a7a'
+mod 'rtyler-jenkins',                   '1.7.0'
 mod 'unibet/vagrant',                   '0.2.1'
 mod 'darin/zypprepo',                   '1.0.2'
 mod 'puppet/nginx',                     '0.15.0'
@@ -63,7 +57,7 @@ mod 'puppetlabs/reboot',                '2.1.2'
 mod 'puppetlabs/chocolatey',            '3.1.1'
 mod 'puppet-selinux',                   '1.6.1'
 mod 'puppet-windows_env',               '3.2.0'
-mod 'puppet-archive',                   '3.2.1'
+mod 'puppet-archive',                   '7.0.0'
 mod 'puppetlabs-transition',            '0.1.1'
 mod 'dylanratcliffe-windows_disk_facts','0.2.5'
 mod 'biemond-wildfly',                  '2.3.2'

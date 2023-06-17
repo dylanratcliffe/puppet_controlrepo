@@ -35,6 +35,16 @@ group { 'puppet':
   ensure => present,
 }
 
+$gnupg_installed = true
+
+class puppet_enterprise (
+  $puppet_master_host = 'puppet-server',
+) {}
+include puppet_enterprise
+class puppet_enterprise::params (
+  $localcacert = '',
+) {}
+include puppet_enterprise::params
 class pe_repo::platform::windows_i386 {}
 class pe_repo::platform::windows_x86_64 {}
 class pe_repo::platform::el_6_x86_64 {}

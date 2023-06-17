@@ -5,7 +5,7 @@ if $::kernel == 'windows' {
 }
 
 node default {
-  if $::role {
-    include $::role
+  if $facts['role'] {
+    include $facts['role']
   }
 }
