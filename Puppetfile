@@ -43,11 +43,7 @@ mod 'puppet-yum',                       '3.1.1'
 mod 'puppetlabs/puppetserver_gem',      '1.1.1'
 mod 'WhatsARanjit/node_manager',        '0.7.1'
 
-# Needs to use this fork until this is merged:
-# https://github.com/puppetlabs/pltraining-rbac/pull/18
-mod 'pltraining/rbac',
-  :git => 'https://github.com/as0bu/pltraining-rbac.git',
-  :ref => 'master'
+mod 'pltraining-rbac',                  '0.0.10'
 mod 'camptocamp/systemd',               '2.1.0'
 mod 'puppetlabs/stdlib',                '5.2.0'
 mod 'maestrodev/rvm',                   '1.13.1'
